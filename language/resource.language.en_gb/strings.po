@@ -1,6 +1,6 @@
 # Kodi Media Center language file
-# Addon Name: Singular
-# Addon id: skin.singular
+# Addon Name: GTV
+# Addon id: skin.gtv
 # Addon Provider: roidy
 msgid ""
 msgstr ""
