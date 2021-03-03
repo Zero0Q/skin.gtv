@@ -221,6 +221,7 @@
                         <width>790</width>
                         <height>448</height>
                         <texture background="true">masks/Selector790x448r16.png</texture>
+                        <animation effect="fade" start="100" end="20" time="1500" easing="inout" tween="cubic" pulse="true" condition="$PARAM[Focused]">Conditional</animation>
                     </control>
                     <!-- Unwatched background-->
                     <control type="image">
@@ -290,6 +291,7 @@
                         <width>420</width>
                         <height>626</height>
                         <texture background="true" border="32">masks/Selector420x626r16.png</texture>
+                        <animation effect="fade" start="100" end="20" time="1500" easing="inout" tween="cubic" pulse="true" condition="$PARAM[Focused]">Conditional</animation>
                     </control>
                     <!-- Unwatched background-->
                     <control type="image">
@@ -431,6 +433,7 @@
                         <width>448</width>
                         <height>448</height>
                         <texture background="true" border="20">masks/Selector790x448r16.png</texture>
+                        <animation effect="fade" start="100" end="20" time="1500" easing="inout" tween="cubic" pulse="true" condition="$PARAM[Focused]">Conditional</animation>
                     </control>
                 </control>
                 <!-- Label group -->
@@ -762,6 +765,7 @@
                         <width>448</width>
                         <height>448</height>
                         <texture background="true" border="20">masks/Selector790x448r16.png</texture>
+                        <animation effect="fade" start="100" end="20" time="1500" easing="inout" tween="cubic" pulse="true" condition="$PARAM[Focused]">Conditional</animation>
                     </control>
                 </control>
                 <!-- Label group -->
