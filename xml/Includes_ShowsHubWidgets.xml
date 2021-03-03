@@ -37,7 +37,7 @@
                 <top>0</top>
                 <height>600</height>
                 <include content="HomeWidgetLandscape">
-                    <param name="WidgetLabel" value="Recently added shows" />
+                    <param name="WidgetLabel" value="Recently Added" />
                     <param name="ParentID" value="4201" />
                     <param name="ListID" value="4201" />
                     <param name="Content" value="plugin://script.embuary.helper/?info=getnewshows&showall=true" />
@@ -61,7 +61,7 @@
                 <top>0</top>
                 <height>600</height>
                 <include content="HomeWidgetLandscape">
-                    <param name="WidgetLabel" value="Start watching" />
+                    <param name="WidgetLabel" value="Start Watching" />
                     <param name="ParentID" value="4201" />
                     <param name="ListID" value="4202" />
                     <param name="Content" value="special://skin/extras/playlists/unwatched_tvshows.xsp" />
@@ -88,7 +88,7 @@
                 <top>0</top>
                 <height>600</height>
                 <include content="HomeWidgetLandscape">
-                    <param name="WidgetLabel" value="$INFO[Container(4203).ListItem.Property(searchstring),Because you watched ,]" />
+                    <param name="WidgetLabel" value="$INFO[Container(4203).ListItem.Property(searchstring),Because You Watched ,]" />
                     <param name="ParentID" value="4201" />
                     <param name="ListID" value="4203" />
                     <param name="Content" value="plugin://script.embuary.helper/?info=getsimilar&type=tvshow&pos=1" />
@@ -112,7 +112,7 @@
                 <top>0</top>
                 <height>900</height>
                 <include content="HomeWidgetLandscape">
-                    <param name="WidgetLabel" value="$INFO[Container(4204).ListItem.Property(searchstring),More , shows]" />
+                    <param name="WidgetLabel" value="$INFO[Container(4204).ListItem.Property(searchstring),More , Shows]" />
                     <param name="ParentID" value="4201" />
                     <param name="ListID" value="4204" />
                     <param name="Content" value="plugin://script.embuary.helper/?info=getbygenre&type=tvshow" />

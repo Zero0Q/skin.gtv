@@ -2,6 +2,8 @@
 <window>
     <visible>Player.Seeking | Player.DisplayAfterSeek | [Player.Paused + !Player.Caching] | Player.Forwarding | Player.Rewinding | Player.ShowInfo | Window.IsActive(fullscreeninfo) | Player.ShowTime | Window.IsActive(videoosd) | Window.IsActive(musicosd) | Window.IsActive(playerprocessinfo) | !String.IsEmpty(Player.SeekNumeric) | !String.IsEmpty(PVR.ChannelNumberInput)</visible>
     <visible>Window.IsActive(fullscreenvideo) | Window.IsActive(visualisation)</visible>
+    <visible>![Window.IsVisible(SliderDialog) | Window.IsVisible(osdsubtitlesettings) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(osdvideosettings) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(playerprocessinfo)]</visible>
+
     <controls>
         <control type="image">
             <left>0</left>
@@ -47,9 +49,6 @@
                     <font>WidgetTitle</font>
                     <label>$VAR[PlayTime]</label>
                 </control>
-                <!-- <include content="HorizontalDivider">
-                    <param name="value" value="100" />
-                </include> -->
             </control>
         </control>
 

@@ -3,36 +3,81 @@
 
     <!-- Debug Background -->
     <include name="DebugBackground">
-        <definition>
-            <control type="image">
-                <top>0</top>
-                <left>0</left>
-                <width>3840</width>
-                <height>2160</height>
-                <texture background="true" colordiffuse="ffffffff">general/screens/infocast.png</texture>
-            </control>
-        </definition>
+        <control type="image">
+            <top>0</top>
+            <left>0</left>
+            <width>3840</width>
+            <height>2160</height>
+            <texture background="true" colordiffuse="ffffffff">general/screens/infocast.png</texture>
+        </control>
+    </include>
+
+    <!-- Main Background -->
+    <!-- <include name="Background">
+        <control type="image">
+            <top>0</top>
+            <right>0</right>
+            <width>3840</width>
+            <height>2160</height>
+            <fadetime>200</fadetime>
+            <aspectratio scalediffuse="true">scale</aspectratio>
+            <texture background="true" diffuse="masks/BackgroundCornerMask.png" colordiffuse="b0ffffff">$VAR[BackgroundImageWithoutFallback]</texture>
+        </control>
+    </include> -->
+    <include name="Background">
+        <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>3840</width>
+            <height>2160</height>
+            <fadetime>400</fadetime>
+            <texture background="true" colordiffuse="$VAR[blurcolor1]">masks/bkggrad.png</texture>
+        </control>
+        <control type="image">
+            <visible>!Container.Content(addons) + !String.Contains(Container.FolderPath,plugin://)</visible>
+            <top>0</top>
+            <right>0</right>
+            <width>3840</width>
+            <height>1450</height>
+            <fadetime>200</fadetime>
+            <aspectratio scalediffuse="true" aligny="top" align="right">keep</aspectratio>
+            <texture background="true" diffuse="masks/BackgroundCornerMask.png">$VAR[BackgroundImageWithoutFallback]</texture>
+            <animation effect="fade" end="0" time="500">Hidden</animation>
+            <animation effect="fade" start="0" end="100" time="1200">Visible</animation>
+        </control>
+    </include>
+
+    <include name="BackgroundForYouHub">
+        <control type="image">
+            <top>0</top>
+            <right>0</right>
+            <width>3840</width>
+            <height>1450</height>
+            <fadetime>200</fadetime>
+            <aspectratio scalediffuse="true" aligny="top" align="right">keep</aspectratio>
+            <texture background="true" diffuse="masks/BackgroundCornerMask.png">$VAR[BackgroundImageWithoutFallback]</texture>
+            <animation effect="fade" end="0" time="500">Hidden</animation>
+            <animation effect="fade" start="0" end="100" time="1200">Visible</animation>
+        </control> 
     </include>
 
     <!-- Main Blurred Background -->
     <include name="BlurredBackground">
-        <definition>
-            <control type="group">
-                <left>0</left>
-                <top>0</top>
-                <width>3840</width>
-                <height>2160</height>
-                <control type="image">
-                    <fadetime>400</fadetime>
-                    <texture background="true">general/Black.png</texture>
-                </control>
-                <control type="image">
-                    <fadetime>400</fadetime>
-                    <aspectratio>scale</aspectratio>
-                    <texture background="true" colordiffuse="ff404040">$INFO[Window(home).Property(listitem_blurred)]</texture>
-                </control>
+        <control type="group">
+            <left>0</left>
+            <top>0</top>
+            <width>3840</width>
+            <height>2160</height>
+            <control type="image">
+                <fadetime>400</fadetime>
+                <texture background="true">general/Black.png</texture>
             </control>
-        </definition>
+            <control type="image">
+                <fadetime>400</fadetime>
+                <aspectratio>scale</aspectratio>
+                <texture background="true" colordiffuse="ff606060">$INFO[Window(home).Property(listitem_blurred)]</texture>
+            </control>
+        </control>
     </include>
 
 </includes>

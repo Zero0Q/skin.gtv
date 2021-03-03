@@ -3,167 +3,166 @@
     <defaultcontrol>5</defaultcontrol>
 
     <controls>
-        <include>DialogBackground</include>
 
         <control type="group">
+            <visible>!Window.IsVisible(sliderdialog) + !Window.IsVisible(DialogSubtitles.xml)</visible>
+            <animation effect="slide" start="0,0" end="0,556" time="0" condition="Window.IsActive(osdvideosettings)">Conditional</animation>
+            <animation effect="slide" start="0,0" end="0,764" time="0" condition="Window.IsActive(osdaudiosettings)">Conditional</animation>
+            <animation effect="slide" start="0,0" end="0,798" time="0" condition="Window.IsActive(osdsubtitlesettings)">Conditional</animation>
             <top>0</top>
-            <left>112</left>
-            <right>0</right>
-            <bottom>0</bottom>
+            <left>1220</left>
+            <width>1400</width>
+            <height>1200</height>
 
-            <control type="group">
-                <left>132</left>
-                <top>128</top>
-                <right>132</right>
-                <bottom>128</bottom>
-
-                <control type="image">
-                    <width>100%</width>
-                    <height>100%</height>
-                    <texture colordiffuse="PanelBackground">masks/SettingsPanel.png</texture>
-                </control>
-
-                <control type="Label" id="2">
-                    <left>32</left>
-                    <top>16</top>
-                    <width>100%</width>
-                    <height>32</height>
-                    <textcolor>TextBright</textcolor>
-                    <font>Montserrat34</font>
-                </control>
-
-                <control type="grouplist" id="5">
-                    <left>32</left>
-                    <top>80</top>
-                    <width>1370</width>
-                    <height>608</height>
-                    <onup>5</onup>
-                    <ondown>9001</ondown>
-                    <onleft>9001</onleft>
-                    <onright condition="Container(5).HasNext | Container(5).HasPrevious">60</onright>
-                    <onright condition="![Container(5).HasNext | Container(5).HasPrevious]">9001</onright>
-                    <pagecontrol>60</pagecontrol>
-                </control>
-                <!-- <include content="ItemBackground">
-                    <param name="Left" value="32" />
-                    <param name="Top" value="80" />
-                    <param name="Width" value="1370" />
-                    <param name="Height" value="604" />
-                    <param name="Color" value="98404040" />
-                </include> -->
-
-                <!-- Default settings button -->
-                <control type="button" id="7">
-                    <include>SettingsButtonZoom</include>
-                    <left>32</left>
-                    <right>32</right>
-                    <height>76</height>
-                    <font>Montserrat28</font>
-                    <textoffsetx>30</textoffsetx>
-                    <texturefocus colordiffuse="Primary">masks/SettingsButtonMask.png</texturefocus>
-                    <textcolor>TextDim</textcolor>
-                    <focusedcolor>TextBright</focusedcolor>
-                    <disabledcolor>TextDim</disabledcolor>
-                    <aligny>center</aligny>
-                    <align>left</align>
-                    <pulseonselect>false</pulseonselect>
-                </control>
-                <!-- Default radio button -->
-                <control type="radiobutton" id="8">
-                    <include>SettingsButtonZoom</include>
-                    <left>32</left>
-                    <width>300</width>
-                    <height>76</height>
-                    <font>Montserrat28</font>
-                    <textoffsetx>30</textoffsetx>
-                    <texturefocus colordiffuse="Primary">masks/SettingsButtonMask.png</texturefocus>
-                    <textcolor>TextDim</textcolor>
-                    <disabledcolor>TextDim</disabledcolor>
-                    <focusedcolor>TextBright</focusedcolor>
-                    <aligny>center</aligny>
-                    <pulseonselect>false</pulseonselect>
-                </control>
-                <!-- Default spinner -->
-                <control type="spincontrolex" id="9">
-                    <include>SettingsButtonZoom</include>
-                    <left>32</left>
-                    <width>300</width>
-                    <height>76</height>
-                    <font>Montserrat28</font>
-                    <textoffsetx>30</textoffsetx>
-                    <texturefocus colordiffuse="Primary">masks/SettingsButtonMask.png</texturefocus>
-                    <textcolor>TextDim</textcolor>
-                    <disabledcolor>TextDim</disabledcolor>
-                    <focusedcolor>TextBright</focusedcolor>
-                    <aligny>center</aligny>
-                    <pulseonselect>false</pulseonselect>
-                </control>
-                <!-- TODO - Default edit -->
-                <control type="edit" id="12">
-                    <description>Default Edit Control</description>
-                    <height>100</height>
-                    <font>font15</font>
-                    <textoffsetx>30</textoffsetx>
-                </control>
-                <!-- TODO - Default Slider -->
-                <control type="sliderex" id="13">
-                    <description>Default Slider</description>
-                    <height>100</height>
-                    <font>font15</font>
-                    <textoffsetx>30</textoffsetx>
-                </control>
-                <!-- Default label -->
-                <control type="label" id="14">
-                    <description>Default header Label</description>
-                    <width>1246</width>
-                    <height>76</height>
-                    <font>Montserrat34</font>
-                    <textcolor>Primary</textcolor>
-                    <textoffsetx>30</textoffsetx>
-                </control>
-
-                <control type="group" id="9001">
-                    <left>0</left>
-                    <top>716</top>
-                    <height>1000</height>
-                    <width>1000</width>
-
-                    <control type="button" id="28">
-                        <texturenofocus colordiffuse="TextDim">masks/MainMenuItemMask.png</texturenofocus>
-                        <textcolor>TextBright</textcolor>
-                        <width>334</width>
-                        <onleft>29</onleft>
-                        <onright>29</onright>
-                        <onup>5</onup>
-                        <ondown>5</ondown>
-                        <label>Browse</label>
-                        <include>ButtonDefaults</include>
-                    </control>
-                    <control type="button" id="29">
-                        <texturenofocus colordiffuse="TextDim">masks/MainMenuItemMask.png</texturenofocus>
-                        <textcolor>TextBright</textcolor>
-                        <width>334</width>
-                        <left>401</left>
-                        <label>Add Source</label>
-                        <onleft>28</onleft>
-                        <onright>28</onright>
-                        <onup>5</onup>
-                        <ondown>5</ondown>
-                        <include>ButtonDefaults</include>
-                    </control>
-                </control>
-
-                <control type="scrollbar" id="60">
-                    <left>1500</left>
-                    <top>80</top>
-                    <bottom>136</bottom>
-                    <width>10</width>
-                    <onleft>5</onleft>
-                    <onright>9001</onright>
-                    <ondown>60</ondown>
-                    <onup>60</onup>
-                </control>
+            <control type="image">
+                <visible>Window.IsActive(osdvideosettings)</visible>
+                <width>100%</width>
+                <height>1048</height>
+                <texture border="16" colordiffuse="f2101010">masks/Mask440x440r16.png</texture>
             </control>
+            <control type="image">
+                <visible>Window.IsActive(osdaudiosettings)</visible>
+                <width>100%</width>
+                <height>632</height>
+                <texture border="16" colordiffuse="f2101010">masks/Mask440x440r16.png</texture>
+            </control>
+            <control type="image">
+                <visible>Window.IsActive(osdsubtitlesettings)</visible>
+                <width>100%</width>
+                <height>564</height>
+                <texture border="16" colordiffuse="f2101010">masks/Mask440x440r16.png</texture>
+            </control>
+
+            <control type="Label" id="2">
+                <left>64</left>
+                <top>32</top>
+                <width>1336</width>
+                <height>32</height>
+                <align>center</align>
+                <textcolor>TextBright</textcolor>
+                <font>MenuButtonText</font>
+            </control>
+
+            <control type="grouplist" id="5">
+                <left>32</left>
+                <top>160</top>
+                <width>1336</width>
+                <height>840</height>
+                <onup>5</onup>
+                <ondown>5</ondown>
+            </control>
+
+            <!-- Default settings button -->
+            <control type="button" id="7">
+                <width>100%</width>
+                <height>60</height>
+                <align>left</align>
+                <aligny>top</aligny>
+                <textoffsety>2</textoffsety>
+                <textoffsetx>32</textoffsetx>
+                <texturefocus colordiffuse="TextBright" border="30">masks/Mask60x60r30.png</texturefocus>
+                <font>OSDSettingsButtonText</font>
+                <textcolor>TextBright</textcolor>
+                <focusedcolor>TextDark</focusedcolor>
+                <disabledcolor>TextDim</disabledcolor>
+                <include>SettingsButtonZoom</include>
+            </control>
+            <!-- Default radio button -->
+            <control type="radiobutton" id="8">
+                <width>100%</width>
+                <height>60</height>
+                <align>left</align>
+                <aligny>top</aligny>
+                <textoffsety>2</textoffsety>
+                <textoffsetx>32</textoffsetx>
+                <texturefocus colordiffuse="TextBright" border="30">masks/Mask60x60r30.png</texturefocus>
+                <font>OSDSettingsButtonText</font>
+                <textcolor>TextBright</textcolor>
+                <focusedcolor>TextDark</focusedcolor>
+                <radioposx></radioposx>
+                <radioposy>0</radioposy>
+                <radiowidth>82</radiowidth>
+                <radioheight>52</radioheight>
+                <include>SettingsButtonZoom</include>
+            </control>
+            <!-- Default spinner -->
+            <control type="spincontrolex" id="9">
+                <left>32</left>
+                <top>0</top>
+                <width>100%</width>
+                <height>60</height>
+                <align>left</align>
+                <aligny>top</aligny>
+                <textoffsety>2</textoffsety>
+                <textoffsetx>32</textoffsetx>
+                <texturefocus colordiffuse="TextBright" border="30">masks/Mask60x60r30.png</texturefocus>
+                <font>OSDSettingsButtonText</font>
+                <disabledcolor>TextDim</disabledcolor>
+                <textcolor>TextBright</textcolor>
+                <focusedcolor>TextDark</focusedcolor>
+                <textureup colordiffuse="TextBright">buttons/SpinnerUp.png</textureup>
+                <texturedown colordiffuse="TextBright">buttons/SpinnerDown.png</texturedown>
+                <textureupfocus colordiffuse="TextDark">buttons/SpinnerUp.png</textureupfocus>
+                <texturedownfocus colordiffuse="TextDark">buttons/SpinnerDown.png</texturedownfocus>
+                <textureupdisabled colordiffuse="TextDim">buttons/SpinerUp.png</textureupdisabled>
+                <texturedowndisabled colordiffuse="TextDim">buttons/SpinnerDown.png</texturedowndisabled>
+                <spinposx>0</spinposx>
+                <spinposy>0</spinposy>
+                <spinwidth>42</spinwidth>
+                <spinheight>32</spinheight>
+                <include>SettingsButtonZoom</include>
+            </control>
+            <!-- TODO - Default edit -->
+            <control type="edit" id="12">
+                <left>32</left>
+                <top>0</top>
+                <width>100%</width>
+                <height>60</height>
+                <align>center</align>
+                <aligny>top</aligny>
+                <textoffsety>2</textoffsety>
+                <textoffsetx>32</textoffsetx>
+                <texturefocus colordiffuse="TextBright" border="30">masks/Mask60x60r30.png</texturefocus>
+                <font>OSDSettingsButtonText</font>
+                <textcolor>TextBright</textcolor>
+                <focusedcolor>TextDark</focusedcolor>
+                <include>SettingsButtonZoom</include>
+            </control>
+            <!-- Default Slider -->
+            <control type="sliderex" id="13">
+                <left>32</left>
+                <top>0</top>
+                <width>672</width>
+                <height>60</height>
+                <align>left</align>
+                <aligny>top</aligny>
+                <textoffsety>2</textoffsety>
+                <textoffsetx>32</textoffsetx>
+                <sliderwidth>-30</sliderwidth>
+                <sliderheight>30</sliderheight>
+                <texturefocus colordiffuse="TextBright" border="30">masks/Mask60x60r30.png</texturefocus>
+                <font>OSDSettingsButtonText</font>
+                <textcolor>TextBright</textcolor>
+                <focusedcolor>TextDark</focusedcolor>
+                <include>SettingsButtonZoom</include>
+            </control>
+            <!-- Default label -->
+            <control type="label" id="14">
+                <left>32</left>
+                <top>0</top>
+                <width>100%</width>
+                <height>60</height>
+                <align>center</align>
+                <aligny>top</aligny>
+                <textoffsety>2</textoffsety>
+                <textoffsetx>32</textoffsetx>
+                <texturefocus colordiffuse="TextBright" border="30">masks/Mask60x60r30.png</texturefocus>
+                <font>OSDSettingsButtonText</font>
+                <textcolor>TextBright</textcolor>
+                <focusedcolor>TextDark</focusedcolor>
+                <include>SettingsButtonZoom</include>
+            </control>
+
         </control>
     </controls>
 </window>

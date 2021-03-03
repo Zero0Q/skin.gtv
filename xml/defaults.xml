@@ -15,7 +15,6 @@
     </default>
 
     <default type="textbox">
-        <shadowcolor>ff000000</shadowcolor>
     </default>
     
     <default type="radiobutton">

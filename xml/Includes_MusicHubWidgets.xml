@@ -6,7 +6,7 @@
     <include name="MusicHubWidgets">
         <control type="grouplist" id="4300">
 
-            <!-- Allow slide for upto 6 widget rows -->
+            <!-- Allow slide for upto 4 widget rows + category -->
             <animation effect="slide" end="0,-252" time="200" condition="Integer.IsGreater(Container(4300).Position,1)">Conditional</animation>
             <animation effect="slide" end="0,-600" time="200" condition="Integer.IsGreater(Container(4300).Position,2)">Conditional</animation>
             <animation effect="slide" end="0,-600" time="200" condition="Integer.IsGreater(Container(4300).Position,3)">Conditional</animation>
@@ -20,6 +20,8 @@
             <usecontrolcoords>true</usecontrolcoords>
             <itemgap>0</itemgap>
             <visible>String.IsEqual(Container(9005).ListItem.Property(id),music)</visible>
+
+            <include>WidgetHubSlideAnimation</include>
 
             <!-- Spacer to push widget rows down -->
             <control type="group">
@@ -43,7 +45,7 @@
                 </include>
             </control>
 
-            <!-- Recently added albums widget row 1-->
+            <!-- Recently added albums widget row 1 -->
             <control type="group">
                 <visible>Integer.IsGreater(Container(4302).NumItems,0) | Container(4302).IsUpdating</visible>
                 <animation effect="fade" start="100" end="0" time="200" condition="Integer.IsGreater(Container(4300).Position,2)">Conditional</animation>
@@ -64,7 +66,7 @@
                 </include>
             </control>
 
-            <!-- Recently played albums widget row 2-->
+            <!-- Recently played albums widget row 2 -->
             <control type="group">
                 <visible>Integer.IsGreater(Container(4303).NumItems,0) | Container(4303).IsUpdating</visible>
                 <animation effect="fade" start="100" end="0" time="200" condition="Integer.IsGreater(Container(4300).Position,3)">Conditional</animation>
@@ -82,6 +84,30 @@
                     <param name="ContentType" value="music" />
                     <param name="OnBack" value="SetFocus(4303,0,absolute)" />
                     <param name="OnUp" value="4302" />
+                    <param name="OnDown" value="4304" />
+                    <param name="GroupHeight" value="600" />
+                </include>
+            </control>
+
+            <!-- Random albums widget row 3 -->
+            <control type="group">
+                <visible>Integer.IsGreater(Container(4304).NumItems,0) | Container(4304).IsUpdating</visible>
+                <animation effect="fade" start="100" end="0" time="200" condition="Integer.IsGreater(Container(4300).Position,4)">Conditional</animation>
+                <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(4302)">Conditional</animation>
+                <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(4303)">Conditional</animation>
+
+                <left>0</left>
+                <right>0</right>
+                <top>0</top>
+                <height>600</height>
+                <include content="HomeWidgetSquareMusic">
+                    <param name="WidgetLabel" value="Random albums" />
+                    <param name="ParentID" value="4301" />
+                    <param name="ListID" value="4304" />
+                    <param name="Content" value="special://skin/extras/playlists/random_albums.xsp" />
+                    <param name="ContentType" value="music" />
+                    <param name="OnBack" value="SetFocus(4304,0,absolute)" />
+                    <param name="OnUp" value="4303" />
                     <param name="OnDown" value="4304" />
                     <param name="GroupHeight" value="600" />
                 </include>

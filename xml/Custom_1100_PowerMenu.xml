@@ -63,8 +63,7 @@
                     <label>13013</label>
                     <onclick>Reset()</onclick>
                     <visible>System.CanReboot</visible>
-                </control>
-                <control type="button" id="6">
+                </control>                <control type="button" id="6">
                     <description>Reload skin button</description>
                     <include>PowerMenuButtonTemplate</include>
                     <label>20183</label>

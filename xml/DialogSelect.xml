@@ -3,114 +3,165 @@
     <defaultcontrol always="true">9000</defaultcontrol>
 
     <controls>
+        <control type="image">
+            <top>0</top>
+            <bottom>0</bottom>
+            <left>0</left>
+            <right>0</right>
+            <texture background="true" colordiffuse="ScreenFade">general/Black.png</texture>
+        </control>
+
         <control type="group">
-            <control type="image" id="100000">
-                <left>-3000</left>
-                <top>-3000</top>
-                <width>10</width>
-                <height>10</height>
-                <texture background="true">$VAR[BackgroundImage]</texture>
+            <top>480</top>
+            <left>920</left>
+            <width>2000</width>
+            <height>1254</height>
+
+            <animation type="WindowOpen" reversible="false">
+                <effect type="fade" end="100" time="240" />
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="fade" start="100" end="0" time="240" />
+            </animation>
+
+            <control type="image">
+                <width>100%</width>
+                <height>100%</height>
+                <texture border="16" colordiffuse="DialogBackground">masks/Mask440x440r16.png</texture>
             </control>
-            <include>BlurredBackground</include>
+
 
             <control type="Label" id="1">
-                <visible>Integer.IsGreater(Container(6).NumAllItems,0)</visible>
-                <top>64</top>
-                <left>200</left>
-                <width>1560</width>
+                <top>32</top>
+                <left>0</left>
+                <width>100%</width>
                 <height>32</height>
                 <textcolor>TextBright</textcolor>
-                <font>MenuHeader</font>
+                <font>MenuButtonText</font>
                 <align>center</align>
             </control>
 
             <control type="group">
-                <top>0</top>
-                <left>0</left>
-                <width>3840</width>
-                <height>2160</height>
+                <top>164</top>
+                <left>64</left>
+                <height>916</height>
+                <right>64</right>
+
+                <control type="image">
+                    <visible>Control.IsVisible(3)</visible>
+                    <texture border="16" colordiffuse="DialogList">masks/Mask440x440r16.png</texture>
+                </control>
 
                 <control type="group" id="9000">
                     <control type="panel" id="3">
-                        <include content="CenterDialogSelect">
-                            <param name="id" value="3" />
-                        </include>
-                        <left>1120</left>
-                        <top>0</top>
-                        <width>1600</width>
-                        <height>2160</height>
+                        <left>8</left>
+                        <top>8</top>
+                        <right>8</right>
+                        <bottom>8</bottom>
                         <onup>3</onup>
                         <ondown>3</ondown>
                         <onleft>9001</onleft>
                         <onright>9001</onright>
-                        <itemlayout height="160" width="1600">
+                        <itemlayout height="100" width="1856">
                             <include content="DialogSelectItemTemplate">
-                                <param name="ItemColor" value="MenuItemBackground" />
+                                <param name="ItemColor" value="DialogList" />
                                 <param name="ItemTextColor" value="TextBright" />
                                 <param name="ItemSecondaryTextColor" value="TextDim" />
                             </include>
                         </itemlayout>
-                        <focusedlayout height="160" width="1600">
+                        <focusedlayout height="100" width="1856">
                             <include content="DialogSelectItemTemplate">
-                                <param name="ItemColor" value="Primary" />
+                                <param name="ItemColor" value="TextBright" />
                                 <param name="ItemTextColor" value="TextDark" />
                                 <param name="ItemSecondaryTextColor" value="TextDark" />
                             </include>
                         </focusedlayout>
                     </control>
-                    <control type="panel" id="6">
-                        <include content="CenterDialogSelectImage">
-                            <param name="id" value="6" />
-                        </include>
-                        <left>2100</left>
+
+                    <control type="group">
+                        <left>0</left>
                         <top>0</top>
-                        <width>1600</width>
-                        <height>2160</height>
-                        <onup>6</onup>
-                        <ondown>6</ondown>
-                        <onleft>9001</onleft>
-                        <onright>9001</onright>
-                        <itemlayout height="200" width="1600">
-                            <include content="DialogSelectItemTemplateImage">
-                                <param name="ItemColor" value="MenuItemBackground" />
-                                <param name="ItemTextColor" value="TextBright" />
-                                <param name="ItemSecondaryTextColor" value="TextDim" />
-                            </include>
-                        </itemlayout>
-                        <focusedlayout height="200" width="1600">
-                            <include content="DialogSelectItemTemplateImage">
-                                <param name="ItemColor" value="Primary" />
-                                <param name="ItemTextColor" value="TextDark" />
-                                <param name="ItemSecondaryTextColor" value="TextDark" />
-                            </include>
-                        </focusedlayout>
+                        <width>904</width>
+                        <bottom>0</bottom>
+
+                        <control type="image">
+                            <visible>Control.IsVisible(6)</visible>
+                            <aspectratio>keep</aspectratio>
+                            <texture>$VAR[DialogSelectArtwork]</texture>
+                        </control>
+                    </control>
+
+                    <control type="group">
+                        <right>0</right>
+                        <top>0</top>
+                        <width>904</width>
+                        <bottom>0</bottom>
+
+                        <control type="image">
+                            <visible>Control.IsVisible(6)</visible>
+                            <texture border="16" colordiffuse="DialogList">masks/Mask440x440r16.png</texture>
+                        </control>
+
+                        <control type="panel" id="6">
+                            <left>8</left>
+                            <top>8</top>
+                            <right>8</right>
+                            <bottom>8</bottom>
+                            <onup>6</onup>
+                            <ondown>6</ondown>
+                            <onleft>9001</onleft>
+                            <onright>9001</onright>
+                            <itemlayout height="100" width="888">
+                                <include content="DialogSelectItemTemplateImage">
+                                    <param name="ItemColor" value="DialogList" />
+                                    <param name="ItemTextColor" value="TextBright" />
+                                    <param name="ItemSecondaryTextColor" value="TextDim" />
+                                </include>
+                            </itemlayout>
+                            <focusedlayout height="100" width="888">
+                                <include content="DialogSelectItemTemplateImage">
+                                    <param name="ItemColor" value="TextBright" />
+                                    <param name="ItemTextColor" value="TextDark" />
+                                    <param name="ItemSecondaryTextColor" value="TextDark" />
+                                </include>
+                            </focusedlayout>
+                        </control>
                     </control>
                 </control>
 
-                <control type="image">
-                    <top>300</top>
-                    <left>200</left>
-                    <width>1560</width>
-                    <height>1560</height>
-                    <aspectratio>keep</aspectratio>
-                    <texture>$VAR[DialogSelectArtwork]</texture>
+            </control>
+
+            <control type="grouplist" id="9001">
+                <top>1120</top>
+                <left>64</left>
+                <right>64</right>
+                <height>100</height>
+                <align>left</align>
+                <itemgap>64</itemgap>
+                <orientation>horizontal</orientation>
+                <onleft condition="Control.IsVisible(3)">3</onleft>
+                <onleft condition="Control.IsVisible(6)">6</onleft>
+                <onright condition="Control.IsVisible(3)">3</onright>
+                <onright condition="Control.IsVisible(6)">6</onright>
+                <onup condition="Control.IsVisible(3)">3</onup>
+                <onup condition="Control.IsVisible(6)">6</onup>
+                <ondown condition="Control.IsVisible(3)">3</ondown>
+                <ondown condition="Control.IsVisible(6)">6</ondown>
+
+                <control type="button" id="5">
+                    <width>auto</width>
+                    <textoffsetx>32</textoffsetx>
+                    <include>DialogButtonDefaults</include>
                 </control>
-
-                <control type="grouplist" id="9001">
-                    <top>1800</top>
-                    <left>200</left>
-                    <width>1560</width>
-                    <align>center</align>
-                    <itemgap>64</itemgap>
-                    <orientation>horiziontal</orientation>
-
-                    <control type="button" id="5">
-                        <onleft condition="Control.IsVisible(3)">3</onleft>
-                        <onleft condition="Control.IsVisible(6)">6</onleft>
-                        <onright condition="Control.IsVisible(3)">3</onright>
-                        <onright condition="Control.IsVisible(6)">6</onright>
-                        <include>DialogButtonDefaults</include>
-                    </control>
+                <control type="button" id="7">
+                    <width>auto</width>
+                    <textoffsetx>32</textoffsetx>
+                    <include>DialogButtonDefaults</include>
+                </control>
+                <control type="button" id="8">
+                    <width>auto</width>
+                    <textoffsetx>32</textoffsetx>
+                    <include>DialogButtonDefaults</include>
                 </control>
             </control>
         </control>

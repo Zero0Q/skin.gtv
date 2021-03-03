@@ -4,7 +4,7 @@
         <control type="group">
             <visible>!Window.IsVisible(volumebar) + !Window.IsVisible(extendedprogressdialog)</visible>
             <control type="image">
-                <texture colordiffuse="a0303030">general/White.png</texture>
+                <texture>general/Black.png</texture>
             </control>
             <control type="image">
                 <top>45%</top>

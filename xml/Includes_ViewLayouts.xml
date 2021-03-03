@@ -5,9 +5,9 @@
     <include name="LandscapeLayout">
         <param name="ListID" />
         <param name="Focused" default="false" />
-        <param name="ShowProgress" default="false" />
-        <param name="ShowLabel1" default="false" />
-        <param name="ShowLabel2" default="false" />
+        <param name="ShowProgress" default="true" />
+        <param name="ShowLabel1" default="true" />
+        <param name="ShowLabel2" default="true" />
         <param name="LabelColor" default="TextBright" />
 
         <definition>
@@ -38,6 +38,15 @@
                         <aspectratio>scale</aspectratio>
                         <texture background="true" diffuse="masks/Mask782x440r16.png">$VAR[LandscapeImageVar]</texture>
                     </control>
+                    <!-- Fallback logo -->
+                    <control type="image">
+                        <visible>String.IsEmpty(ListItem.Art(landscape))</visible>
+                        <left>132</left>
+                        <bottom>160</bottom>
+                        <width>600</width>
+                        <height>232</height>
+                        <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+                    </control>
                     <!-- Selector -->
                     <control type="image">
                         <visible>Control.HasFocus($PARAM[ListID]) + $PARAM[Focused]</visible>
@@ -46,6 +55,7 @@
                         <width>790</width>
                         <height>448</height>
                         <texture background="true">masks/Selector790x448r16.png</texture>
+                        <animation effect="fade" start="100" end="20" time="1500" easing="inout" tween="cubic" pulse="true" condition="$PARAM[Focused]">Conditional</animation>
                     </control>
                     <!-- Unwatched background-->
                     <control type="image">
@@ -77,7 +87,7 @@
                     <align>left</align>
                     <font>WidgetTitle</font>
                     <textcolor>$PARAM[LabelColor]</textcolor>
-                    <scrollsuffix>â€¢</scrollsuffix>
+                    <scrollsuffix>•</scrollsuffix>
                     <label>$VAR[WidgetTitle]</label>
                 </control>
 
@@ -95,7 +105,7 @@
                         <align>left</align>
                         <font>WidgetTitle</font>
                         <textcolor>$PARAM[LabelColor]</textcolor>
-                        <scrollsuffix>â€¢</scrollsuffix>
+                        <scrollsuffix>•</scrollsuffix>
                         <label>$VAR[WidgetTitle]</label>
                     </control>
 
@@ -118,7 +128,7 @@
                                 <align>left</align>
                                 <font>WidgetRating</font>
                                 <textcolor>TextSubLabel</textcolor>
-                                <scrollsuffix>â€¢</scrollsuffix>
+                                <scrollsuffix>•</scrollsuffix>
                                 <label>$INFO[ListItem.Duration(mins),,mins]</label>
                             </control>
                         </control>
@@ -133,7 +143,7 @@
                                 <align>left</align>
                                 <font>WidgetRating</font>
                                 <textcolor>TextSubLabel</textcolor>
-                                <scrollsuffix>â€¢</scrollsuffix>
+                                <scrollsuffix>•</scrollsuffix>
                                 <label>$VAR[NumSeasons]</label>
                             </control>
                         </control>
@@ -155,10 +165,80 @@
                                 <align>left</align>
                                 <font>WidgetRating</font>
                                 <textcolor>TextSubLabel</textcolor>
-                                <scrollsuffix>â€¢</scrollsuffix>
+                                <scrollsuffix>•</scrollsuffix>
                                 <label>$INFO[ListItem.rating(themoviedb)]</label>
                             </control>
                         </control>
+                    </control>
+                </control>
+
+            </control>
+        </definition>
+    </include>
+
+    <include name="EpisodeLayout">
+        <param name="ListID" />
+        <param name="Focused" default="false" />
+        <param name="ShowProgress" default="false" />
+        <param name="ShowLabel1" default="false" />
+        <param name="ShowLabel2" default="false" />
+        <param name="LabelColor" default="TextBright" />
+
+        <definition>
+            <control type="group">
+                <animation type="Focus" reversible="false">
+                    <effect type="zoom" end="100" time="50" tween="sine" center="auto" />
+                </animation>
+                <!-- Item background blur -->
+                <!-- <control type="image">
+                    <visible>Control.HasFocus($PARAM[ListID]) + $PARAM[Focused]</visible>
+                    <left>-108</left>
+                    <top>0</top>
+                    <width>1380</width>
+                    <height>908</height>
+                    <texture background="true" colordiffuse="$VAR[blurcolor]">masks/WidgetBlurEffect.png</texture>
+                </control> -->
+                <!-- Main landscape image -->
+                <control type="group">
+                    <!-- <animation type="Focus" reversible="false">
+                        <effect type="zoom" end="112" time="75" tween="sine" center="433,370" />
+                    </animation>
+                    </animation> -->
+                    <!-- Image -->
+                    <control type="image">
+                        <left>42</left>
+                        <top>150</top>
+                        <width>1080</width>
+                        <height>608</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture background="true" diffuse="masks/Mask782x440r16.png">$VAR[LandscapeImageVar]</texture>
+                    </control>
+                    <!-- Selector -->
+                    <control type="image">
+                        <visible>Control.HasFocus($PARAM[ListID]) + $PARAM[Focused]</visible>
+                        <left>38</left>
+                        <top>146</top>
+                        <width>790</width>
+                        <height>448</height>
+                        <texture background="true">masks/Selector790x448r16.png</texture>
+                    </control>
+                    <!-- Unwatched background-->
+                    <control type="image">
+                        <visible>[Integer.IsEqual(ListItem.PlayCount,0) | !Integer.IsEqual(ListItem.PercentPlayed,0)]+ $PARAM[ShowProgress]</visible>
+                        <right>-108</right>
+                        <top>182</top>
+                        <width>64</width>
+                        <height>64</height>
+                        <texture background="true" colordiffuse="d0ffffff">overlays/Unwatched.png</texture>
+                    </control>
+                    <!-- Progress icon -->
+                    <control type="image">
+                        <visible>$PARAM[ShowProgress]</visible>
+                        <right>-108</right>
+                        <top>182</top>
+                        <width>64</width>
+                        <height>64</height>
+                        <texture background="true">$VAR[ProgressImage]</texture>
                     </control>
                 </control>
 
@@ -184,32 +264,32 @@
                     <visible>Control.HasFocus($PARAM[ListID]) + $PARAM[Focused]</visible>
                     <left>-108</left>
                     <top>0</top>
-                    <width>1082</width>
-                    <height>740</height>
+                    <width>712</width>
+                    <height>918</height>
                     <texture background="true" colordiffuse="$VAR[blurcolor]">masks/WidgetBlurEffect.png</texture>
                 </control>
-                <!-- Main landscape image -->
+                <!-- Main poster image -->
                 <control type="group">
                     <animation type="Focus" reversible="false">
-                        <effect type="zoom" end="112" time="75" tween="sine" center="433,370" />
+                        <effect type="zoom" end="112" time="75" tween="sine" center="248,459" />
                     </animation>
                     <!-- Image -->
                     <control type="image">
                         <left>42</left>
                         <top>150</top>
-                        <width>782</width>
-                        <height>440</height>
+                        <width>412</width>
+                        <height>618</height>
                         <aspectratio>scale</aspectratio>
-                        <texture background="true" diffuse="masks/Mask782x440r16.png">$VAR[LandscapeImageVar]</texture>
+                        <texture background="true" diffuse="masks/Mask412x618r16.png">$VAR[PosterImageVar]</texture>
                     </control>
                     <!-- Selector -->
                     <control type="image">
                         <visible>Control.HasFocus($PARAM[ListID]) + $PARAM[Focused]</visible>
                         <left>38</left>
                         <top>146</top>
-                        <width>790</width>
-                        <height>448</height>
-                        <texture background="true">masks/Selector790x448r16.png</texture>
+                        <width>420</width>
+                        <height>626</height>
+                        <texture background="true" border="32">masks/Selector420x626r16.png</texture>
                     </control>
                     <!-- Unwatched background-->
                     <control type="image">
@@ -231,20 +311,6 @@
                     </control>
                 </control>
 
-                <!-- Overide label 1 if viewing episodes -->
-                <control type="label">
-                    <visible>Container.Content(episodes)</visible>
-                    <left>42</left>
-                    <width>782</width>
-                    <top>626</top>
-                    <height>60</height>
-                    <align>left</align>
-                    <font>WidgetTitle</font>
-                    <textcolor>$PARAM[LabelColor]</textcolor>
-                    <scrollsuffix>â€¢</scrollsuffix>
-                    <label>$VAR[WidgetTitle]</label>
-                </control>
-
                 <!-- Label group -->
                 <control type="group">
                     <visible>Control.HasFocus($PARAM[ListID])</visible>
@@ -259,7 +325,7 @@
                         <align>left</align>
                         <font>WidgetTitle</font>
                         <textcolor>$PARAM[LabelColor]</textcolor>
-                        <scrollsuffix>â€¢</scrollsuffix>
+                        <scrollsuffix>•</scrollsuffix>
                         <label>$VAR[WidgetTitle]</label>
                     </control>
 
@@ -282,7 +348,7 @@
                                 <align>left</align>
                                 <font>WidgetRating</font>
                                 <textcolor>TextSubLabel</textcolor>
-                                <scrollsuffix>â€¢</scrollsuffix>
+                                <scrollsuffix>•</scrollsuffix>
                                 <label>$INFO[ListItem.Duration(mins),,mins]</label>
                             </control>
                         </control>
@@ -297,7 +363,7 @@
                                 <align>left</align>
                                 <font>WidgetRating</font>
                                 <textcolor>TextSubLabel</textcolor>
-                                <scrollsuffix>â€¢</scrollsuffix>
+                                <scrollsuffix>•</scrollsuffix>
                                 <label>$VAR[NumSeasons]</label>
                             </control>
                         </control>
@@ -319,7 +385,7 @@
                                 <align>left</align>
                                 <font>WidgetRating</font>
                                 <textcolor>TextSubLabel</textcolor>
-                                <scrollsuffix>â€¢</scrollsuffix>
+                                <scrollsuffix>•</scrollsuffix>
                                 <label>$INFO[ListItem.rating(themoviedb)]</label>
                             </control>
                         </control>
@@ -380,7 +446,7 @@
                         <align>left</align>
                         <font>WidgetTitle</font>
                         <textcolor>TextBright</textcolor>
-                        <scrollsuffix>â€¢</scrollsuffix>
+                        <scrollsuffix>•</scrollsuffix>
                         <label>$VAR[WidgetTitle]</label>
                     </control>
 
@@ -392,7 +458,7 @@
                         <align>left</align>
                         <font>WidgetRating</font>
                         <textcolor>TextSubLabel</textcolor>
-                        <scrollsuffix>â€¢</scrollsuffix>
+                        <scrollsuffix>•</scrollsuffix>
                         <label>$INFO[ListItem.artist]</label>
                     </control>
                 </control>
@@ -413,7 +479,7 @@
                     <control type="textbox">
                         <left>220</left>
                         <right>300</right>
-                        <top>444</top>
+                        <top>433</top>
                         <height>250</height>
                         <align>left</align>
                         <aligny>center</aligny>
@@ -422,36 +488,52 @@
                         <label>$VAR[LibrarySectionHeader]</label>
                     </control>
 
-                    <include>BottomAlignedPlot</include>
+                    <!-- <control type="image">
+                            <left>50</left>
+                            <top>50</top>
+                            <width>1000</width>
+                            <height>388</height>
+                        <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+                    </control> -->
 
                     <control type="group">
                         <visible>!Container.Content(episodes)</visible>
                         <control type="textbox" id="2000">
                             <left>220</left>
                             <right>300</right>
-                            <top>710</top>
-                            <height>250</height>
+                            <top>500</top>
+                            <height>540</height>
+                            <width>1000</width>
                             <align>left</align>
                             <aligny>center</aligny>
                             <font>LibraryMainTitleBig</font>
                             <textcolor>TextBright</textcolor>
-                            <scrollsuffix>â€¢</scrollsuffix>
-                            <label>$VAR[WidgetTitle]</label>
+                            <scrollsuffix>•</scrollsuffix>
+                            <!-- <label>$VAR[WidgetTitle]</label> -->
                             <visible>!Container(2000).HasNext</visible>
                         </control>
                         <control type="textbox" id="2001">
                             <left>220</left>
                             <right>300</right>
-                            <top>730</top>
-                            <height>250</height>
+                            <top>500</top>
+                            <height>540</height>
+                            <width>1000</width>
                             <align>left</align>
                             <aligny>center</aligny>
                             <font>LibraryMainTitleSmall</font>
                             <textcolor>TextBright</textcolor>
-                            <scrollsuffix>â€¢</scrollsuffix>
-                            <label>$VAR[WidgetTitle]</label>
+                            <scrollsuffix>•</scrollsuffix>
+                            <!-- <label>$VAR[WidgetTitle]</label> -->
                             <visible>Container(2000).HasNext</visible>
                         </control>
+
+                        <!-- <control type="image">
+                            <left>210</left>
+                            <top>640</top>
+                            <width>1000</width>
+                            <height>388</height>
+                            <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+                        </control> --> 
                     </control>
                 </control>
 
@@ -474,7 +556,7 @@
                         <align>left</align>
                         <font>LibraryInfoLine</font>
                         <textcolor>TextSubLabel</textcolor>
-                        <scrollsuffix>â€¢</scrollsuffix>
+                        <scrollsuffix>•</scrollsuffix>
                         <label>$VAR[NumSeasons]</label>
                     </control>
                     <!-- Set info -->
@@ -496,7 +578,7 @@
                         <align>left</align>
                         <font>LibraryInfoLine</font>
                         <textcolor>TextSubLabel</textcolor>
-                        <scrollsuffix>â€¢</scrollsuffix>
+                        <scrollsuffix>•</scrollsuffix>
                         <label>$INFO[Container(5678).NumItems,, movies]</label>
                     </control>
                     <control type="button">
@@ -508,7 +590,7 @@
                         <align>left</align>
                         <font>LibraryInfoLine</font>
                         <textcolor>TextSubLabel</textcolor>
-                        <scrollsuffix>â€¢</scrollsuffix>
+                        <scrollsuffix>•</scrollsuffix>
                         <label>$INFO[Container(5678).ListItemAbsolute(0).Year,, - ]$INFO[Container(5678).ListItemAbsolute(1).Year]</label>
                     </control>
                     <!-- Movie / Episode duration -->
@@ -571,7 +653,7 @@
                         <align>left</align>
                         <font>LibraryInfoLine</font>
                         <textcolor>TextSubLabel</textcolor>
-                        <scrollsuffix>â€¢</scrollsuffix>
+                        <scrollsuffix>•</scrollsuffix>
                         <label>$INFO[Container($PARAM[ID]).ListItem.Episode,, episodes]</label>
                     </control>
                     <!-- MPAA rating -->
@@ -654,14 +736,13 @@
 
                 <control type="image">
                     <visible>Control.HasFocus($PARAM[ListID]) + $PARAM[Focused]</visible>
-                    <!-- <fadetime>10</fadetime> -->
                     <left>-108</left>
                     <top>0</top>
                     <width>740</width>
                     <height>740</height>
                     <texture background="true" colordiffuse="$VAR[blurcolor]" border="100">masks/WidgetBlurEffect.png</texture>
                 </control>
-                <!-- Main landscape image -->
+                <!-- Main image -->
                 <control type="group">
                     <animation type="Focus" reversible="false">
                         <effect type="zoom" end="112" time="75" tween="sine" center="262,370" />
@@ -696,7 +777,7 @@
                         <align>left</align>
                         <font>WidgetTitle</font>
                         <textcolor>$PARAM[LabelColor]</textcolor>
-                        <scrollsuffix>â€¢</scrollsuffix>
+                        <scrollsuffix>•</scrollsuffix>
                         <label>$VAR[AlbumArtist1]</label>
                     </control>
 
@@ -708,7 +789,7 @@
                         <align>left</align>
                         <font>WidgetTitle</font>
                         <textcolor>$PARAM[LabelColor]</textcolor>
-                        <scrollsuffix>â€¢</scrollsuffix>
+                        <scrollsuffix>•</scrollsuffix>
                         <label>$VAR[AlbumArtist2]</label>
                     </control>
                 </control>
@@ -745,7 +826,7 @@
                         <align>center</align>
                         <font>LibraryInfoLine</font>
                         <textcolor>$PARAM[LabelColor]</textcolor>
-                        <scrollsuffix>â€¢</scrollsuffix>
+                        <scrollsuffix>•</scrollsuffix>
                         <label>$VAR[AlbumArtist1]</label>
                     </control>
                 </control>

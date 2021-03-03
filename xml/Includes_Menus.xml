@@ -6,7 +6,9 @@
         <control type="group">
             <top>2240</top>
             <animation effect="slide" start="0,0" end="0,-300" time="200" condition="Control.HasFocus(60) | ControlGroup(9050).HasFocus">Conditional</animation>
+
             <control type="scrollbar" id="60">
+                <visible>!Container.Content(seasons)</visible>
                 <left>224</left>
                 <top>0</top>
                 <width>3392</width>
@@ -33,6 +35,26 @@
                 <orientation>horizontal</orientation>
                 <usecontrolcoords>true</usecontrolcoords>
 
+                <!-- View button-->
+                <control type="button" id="71">
+                    <visible>Integer.IsGreater(Container.ViewCount,1)</visible>
+                    <left>0</left>
+                    <top>0</top>
+                    <width>auto</width>
+                    <height>120</height>
+                    <align>center</align>
+                    <aligny>top</aligny>
+                    <textoffsety>6</textoffsety>
+                    <textoffsetx>50</textoffsetx>
+                    <texturefocus colordiffuse="TextBright" border="60c">masks/Mask120x120r60.png</texturefocus>
+                    <texturenofocus colordiffuse="70707070" border="60c">masks/Mask120x120r60.png</texturenofocus>
+                    <font>LibraryInfoLine</font>
+                    <textcolor>TextBright</textcolor>
+                    <focusedcolor>TextDark</focusedcolor>
+                    <include>InfoButtonZoom</include>ß
+                    <label>$INFO[Container.Viewmode]</label>
+                    <onclick>Container.NextViewMode</onclick>
+                </control>
                 <!-- Sort method button -->
                 <control type="button" id="72">
                     <left>0</left>

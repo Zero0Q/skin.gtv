@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol always="true">11</defaultcontrol>
+
+    <controls>
+        <control type="group">
+            <top>64</top>
+            <left>1000</left>
+            <width>1840</width>
+            <height>180</height>
+
+            <control type="image">
+                <width>100%</width>
+                <height>100%</height>
+                <texture border="16" colordiffuse="f2101010">masks/Mask440x440r16.png</texture>
+            </control>
+
+            <control type="Label" id="10">
+                <left>64</left>
+                <top>16</top>
+                <width>900</width>
+                <height>32</height>
+                <align>left</align>
+                <textcolor>TextBright</textcolor>
+                <font>MenuButtonText</font>
+            </control>
+            <control type="slider" id="11">
+                <top>124</top>
+                <left>64</left>
+                <width>1712</width>
+                <height>24</height>
+                <orientation>horizontal</orientation>
+                <texturesliderbar colordiffuse="80ffffff" border="12">progress/back24.png</texturesliderbar>
+                <textureslidernib colordiffuse="TextDim">progress/slider24.png</textureslidernib>
+                <textureslidernibfocus colordiffuse="TextBright">progress/slider24.png</textureslidernibfocus>
+                <onup>11</onup>
+                <ondown>11</ondown>
+                <onleft>11</onleft>
+                <onright>11</onright>
+            </control>
+            <control type="Label" id="12">
+                <right>64</right>
+                <top>16</top>
+                <width>900</width>
+                <height>32</height>
+                <align>right</align>
+                <textcolor>TextBright</textcolor>
+                <font>MenuButtonText</font>
+            </control>
+        </control>
+    </controls>
+</window>

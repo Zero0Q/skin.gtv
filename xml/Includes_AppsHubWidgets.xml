@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<includes>
+
+    <!-- Apps hub widgets -->
+    <include name="AppsHubWidgets">
+        <control type="grouplist" id="4500">
+
+            <!-- Allow slide for upto 6 widget rows -->
+            <animation effect="slide" end="0,-600" time="200" condition="Integer.IsGreater(Container(4500).Position,1)">Conditional</animation>
+            <animation effect="slide" end="0,-600" time="200" condition="Integer.IsGreater(Container(4500).Position,2)">Conditional</animation>
+            <animation effect="slide" end="0,-600" time="200" condition="Integer.IsGreater(Container(4500).Position,3)">Conditional</animation>
+            <animation effect="slide" end="0,-600" time="200" condition="Integer.IsGreater(Container(4500).Position,4)">Conditional</animation>
+            <animation effect="slide" end="0,-600" time="200" condition="Integer.IsGreater(Container(4500).Position,5)">Conditional</animation>
+
+            <left>0</left>
+            <top>0</top>
+            <height>5000</height>
+            <right>0</right>
+            <usecontrolcoords>true</usecontrolcoords>
+            <itemgap>0</itemgap>
+            <visible>String.IsEqual(Container(9005).ListItem.Property(id),apps)</visible>
+
+            <include>WidgetHubSlideAnimation</include>
+
+            <!-- Spacer to push widget rows down -->
+            <control type="group">
+                <height>548</height>
+            </control>
+
+            <!-- Video addons widget row 1-->
+            <control type="group">
+                <visible>Integer.IsGreater(Container(4501).NumItems,0) | Container(4501).IsUpdating</visible>
+                <animation effect="fade" start="100" end="0" time="200" condition="Integer.IsGreater(Container(4500).Position,1)">Conditional</animation>
+
+                <left>0</left>
+                <right>0</right>
+                <top>0</top>
+                <height>600</height>
+                <include content="HomeWidgetSquareApps">
+                    <param name="WidgetLabel" value="Video addons" />
+                    <param name="ParentID" value="4501" />
+                    <param name="ListID" value="4501" />
+                    <param name="Content" value="addons://sources/video/" />
+                    <param name="ContentType" value="videos" />
+                    <param name="OnBack" value="SetFocus(4501,0,absolute)" />
+                    <param name="OnUp" value="9005" />
+                    <param name="OnDown" value="4504" />
+                    <param name="GroupHeight" value="600" />
+                </include>
+            </control>
+
+
+            <!-- Widget row 4-->
+            <control type="group">
+                <visible>Integer.IsGreater(Container(4504).NumItems,0) | Container(4504).IsUpdating</visible>
+                <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(4501)">Conditional</animation>
+                <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(4502)">Conditional</animation>
+                <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(4503)">Conditional</animation>
+
+                <left>0</left>
+                <right>0</right>
+                <top>0</top>
+                <height>900</height>
+                <include content="HomeWidgetSquareApps">
+                    <param name="WidgetLabel" value="Program addons" />
+                    <param name="ParentID" value="4501" />
+                    <param name="ListID" value="4504" />
+                    <param name="Content" value="addons://sources/executable/" />
+                    <param name="ContentType" value="programs" />
+                    <param name="OnBack" value="SetFocus(4504,0,absolute)" />
+                    <param name="OnUp" value="4501" />
+                    <param name="OnDown" value="noop" />
+                    <param name="GroupHeight" value="600" />
+                </include>
+            </control>
+        </control>
+    </include>
+
+</includes>

@@ -38,7 +38,7 @@
                 <top>0</top>
                 <height>600</height>
                 <include content="HomeWidgetLandscape">
-                    <param name="WidgetLabel" value="Recently added movies" />
+                    <param name="WidgetLabel" value="Recently Added" />
                     <param name="ParentID" value="4101" />
                     <param name="ListID" value="4101" />
                     <param name="Content" value="special://skin/extras/playlists/recent_unwatched_movies.xsp" />
@@ -62,10 +62,10 @@
                 <top>0</top>
                 <height>600</height>
                 <include content="HomeWidgetLandscape">
-                    <param name="WidgetLabel" value="$INFO[Container(4102).ListItem.Property(searchstring),Because you watched ,]" />
+                    <param name="WidgetLabel" value="New Movies" />
                     <param name="ParentID" value="4101" />
                     <param name="ListID" value="4102" />
-                    <param name="Content" value="plugin://script.embuary.helper/?info=getsimilar&type=movie&pos=0" />
+                    <param name="Content" value="special://skin/extras/playlists/new_releases.xsp" />
                     <param name="ContentType" value="videos" />
                     <param name="OnBack" value="SetFocus(4102,0,absolute)" />
                     <param name="OnUp" value="4101" />
@@ -89,7 +89,7 @@
                 <top>0</top>
                 <height>600</height>
                 <include content="HomeWidgetLandscape">
-                    <param name="WidgetLabel" value="$INFO[Container(4103).ListItem.Property(searchstring),Because you watched ,]" />
+                    <param name="WidgetLabel" value="$INFO[Container(4103).ListItem.Property(searchstring),Because You Watched ,]" />
                     <param name="ParentID" value="4101" />
                     <param name="ListID" value="4103" />
                     <param name="Content" value="plugin://script.embuary.helper/?info=getsimilar&type=movie&pos=1" />
@@ -113,7 +113,7 @@
                 <top>0</top>
                 <height>900</height>
                 <include content="HomeWidgetLandscape">
-                    <param name="WidgetLabel" value="$INFO[Container(4104).ListItem.Property(searchstring),More , movies]" />
+                    <param name="WidgetLabel" value="$INFO[Container(4104).ListItem.Property(searchstring),More , Movies]" />
                     <param name="ParentID" value="4101" />
                     <param name="ListID" value="4104" />
                     <param name="Content" value="plugin://script.embuary.helper/?info=getbygenre&type=movie" />

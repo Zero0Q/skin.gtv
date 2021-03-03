@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-    <defaultcontrol always="true">202</defaultcontrol>
+     <defaultcontrol always="true">602</defaultcontrol>
     <visible>Player.HasMedia + Window.IsActive(PlayerControls) + !Window.IsActive(FullscreenVideo) + !Window.IsActive(FullscreenGame) + !Window.IsActive(Visualisation)</visible>
 
     <controls>
-        <control type="group">
+      <!--  <control type="group">
             <animation effect="slide" start="0,-108" end="0,0" time="240" tween="quadratic">WindowOpen</animation>
             <animation effect="slide" end="0,-108" start="0,0" time="240" tween="quadratic">WindowClose</animation>
             <control type="image">
@@ -17,17 +17,17 @@
                 <height>100</height>
                 <texture colordiffuse="background">general/black.png</texture>
             </control>
-            <control type="grouplist" id="202">
+            <control type="grouplist" id="201">
                 <height>100</height>
                 <width>1920</width>
                 <align>center</align>
                 <itemgap>0</itemgap>
                 <orientation>horizontal</orientation>
-                <onup>700</onup>
-                <ondown>707</ondown>
+                <onup>noop</onup>
+                <ondown>noop</ondown>
                 <onleft>202</onleft>
                 <onright>202</onright>
-                <control type="button" id="700">
+                <!-- <control type="button" id="700">
                     <label>E</label>
                     <align>center</align>
                     <width>100</width>
@@ -36,7 +36,7 @@
                     <onclick>Close</onclick>
                     <onclick condition="Player.HasAudio">ActivateWindow(MusicPlaylist)</onclick>
                     <onclick condition="Player.HasVideo">ActivateWindow(VideoPlaylist)</onclick>
-                </control>
+                </control> -->
                 <control type="button" id="600">
                     <label>g</label>
                     <align>center</align>
@@ -55,7 +55,7 @@
                 </control>
                 <control type="togglebutton" id="602">
                     <label>K</label>
-                    <altlabel>I</altlabel>
+                    <altlabel>Isasas</altlabel>
                     <align>center</align>
                     <width>100</width>
                     <height>100</height>
@@ -88,25 +88,7 @@
                     <font>IconSmall</font>
                     <onclick>PlayerControl(Next)</onclick>
                 </control>
-                <control type="togglebutton" id="704">
-                    <label>N</label>
-                    <altlabel>M</altlabel>
-                    <align>center</align>
-                    <width>100</width>
-                    <height>100</height>
-                    <font>IconMedium</font>
-                    <usealttexture>Playlist.IsRandom</usealttexture>
-                    <onclick>PlayerControl(Random)</onclick>
-                </control>
-                <control type="button" id="708">
-                    <label>$VAR[MusicOSDRepeatButtonVar]</label>
-                    <align>center</align>
-                    <width>100</width>
-                    <height>100</height>
-                    <font>IconMedium</font>
-                    <onclick>PlayerControl(Repeat)</onclick>
-                </control>
             </control>
-        </control>
+        </control> -->
     </controls>
 </window>

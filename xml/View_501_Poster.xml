@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
-    <!-- LandscapeFlow view -->
-    <include name="View_500_LandscapeFlow">
+    <!-- Poster view -->
+    <include name="View_501_Poster">
         <control type="group">
-            <visible>Control.IsVisible(500)</visible>
+            <visible>Control.IsVisible(501) + !Container.Content(episodes)</visible>
+
+            <animation effect="slide" start="0,0" end="0,-150" time="200" condition="Control.HasFocus(60) | ControlGroup(9050).HasFocus">Conditional</animation>
 
             <!-- Hidden list for sets -->
             <control type="list" id="5678">
@@ -12,24 +14,23 @@
                 <left>-1000</left>
                 <itemlayout />
                 <focusedlayout />
-                <content type="video">$INFO[Container(500).ListItem.FolderPath]</content>
+                <content type="video">$INFO[Container(501).ListItem.FolderPath]</content>
             </control>
 
             <!-- Hidden button for fullscreen art -->
             <control type="button" id="96">
                 <left>-1000</left>
-                <ondown>500</ondown>
-                <onup>500</onup>
+                <ondown>501</ondown>
+                <onup>501</onup>
             </control>
 
             <!-- Include main info -->
             <include content="MainInfoView">
-                <param name="ID" value="500" />
+                <param name="ID" value="501" />
             </include>
 
-            <include>BottomAlignedPlot</include>
-
-            <control type="fixedlist" id="500">
+            <control type="fixedlist" id="501">
+                <visible>!Container.Content(episodes)</visible>
                 <visible>!String.IsEmpty(Container.FolderName)  + !String.IsEqual(Container.FolderPath,videodb://movies/) + !String.IsEqual(Container.FolderPath,videodb://tvshows/)</visible>
                 <visible>!Container.Content(files)</visible>
                 <visible>!String.Contains(Container.FolderPath,sources)</visible>
@@ -37,7 +38,7 @@
                 <top>1200</top>
                 <left>0</left>
                 <right>0</right>
-                <height>740</height>
+                <height>1200</height>
 
                 <onleft>500</onleft>
                 <onright>500</onright>
@@ -48,40 +49,40 @@
                 <preloaditems>2</preloaditems>
                 <orientation>horizontal</orientation>
                 <focusposition>0</focusposition>
-                <movement>3</movement>
-                <viewtype label="Landscape Flow">icon</viewtype>
+                <movement>6</movement>
+                <viewtype label="Poster">icon</viewtype>
 
                 <!-- Movies / TV Shows / Seasons / Sets / Epsidoes -->
-                <itemlayout width="866" height="740">
+                <itemlayout width="496" height="740">
                     <control type="group">
                         <left>182</left>
-                        <include content="LandscapeLayout">
+                        <include content="PosterLayout">
                             <param name="LabelColor" value="TextDim" />
                             <param name="Focused" value="false" />
-                            <param name="ListID" value="500" />
+                            <param name="ListID" value="501" />
                             <param name="ShowProgress" value="true" />
                         </include>
                     </control>
                 </itemlayout>
 
-                <focusedlayout width="866" height="740">
+                <focusedlayout width="496" height="740">
                     <control type="group">
-                        <visible>Control.HasFocus(500)</visible>
+                        <visible>Control.HasFocus(501)</visible>
                         <left>182</left>
-                        <include content="LandscapeLayout">
+                        <include content="PosterLayout">
                             <param name="LabelColor" value="TextBright" />
                             <param name="Focused" value="true" />
-                            <param name="ListID" value="500" />
+                            <param name="ListID" value="501" />
                             <param name="ShowProgress" value="true" />
                         </include>
                     </control>
                     <control type="group">
-                        <visible>!Control.HasFocus(500)</visible>
+                        <visible>!Control.HasFocus(501)</visible>
                         <left>182</left>
-                        <include content="LandscapeLayout">
+                        <include content="PosterLayout">
                             <param name="LabelColor" value="TextDim" />
                             <param name="Focused" value="true" />
-                            <param name="ListID" value="500" />
+                            <param name="ListID" value="501" />
                             <param name="ShowProgress" value="true" />
                         </include>
                     </control>

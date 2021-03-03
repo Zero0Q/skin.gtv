@@ -2,7 +2,7 @@
 <includes>
 
     <variable name="version">
-        <value>0.0.3~alpha</value>
+        <value>0.0.7~alpha</value>
     </variable>
 
     <!-- Progress image -->
@@ -94,6 +94,9 @@
     <variable name="blurcolor1">
         <value>$INFO[Window(home).Property(GTV.color),60]</value>
     </variable>
+    <variable name="blurcolor2">
+        <value>$INFO[Window(home).Property(GTV.color),10]</value>
+    </variable>
 
     <variable name="NumSeasons">
         <value condition="Integer.IsGreater(ListItem.Season,1)">$INFO[ListItem.Season,, seasons]</value>
@@ -136,12 +139,16 @@
     </variable>
 
     <variable name="WidgetTitle">
+        <value condition="Control.Isvisible(4500)">$INFO[ListItem.label]</value>
+
         <value condition="Window.IsVisible(DialogVideoInfo.xml) + String.IsEqual(ListItem.dbtype,episode)">$INFO[ListItem.season]x$VAR[EpsNumber] $INFO[ListItem.title]</value>
         <value condition="Window.IsVisible(DialogVideoInfo.xml)">$INFO[ListItem.Title]</value>
 
         <value condition="Window.IsVisible(Home.xml) + String.IsEqual(Container(4000).ListItem.dbtype,episode)">$INFO[Container(4000).ListItem.season]x$VAR[EpsNumberForYou] $INFO[Container(4000).ListItem.title]</value>
         <value condition="String.IsEqual(ListItem.dbtype,episode)">$INFO[ListItem.season]x$VAR[EpsNumber] $INFO[ListItem.title]</value>
+
         <value condition="Window.IsVisible(Home.xml)">$INFO[Container(4000).ListItem.Title]</value>
+
         <value>$INFO[ListItem.Title]</value>
     </variable>
 
@@ -151,7 +158,7 @@
     </variable>
 
     <variable name="AlbumArtist2">
-        <value condition="Container.Content(albums)">$INFO[ListItem.label2]</value>
+        <value condition="Container.Content(albums)">$INFO[ListItem.artist]</value>
     </variable>
 
     <variable name="DialogSelectArtwork">
@@ -193,6 +200,11 @@
         <value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[Container.ListItem.Art(fanart)]</value>
         <value condition="ListItem.IsFolder + String.IsEmpty(ListItem.thumb)">DefaultFolder16_9.png</value>
         <value>$INFO[Container.ListItem.Thumb]</value>
+    </variable>    
+    
+    <variable name="PosterImageVar">
+        <value condition="ListItem.IsFolder + String.IsEmpty(ListItem.Art(poster))">DefaultFolder.png</value>
+        <value>$INFO[Container.ListItem.Art(poster)]</value>
     </variable>
 
     <variable name="VolumeIconVar">

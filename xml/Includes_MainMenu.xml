@@ -89,12 +89,20 @@
                     </control>
                 </focusedlayout>
                 <content>
+                    <!-- Search section -->
+                    <item>
+                        <property name="menu_id">$NUMBER[4700]</property>
+                        <property name="id">search</property>
+                        <property name="label">Search</property>
+                        <onclick>RunScript(script.globalsearch)</onclick>
+                    </item>
                     <!-- For you section -->
                     <item>
                         <visible>Integer.IsGreater(Container(4000).NumItems,0) | Container(4000).IsUpdating</visible>
                         <property name="menu_id">$NUMBER[4000]</property>
                         <property name="id">foryou</property>
                         <property name="label">For you</property>
+                        <!-- <onclick>RunScript(script.globalsearch)</onclick> -->
                     </item>
                     <!-- Movies section -->
                     <item>
@@ -112,19 +120,27 @@
                         <property name="label">Shows</property>
                     </item>
                     <!-- Music section -->
-                    <item>
+                    <!-- <item> -->
                         <property name="menu_id">$NUMBER[4300]</property>
                         <property name="id">music</property>
                         <property name="label">Music</property>
-                    </item>
+                    <!-- </item> -->
                     <!-- Video section -->
-                    <item>
+                    <!-- <item> -->
                         <property name="menu_id">$NUMBER[4400]</property>
                         <property name="id">video</property>
                         <property name="label">Video</property>
+                    <!-- </item> -->
+                    <!-- Plex section -->
+                    <item>
+                        <property name="menu_id">$NUMBER[4800]</property>
+                        <property name="id">plex</property>
+                        <property name="label">Plex</property>
+                        <onclick>RunScript(script.plex)</onclick>
                     </item>
                     <!-- Addons section -->
                     <item>
+                        <onclick>ActivateWindow(addonbrowser,addons://all/)</onclick>
                         <property name="menu_id">$NUMBER[4500]</property>
                         <property name="id">apps</property>
                         <property name="label">Apps</property>

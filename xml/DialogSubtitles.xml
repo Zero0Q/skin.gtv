@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol>150</defaultcontrol>
+
+    <controls>
+
+        <control type="group">
+            <top>480</top>
+            <left>920</left>
+            <width>2000</width>
+            <height>1200</height>
+
+            <control type="image">
+                <width>100%</width>
+                <height>100%</height>
+                <texture border="16" colordiffuse="DialogBackground">masks/Mask440x440r16.png</texture>
+            </control>
+
+            <control type="Label" id="100">
+                <left>0</left>
+                <top>32</top>
+                <width>2000</width>
+                <height>32</height>
+                <align>center</align>
+                <textcolor>TextBright</textcolor>
+                <font>MenuButtonText</font>
+            </control>
+
+            <control type="group">
+                <left>64</left>
+                <top>200</top>
+                <width>602</width>
+                <height>816</height>
+
+                <control type="label">
+                    <top>-40</top>
+                    <left>40</left>
+                    <height>32</height>
+                    <font>OSDSettingsButtonText</font>
+                    <textcolor>TextBright</textcolor>
+                    <label>Services</label>
+                </control>
+
+                <control type="image">
+                    <texture border="16" colordiffuse="DialogList">masks/Mask440x440r16.png</texture>
+                </control>
+
+                <control type="list" id="150">
+                    <top>8</top>
+                    <height>800</height>
+
+                    <onleft>160</onleft>
+                    <onright>120</onright>
+
+                    <itemlayout width="602" height="100">
+                        <control type="group">
+                            <left>8</left>
+                            <width>586</width>
+                            <height>100</height>
+                            <control type="image">
+                                <visible>ListItem.IsSelected</visible>
+                                <texture background="true" border="50" colordiffuse="TextDim">masks/Mask440x440r16.png</texture>
+                            </control>
+                            <control type="label">
+                                <left>32</left>
+                                <width>522</width>
+                                <height>100</height>
+                                <font>OSDSettingsButtonText</font>
+                                <textcolor>TextBright</textcolor>
+                                <selectedcolor>TextDark</selectedcolor>
+                                <label>$INFO[ListItem.label]</label>
+                            </control>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout width="602" height="100">
+                        <control type="group">
+                            <visible>Control.HasFocus(150)</visible>
+                            <left>8</left>
+                            <width>586</width>
+                            <height>100</height>
+                            <control type="image">
+                                <texture background="true" border="50">masks/Mask440x440r16.png</texture>
+                            </control>
+                            <control type="label">
+                                <left>32</left>
+                                <width>522</width>
+                                <height>100</height>
+                                <font>OSDSettingsButtonText</font>
+                                <textcolor>TextDark</textcolor>
+                                <selectedcolor>TextDark</selectedcolor>
+                                <label>$INFO[ListItem.label]</label>
+                            </control>
+                        </control>
+                        <control type="group">
+                            <visible>!Control.HasFocus(150)</visible>
+                            <left>8</left>
+                            <width>586</width>
+                            <height>100</height>
+                            <control type="image">
+                                <visible>ListItem.IsSelected</visible>
+                                <texture background="true" border="50" colordiffuse="TextDim">masks/Mask440x440r16.png</texture>
+                            </control>
+                            <control type="label">
+                                <left>32</left>
+                                <width>522</width>
+                                <height>100</height>
+                                <font>OSDSettingsButtonText</font>
+                                <textcolor>TextBright</textcolor>
+                                <selectedcolor>TextDark</selectedcolor>
+                                <label>$INFO[ListItem.label]</label>
+                            </control>
+                        </control>
+                    </focusedlayout>
+
+                </control>
+            </control>
+
+            <control type="group">
+                <left>730</left>
+                <top>200</top>
+                <width>1204</width>
+                <height>816</height>
+
+                <control type="label">
+                    <top>-40</top>
+                    <left>40</left>
+                    <height>32</height>
+                    <font>OSDSettingsButtonText</font>
+                    <textcolor>TextBright</textcolor>
+                    <label>$INFO[Player.Filename]</label>
+                </control>
+
+                <control type="image">
+                    <texture border="16" colordiffuse="DialogList">masks/Mask440x440r16.png</texture>
+                </control>
+
+                <control type="list" id="120">
+                    <top>8</top>
+                    <height>800</height>
+                    <onleft>150</onleft>
+                    <onright>121</onright>
+
+                    <pagecontrol>121</pagecontrol>
+
+                    <itemlayout width="1204" height="100">
+                        <control type="group">
+                            <left>8</left>
+                            <width>1156</width>
+                            <height>100</height>
+                            <control type="image">
+                                <visible>ListItem.IsSelected</visible>
+                                <texture background="true" border="50" colordiffuse="TextDim">masks/Mask440x440r16.png</texture>
+                            </control>
+                            <control type="image">
+                                <left>16</left>
+                                <top>8</top>
+                                <width>84</width>
+                                <height>84</height>
+                                <texture>$INFO[ListItem.Thumb,resource://resource.images.languageflags.completepack/,.png]</texture>
+                                <aspectratio>keep</aspectratio>
+                            </control>
+                            <control type="textbox">
+                                <left>116</left>
+                                <width>840</width>
+                                <height>100</height>
+                                <font>OSDSettingsButtonText</font>
+                                <textcolor>TextBright</textcolor>
+                                <aligny>center</aligny>
+                                <label>$INFO[ListItem.label2]</label>
+                            </control>
+                            <control type="image">
+                                <left>992</left>
+                                <top>8</top>
+                                <width>148</width>
+                                <height>40</height>
+                                <texture border="8" colordiffuse="f8181818">masks/Mask32x32r8.png</texture>
+                            </control>
+                            <control type="image">
+                                <left>1000</left>
+                                <top>16</top>
+                                <width>132</width>
+                                <height>24</height>
+                                <texture fallback="subtitles/rating/0.png">$INFO[ListItem.ActualIcon,subtitles/rating/,.png]</texture>
+                            </control>
+                            <control type="image">
+                                <visible>ListItem.property(hearing_imp)</visible>
+                                <left>1000</left>
+                                <bottom>8</bottom>
+                                <width>52</width>
+                                <height>30</height>
+                                <texture>subtitles/icon_close_caption.png</texture>
+                            </control>
+                            <control type="image">
+                                <visible>ListItem.property(sync)</visible>
+                                <left>1056</left>
+                                <bottom>8</bottom>
+                                <width>100</width>
+                                <height>30</height>
+                                <texture>subtitles/icon_sync.png</texture>
+                            </control>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout width="1204" height="100">
+                        <control type="group">
+                            <left>8</left>
+                            <width>1156</width>
+                            <height>100</height>
+                            <control type="image">
+                                <visible>Control.HasFocus(120)</visible>
+                                <texture background="true" border="50">masks/Mask440x440r16.png</texture>
+                            </control>
+                            <control type="image">
+                                <left>16</left>
+                                <top>8</top>
+                                <width>84</width>
+                                <height>84</height>
+                                <texture>$INFO[ListItem.Thumb,resource://resource.images.languageflags.completepack/,.png]</texture>
+                                <aspectratio>keep</aspectratio>
+                            </control>
+                            <control type="textbox">
+                                <visible>Control.HasFocus(120)</visible>
+                                <left>116</left>
+                                <width>840</width>
+                                <height>100</height>
+                                <font>OSDSettingsButtonText</font>
+                                <textcolor>TextDark</textcolor>
+                                <selectedcolor>TextDark</selectedcolor>
+                                <aligny>center</aligny>
+                                <label>$INFO[ListItem.label2]</label>
+                            </control>
+                            <control type="textbox">
+                                <visible>!Control.HasFocus(120)</visible>
+                                <left>116</left>
+                                <width>840</width>
+                                <height>100</height>
+                                <font>OSDSettingsButtonText</font>
+                                <textcolor>TextBright</textcolor>
+                                <selectedcolor>TextBright</selectedcolor>
+                                <aligny>center</aligny>
+                                <label>$INFO[ListItem.label2]</label>
+                            </control>
+                            <control type="image">
+                                <left>992</left>
+                                <top>8</top>
+                                <width>148</width>
+                                <height>40</height>
+                                <texture border="8" colordiffuse="f8181818">masks/Mask32x32r8.png</texture>
+                            </control>
+                            <control type="image">
+                                <left>1000</left>
+                                <top>16</top>
+                                <width>132</width>
+                                <height>24</height>
+                                <texture fallback="subtitles/rating/0.png">$INFO[ListItem.ActualIcon,subtitles/rating/,.png]</texture>
+                            </control>
+                            <control type="image">
+                                <visible>ListItem.property(hearing_imp)</visible>
+                                <left>1000</left>
+                                <bottom>8</bottom>
+                                <width>52</width>
+                                <height>30</height>
+                                <texture>subtitles/icon_close_caption.png</texture>
+                            </control>
+                            <control type="image">
+                                <visible>ListItem.property(sync)</visible>
+                                <left>1056</left>
+                                <bottom>8</bottom>
+                                <width>100</width>
+                                <height>30</height>
+                                <texture>subtitles/icon_sync.png</texture>
+                            </control>
+                        </control>
+                    </focusedlayout>
+
+                </control>
+
+                <control type="scrollbar" id="121">
+                    <right>8</right>
+                    <top>8</top>
+                    <width>24</width>
+                    <height>800</height>
+                    <orientation>vertical</orientation>
+                    <onleft>120</onleft>
+                    <onright>160</onright>
+                    <texturesliderbackground border="12" colordiffuse="60404040">progress/back24.png</texturesliderbackground>
+                    <texturesliderbar border="12" colordiffuse="ff808080">progress/slider24.png</texturesliderbar>
+                    <texturesliderbarfocus border="12">progress/slider24.png</texturesliderbarfocus>
+                </control>
+
+            </control>
+
+
+            <control type="button" id="160">
+                <left>64</left>
+                <top>1080</top>
+                <height>56</height>
+                <width>auto</width>
+                <aligny>center</aligny>
+                <textoffsetx>32</textoffsetx>
+                <font>OSDSettingsButtonText</font>
+                <textcolor>TextBright</textcolor>
+                <label>Manual Search</label>
+                <include>KeyboardButton</include>
+                <onup>120</onup>
+                <ondown>120</ondown>
+                <onleft>120</onleft>
+                <onright>120</onright>
+            </control>
+
+            <control type="label" id="140">
+                <left>764</left>
+                <width>1204</width>
+                <top>1080</top>
+                <height>32</height>
+                <font>OSDSettingsButtonText</font>
+                <textcolor>TextBright</textcolor>
+            </control>
+
+        </control>
+    </controls>
+</window>

@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-    <defaultcontrol>339</defaultcontrol>
+    <defaultcontrol always="true">343</defaultcontrol>
+    <zorder>100</zorder>
 
-    <onload condition="Control.IsVisible(343)">SetFocus(343)</onload>
-    <onload condition="!Control.IsVisible(344)">SetFocus(344)</onload>
     <controls>
 
         <control type="group">
             <control type="grouplist" id="339">
+                <visible>![Window.IsVisible(SliderDialog) | Window.IsVisible(osdsubtitlesettings) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(osdvideosettings) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(playerprocessinfo)]</visible>
                 <top>2000</top>
                 <left>0</left>
                 <width max="3840">auto</width>
                 <orientation>horizontal</orientation>
                 <align>center</align>
                 <itemgap>32</itemgap>
-                <onleft>9005</onleft>
-                <ondown>4002</ondown>
-                <onback>SetFocus(9005)</onback>
+                <onleft>349</onleft>
+                <onright>347</onright>
 
                 <!-- Track back -->
                 <control type="button" id="340">
@@ -64,9 +63,8 @@
                     <onclick>SetFocus(50)</onclick>
                     <onclick>PlayerControl(Stop)</onclick>
                 </control>
-                <!-- Play -->
-                <control type="button" id="343">
-                    <visible>Player.Paused | [Player.Rewinding | Player.Forwarding]</visible>
+                <!-- Play / Pause -->
+                <control type="togglebutton" id="343">
                     <left>0</left>
                     <top>0</top>
                     <width>96</width>
@@ -74,30 +72,18 @@
                     <textoffsetx>16</textoffsetx>
                     <texturefocus colordiffuse="TextBright" border="8">masks/Mask32x32r8.png</texturefocus>
                     <texturenofocus colordiffuse="TextDim" border="8">masks/Mask32x32r8.png</texturenofocus>
+                    <alttexturefocus colordiffuse="TextBright" border="8">masks/Mask32x32r8.png</alttexturefocus>
+                    <alttexturenofocus colordiffuse="TextDim" border="8">masks/Mask32x32r8.png</alttexturenofocus>
                     <font>ButtonIconSmall</font>
                     <textcolor>TextBright</textcolor>
                     <include>ButtonDefaults</include>
                     <label>&#xf2be;</label>
-                    <onclick>PlayerControl(Play)</onclick>
-                </control>
-                <!-- Pause -->
-                <control type="button" id="344">
-                    <visible>!Player.Paused + ![Player.Rewinding | Player.Forwarding]</visible>
-                    <left>0</left>
-                    <top>0</top>
-                    <width>96</width>
-                    <height>96</height>
-                    <textoffsetx>16</textoffsetx>
-                    <texturefocus colordiffuse="TextBright" border="8">masks/Mask32x32r8.png</texturefocus>
-                    <texturenofocus colordiffuse="TextDim" border="8">masks/Mask32x32r8.png</texturenofocus>
-                    <font>ButtonIconSmall</font>
-                    <textcolor>TextBright</textcolor>
-                    <include>ButtonDefaults</include>
-                    <label>&#xf2ad;</label>
+                    <altlabel>&#xf2ad;</altlabel>
+                    <usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
                     <onclick>PlayerControl(Play)</onclick>
                 </control>
                 <!-- Fast forward -->
-                <control type="button" id="345">
+                <control type="button" id="344">
                     <left>0</left>
                     <top>0</top>
                     <width>96</width>
@@ -112,7 +98,7 @@
                     <onclick>PlayerControl(Forward)</onclick>
                 </control>
                 <!-- Track forward -->
-                <control type="button" id="346">
+                <control type="button" id="345">
                     <left>0</left>
                     <top>0</top>
                     <width>96</width>
@@ -125,6 +111,65 @@
                     <include>ButtonDefaults</include>
                     <label>&#xf1db;</label>
                     <onclick>PlayerControl(Next)</onclick>
+                </control>
+            </control>
+            <control type="grouplist" id="346">
+                <visible>![Window.IsVisible(SliderDialog) | Window.IsVisible(osdsubtitlesettings) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(osdvideosettings) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(playerprocessinfo)]</visible>
+                <top>2000</top>
+                <right>300</right>
+                <width max="3840">auto</width>
+                <orientation>horizontal</orientation>
+                <align>right</align>
+                <itemgap>32</itemgap>
+                <onleft>345</onleft>
+                <onright>340</onright>
+                <!-- Subtitles -->
+                <control type="button" id="347">
+                    <left>0</left>
+                    <top>0</top>
+                    <width>96</width>
+                    <height>96</height>
+                    <textoffsetx>16</textoffsetx>
+                    <texturefocus colordiffuse="TextBright" border="8">masks/Mask32x32r8.png</texturefocus>
+                    <texturenofocus colordiffuse="TextDim" border="8">masks/Mask32x32r8.png</texturenofocus>
+                    <font>ButtonIconSmall</font>
+                    <textcolor>TextBright</textcolor>
+                    <include>ButtonDefaults</include>
+                    <label>&#xF19D;</label>
+                    <onclick>ActivateWindow(osdsubtitlesettings)</onclick>
+                    <visible>VideoPlayer.HasSubtitles</visible>
+                </control>
+                <!-- Video settings -->
+                <control type="button" id="348">
+                    <left>0</left>
+                    <top>0</top>
+                    <width>96</width>
+                    <height>96</height>
+                    <textoffsetx>16</textoffsetx>
+                    <texturefocus colordiffuse="TextBright" border="8">masks/Mask32x32r8.png</texturefocus>
+                    <texturenofocus colordiffuse="TextDim" border="8">masks/Mask32x32r8.png</texturenofocus>
+                    <font>ButtonIconSmall</font>
+                    <textcolor>TextBright</textcolor>
+                    <include>ButtonDefaults</include>
+                    <label>&#xF303;</label>
+                    <onclick>ActivateWindow(osdvideosettings)</onclick>
+                    <visible>VideoPlayer.HasSubtitles</visible>
+                </control>
+                <!-- Audio settings -->
+                <control type="button" id="349">
+                    <left>0</left>
+                    <top>0</top>
+                    <width>96</width>
+                    <height>96</height>
+                    <textoffsetx>16</textoffsetx>
+                    <texturefocus colordiffuse="TextBright" border="8">masks/Mask32x32r8.png</texturefocus>
+                    <texturenofocus colordiffuse="TextDim" border="8">masks/Mask32x32r8.png</texturenofocus>
+                    <font>ButtonIconSmall</font>
+                    <textcolor>TextBright</textcolor>
+                    <include>ButtonDefaults</include>
+                    <label>&#xF299;</label>
+                    <onclick>ActivateWindow(osdaudiosettings)</onclick>
+                    <visible>VideoPlayer.HasSubtitles</visible>
                 </control>
             </control>
 

@@ -27,6 +27,7 @@
         <include>MoviesHubWidgets</include>
         <include>ShowsHubWidgets</include>
         <include>MusicHubWidgets</include>
+        <include>AppsHubWidgets</include>
         <include>SettingsHub</include>
 
         <!-- Include main menu -->
