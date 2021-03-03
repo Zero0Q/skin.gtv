@@ -16,6 +16,11 @@
     <color name="MenuItemFocus">f000aeff</color>
     <color name="InfoIconBackground">d0e0e0e0</color>
 
+
+    <color name="ScreenFade">f0282828</color>
+    <color name="DialogBackground">fa161616</color>
+    <color name="DialogList">fa101010</color>
+
     <color name="Black">FF000000</color>
     <color name="Invalid">FFFF6666</color>
     <color name="background">FF212121</color>
