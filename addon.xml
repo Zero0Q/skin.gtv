@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="skin.gtv" version="0.0.301~alpha" name="GTV" provider-name="roidy">
+<addon id="skin.gtv" version="0.0.7~alpha" name="GTV" provider-name="roidy">
     <requires>
         <import addon="xbmc.gui" version="5.14.0"/>
         <!-- <import addon="xbmc.gui" version="5.15.0"/> -->
@@ -7,6 +7,7 @@
         <import addon="script.embuary.helper" version="1.0.0"/>
         <import addon="script.embuary.info" version="1.0.0"/>
         <import addon="script.gtv.helper" />
+        <import addon="resource.images.languageflags.completepack" />
     </requires>
     <extension point="xbmc.gui.skin" debugging="false" effectslowdown="0.75">
         <res width="3840" height="2160" aspect="16:9" default="true" folder="xml" />
