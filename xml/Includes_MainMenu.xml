@@ -131,13 +131,6 @@
                         <property name="id">video</property>
                         <property name="label">Video</property>
                     <!-- </item> -->
-                    <!-- Plex section -->
-                    <item>
-                        <property name="menu_id">$NUMBER[4800]</property>
-                        <property name="id">plex</property>
-                        <property name="label">Plex</property>
-                        <onclick>RunScript(script.plex)</onclick>
-                    </item>
                     <!-- Addons section -->
                     <item>
                         <onclick>ActivateWindow(addonbrowser,addons://all/)</onclick>

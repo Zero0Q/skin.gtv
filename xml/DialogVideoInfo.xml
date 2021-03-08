@@ -84,8 +84,8 @@
                                 <left>50</left>
                                 <top>50</top>
                                 <width>1000</width>
-                                <height>388</height>
-                                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+                                <height>562</height>
+                                <texture background="true">$INFO[ListItem.Art(clearart)]</texture>
                             </control>
                             <control type="group">
                                 <control type="textbox" id="2000">

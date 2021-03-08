@@ -72,8 +72,8 @@
             <control type="image">
                 <left>50</left>
                 <top>50</top>
-                <width>1000</width>
-                <height>388</height>
+                <width>800</width>
+                <height>310</height>
                 <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
             </control>
             <control type="textbox" id="2011">

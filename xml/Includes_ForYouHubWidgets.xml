@@ -8,7 +8,7 @@
             <visible>String.IsEqual(Container(9005).ListItem.Property(id),foryou)</visible>
             <control type="image">
             <top>0</top>
-            <right>-2</right>
+            <right>0</right>
             <width>3840</width>
             <height>1450</height>
             <fadetime>200</fadetime>
@@ -23,28 +23,28 @@
                 <param name="ID" value="4000" />
             </include>
 
-            <control type="image">
+            <!-- <control type="image">
                 <left>220</left>
-                <top>635</top>
-                <width>1000</width>
-                <height>388</height>
+                <top>675</top>
+                <width>800</width>
+                <height>310</height>
                 <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-            </control>
+            </control> -->
 
-            <!-- <control type="textbox" id="2010">
+            <control type="textbox">
                 <left>220</left>
                 <right>300</right>
-                <top>550</top>
-                <height>540</height>
-                <width>950</width>
+                <top>600</top>
+                <height>450</height>
+                <width>1200</width>
                 <align>left</align>
-                <aligny>center</aligny>
+                <aligny>top</aligny>
                 <font>EpisodePlot</font>
                 <textcolor>TextBright</textcolor>
                 <shadowcolor>ff000000</shadowcolor>
                 <label>$VAR[Plot]</label>
                 <visible>!Container(2010).HasNext</visible>
-            </control> -->
+            </control>
 
             <control type="fixedlist" id="4000">
                 <top>1200</top>
