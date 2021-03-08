@@ -16,6 +16,7 @@
                 <itemgap>32</itemgap>
                 <onleft>349</onleft>
                 <onright>347</onright>
+                <include>HideOsdConditions</include>
 
                 <!-- Track back -->
                 <control type="button" id="340">
