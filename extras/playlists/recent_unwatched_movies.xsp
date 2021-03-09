@@ -6,7 +6,7 @@
         <value>1</value>
     </rule>
     <rule field="year" operator="lessthan">
-        <value>2020</value>
+        <value>2021</value>
     </rule>
     <limit>25</limit>
     <order direction="descending">dateadded</order>
