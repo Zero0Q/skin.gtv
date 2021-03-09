@@ -129,7 +129,7 @@
                                 <font>WidgetRating</font>
                                 <textcolor>TextSubLabel</textcolor>
                                 <scrollsuffix>•</scrollsuffix>
-                                <label>$INFO[ListItem.Duration(mins),,mins]</label>
+                                <label>$INFO[ListItem.Duration(mins),(,m - ]$INFO[ListItem.Endtime,,)]</label>
                             </control>
                         </control>
 
@@ -221,7 +221,6 @@
                         <width>790</width>
                         <height>448</height>
                         <texture background="true">masks/Selector790x448r16.png</texture>
-                        <animation effect="fade" start="100" end="20" time="1500" easing="inout" tween="cubic" pulse="true" condition="$PARAM[Focused]">Conditional</animation>
                     </control>
                     <!-- Unwatched background-->
                     <control type="image">
@@ -291,7 +290,6 @@
                         <width>420</width>
                         <height>626</height>
                         <texture background="true" border="32">masks/Selector420x626r16.png</texture>
-                        <animation effect="fade" start="100" end="20" time="1500" easing="inout" tween="cubic" pulse="true" condition="$PARAM[Focused]">Conditional</animation>
                     </control>
                     <!-- Unwatched background-->
                     <control type="image">
@@ -351,7 +349,7 @@
                                 <font>WidgetRating</font>
                                 <textcolor>TextSubLabel</textcolor>
                                 <scrollsuffix>•</scrollsuffix>
-                                <label>$INFO[ListItem.Duration(mins),,mins]</label>
+                                <label>$INFO[ListItem.Duration(mins),(,m - ]$INFO[ListItem.Endtime,,)]</label>
                             </control>
                         </control>
 
@@ -433,7 +431,6 @@
                         <width>448</width>
                         <height>448</height>
                         <texture background="true" border="20">masks/Selector790x448r16.png</texture>
-                        <animation effect="fade" start="100" end="20" time="1500" easing="inout" tween="cubic" pulse="true" condition="$PARAM[Focused]">Conditional</animation>
                     </control>
                 </control>
                 <!-- Label group -->
@@ -494,8 +491,8 @@
                     <!-- <control type="image">
                             <left>50</left>
                             <top>50</top>
-                            <width>1000</width>
-                            <height>388</height>
+                            <width>800</width>
+                            <height>310</height>
                         <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
                     </control> -->
 
@@ -533,8 +530,8 @@
                         <!-- <control type="image">
                             <left>210</left>
                             <top>640</top>
-                            <width>1000</width>
-                            <height>388</height>
+                            <width>800</width>
+                            <height>310</height>
                             <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
                         </control> --> 
                     </control>
@@ -615,7 +612,7 @@
                         <align>left</align>
                         <font>LibraryInfoLine</font>
                         <textcolor>TextSubLabel</textcolor>
-                        <label>$INFO[Container($PARAM[ID]).ListItem.Duration(mins),,mins]</label>
+                        <label>$INFO[Container($PARAM[ID]).ListItem.Duration(mins),(,m - ]$INFO[ListItem.Endtime,,)]</label>
                     </control>
                     <!-- Movie / Show rating -->
                     <control type="image">
@@ -765,7 +762,6 @@
                         <width>448</width>
                         <height>448</height>
                         <texture background="true" border="20">masks/Selector790x448r16.png</texture>
-                        <animation effect="fade" start="100" end="20" time="1500" easing="inout" tween="cubic" pulse="true" condition="$PARAM[Focused]">Conditional</animation>
                     </control>
                 </control>
                 <!-- Label group -->

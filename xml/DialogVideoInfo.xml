@@ -83,17 +83,17 @@
                             <control type="image">
                                 <left>50</left>
                                 <top>50</top>
-                                <width>1000</width>
-                                <height>562</height>
-                                <texture background="true">$INFO[ListItem.Art(clearart)]</texture>
+                                <width>800</width>
+                                <height>310</height>
+                                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
                             </control>
                             <control type="group">
                                 <control type="textbox" id="2000">
                                     <left>220</left>
                                     <right>300</right>
-                                    <top>500</top>
-                            <height>540</height>
-                            <width>1000</width>
+                                    <top>550</top>
+                                    <height>540</height>
+                                    <width>1000</width>
                                     <align>left</align>
                                     <aligny>center</aligny>
                                     <font>LibraryMainTitleBig</font>
@@ -105,9 +105,9 @@
                                 <control type="textbox" id="2001">
                                     <left>220</left>
                                     <right>300</right>
-                                    <top>500</top>
-                            <height>550</height>
-                            <width>1000</width>
+                                    <top>550</top>
+                                    <height>540</height>
+                                    <width>1000</width>
                                     <align>left</align>
                                     <aligny>center</aligny>
                                     <font>LibraryMainTitleSmall</font>
@@ -195,7 +195,7 @@
                                     <align>left</align>
                                     <font>LibraryInfoLine</font>
                                     <textcolor>TextSubLabel</textcolor>
-                                    <label>$INFO[ListItem.Duration(mins),,mins]</label>
+                                    <label>$INFO[ListItem.Duration(mins),(,m - ]$INFO[ListItem.Endtime,,)]</label>
                                 </control>
 
                                 <!-- Movie / Show rating -->

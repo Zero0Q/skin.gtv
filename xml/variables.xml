@@ -49,9 +49,9 @@
         <value condition="String.IsEqual(ListItem.Duration(m),07)">7</value>
         <value condition="String.IsEqual(ListItem.Duration(m),08)">8</value>
         <value condition="String.IsEqual(ListItem.Duration(m),09)">9</value>
-        <value>$INFO[ListItem.Duration(m)]</value>
+        <value>$INFO[ListItem.Duration(mins),(,m - ]$INFO[ListItem.Endtime,,)]</value>
     </variable>
-
+            
     <!-- Context menu title -->
     <variable name="ContextTitleVar">
         <value condition="String.IsEqual(ListItem.dbtype,season)">$INFO[ListItem.TVShowTitle] - $INFO[ListItem.Title]</value>
