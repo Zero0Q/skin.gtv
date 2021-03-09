@@ -485,7 +485,7 @@
                         <aligny>center</aligny>
                         <font>LibrarySectionHeader</font>
                         <textcolor>TextDim</textcolor>
-                        <label>$VAR[LibrarySectionHeader]</label>
+                        <!-- <label>$VAR[LibrarySectionHeader]</label> -->
                     </control>
 
                     <!-- <control type="image">

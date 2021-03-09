@@ -23,13 +23,13 @@
                 <param name="ID" value="4000" />
             </include>
 
-            <!-- <control type="image">
+            <control type="image">
                 <left>220</left>
-                <top>675</top>
+                <top>300</top>
                 <width>800</width>
                 <height>310</height>
                 <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-            </control> -->
+            </control>
 
             <control type="textbox">
                 <left>220</left>

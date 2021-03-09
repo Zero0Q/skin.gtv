@@ -91,7 +91,7 @@
                     <param name="WidgetLabel" value="$INFO[Container(4203).ListItem.Property(searchstring),Because You Watched ,]" />
                     <param name="ParentID" value="4201" />
                     <param name="ListID" value="4203" />
-                    <param name="Content" value="plugin://script.embuary.helper/?info=getsimilar&type=tvshow&pos=1" />
+                    <param name="Content" value="plugin://script.embuary.helper/?info=getsimilar&type=tvshow&pos=0" />
                     <param name="ContentType" value="videos" />
                     <param name="OnBack" value="SetFocus(4203,0,absolute)" />
                     <param name="OnUp" value="4202" />

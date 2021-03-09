@@ -70,8 +70,8 @@
                 <visible>!Container(2010).HasNext</visible>
             </control>
             <control type="image">
-                <left>50</left>
-                <top>50</top>
+                <left>220</left>
+                <top>300</top>
                 <width>800</width>
                 <height>310</height>
                 <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
