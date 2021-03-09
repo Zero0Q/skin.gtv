@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+    <include name="AddonListLayout">
+        <control type="group">
+            <animation type="Focus" reversible="false">
+                <effect type="zoom" end="102,112" time="50" tween="sine" center="auto" />
+                <effect type="zoom" end="98.04,89.3" time="150" tween="sine" delay="100" center="auto" />
+            </animation>
+            <control type="image">
+                <visible>$PARAM[Focused] + Control.HasFocus(510)</visible>
+                <left>0</left>
+                <top>0</top>
+                <width>1656</width>
+                <height>120</height>
+                <texture border="60" colordiffuse="TextBright">masks/Mask120x120r60.png</texture>
+            </control>
+            <control type="group">
+                <visible>$PARAM[Focused]</visible>
+                <control type="label">
+                    <top>0</top>
+                    <left>64</left>
+                    <right>64</right>
+                    <height>120</height>>
+                    <font>ItemLabelSecondary</font>
+                    <aligny>center</aligny>
+                    <textcolor>TextDark</textcolor>
+                    <label>$VAR[ListMainLabelVar]</label>
+                </control>
+            </control>
+            <control type="group">
+                <visible>!$PARAM[Focused] | [!Control.HasFocus(510) + $PARAM[Focused]]</visible>
+                <control type="label">
+                    <top>0</top>
+                    <left>64</left>
+                    <right>64</right>
+                    <height>120</height>
+                    <font>ItemLabelSecondary</font>
+                    <aligny>center</aligny>
+                    <textcolor>TextBright</textcolor>
+                    <label>$VAR[ListMainLabelVar]</label>
+                </control>
+            </control>
+        </control>
+    </include>
+
+
+    <include name="View_510_AddonList">
+        <control type="group">
+            <visible>Control.IsVisible(510)</visible>
+
+            <control type="list" id="510">
+                <visible>Container.Content(addons) | String.Contains(Container.FolderPath,plugin://)</visible>
+                <top>324</top>
+                <left>328</left>
+                <width>1656</width>
+                <bottom>120</bottom>
+                <onleft>noop</onleft>
+                <onright>61</onright>
+                <onup>510</onup>
+                <ondown>510</ondown>
+                <viewtype>Addon List</viewtype>
+                <pagecontrol>61</pagecontrol>
+                <preloaditems>2</preloaditems>
+
+                <itemlayout height="120" width="1656">
+                    <include content="AddonListLayout">
+                        <param name="Focused" value="false" />
+                        <param name="ItemColor" value="TextBright" />
+                    </include>
+                </itemlayout>
+                <focusedlayout height="120" width="1656">
+                    <include content="AddonListLayout">
+                        <param name="Focused" value="true" />
+                        <param name="ItemColor" value="TextDark" />
+                    </include>
+                </focusedlayout>
+            </control>
+
+            <control type="scrollbar" id="61">
+                <visible>Container(510).HasNext | Container(510).HasPrevious</visible>
+                <animation effect="fade" start="100" end="10" time="100" condition="!Control.HasFocus(61)">Conditional</animation>
+                <left>2100</left>
+                <top>324</top>
+                <bottom>120</bottom>
+                <width>24</width>
+                <orientation>vertical</orientation>
+                <onleft>510</onleft>
+                <texturesliderbackground border="24" colordiffuse="60404040">progress/back24_vertical.png</texturesliderbackground>
+                <texturesliderbar border="12" colordiffuse="ff808080">progress/slider24.png</texturesliderbar>
+                <texturesliderbarfocus border="12">progress/slider24.png</texturesliderbarfocus>
+            </control>
+
+            <control type="group">
+                <control type="label">
+                    <top>134</top>
+                    <left>408</left>
+                    <right>66</right>>
+                    <height>100</height>
+                    <textcolor>TextBright</textcolor>
+                    <align>left</align>
+                    <font>SettingsHeader</font>
+                    <label>$INFO[Container.FolderName]</label>
+                </control>
+
+                <control type="label">
+                    <top>234</top>
+                    <left>408</left>
+                    <right>66</right>>
+                    <height>100</height>
+                    <textcolor>TextBright</textcolor>
+                    <align>left</align>
+                    <font>SettingsHeader</font>
+                    <label>$INFO[Container.Property(addoncategory)]</label>
+                </control>
+
+                <control type="group">
+                    <top>0</top>
+                    <left>2100</left>
+                    <width>1634</width>
+                    <bottom>0</bottom>
+
+                    <control type="image" id="110000">
+                        <left>-1000</left>
+                        <top>-1000</top>
+                        <width>10</width>
+                        <height>10</height>
+                        <texture background="true">$INFO[ListItem.thumb]</texture>
+                    </control>
+
+                    <control type="image">
+                        <visible>String.IsEmpty(Listitem.plot)</visible>
+                        <top>430</top>
+                        <left>166</left>
+                        <height>1300</height>
+                        <width>1400</width>
+                        <aspectratio align="center" aligny="center" scalediffuse="true">keep</aspectratio>
+                        <texture background="true" diffuse="masks/LargeAlbumMask.png">$INFO[ListItem.thumb]</texture>
+                        <fadetime>300</fadetime>
+                    </control>
+                    <control type="image">
+                        <visible>!String.IsEmpty(Listitem.plot)</visible>
+                        <top>430</top>
+                        <left>166</left>
+                        <height>1000</height>
+                        <width>1400</width>
+                        <aspectratio align="center" aligny="center" scalediffuse="true">keep</aspectratio>
+                        <texture background="true" diffuse="masks/LargeAlbumMask.png">$INFO[ListItem.thumb]</texture>
+                        <fadetime>300</fadetime>
+                    </control>
+
+                    <control type="textbox">
+                        <left>120</left>
+                        <right>0</right>
+                        <top>1580</top>
+                        <bottom>120</bottom>
+                        <font>ItemLabelSecondary</font>
+                        <textcolor>TextBright</textcolor>
+
+                        <label>$INFO[ListItem.plot]</label>
+                    </control>
+
+                </control>
+            </control>
+
+        </control>
+
+    </include>
+</includes>
