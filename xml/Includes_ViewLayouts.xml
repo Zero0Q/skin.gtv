@@ -175,6 +175,75 @@
         </definition>
     </include>
 
+    <include name="EpisodeLayout">
+        <param name="ListID" />
+        <param name="Focused" default="false" />
+        <param name="ShowProgress" default="false" />
+        <param name="ShowLabel1" default="false" />
+        <param name="ShowLabel2" default="false" />
+        <param name="LabelColor" default="TextBright" />
+
+        <definition>
+            <control type="group">
+                <animation type="Focus" reversible="false">
+                    <effect type="zoom" end="100" time="50" tween="sine" center="auto" />
+                </animation>
+                <!-- Item background blur -->
+                <!-- <control type="image">
+                    <visible>Control.HasFocus($PARAM[ListID]) + $PARAM[Focused]</visible>
+                    <left>-108</left>
+                    <top>0</top>
+                    <width>1380</width>
+                    <height>908</height>
+                    <texture background="true" colordiffuse="$VAR[blurcolor]">masks/WidgetBlurEffect.png</texture>
+                </control> -->
+                <!-- Main landscape image -->
+                <control type="group">
+                    <!-- <animation type="Focus" reversible="false">
+                        <effect type="zoom" end="112" time="75" tween="sine" center="433,370" />
+                    </animation> -->
+                    <!-- Image -->
+                    <control type="image">
+                        <left>42</left>
+                        <top>150</top>
+                        <width>1080</width>
+                        <height>608</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture background="true" diffuse="masks/Mask782x440r16.png">$VAR[LandscapeImageVar]</texture>
+                    </control>
+                    <!-- Selector -->
+                    <control type="image">
+                        <visible>Control.HasFocus($PARAM[ListID]) + $PARAM[Focused]</visible>
+                        <left>38</left>
+                        <top>146</top>
+                        <width>790</width>
+                        <height>448</height>
+                        <texture background="true">masks/Selector790x448r16.png</texture>
+                    </control>
+                    <!-- Unwatched background-->
+                    <control type="image">
+                        <visible>[Integer.IsEqual(ListItem.PlayCount,0) | !Integer.IsEqual(ListItem.PercentPlayed,0)]+ $PARAM[ShowProgress]</visible>
+                        <right>-108</right>
+                        <top>182</top>
+                        <width>64</width>
+                        <height>64</height>
+                        <texture background="true" colordiffuse="d0ffffff">overlays/Unwatched.png</texture>
+                    </control>
+                    <!-- Progress icon -->
+                    <control type="image">
+                        <visible>$PARAM[ShowProgress]</visible>
+                        <right>-108</right>
+                        <top>182</top>
+                        <width>64</width>
+                        <height>64</height>
+                        <texture background="true">$VAR[ProgressImage]</texture>
+                    </control>
+                </control>
+
+            </control>
+        </definition>
+    </include>
+
     <include name="PosterLayout">
         <param name="ListID" />
         <param name="Focused" default="false" />
@@ -193,32 +262,32 @@
                     <visible>Control.HasFocus($PARAM[ListID]) + $PARAM[Focused]</visible>
                     <left>-108</left>
                     <top>0</top>
-                    <width>1082</width>
-                    <height>740</height>
+                    <width>712</width>
+                    <height>918</height>
                     <texture background="true" colordiffuse="$VAR[blurcolor]">masks/WidgetBlurEffect.png</texture>
                 </control>
-                <!-- Main landscape image -->
+                <!-- Main poster image -->
                 <control type="group">
                     <animation type="Focus" reversible="false">
-                        <effect type="zoom" end="112" time="75" tween="sine" center="433,370" />
+                        <effect type="zoom" end="112" time="75" tween="sine" center="248,459" />
                     </animation>
                     <!-- Image -->
                     <control type="image">
                         <left>42</left>
                         <top>150</top>
-                        <width>782</width>
-                        <height>440</height>
+                        <width>412</width>
+                        <height>618</height>
                         <aspectratio>scale</aspectratio>
-                        <texture background="true" diffuse="masks/Mask782x440r16.png">$VAR[LandscapeImageVar]</texture>
+                        <texture background="true" diffuse="masks/Mask412x618r16.png">$VAR[PosterImageVar]</texture>
                     </control>
                     <!-- Selector -->
                     <control type="image">
                         <visible>Control.HasFocus($PARAM[ListID]) + $PARAM[Focused]</visible>
                         <left>38</left>
                         <top>146</top>
-                        <width>790</width>
-                        <height>448</height>
-                        <texture background="true">masks/Selector790x448r16.png</texture>
+                        <width>420</width>
+                        <height>626</height>
+                        <texture background="true" border="32">masks/Selector420x626r16.png</texture>
                     </control>
                     <!-- Unwatched background-->
                     <control type="image">
@@ -238,20 +307,6 @@
                         <height>64</height>
                         <texture background="true">$VAR[ProgressImage]</texture>
                     </control>
-                </control>
-
-                <!-- Overide label 1 if viewing episodes -->
-                <control type="label">
-                    <visible>Container.Content(episodes)</visible>
-                    <left>42</left>
-                    <width>782</width>
-                    <top>626</top>
-                    <height>60</height>
-                    <align>left</align>
-                    <font>WidgetTitle</font>
-                    <textcolor>$PARAM[LabelColor]</textcolor>
-                    <scrollsuffix>•</scrollsuffix>
-                    <label>$VAR[WidgetTitle]</label>
                 </control>
 
                 <!-- Label group -->
@@ -439,8 +494,6 @@
                         <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
 
                     </control> -->
-
-                    <include>BottomAlignedPlot</include>
 
                     <control type="group">
                         <visible>!Container.Content(episodes)</visible>

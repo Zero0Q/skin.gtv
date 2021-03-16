@@ -2,7 +2,7 @@
 <includes>
 
     <variable name="version">
-        <value>0.0.6~alpha</value>
+        <value>0.0.7~alpha</value>
     </variable>
 
     <!-- Progress image -->
@@ -93,6 +93,9 @@
     </variable>
     <variable name="blurcolor1">
         <value>$INFO[Window(home).Property(GTV.color),60]</value>
+    </variable>
+    <variable name="blurcolor2">
+        <value>$INFO[Window(home).Property(GTV.color),10]</value>
     </variable>
 
     <variable name="NumSeasons">
@@ -197,6 +200,11 @@
         <value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[Container.ListItem.Art(fanart)]</value>
         <value condition="ListItem.IsFolder + String.IsEmpty(ListItem.thumb)">DefaultFolder16_9.png</value>
         <value>$INFO[Container.ListItem.Thumb]</value>
+    </variable>    
+    
+    <variable name="PosterImageVar">
+        <value condition="ListItem.IsFolder + String.IsEmpty(ListItem.Art(poster))">DefaultFolder.png</value>
+        <value>$INFO[Container.ListItem.Art(poster)]</value>
     </variable>
 
     <variable name="VolumeIconVar">

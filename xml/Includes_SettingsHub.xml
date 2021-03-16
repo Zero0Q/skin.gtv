@@ -12,7 +12,7 @@
                 <height>60</height>
                 <width>200</width>
                 <font>VersionFont</font>
-                <textcolor>DialogBackground</textcolor>
+                <textcolor>TextDim</textcolor>
                 <label>$VAR[version]</label>
             </control>
 

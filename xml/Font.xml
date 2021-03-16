@@ -169,7 +169,7 @@
         <font>
             <name>ButtonIcon</name>
             <filename>line-awesome.ttf</filename>
-            <size>72</size>
+            <size>64</size>
         </font>
         <font>
             <name>ButtonIconSmall</name>
@@ -397,7 +397,7 @@
         <font>
             <name>ButtonIcon</name>
             <filename>line-awesome.ttf</filename>
-            <size>72</size>
+            <size>64</size>
         </font>
         <font>
             <name>ButtonIconSmall</name>

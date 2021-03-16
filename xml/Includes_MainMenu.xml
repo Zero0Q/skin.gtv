@@ -95,7 +95,6 @@
                         <property name="menu_id">$NUMBER[4000]</property>
                         <property name="id">foryou</property>
                         <property name="label">For you</property>
-                        <onclick>RunScript(script.globalsearch)</onclick>
                     </item>
                     <!-- Movies section -->
                     <item>
@@ -126,6 +125,7 @@
                     </item>
                     <!-- Addons section -->
                     <item>
+                        <onclick>ActivateWindow(addonbrowser,addons://all/)</onclick>
                         <property name="menu_id">$NUMBER[4500]</property>
                         <property name="id">apps</property>
                         <property name="label">Apps</property>

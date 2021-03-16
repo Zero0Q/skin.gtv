@@ -139,7 +139,7 @@
                 </include> -->
 
                 <control type="list" id="50">
-                    <visible>Container.Content(songs)</visible>
+                    <!-- <visible>Container.Content(songs)</visible> -->
                     <top>324</top>
                     <left>328</left>
                     <width>1656</width>
@@ -152,13 +152,13 @@
                     <pagecontrol>60</pagecontrol>
                     <preloaditems>2</preloaditems>
 
-                    <itemlayout height="116" width="1656" condition="Container.Content(songs)">
+                    <itemlayout height="116" width="1656">
                         <include content="SongListLayout">
                             <param name="Focused" value="false" />
                             <param name="ItemColor" value="TextBright" />
                         </include>
                     </itemlayout>
-                    <focusedlayout height="116" width="1656" condition="Container.Content(songs)">
+                    <focusedlayout height="116" width="1656">
                         <include content="SongListLayout">
                             <param name="Focused" value="true" />
                             <param name="ItemColor" value="TextDark" />
@@ -263,125 +263,6 @@
                         <info>Player.Progress</info>
                     </control>
 
-                    <control type="group">
-                        <top>1940</top>
-                        <control type="grouplist" id="339">
-                            <orientation>horizontal</orientation>
-                            <align>center</align>
-                            <itemgap>32</itemgap>
-                            <onleft>50</onleft>
-                            <onright>9050</onright>
-
-                            <!-- Track back -->
-                            <control type="button" id="340">
-                                <left>0</left>
-                                <top>0</top>
-                                <width>96</width>
-                                <height>96</height>
-                                <textoffsetx>16</textoffsetx>
-                                <texturefocus colordiffuse="Primary">masks/128x128r16.png</texturefocus>
-                                <texturenofocus colordiffuse="b0707070">masks/128x128r16.png</texturenofocus>
-                                <font>ButtonIconSmall</font>
-                                <textcolor>TextBright</textcolor>
-                                <include>ButtonDefaults</include>
-                                <label>&#xf1da;</label>
-                                <onclick>PlayerControl(Previous)</onclick>
-                            </control>
-                            <!-- Rewind -->
-                            <control type="button" id="341">
-                                <left>0</left>
-                                <top>0</top>
-                                <width>96</width>
-                                <height>96</height>
-                                <textoffsetx>16</textoffsetx>
-                                <texturefocus colordiffuse="Primary">masks/128x128r16.png</texturefocus>
-                                <texturenofocus colordiffuse="b0707070">masks/128x128r16.png</texturenofocus>
-                                <font>ButtonIconSmall</font>
-                                <textcolor>TextBright</textcolor>
-                                <include>ButtonDefaults</include>
-                                <label>&#xf12a;</label>
-                                <onclick>PlayerControl(Rewind)</onclick>
-                            </control>
-                            <!-- Stop -->
-                            <control type="button" id="342">
-                                <left>0</left>
-                                <top>0</top>
-                                <width>96</width>
-                                <height>96</height>
-                                <textoffsetx>16</textoffsetx>
-                                <texturefocus colordiffuse="Primary">masks/128x128r16.png</texturefocus>
-                                <texturenofocus colordiffuse="b0707070">masks/128x128r16.png</texturenofocus>
-                                <font>ButtonIconSmall</font>
-                                <textcolor>TextBright</textcolor>
-                                <include>ButtonDefaults</include>
-                                <label>&#xf323;</label>
-                                <onclick>SetFocus(50)</onclick>
-                                <onclick>PlayerControl(Stop)</onclick>
-                            </control>
-                            <!-- Play -->
-                            <control type="button" id="343">
-                                <visible>Player.Paused | [Player.Rewinding | Player.Forwarding]</visible>
-                                <left>0</left>
-                                <top>0</top>
-                                <width>96</width>
-                                <height>96</height>
-                                <textoffsetx>16</textoffsetx>
-                                <texturefocus colordiffuse="Primary">masks/128x128r16.png</texturefocus>
-                                <texturenofocus colordiffuse="b0707070">masks/128x128r16.png</texturenofocus>
-                                <font>ButtonIconSmall</font>
-                                <textcolor>TextBright</textcolor>
-                                <include>ButtonDefaults</include>
-                                <label>&#xf2be;</label>
-                                <onclick>PlayerControl(Play)</onclick>
-                            </control>
-                            <!-- Pause -->
-                            <control type="button" id="344">
-                                <visible>!Player.Paused + ![Player.Rewinding | Player.Forwarding]</visible>
-                                <left>0</left>
-                                <top>0</top>
-                                <width>96</width>
-                                <height>96</height>
-                                <textoffsetx>16</textoffsetx>
-                                <texturefocus colordiffuse="Primary">masks/128x128r16.png</texturefocus>
-                                <texturenofocus colordiffuse="b0707070">masks/128x128r16.png</texturenofocus>
-                                <font>ButtonIconSmall</font>
-                                <textcolor>TextBright</textcolor>
-                                <include>ButtonDefaults</include>
-                                <label>&#xf2ad;</label>
-                                <onclick>PlayerControl(Play)</onclick>
-                            </control>
-                            <!-- Fast forward -->
-                            <control type="button" id="345">
-                                <left>0</left>
-                                <top>0</top>
-                                <width>96</width>
-                                <height>96</height>
-                                <textoffsetx>16</textoffsetx>
-                                <texturefocus colordiffuse="Primary">masks/128x128r16.png</texturefocus>
-                                <texturenofocus colordiffuse="b0707070">masks/128x128r16.png</texturenofocus>
-                                <font>ButtonIconSmall</font>
-                                <textcolor>TextBright</textcolor>
-                                <include>ButtonDefaults</include>
-                                <label>&#xf205;</label>
-                                <onclick>PlayerControl(Forward)</onclick>
-                            </control>
-                            <!-- Track forward -->
-                            <control type="button" id="346">
-                                <left>0</left>
-                                <top>0</top>
-                                <width>96</width>
-                                <height>96</height>
-                                <textoffsetx>16</textoffsetx>
-                                <texturefocus colordiffuse="Primary">masks/128x128r16.png</texturefocus>
-                                <texturenofocus colordiffuse="b0707070">masks/128x128r16.png</texturenofocus>
-                                <font>ButtonIconSmall</font>
-                                <textcolor>TextBright</textcolor>
-                                <include>ButtonDefaults</include>
-                                <label>&#xf1db;</label>
-                                <onclick>PlayerControl(Next)</onclick>
-                            </control>
-                        </control>
-                    </control>
                 </control>
 
             </control>

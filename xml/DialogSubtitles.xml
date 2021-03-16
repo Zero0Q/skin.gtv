@@ -13,7 +13,7 @@
             <control type="image">
                 <width>100%</width>
                 <height>100%</height>
-                <texture border="16" colordiffuse="f2101010">masks/Mask440x440r16.png</texture>
+                <texture border="16" colordiffuse="DialogBackground">masks/Mask440x440r16.png</texture>
             </control>
 
             <control type="Label" id="100">
@@ -42,7 +42,7 @@
                 </control>
 
                 <control type="image">
-                    <texture border="16" colordiffuse="f8282828">masks/Mask440x440r16.png</texture>
+                    <texture border="16" colordiffuse="DialogList">masks/Mask440x440r16.png</texture>
                 </control>
 
                 <control type="list" id="150">
@@ -131,7 +131,7 @@
                 </control>
 
                 <control type="image">
-                    <texture border="16" colordiffuse="f8282828">masks/Mask440x440r16.png</texture>
+                    <texture border="16" colordiffuse="DialogList">masks/Mask440x440r16.png</texture>
                 </control>
 
                 <control type="list" id="120">

@@ -28,13 +28,23 @@
         <control type="image">
             <left>0</left>
             <top>0</top>
+            <width>3840</width>
+            <height>2160</height>
+            <fadetime>400</fadetime>
+            <texture background="true" colordiffuse="$VAR[blurcolor1]">masks/bkggrad.png</texture>
+        </control>
+        <control type="image">
+            <visible>!Container.Content(addons) + !String.Contains(Container.FolderPath,plugin://)</visible>
+            <left>0</left>
+            <top>0</top>
             <right>0</right>
             <bottom>0</bottom>
             <fadetime>200</fadetime>
             <aspectratio scalediffuse="true">scale</aspectratio>
             <texture background="true" diffuse="masks/BackgroundMask.png" colordiffuse="ffc0c0c0">$VAR[BackgroundImageWithoutFallback]</texture>
-        </control> 
-    </include>    
+        </control>
+    </include>
+
     <include name="BackgroundForYouHub">
         <control type="image">
             <left>0</left>
@@ -44,7 +54,7 @@
             <fadetime>200</fadetime>
             <aspectratio scalediffuse="true">scale</aspectratio>
             <texture background="true" diffuse="masks/BackgroundMask.png" colordiffuse="ffc0c0c0">$VAR[BackgroundImageForYou]</texture>
-        </control> 
+        </control>
     </include>
 
     <!-- Main Blurred Background -->
@@ -61,7 +71,7 @@
             <control type="image">
                 <fadetime>400</fadetime>
                 <aspectratio>scale</aspectratio>
-                <texture background="true" colordiffuse="ff404040">$INFO[Window(home).Property(listitem_blurred)]</texture>
+                <texture background="true" colordiffuse="ff606060">$INFO[Window(home).Property(listitem_blurred)]</texture>
             </control>
         </control>
     </include>

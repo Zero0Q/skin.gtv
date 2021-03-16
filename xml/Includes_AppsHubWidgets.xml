@@ -102,28 +102,28 @@
             </control>
 
             <!-- Widget row 4-->
-            <!-- <control type="group">
-                <visible>Integer.IsGreater(Container(4104).NumItems,0) | Container(4104).IsUpdating</visible>
-                <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(4101)">Conditional</animation>
-                <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(4102)">Conditional</animation>
-                <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(4103)">Conditional</animation>
+            <control type="group">
+                <visible>Integer.IsGreater(Container(4504).NumItems,0) | Container(4504).IsUpdating</visible>
+                <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(4501)">Conditional</animation>
+                <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(4502)">Conditional</animation>
+                <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(4503)">Conditional</animation>
 
                 <left>0</left>
                 <right>0</right>
                 <top>0</top>
                 <height>900</height>
-                <include content="HomeWidgetLandscape">
-                    <param name="WidgetLabel" value="$INFO[Container(4104).ListItem.Property(searchstring),More , movies]" />
-                    <param name="ParentID" value="4101" />
-                    <param name="ListID" value="4104" />
-                    <param name="Content" value="plugin://script.embuary.helper/?info=getbygenre&type=movie" />
-                    <param name="ContentType" value="videos" />
-                    <param name="OnBack" value="SetFocus(4104,0,absolute)" />
-                    <param name="OnUp" value="4103" />
+                <include content="HomeWidgetSquareApps">
+                    <param name="WidgetLabel" value="Program addons" />
+                    <param name="ParentID" value="4501" />
+                    <param name="ListID" value="4504" />
+                    <param name="Content" value="addons://sources/executable/" />
+                    <param name="ContentType" value="programs" />
+                    <param name="OnBack" value="SetFocus(4504,0,absolute)" />
+                    <param name="OnUp" value="4503" />
                     <param name="OnDown" value="noop" />
                     <param name="GroupHeight" value="600" />
                 </include>
-            </control> -->
+            </control>
         </control>
     </include>
 
