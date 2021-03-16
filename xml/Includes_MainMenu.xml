@@ -91,7 +91,6 @@
                 <content>
                     <!-- Search section -->
                     <item>
-                        <property name="menu_id">$NUMBER[4700]</property>
                         <property name="id">search</property>
                         <property name="label">Search</property>
                         <onclick>RunScript(script.globalsearch)</onclick>

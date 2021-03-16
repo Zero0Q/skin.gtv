@@ -120,6 +120,7 @@
                                 <height>41</height>
                                 <texture background="true">general/clock.png</texture>
                             </control>
+
                             <control type="label">
                                 <left>96</left>
                                 <width>782</width>
@@ -151,14 +152,14 @@
                         <control type="group">
                             <visible>!String.IsEmpty(ListItem.rating(themoviedb))</visible>
                             <control type="image">
-                                <left>270</left>
+                                <left>350</left>
                                 <top>698</top>
                                 <width>95</width>
                                 <height>41</height>
                                 <texture background="true">general/tmdb.png</texture>
                             </control>
                             <control type="label">
-                                <left>380</left>
+                                <left>460</left>
                                 <width>782</width>
                                 <top>686</top>
                                 <height>60</height>
@@ -183,6 +184,14 @@
         <param name="ShowLabel1" default="false" />
         <param name="ShowLabel2" default="false" />
         <param name="LabelColor" default="TextBright" />
+            <control type="image">
+                <left>220</left>
+                <top>300</top>
+                <width>800</width>
+                <height>310</height>
+                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+            </control>
+
 
         <definition>
             <control type="group">
@@ -221,6 +230,7 @@
                         <width>790</width>
                         <height>448</height>
                         <texture background="true">masks/Selector790x448r16.png</texture>
+                        <animation effect="fade" start="100" end="20" time="1500" easing="inout" tween="cubic" pulse="true" condition="$PARAM[Focused]">Conditional</animation>
                     </control>
                     <!-- Unwatched background-->
                     <control type="image">
@@ -290,6 +300,7 @@
                         <width>420</width>
                         <height>626</height>
                         <texture background="true" border="32">masks/Selector420x626r16.png</texture>
+                        <animation effect="fade" start="100" end="20" time="1500" easing="inout" tween="cubic" pulse="true" condition="$PARAM[Focused]">Conditional</animation>
                     </control>
                     <!-- Unwatched background-->
                     <control type="image">
@@ -371,14 +382,14 @@
                         <control type="group">
                             <visible>!String.IsEmpty(ListItem.rating(themoviedb))</visible>
                             <control type="image">
-                                <left>270</left>
+                                <left>350</left>
                                 <top>698</top>
                                 <width>95</width>
                                 <height>41</height>
                                 <texture background="true">general/tmdb.png</texture>
                             </control>
                             <control type="label">
-                                <left>380</left>
+                                <left>460</left>
                                 <width>782</width>
                                 <top>686</top>
                                 <height>60</height>
@@ -512,6 +523,7 @@
                             <!-- <label>$VAR[WidgetTitle]</label> -->
                             <visible>!Container(2000).HasNext</visible>
                         </control>
+
                         <control type="textbox" id="2001">
                             <left>220</left>
                             <right>300</right>
@@ -557,7 +569,7 @@
                         <font>LibraryInfoLine</font>
                         <textcolor>TextSubLabel</textcolor>
                         <scrollsuffix>•</scrollsuffix>
-                        <label>$VAR[NumSeasons]</label>
+                        <!-- <label>$VAR[NumSeasons]</label> -->
                     </control>
                     <!-- Set info -->
                     <control type="image">
@@ -601,7 +613,7 @@
                         <width>60</width>
                         <height>60</height>
                         <aspectratio>keep</aspectratio>
-                        <texture background="true">general/clock.png</texture>
+                        <!-- <texture background="true">general/clock.png</texture> -->
                     </control>
                     <control type="button">
                         <visible>!String.IsEmpty(Container($PARAM[ID]).ListItem.Duration(mins)) + [String.IsEqual(Container($PARAM[ID]).ListItem.dbtype,movie) | String.IsEqual(Container($PARAM[ID]).ListItem.dbtype,episode)]</visible>
@@ -612,12 +624,12 @@
                         <align>left</align>
                         <font>LibraryInfoLine</font>
                         <textcolor>TextSubLabel</textcolor>
-                        <label>$INFO[Container($PARAM[ID]).ListItem.Duration(mins),(,m - ]$INFO[ListItem.Endtime,,)]</label>
+                        <!-- <label>$INFO[Container($PARAM[ID]).ListItem.Duration(mins),(,m - ]$INFO[ListItem.Endtime,,)]</label> -->
                     </control>
                     <!-- Movie / Show rating -->
                     <control type="image">
                         <visible>!String.IsEmpty(Container($PARAM[ID]).ListItem.rating(themoviedb))</visible>
-                        <left>50</left>
+                        <left>40</left>
                         <top>56</top>
                         <width>139</width>
                         <height>56</height>
