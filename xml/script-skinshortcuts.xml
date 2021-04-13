@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol always="true">500</defaultcontrol>
+
+    <controls>
+        <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>3840</width>
+            <height>2160</height>
+            <texture>general/Black.png</texture>
+        </control>
+
+        <control type="group">
+            <centerleft>50%</centerleft>
+            <centertop>50%</centertop>
+            <width>2800</width>
+            <height>1720</height>
+
+            <control type="image">
+                <texture border="16" colordiffuse="DialogBackground">masks/Mask440x440r16.png</texture>
+            </control>
+
+            <control type="group">
+                <left>64</left>
+                <top>64</top>
+                <bottom>64</bottom>
+                <width>800</width>
+
+                <control type="image">
+                    <texture border="16" colordiffuse="DialogList">masks/Mask440x440r16.png</texture>
+                </control>
+
+                <control type="list" id="211">
+                    <left>16</left>
+                    <top>16</top>
+                    <right>16</right>
+                    <bottom>16</bottom>
+
+                    <onright>500</onright>
+
+                    <itemlayout width="768" height="120">
+                        <include content="ListItem120">
+                            <param name="Focused" value="false" />
+                            <param name="ItemTextColor" value="TextBright" />
+                            <param name="UseCustomLabel" value="true" />
+                            <param name="CustomLabel" value="$VAR[SkinShortcutsMenuEntryVar]" />
+                        </include>
+                    </itemlayout>
+                    <focusedlayout width="768" height="120">
+                        <include content="ListItem120">
+                            <param name="Focused" value="true" />
+                            <param name="ItemTextColor" value="TextDark" />
+                            <param name="UseCustomLabel" value="true" />
+                            <param name="CustomLabel" value="$VAR[SkinShortcutsMenuEntryVar]" />
+                        </include>
+                    </focusedlayout>
+                </control>
+
+            </control>
+
+            <control type="group">
+                <left>928</left>
+                <right>64</right>
+                <top>64</top>
+                <bottom>64</bottom>
+
+                <control type="image">
+                    <texture border="16" colordiffuse="DialogList">masks/Mask440x440r16.png</texture>
+                </control>
+
+                <control type="grouplist" id="500">
+                    <left>16</left>
+                    <top>16</top>
+                    <right>16</right>
+                    <bottom>16</bottom>
+                    <align>left</align>
+                    <orientation>vertical</orientation>
+
+                    <onleft>211</onleft>
+
+                    <control type="grouplist" id="300">
+                        <height>120</height>
+                        <align>left</align>
+                        <orientation>horizontal</orientation>
+
+                        <onleft>211</onleft>
+                        <ondown>401</ondown>
+                        <onup>noop</onup>
+
+                        <control type="button" id="301">
+                            <description>Add a new shortcut</description>
+                            <width>120</width>
+                            <font>ButtonIcon</font>
+                            <textoffsetx>0</textoffsetx>
+                            <include>Button120</include>
+                            <onclick>noop</onclick>
+                            <ondown>401</ondown>
+                            <label>&#xF2C3;</label>
+                        </control>
+
+                        <control type="button" id="302">
+                            <description>Delete shortcut</description>
+                            <width>120</width>
+                            <font>ButtonIcon</font>
+                            <textoffsetx>0</textoffsetx>
+                            <include>Button120</include>
+                            <onclick>noop</onclick>
+                            <ondown>401</ondown>
+                            <label>&#xF28F;</label>
+                        </control>
+
+                        <control type="button" id="303">
+                            <description>Move shortcut up</description>
+                            <width>120</width>
+                            <font>ButtonIcon</font>
+                            <textoffsetx>0</textoffsetx>
+                            <include>Button120</include>
+                            <onclick>noop</onclick>
+                            <ondown>401</ondown>
+                            <label>&#xF183;</label>
+                        </control>
+
+                        <control type="button" id="304">
+                            <description>Move shortcut down</description>
+                            <width>120</width>
+                            <font>ButtonIcon</font>
+                            <textoffsetx>0</textoffsetx>
+                            <include>Button120</include>
+                            <onclick>noop</onclick>
+                            <ondown>401</ondown>
+                            <label>&#xF180;</label>
+                        </control>
+
+                        <control type="togglebutton" id="313" description="Enable/Disable">
+                            <width>120</width>
+                            <font>ButtonIcon</font>
+                            <textoffsetx>0</textoffsetx>
+                            <include>Button120</include>
+                            <alttexturefocus colordiffuse="TextBright" border="60">masks/Mask120x120r60.png</alttexturefocus>
+                            <label>&#xF17C;</label>
+                            <altlabel>&#xF343;</altlabel>
+                            <usealttexture>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True)</usealttexture>
+                            <onclick>noop</onclick>
+                            <ondown>401</ondown>
+                        </control>
+
+                        <control type="button" id="308">
+                            <description>Reset shortcuts</description>
+                            <left>0</left>
+                            <top>230</top>
+                            <align>left</align>
+                            <onclick>noop</onclick>
+                            <ondown>401</ondown>
+                            <include>Button120</include>
+                            <label>Reset All</label>
+                        </control>
+                    </control>
+
+                    <control type="group" id="299">
+                        <height>120</height>
+                    </control>
+
+                    <control type="button" id="401">
+                        <description>Change item for menu</description>
+                        <width>100%</width>
+                        <align>left</align>
+                        <include>Button120</include>
+                        <onclick>noop</onclick>
+                        <onup>300</onup>
+                        <label>$ADDON[script.skinshortcuts 32048]</label>
+                        <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True)</visible>
+                    </control>
+
+                    <control type="button" id="305">
+                        <description>Change shortcut label</description>
+                        <width>100%</width>
+                        <align>left</align>
+                        <include>Button120</include>
+                        <onclick>noop</onclick>
+                        <label>$ADDON[script.skinshortcuts 32025]</label>
+                        <label2>$INFO[Container(211).ListItem.Label]</label2>
+                        <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True)</visible>
+                    </control>
+
+                    <control type="button" id="307">
+                        <description>Change shortcut action</description>
+                        <width>100%</width>
+                        <align>left</align>
+                        <include>Button120</include>
+                        <onclick>noop</onclick>
+                        <label>$ADDON[script.skinshortcuts 32027]</label>
+                        <label2>$INFO[Container(211).ListItem.Property(displaypath)]</label2>
+                        <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True)</visible>
+                    </control>
+
+                    <control type="button" id="405">
+                        <description>Customize sub-menu</description>
+                        <width>100%</width>
+                        <align>left</align>
+                        <include>Button120</include>
+                        <onclick>noop</onclick>
+                        <label>$ADDON[script.skinshortcuts 32072]</label>
+                        <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+                        <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True)</visible>
+                    </control>
+
+                    <control type="group" id="797">
+                        <height>60</height>
+                    </control>
+
+                    <control type="button" id="799">
+                        <description>Select section template</description>
+                        <width>468</width>
+                        <font>SelectDialogItemText</font>
+                        <align>left</align>
+                        <include>Button120</include>
+                        <wrapmultiline>true</wrapmultiline>
+                        <label>$LOCALIZE[31523]</label>
+                        <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True)</visible>
+                        <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+
+                        <onclick>SetProperty(customProperty,widgetGroupTemplate)</onclick>
+                        <!-- <onclick condition="String.IsEqual(Container(211).ListItem.Property(widgetGroupTemplate),template1)">SetProperty(customValue,template2)</onclick> -->
+                        <onclick condition="String.IsEqual(Container(211).ListItem.Property(widgetGroupTemplate),template2)">SetProperty(customValue,template3)</onclick>
+                        <onclick condition="String.IsEqual(Container(211).ListItem.Property(widgetGroupTemplate),template3)">SetProperty(customValue,template4)</onclick>
+                        <onclick condition="String.IsEqual(Container(211).ListItem.Property(widgetGroupTemplate),template4)">SetProperty(customValue,template2)</onclick>
+                        <onclick>SendClick(404)</onclick>
+                    </control>
+
+                    <control type="group" id="798">
+                        <height>60</height>
+                    </control>
+
+                    <control type="button" id="801">
+                        <description>Change Widget 1</description>
+                        <width>100%</width>
+                        <font>SelectDialogItemText</font>
+                        <align>left</align>
+                        <include>Button120</include>
+                        <onfocus condition="!String.IsEmpty(Window(Home).Property(skinshortcuts-Widget))">ClearProperty(skinshortcuts-Widget,Home)</onfocus>
+                        <onclick>SetProperty(skinshortcuts-Widget,1,Home)</onclick>
+                        <onclick>Control.SetFocus(3312)</onclick>
+                        <label>$VAR[Widget1LabelVar]</label>
+                        <label2>$INFO[Container(211).ListItem.Property(widgetName.1)]</label2>
+                        <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True)</visible>
+                        <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+                    </control>
+
+                    <control type="button" id="802">
+                        <description>Change Widget 2</description>
+                        <width>100%</width>
+                        <align>left</align>
+                        <include>Button120</include>
+                        <onfocus condition="!String.IsEmpty(Window(Home).Property(skinshortcuts-Widget))">ClearProperty(skinshortcuts-Widget,Home)</onfocus>
+                        <onclick>SetProperty(skinshortcuts-Widget,2,Home)</onclick>
+                        <onclick>Control.SetFocus(4312)</onclick>
+                        <label>$VAR[Widget2LabelVar]</label>
+                        <label2>$INFO[Container(211).ListItem.Property(widgetName.2)]</label2>
+                        <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True)</visible>
+                        <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+                    </control>
+
+                    <control type="button" id="803">
+                        <description>Change Widget 3</description>
+                        <width>100%</width>
+                        <align>left</align>
+                        <include>Button120</include>
+                        <onfocus condition="!String.IsEmpty(Window(Home).Property(skinshortcuts-Widget))">ClearProperty(skinshortcuts-Widget,Home)</onfocus>
+                        <onclick>SetProperty(skinshortcuts-Widget,3,Home)</onclick>
+                        <onclick>Control.SetFocus(5312)</onclick>
+                        <label>$LOCALIZE[31531]</label>
+                        <label2>$INFO[Container(211).ListItem.Property(widgetName.3)]</label2>
+                        <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True)</visible>
+                        <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+                    </control>
+
+                    <control type="button" id="804">
+                        <description>Change Widget 4</description>
+                        <width>100%</width>
+                        <align>left</align>
+                        <include>Button120</include>
+                        <onfocus condition="!String.IsEmpty(Window(Home).Property(skinshortcuts-Widget))">ClearProperty(skinshortcuts-Widget,Home)</onfocus>
+                        <onclick>SetProperty(skinshortcuts-Widget,4,Home)</onclick>
+                        <onclick>Control.SetFocus(6312)</onclick>
+                        <label>$LOCALIZE[31531]</label>
+                        <label2>$INFO[Container(211).ListItem.Property(widgetName.4)]</label2>
+                        <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True)</visible>
+                        <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+                    </control>
+
+                    <control type="button" id="805">
+                        <description>Change Widget 5</description>
+                        <width>100%</width>
+                        <align>left</align>
+                        <include>Button120</include>
+                        <onfocus condition="!String.IsEmpty(Window(Home).Property(skinshortcuts-Widget))">ClearProperty(skinshortcuts-Widget,Home)</onfocus>
+                        <onclick>SetProperty(skinshortcuts-Widget,5,Home)</onclick>
+                        <onclick>Control.SetFocus(7312)</onclick>
+                        <label>$LOCALIZE[31531]</label>
+                        <label2>$INFO[Container(211).ListItem.Property(widgetName.5)]</label2>
+                        <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True)</visible>
+                        <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+                    </control>
+
+                    <!-- Fake button to set custom properties -->
+                    <control type="button" id="404">
+                        <visible>false</visible>
+                    </control>
+
+                </control>
+
+                <control type="group">
+                    <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+                    <top>775</top>
+                    <height>174</height>
+                    <right>16</right>
+                    <width>1088</width>
+                    <control type="image">
+                        <texture border="16" colordiffuse="DialogBackground">masks/Mask440x440r16.png</texture>
+                    </control>
+
+                    <control type="image">
+                        <right>16</right>
+                        <top>16</top>
+                        <height>142</height>
+                        <width>252</width>
+                        <texture diffuse="general/templates/TemplateMask.png">general/templates/Template4.png</texture>
+                    </control>
+                    <control type="image">
+                        <visible>String.IsEqual(Container(211).ListItem.Property(widgetGroupTemplate),template4</visible>
+                        <right>12</right>
+                        <top>12</top>
+                        <height>150</height>
+                        <width>260</width>
+                        <texture diffuse="general/templates/TemplateMask.png">general/templates/TemplateSelector.png</texture>
+                    </control>
+                    <control type="image">
+                        <right>284</right>
+                        <top>16</top>
+                        <height>142</height>
+                        <width>252</width>
+                        <texture diffuse="general/templates/TemplateMask.png">general/templates/Template3.png</texture>
+                    </control>
+                    <control type="image">
+                        <visible>String.IsEqual(Container(211).ListItem.Property(widgetGroupTemplate),template3</visible>
+                        <right>280</right>
+                        <top>12</top>
+                        <height>150</height>
+                        <width>260</width>
+                        <texture diffuse="general/templates/TemplateMask.png">general/templates/TemplateSelector.png</texture>
+                    </control>
+                    <control type="image">
+                        <right>552</right>
+                        <top>16</top>
+                        <height>142</height>
+                        <width>252</width>
+                        <texture diffuse="general/templates/TemplateMask.png">general/templates/Template2.png</texture>
+                    </control>
+                    <control type="image">
+                        <visible>String.IsEqual(Container(211).ListItem.Property(widgetGroupTemplate),template2</visible>
+                        <right>548</right>
+                        <top>12</top>
+                        <height>150</height>
+                        <width>260</width>
+                        <texture diffuse="general/templates/TemplateMask.png">general/templates/TemplateSelector.png</texture>
+                    </control>
+                    <!-- <control type="image">
+                        <right>820</right>
+                        <top>16</top>
+                        <height>142</height>
+                        <width>252</width>
+                        <texture diffuse="general/templates/TemplateMask.png">general/templates/Template1.png</texture>
+                    </control>
+                    <control type="image">
+                        <visible>String.IsEqual(Container(211).ListItem.Property(widgetGroupTemplate),template1</visible>
+                        <right>816</right>
+                        <top>12</top>
+                        <height>150</height>
+                        <width>260</width>
+                        <texture diffuse="general/templates/TemplateMask.png">general/templates/TemplateSelector.png</texture>
+                    </control> -->
+                </control>
+
+
+            </control>
+
+            <!-- Widget 1 settings -->
+            <include content="SkinShortcutsSettings">
+                <param name="widgetNumber" value="1" />
+                <param name="groupID" value="3" />
+            </include>
+
+            <!-- Widget 2 settings -->
+            <include content="SkinShortcutsSettings">
+                <param name="widgetNumber" value="2" />
+                <param name="groupID" value="4" />
+            </include>
+
+            <!-- Widget 3 settings -->
+            <include content="SkinShortcutsSettings">
+                <param name="widgetNumber" value="3" />
+                <param name="groupID" value="5" />
+            </include>
+
+            <!-- Widget 4 settings -->
+            <include content="SkinShortcutsSettings">
+                <param name="widgetNumber" value="4" />
+                <param name="groupID" value="6" />
+            </include>
+
+            <!-- Widget 5 settings -->
+            <include content="SkinShortcutsSettings">
+                <param name="widgetNumber" value="5" />
+                <param name="groupID" value="7" />
+            </include>
+        </control>
+    </controls>
+</window>

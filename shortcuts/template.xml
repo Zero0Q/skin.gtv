@@ -1,0 +1,720 @@
+<template>
+
+    <!-- ========================== Main Menu OnDown =========================== -->
+    <other include="main-menu-ondown">
+        <property name="id" tag="mainmenuid" />
+        <controls>
+            <ondown condition="String.IsEqual(Container(9000).ListItem.Property(id),$SKINSHORTCUTS[id])">16$SKINSHORTCUTS[id]00</ondown>
+        </controls>
+    </other>
+
+    <!-- ====================== Main Menu Slide Animation ====================== -->
+    <other include="main-menu-slide">
+        <property name="id" tag="mainmenuid" />
+        <controls>
+            <animation type="Conditional" condition="Integer.IsGreater(Container(16$SKINSHORTCUTS[id]00).Position,1)">
+                <effect type="slide" start="0,0" end="0,-200" time="200" />
+                <effect type="fade" start="100" end="0" delay="25" time="150" />
+            </animation>
+        </controls>
+    </other>
+
+    <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!--                               Template 2                                -->
+    <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <other include="widgets">
+        <condition tag="property" attribute="name|widgetGroupTemplate">template2</condition>
+        <condition tag="property" attribute="name|widgetPath.1" />
+        <match>all</match>
+
+        <property name="id" tag="mainmenuid" />
+        <property name="widgetGroupTemplate" tag="property" attribute="name|widgetGroupTemplate" />
+
+        <!--Get Widget 1 properties -->
+        <property name="widget.1" tag="property" attribute="name|widget.1" />
+        <property name="label.1" tag="property" attribute="name|widgetName.1" />
+        <property name="path.1" tag="property" attribute="name|widgetPath.1" />
+        <property name="target.1" tag="property" attribute="name|widgetTarget.1" />
+        <property name="artwork.1" tag="property" attribute="name|widgetArtwork.1" />
+        <property name="sortBy.1" tag="property" attribute="name|widgetSortBy.1" />
+        <property name="sortOrder.1" tag="property" attribute="name|widgetSortOrder.1" />
+        <property name="sortLimit.1" tag="property" attribute="name|widgetLimit.1" />
+        <!--Get Widget 2 properties -->
+        <property name="widget.2" tag="property" attribute="name|widget.2" />
+        <property name="label.2" tag="property" attribute="name|widgetName.2" />
+        <property name="path.2" tag="property" attribute="name|widgetPath.2" />
+        <property name="target.2" tag="property" attribute="name|widgetTarget.2" />
+        <property name="artwork.2" tag="property" attribute="name|widgetArtwork.2" />
+        <property name="sortBy.2" tag="property" attribute="name|widgetSortBy.2" />
+        <property name="sortOrder.2" tag="property" attribute="name|widgetSortOrder.2" />
+        <property name="sortLimit.2" tag="property" attribute="name|widgetLimit.2" />
+        <!--Get Widget 3 properties -->
+        <property name="widget.3" tag="property" attribute="name|widget.3" />
+        <property name="label.3" tag="property" attribute="name|widgetName.3" />
+        <property name="path.3" tag="property" attribute="name|widgetPath.3" />
+        <property name="target.3" tag="property" attribute="name|widgetTarget.3" />
+        <property name="artwork.3" tag="property" attribute="name|widgetArtwork.3" />
+        <property name="sortBy.3" tag="property" attribute="name|widgetSortBy.3" />
+        <property name="sortOrder.3" tag="property" attribute="name|widgetSortOrder.3" />
+        <property name="sortLimit.3" tag="property" attribute="name|widgetLimit.3" />
+        <!--Get Widget 4 properties -->
+        <property name="widget.4" tag="property" attribute="name|widget.4" />
+        <property name="label.4" tag="property" attribute="name|widgetName.4" />
+        <property name="path.4" tag="property" attribute="name|widgetPath.4" />
+        <property name="target.4" tag="property" attribute="name|widgetTarget.4" />
+        <property name="artwork.4" tag="property" attribute="name|widgetArtwork.4" />
+        <property name="sortBy.4" tag="property" attribute="name|widgetSortBy.4" />
+        <property name="sortOrder.4" tag="property" attribute="name|widgetSortOrder.4" />
+        <property name="sortLimit.4" tag="property" attribute="name|widgetLimit.4" />
+        <!--Get Widget 5 properties -->
+        <property name="widget.5" tag="property" attribute="name|widget.5" />
+        <property name="label.5" tag="property" attribute="name|widgetName.5" />
+        <property name="path.5" tag="property" attribute="name|widgetPath.5" />
+        <property name="target.5" tag="property" attribute="name|widgetTarget.5" />
+        <property name="artwork.5" tag="property" attribute="name|widgetArtwork.5" />
+        <property name="sortBy.5" tag="property" attribute="name|widgetSortBy.5" />
+        <property name="sortOrder.5" tag="property" attribute="name|widgetSortOrder.5" />
+        <property name="sortLimit.5" tag="property" attribute="name|widgetLimit.5" />
+
+
+        <controls>
+            <control type="group">
+                <skinshortcuts>visibility</skinshortcuts>
+
+                <include>ContentChangeAnimation</include>
+
+                <include content="FeatureWidgetInfo">
+                    <param name="WidgetGroupID" value="16$SKINSHORTCUTS[id]00" />
+                    <param name="ListID" value="160$SKINSHORTCUTS[id]1" />
+                    <param name="WidgetLabel" value="$SKINSHORTCUTS[label.1]" />
+                    <param name="WidgetType" value="$SKINSHORTCUTS[widget.1]" />
+                </include>
+
+                <control type="grouplist" id="16$SKINSHORTCUTS[id]00">
+
+                    <!-- Slide down 180 if submenu is not empty -->
+                    <!-- <animation effect="slide" end="0,180" time="0" condition="$EXP[subMenuNotEmpty]">Conditional</animation> -->
+                    <!-- Remove the 180 slide from above if main and sub menus loose focus and submenu is not empty -->
+                    <!-- <animation effect="slide" end="0,-180" time="200" condition="!Control.HasFocus(9000) + !Control.HasFocus(9001) + $EXP[subMenuNotEmpty]">Conditional</animation> -->
+
+                    <!-- Allow slide for upto 5 widget rows (first and last rows don't slide) -->
+                    <animation effect="slide" end="0,-1380" time="460" condition="Integer.IsGreater(Container(16$SKINSHORTCUTS[id]00).Position,1) + Integer.IsGreater(Container(16$SKINSHORTCUTS[id]00).NumItems,1)">Conditional</animation>
+                    <animation effect="slide" end="0,-600" time="200" condition="Integer.IsGreater(Container(16$SKINSHORTCUTS[id]00).Position,2) + Integer.IsGreater(Container(16$SKINSHORTCUTS[id]00).NumItems,3)">Conditional</animation>
+                    <animation effect="slide" end="0,-600" time="200" condition="Integer.IsGreater(Container(16$SKINSHORTCUTS[id]00).Position,3) + Integer.IsGreater(Container(16$SKINSHORTCUTS[id]00).NumItems,4)">Conditional</animation>
+
+                    <left>0</left>
+                    <top>0</top>
+                    <height>15000</height>
+                    <right>0</right>
+                    <usecontrolcoords>true</usecontrolcoords>
+                    <itemgap>0</itemgap>
+
+                    <!-- Spacer to push widget rows down -->
+                    <control type="group">
+                        <height>1326</height>
+                    </control>
+
+                    <!-- Widget row 1 -->
+                    <control type="group">
+                        <visible>Integer.IsGreater(Container(160$SKINSHORTCUTS[id]1).NumItems,0) | Container(160$SKINSHORTCUTS[id]1).IsUpdating</visible>
+                        <animation effect="slide" end="0,-200" time="200" condition="Control.HasFocus(160$SKINSHORTCUTS[id]2) | Control.HasFocus(160$SKINSHORTCUTS[id]3) | Control.HasFocus(160$SKINSHORTCUTS[id]4) | Control.HasFocus(160$SKINSHORTCUTS[id]5)">Conditional</animation>
+
+                        <left>0</left>
+                        <right>0</right>
+                        <top>0</top>
+                        <height>600</height>
+                        <include content="HomeWidget$SKINSHORTCUTS[artwork.1]">
+                            <param name="WidgetLabel" value="" />
+                            <param name="ShowHeader" value="false" />
+                            <param name="ShowLabels" value="false" />
+                            <param name="WidgetType" value="$SKINSHORTCUTS[widget.1]" />
+                            <param name="ListID" value="160$SKINSHORTCUTS[id]1" />
+                            <param name="Content" value="$SKINSHORTCUTS[path.1]" />
+                            <param name="ContentType" value="$SKINSHORTCUTS[target.1]" />
+                            <param name="SortBy" value="$SKINSHORTCUTS[sortBy.1]" />
+                            <param name="SortOrder" value="$SKINSHORTCUTS[sortOrder.1]" />
+                            <param name="SortLimit" value="$SKINSHORTCUTS[sortLimit.1]" />
+                            <param name="OnBack" value="SetFocus(160$SKINSHORTCUTS[id]1,0,absolute)" />
+                            <param name="OnUp" value="9001" />
+                            <param name="OnDown" value="160$SKINSHORTCUTS[id]2" />
+                            <param name="GroupHeight" value="600" />
+                        </include>
+                    </control>
+
+                    <!-- Widget row 2-->
+                    <control type="group">
+                        <visible>Integer.IsGreater(Container(160$SKINSHORTCUTS[id]2).NumItems,0) | Container(160$SKINSHORTCUTS[id]2).IsUpdating</visible>
+                        <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(160$SKINSHORTCUTS[id]1)">Conditional</animation>
+                        <animation effect="slide" end="0,-200" time="200" condition="Control.HasFocus(160$SKINSHORTCUTS[id]3) | Control.HasFocus(160$SKINSHORTCUTS[id]4) | Control.HasFocus(160$SKINSHORTCUTS[id]5)">Conditional</animation>
+
+                        <left>0</left>
+                        <right>0</right>
+                        <top>0</top>
+                        <height>600</height>
+                        <include content="HomeWidget$SKINSHORTCUTS[artwork.2]">
+                            <param name="WidgetLabel" value="$SKINSHORTCUTS[label.2]" />
+                            <param name="WidgetType" value="$SKINSHORTCUTS[widget.2]" />
+                            <param name="ListID" value="160$SKINSHORTCUTS[id]2" />
+                            <param name="Content" value="$SKINSHORTCUTS[path.2]" />
+                            <param name="ContentType" value="$SKINSHORTCUTS[target.2]" />
+                            <param name="SortBy" value="$SKINSHORTCUTS[sortBy.2]" />
+                            <param name="SortOrder" value="$SKINSHORTCUTS[sortOrder.2]" />
+                            <param name="SortLimit" value="$SKINSHORTCUTS[sortLimit.2]" />
+                            <param name="OnBack" value="SetFocus(160$SKINSHORTCUTS[id]2,0,absolute)" />
+                            <param name="OnUp" value="160$SKINSHORTCUTS[id]1" />
+                            <param name="OnDown" value="160$SKINSHORTCUTS[id]3" />
+                            <param name="GroupHeight" value="600" />
+                        </include>
+                    </control>
+
+                    <!-- Widget row 3 -->
+                    <control type="group">
+                        <visible>Integer.IsGreater(Container(160$SKINSHORTCUTS[id]3).NumItems,0) | Container(160$SKINSHORTCUTS[id]3).IsUpdating</visible>
+                        <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(160$SKINSHORTCUTS[id]1) | Control.HasFocus(160$SKINSHORTCUTS[id]2)">Conditional</animation>
+                        <animation effect="slide" end="0,-200" time="200" condition="Control.HasFocus(160$SKINSHORTCUTS[id]4) | Control.HasFocus(160$SKINSHORTCUTS[id]5)">Conditional</animation>
+
+                        <left>0</left>
+                        <right>0</right>
+                        <top>0</top>
+                        <height>600</height>
+                        <include content="HomeWidget$SKINSHORTCUTS[artwork.3]">
+                            <param name="WidgetLabel" value="$SKINSHORTCUTS[label.3]" />
+                            <param name="WidgetType" value="$SKINSHORTCUTS[widget.3]" />
+                            <param name="ListID" value="160$SKINSHORTCUTS[id]3" />
+                            <param name="Content" value="$SKINSHORTCUTS[path.3]" />
+                            <param name="ContentType" value="$SKINSHORTCUTS[target.3]" />
+                            <param name="SortBy" value="$SKINSHORTCUTS[sortBy.3]" />
+                            <param name="SortOrder" value="$SKINSHORTCUTS[sortOrder.3]" />
+                            <param name="SortLimit" value="$SKINSHORTCUTS[sortLimit.3]" />
+                            <param name="OnBack" value="SetFocus(160$SKINSHORTCUTS[id]3,0,absolute)" />
+                            <param name="OnUp" value="160$SKINSHORTCUTS[id]2" />
+                            <param name="OnDown" value="160$SKINSHORTCUTS[id]4" />
+                            <param name="GroupHeight" value="600" />
+                        </include>
+                    </control>
+
+                    <!-- Widget row 4 -->
+                    <control type="group">
+                        <visible>Integer.IsGreater(Container(160$SKINSHORTCUTS[id]4).NumItems,0) | Container(160$SKINSHORTCUTS[id]4).IsUpdating</visible>
+                        <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(160$SKINSHORTCUTS[id]1) | Control.HasFocus(160$SKINSHORTCUTS[id]2) | Control.HasFocus(160$SKINSHORTCUTS[id]3)">Conditional</animation>
+                        <animation effect="slide" end="0,-200" time="200" condition="Control.HasFocus(160$SKINSHORTCUTS[id]5)">Conditional</animation>
+
+                        <left>0</left>
+                        <right>0</right>
+                        <top>0</top>
+                        <height>600</height>
+                        <include content="HomeWidget$SKINSHORTCUTS[artwork.4]">
+                            <param name="WidgetLabel" value="$SKINSHORTCUTS[label.4]" />
+                            <param name="WidgetType" value="$SKINSHORTCUTS[widget.4]" />
+                            <param name="ListID" value="160$SKINSHORTCUTS[id]4" />
+                            <param name="Content" value="$SKINSHORTCUTS[path.4]" />
+                            <param name="ContentType" value="$SKINSHORTCUTS[target.4]" />
+                            <param name="SortBy" value="$SKINSHORTCUTS[sortBy.4]" />
+                            <param name="SortOrder" value="$SKINSHORTCUTS[sortOrder.4]" />
+                            <param name="SortLimit" value="$SKINSHORTCUTS[sortLimit.4]" />
+                            <param name="OnBack" value="SetFocus(160$SKINSHORTCUTS[id]4,0,absolute)" />
+                            <param name="OnUp" value="160$SKINSHORTCUTS[id]3" />
+                            <param name="OnDown" value="160$SKINSHORTCUTS[id]5" />
+                            <param name="GroupHeight" value="600" />
+                        </include>
+                    </control>
+
+                    <!-- Widget row 5 -->
+                    <control type="group">
+                        <visible>Integer.IsGreater(Container(160$SKINSHORTCUTS[id]5).NumItems,0) | Container(160$SKINSHORTCUTS[id]5).IsUpdating</visible>
+                        <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(160$SKINSHORTCUTS[id]1) | Control.HasFocus(160$SKINSHORTCUTS[id]2) | Control.HasFocus(160$SKINSHORTCUTS[id]3) | Control.HasFocus(160$SKINSHORTCUTS[id]4)">Conditional</animation>
+
+                        <left>0</left>
+                        <right>0</right>
+                        <top>0</top>
+                        <height>600</height>
+                        <include content="HomeWidget$SKINSHORTCUTS[artwork.5]">
+                            <param name="WidgetLabel" value="$SKINSHORTCUTS[label.5]" />
+                            <param name="WidgetType" value="$SKINSHORTCUTS[widget.5]" />
+                            <param name="ListID" value="160$SKINSHORTCUTS[id]5" />
+                            <param name="Content" value="$SKINSHORTCUTS[path.5]" />
+                            <param name="ContentType" value="$SKINSHORTCUTS[target.5]" />
+                            <param name="SortBy" value="$SKINSHORTCUTS[sortBy.5]" />
+                            <param name="SortOrder" value="$SKINSHORTCUTS[sortOrder.5]" />
+                            <param name="SortLimit" value="$SKINSHORTCUTS[sortLimit.5]" />
+                            <param name="OnBack" value="SetFocus(160$SKINSHORTCUTS[id]5,0,absolute)" />
+                            <param name="OnUp" value="160$SKINSHORTCUTS[id]4" />
+                            <param name="GroupHeight" value="600" />
+                        </include>
+                    </control>
+
+                </control>
+
+                <control type="image">
+                    <visible>Integer.IsGreater(Container(16$SKINSHORTCUTS[id]00).Position,1)</visible>
+                    <top>0</top>
+                    <left>0</left>
+                    <width>3840</width>
+                    <height>340</height>
+                    <texture background="true" diffuse="masks/WidgetTop.png" colordiffuse="90ffffff">general/Black.png</texture>
+                </control>
+            </control>
+
+        </controls>
+    </other>
+
+
+    <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!--                               Template 3                                -->
+    <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <other include="widgets">
+        <condition tag="property" attribute="name|widgetGroupTemplate">template3</condition>
+        <condition tag="property" attribute="name|widgetPath.1" />
+        <match>all</match>
+
+        <property name="id" tag="mainmenuid" />
+        <property name="widgetGroupTemplate" tag="property" attribute="name|widgetGroupTemplate" />
+
+        <!--Get Widget 1 properties -->
+        <property name="widget.1" tag="property" attribute="name|widget.1" />
+        <property name="label.1" tag="property" attribute="name|widgetName.1" />
+        <property name="path.1" tag="property" attribute="name|widgetPath.1" />
+        <property name="target.1" tag="property" attribute="name|widgetTarget.1" />
+        <property name="artwork.1" tag="property" attribute="name|widgetArtwork.1" />
+        <property name="sortBy.1" tag="property" attribute="name|widgetSortBy.1" />
+        <property name="sortOrder.1" tag="property" attribute="name|widgetSortOrder.1" />
+        <property name="sortLimit.1" tag="property" attribute="name|widgetLimit.1" />
+        <!--Get Widget 2 properties -->
+        <property name="widget.2" tag="property" attribute="name|widget.2" />
+        <property name="label.2" tag="property" attribute="name|widgetName.2" />
+        <property name="path.2" tag="property" attribute="name|widgetPath.2" />
+        <property name="target.2" tag="property" attribute="name|widgetTarget.2" />
+        <property name="artwork.2" tag="property" attribute="name|widgetArtwork.2" />
+        <property name="sortBy.2" tag="property" attribute="name|widgetSortBy.2" />
+        <property name="sortOrder.2" tag="property" attribute="name|widgetSortOrder.2" />
+        <property name="sortLimit.2" tag="property" attribute="name|widgetLimit.2" />
+        <!--Get Widget 3 properties -->
+        <property name="widget.3" tag="property" attribute="name|widget.3" />
+        <property name="label.3" tag="property" attribute="name|widgetName.3" />
+        <property name="path.3" tag="property" attribute="name|widgetPath.3" />
+        <property name="target.3" tag="property" attribute="name|widgetTarget.3" />
+        <property name="artwork.3" tag="property" attribute="name|widgetArtwork.3" />
+        <property name="sortBy.3" tag="property" attribute="name|widgetSortBy.3" />
+        <property name="sortOrder.3" tag="property" attribute="name|widgetSortOrder.3" />
+        <property name="sortLimit.3" tag="property" attribute="name|widgetLimit.3" />
+        <!--Get Widget 4 properties -->
+        <property name="widget.4" tag="property" attribute="name|widget.4" />
+        <property name="label.4" tag="property" attribute="name|widgetName.4" />
+        <property name="path.4" tag="property" attribute="name|widgetPath.4" />
+        <property name="target.4" tag="property" attribute="name|widgetTarget.4" />
+        <property name="artwork.4" tag="property" attribute="name|widgetArtwork.4" />
+        <property name="sortBy.4" tag="property" attribute="name|widgetSortBy.4" />
+        <property name="sortOrder.4" tag="property" attribute="name|widgetSortOrder.4" />
+        <property name="sortLimit.4" tag="property" attribute="name|widgetLimit.4" />
+        <!--Get Widget 5 properties -->
+        <property name="widget.5" tag="property" attribute="name|widget.5" />
+        <property name="label.5" tag="property" attribute="name|widgetName.5" />
+        <property name="path.5" tag="property" attribute="name|widgetPath.5" />
+        <property name="target.5" tag="property" attribute="name|widgetTarget.5" />
+        <property name="artwork.5" tag="property" attribute="name|widgetArtwork.5" />
+        <property name="sortBy.5" tag="property" attribute="name|widgetSortBy.5" />
+        <property name="sortOrder.5" tag="property" attribute="name|widgetSortOrder.5" />
+        <property name="sortLimit.5" tag="property" attribute="name|widgetLimit.5" />
+
+
+        <controls>
+            <control type="group">
+
+                <skinshortcuts>visibility</skinshortcuts>
+
+                <control type="grouplist" id="16$SKINSHORTCUTS[id]00">
+                    <include>ContentChangeAnimation</include>
+
+                    <!-- Slide down 180 if submenu is not empty -->
+                    <animation effect="slide" end="0,180" time="0" condition="$EXP[subMenuNotEmpty]">Conditional</animation>
+                    <!-- Remove the 180 slide from above if main and sub menus loose focus and submenu is not empty -->
+                    <animation effect="slide" end="0,-180" time="200" condition="!Control.HasFocus(9000) + !Control.HasFocus(9001) + $EXP[subMenuNotEmpty]">Conditional</animation>
+
+                    <!-- Allow slide for upto 5 widget rows (first and last rows don't slide) -->
+                    <animation effect="slide" end="0,-774" time="200" condition="Integer.IsGreater(Container(16$SKINSHORTCUTS[id]00).Position,1) + Integer.IsGreater(Container(16$SKINSHORTCUTS[id]00).NumItems,2)">Conditional</animation>
+                    <animation effect="slide" end="0,-600" time="200" condition="Integer.IsGreater(Container(16$SKINSHORTCUTS[id]00).Position,2) + Integer.IsGreater(Container(16$SKINSHORTCUTS[id]00).NumItems,3)">Conditional</animation>
+                    <animation effect="slide" end="0,-600" time="200" condition="Integer.IsGreater(Container(16$SKINSHORTCUTS[id]00).Position,3) + Integer.IsGreater(Container(16$SKINSHORTCUTS[id]00).NumItems,4)">Conditional</animation>
+
+                    <left>0</left>
+                    <top>0</top>
+                    <height>15000</height>
+                    <right>0</right>
+                    <usecontrolcoords>true</usecontrolcoords>
+                    <itemgap>0</itemgap>
+
+                    <!-- Spacer to push widget rows down -->
+                    <control type="group">
+                        <height>400</height>
+                    </control>
+
+                    <!-- Widget row 1 -->
+                    <control type="group">
+                        <visible>Integer.IsGreater(Container(160$SKINSHORTCUTS[id]1).NumItems,0) | Container(160$SKINSHORTCUTS[id]1).IsUpdating</visible>
+                        <animation effect="slide" end="0,-200" time="200" condition="Control.HasFocus(160$SKINSHORTCUTS[id]2) | Control.HasFocus(160$SKINSHORTCUTS[id]3) | Control.HasFocus(160$SKINSHORTCUTS[id]4) | Control.HasFocus(160$SKINSHORTCUTS[id]5)">Conditional</animation>
+
+                        <left>0</left>
+                        <right>0</right>
+                        <top>0</top>
+                        <height>920</height>
+                        <include content="HomeWidgetWide">
+                            <param name="WidgetLabel" value="$SKINSHORTCUTS[label.1]" />
+                            <param name="WidgetType" value="$SKINSHORTCUTS[widget.1]" />
+                            <param name="ListID" value="160$SKINSHORTCUTS[id]1" />
+                            <param name="Content" value="$SKINSHORTCUTS[path.1]" />
+                            <param name="ContentType" value="$SKINSHORTCUTS[target.1]" />
+                            <param name="SortBy" value="$SKINSHORTCUTS[sortBy.1]" />
+                            <param name="SortOrder" value="$SKINSHORTCUTS[sortOrder.1]" />
+                            <param name="SortLimit" value="$SKINSHORTCUTS[sortLimit.1]" />
+                            <param name="OnBack" value="SetFocus(160$SKINSHORTCUTS[id]1,0,absolute)" />
+                            <param name="OnUp" value="9001" />
+                            <param name="OnDown" value="160$SKINSHORTCUTS[id]2" />
+                            <param name="GroupHeight" value="920" />
+                        </include>
+                    </control>
+
+                    <!-- Widget row 2-->
+                    <control type="group">
+                        <visible>Integer.IsGreater(Container(160$SKINSHORTCUTS[id]2).NumItems,0) | Container(160$SKINSHORTCUTS[id]2).IsUpdating</visible>
+                        <animation effect="slide" end="0,100" time="200" condition="Control.HasFocus(160$SKINSHORTCUTS[id]1)">Conditional</animation>
+                        <animation effect="slide" end="0,-200" time="200" condition="Control.HasFocus(160$SKINSHORTCUTS[id]3) | Control.HasFocus(160$SKINSHORTCUTS[id]4) | Control.HasFocus(160$SKINSHORTCUTS[id]5)">Conditional</animation>
+
+                        <left>0</left>
+                        <right>0</right>
+                        <top>0</top>
+                        <height>600</height>
+                        <include content="HomeWidget$SKINSHORTCUTS[artwork.2]">
+                            <param name="WidgetLabel" value="$SKINSHORTCUTS[label.2]" />
+                            <param name="WidgetType" value="$SKINSHORTCUTS[widget.2]" />
+                            <param name="ListID" value="160$SKINSHORTCUTS[id]2" />
+                            <param name="Content" value="$SKINSHORTCUTS[path.2]" />
+                            <param name="ContentType" value="$SKINSHORTCUTS[target.2]" />
+                            <param name="SortBy" value="$SKINSHORTCUTS[sortBy.2]" />
+                            <param name="SortOrder" value="$SKINSHORTCUTS[sortOrder.2]" />
+                            <param name="SortLimit" value="$SKINSHORTCUTS[sortLimit.2]" />
+                            <param name="OnBack" value="SetFocus(160$SKINSHORTCUTS[id]2,0,absolute)" />
+                            <param name="OnUp" value="160$SKINSHORTCUTS[id]1" />
+                            <param name="OnDown" value="160$SKINSHORTCUTS[id]3" />
+                            <param name="GroupHeight" value="600" />
+                        </include>
+                    </control>
+
+                    <!-- Widget row 3 -->
+                    <control type="group">
+                        <visible>Integer.IsGreater(Container(160$SKINSHORTCUTS[id]3).NumItems,0) | Container(160$SKINSHORTCUTS[id]3).IsUpdating</visible>
+                        <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(160$SKINSHORTCUTS[id]1) | Control.HasFocus(160$SKINSHORTCUTS[id]2)">Conditional</animation>
+                        <animation effect="slide" end="0,-200" time="200" condition="Control.HasFocus(160$SKINSHORTCUTS[id]4) | Control.HasFocus(160$SKINSHORTCUTS[id]5)">Conditional</animation>
+
+                        <left>0</left>
+                        <right>0</right>
+                        <top>0</top>
+                        <height>600</height>
+                        <include content="HomeWidget$SKINSHORTCUTS[artwork.3]">
+                            <param name="WidgetLabel" value="$SKINSHORTCUTS[label.3]" />
+                            <param name="WidgetType" value="$SKINSHORTCUTS[widget.3]" />
+                            <param name="ListID" value="160$SKINSHORTCUTS[id]3" />
+                            <param name="Content" value="$SKINSHORTCUTS[path.3]" />
+                            <param name="ContentType" value="$SKINSHORTCUTS[target.3]" />
+                            <param name="SortBy" value="$SKINSHORTCUTS[sortBy.3]" />
+                            <param name="SortOrder" value="$SKINSHORTCUTS[sortOrder.3]" />
+                            <param name="SortLimit" value="$SKINSHORTCUTS[sortLimit.3]" />
+                            <param name="OnBack" value="SetFocus(160$SKINSHORTCUTS[id]3,0,absolute)" />
+                            <param name="OnUp" value="160$SKINSHORTCUTS[id]2" />
+                            <param name="OnDown" value="160$SKINSHORTCUTS[id]4" />
+                            <param name="GroupHeight" value="600" />
+                        </include>
+                    </control>
+
+                    <!-- Widget row 4 -->
+                    <control type="group">
+                        <visible>Integer.IsGreater(Container(160$SKINSHORTCUTS[id]4).NumItems,0) | Container(160$SKINSHORTCUTS[id]4).IsUpdating</visible>
+                        <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(160$SKINSHORTCUTS[id]1) | Control.HasFocus(160$SKINSHORTCUTS[id]2) | Control.HasFocus(160$SKINSHORTCUTS[id]3)">Conditional</animation>
+                        <animation effect="slide" end="0,-200" time="200" condition="Control.HasFocus(160$SKINSHORTCUTS[id]5)">Conditional</animation>
+
+                        <left>0</left>
+                        <right>0</right>
+                        <top>0</top>
+                        <height>600</height>
+                        <include content="HomeWidget$SKINSHORTCUTS[artwork.4]">
+                            <param name="WidgetLabel" value="$SKINSHORTCUTS[label.4]" />
+                            <param name="WidgetType" value="$SKINSHORTCUTS[widget.4]" />
+                            <param name="ListID" value="160$SKINSHORTCUTS[id]4" />
+                            <param name="Content" value="$SKINSHORTCUTS[path.4]" />
+                            <param name="ContentType" value="$SKINSHORTCUTS[target.4]" />
+                            <param name="SortBy" value="$SKINSHORTCUTS[sortBy.4]" />
+                            <param name="SortOrder" value="$SKINSHORTCUTS[sortOrder.4]" />
+                            <param name="SortLimit" value="$SKINSHORTCUTS[sortLimit.4]" />
+                            <param name="OnBack" value="SetFocus(160$SKINSHORTCUTS[id]4,0,absolute)" />
+                            <param name="OnUp" value="160$SKINSHORTCUTS[id]3" />
+                            <param name="OnDown" value="160$SKINSHORTCUTS[id]5" />
+                            <param name="GroupHeight" value="600" />
+                        </include>
+                    </control>
+
+                    <!-- Widget row 5 -->
+                    <control type="group">
+                        <visible>Integer.IsGreater(Container(160$SKINSHORTCUTS[id]5).NumItems,0) | Container(160$SKINSHORTCUTS[id]5).IsUpdating</visible>
+                        <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(160$SKINSHORTCUTS[id]1) | Control.HasFocus(160$SKINSHORTCUTS[id]2) | Control.HasFocus(160$SKINSHORTCUTS[id]3) | Control.HasFocus(160$SKINSHORTCUTS[id]4)">Conditional</animation>
+
+                        <left>0</left>
+                        <right>0</right>
+                        <top>0</top>
+                        <height>600</height>
+                        <include content="HomeWidget$SKINSHORTCUTS[artwork.5]">
+                            <param name="WidgetLabel" value="$SKINSHORTCUTS[label.5]" />
+                            <param name="WidgetType" value="$SKINSHORTCUTS[widget.5]" />
+                            <param name="ListID" value="160$SKINSHORTCUTS[id]5" />
+                            <param name="Content" value="$SKINSHORTCUTS[path.5]" />
+                            <param name="ContentType" value="$SKINSHORTCUTS[target.5]" />
+                            <param name="SortBy" value="$SKINSHORTCUTS[sortBy.5]" />
+                            <param name="SortOrder" value="$SKINSHORTCUTS[sortOrder.5]" />
+                            <param name="SortLimit" value="$SKINSHORTCUTS[sortLimit.5]" />
+                            <param name="OnBack" value="SetFocus(160$SKINSHORTCUTS[id]5,0,absolute)" />
+                            <param name="OnUp" value="160$SKINSHORTCUTS[id]4" />
+                            <param name="GroupHeight" value="600" />
+                        </include>
+                    </control>
+
+                    <control type="image">
+                        <top>0</top>
+                        <left>0</left>
+                        <width>3840</width>
+                        <height>340</height>
+                        <texture background="true" diffuse="masks/WidgetTop.png" colordiffuse="90ffffff">general/Black.png</texture>
+                    </control>
+                </control>
+            </control>
+
+        </controls>
+    </other>
+
+    <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!--                               Template 4                                -->
+    <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <other include="widgets">
+        <condition tag="property" attribute="name|widgetGroupTemplate">template4</condition>
+        <condition tag="property" attribute="name|widgetPath.1" />
+        <match>all</match>
+
+        <property name="id" tag="mainmenuid" />
+        <property name="widgetGroupTemplate" tag="property" attribute="name|widgetGroupTemplate" />
+
+        <!--Get Widget 1 properties -->
+        <property name="widget.1" tag="property" attribute="name|widget.1" />
+        <property name="label.1" tag="property" attribute="name|widgetName.1" />
+        <property name="path.1" tag="property" attribute="name|widgetPath.1" />
+        <property name="target.1" tag="property" attribute="name|widgetTarget.1" />
+        <property name="artwork.1" tag="property" attribute="name|widgetArtwork.1" />
+        <property name="sortBy.1" tag="property" attribute="name|widgetSortBy.1" />
+        <property name="sortOrder.1" tag="property" attribute="name|widgetSortOrder.1" />
+        <property name="sortLimit.1" tag="property" attribute="name|widgetLimit.1" />
+        <!--Get Widget 2 properties -->
+        <property name="widget.2" tag="property" attribute="name|widget.2" />
+        <property name="label.2" tag="property" attribute="name|widgetName.2" />
+        <property name="path.2" tag="property" attribute="name|widgetPath.2" />
+        <property name="target.2" tag="property" attribute="name|widgetTarget.2" />
+        <property name="artwork.2" tag="property" attribute="name|widgetArtwork.2" />
+        <property name="sortBy.2" tag="property" attribute="name|widgetSortBy.2" />
+        <property name="sortOrder.2" tag="property" attribute="name|widgetSortOrder.2" />
+        <property name="sortLimit.2" tag="property" attribute="name|widgetLimit.2" />
+        <!--Get Widget 3 properties -->
+        <property name="widget.3" tag="property" attribute="name|widget.3" />
+        <property name="label.3" tag="property" attribute="name|widgetName.3" />
+        <property name="path.3" tag="property" attribute="name|widgetPath.3" />
+        <property name="target.3" tag="property" attribute="name|widgetTarget.3" />
+        <property name="artwork.3" tag="property" attribute="name|widgetArtwork.3" />
+        <property name="sortBy.3" tag="property" attribute="name|widgetSortBy.3" />
+        <property name="sortOrder.3" tag="property" attribute="name|widgetSortOrder.3" />
+        <property name="sortLimit.3" tag="property" attribute="name|widgetLimit.3" />
+        <!--Get Widget 4 properties -->
+        <property name="widget.4" tag="property" attribute="name|widget.4" />
+        <property name="label.4" tag="property" attribute="name|widgetName.4" />
+        <property name="path.4" tag="property" attribute="name|widgetPath.4" />
+        <property name="target.4" tag="property" attribute="name|widgetTarget.4" />
+        <property name="artwork.4" tag="property" attribute="name|widgetArtwork.4" />
+        <property name="sortBy.4" tag="property" attribute="name|widgetSortBy.4" />
+        <property name="sortOrder.4" tag="property" attribute="name|widgetSortOrder.4" />
+        <property name="sortLimit.4" tag="property" attribute="name|widgetLimit.4" />
+        <!--Get Widget 5 properties -->
+        <property name="widget.5" tag="property" attribute="name|widget.5" />
+        <property name="label.5" tag="property" attribute="name|widgetName.5" />
+        <property name="path.5" tag="property" attribute="name|widgetPath.5" />
+        <property name="target.5" tag="property" attribute="name|widgetTarget.5" />
+        <property name="artwork.5" tag="property" attribute="name|widgetArtwork.5" />
+        <property name="sortBy.5" tag="property" attribute="name|widgetSortBy.5" />
+        <property name="sortOrder.5" tag="property" attribute="name|widgetSortOrder.5" />
+        <property name="sortLimit.5" tag="property" attribute="name|widgetLimit.5" />
+
+
+        <controls>
+
+            <control type="group">
+
+                <skinshortcuts>visibility</skinshortcuts>
+
+                <control type="grouplist" id="16$SKINSHORTCUTS[id]00">
+                    <include>ContentChangeAnimation</include>
+
+                    <!-- Slide down 180 if submenu is not empty -->
+                    <animation effect="slide" end="0,180" time="0" condition="$EXP[subMenuNotEmpty]">Conditional</animation>
+                    <!-- Remove the 180 slide from above if main and sub menus loose focus and submenu is not empty -->
+                    <animation effect="slide" end="0,-180" time="200" condition="!Control.HasFocus(9000) + !Control.HasFocus(9001) + $EXP[subMenuNotEmpty]">Conditional</animation>
+
+                    <!-- Allow slide for upto 5 widget rows (first and last rows don't slide) -->
+                    <animation effect="slide" end="0,-600" time="200" condition="Integer.IsGreater(Container(16$SKINSHORTCUTS[id]00).Position,1) + Integer.IsGreater(Container(16$SKINSHORTCUTS[id]00).NumItems,2)">Conditional</animation>
+                    <animation effect="slide" end="0,-600" time="200" condition="Integer.IsGreater(Container(16$SKINSHORTCUTS[id]00).Position,2) + Integer.IsGreater(Container(16$SKINSHORTCUTS[id]00).NumItems,3)">Conditional</animation>
+                    <animation effect="slide" end="0,-600" time="200" condition="Integer.IsGreater(Container(16$SKINSHORTCUTS[id]00).Position,3) + Integer.IsGreater(Container(16$SKINSHORTCUTS[id]00).NumItems,4)">Conditional</animation>
+
+                    <left>0</left>
+                    <top>0</top>
+                    <height>15000</height>
+                    <right>0</right>
+                    <usecontrolcoords>true</usecontrolcoords>
+                    <itemgap>0</itemgap>
+
+                    <!-- Spacer to push widget rows down -->
+                    <control type="group">
+                        <height>548</height>
+                    </control>
+
+                    <!-- Widget row 1 -->
+                    <control type="group">
+                        <visible>Integer.IsGreater(Container(160$SKINSHORTCUTS[id]1).NumItems,0) | Container(160$SKINSHORTCUTS[id]1).IsUpdating</visible>
+                        <animation effect="slide" end="0,-200" time="200" condition="Control.HasFocus(160$SKINSHORTCUTS[id]2) | Control.HasFocus(160$SKINSHORTCUTS[id]3) | Control.HasFocus(160$SKINSHORTCUTS[id]4) | Control.HasFocus(160$SKINSHORTCUTS[id]5)">Conditional</animation>
+
+                        <left>0</left>
+                        <right>0</right>
+                        <top>0</top>
+                        <height>600</height>
+                        <include content="HomeWidget$SKINSHORTCUTS[artwork.1]">
+                            <param name="WidgetLabel" value="$SKINSHORTCUTS[label.1]" />
+                            <param name="WidgetType" value="$SKINSHORTCUTS[widget.1]" />
+                            <param name="ListID" value="160$SKINSHORTCUTS[id]1" />
+                            <param name="Content" value="$SKINSHORTCUTS[path.1]" />
+                            <param name="ContentType" value="$SKINSHORTCUTS[target.1]" />
+                            <param name="SortBy" value="$SKINSHORTCUTS[sortBy.1]" />
+                            <param name="SortOrder" value="$SKINSHORTCUTS[sortOrder.1]" />
+                            <param name="SortLimit" value="$SKINSHORTCUTS[sortLimit.1]" />
+                            <param name="OnBack" value="SetFocus(160$SKINSHORTCUTS[id]1,0,absolute)" />
+                            <param name="OnUp" value="9001" />
+                            <param name="OnDown" value="160$SKINSHORTCUTS[id]2" />
+                            <param name="GroupHeight" value="600" />
+                        </include>
+                    </control>
+
+                    <!-- Widget row 2-->
+                    <control type="group">
+                        <visible>Integer.IsGreater(Container(160$SKINSHORTCUTS[id]2).NumItems,0) | Container(160$SKINSHORTCUTS[id]2).IsUpdating</visible>
+                        <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(160$SKINSHORTCUTS[id]1)">Conditional</animation>
+                        <animation effect="slide" end="0,-200" time="200" condition="Control.HasFocus(160$SKINSHORTCUTS[id]3) | Control.HasFocus(160$SKINSHORTCUTS[id]4) | Control.HasFocus(160$SKINSHORTCUTS[id]5)">Conditional</animation>
+
+                        <left>0</left>
+                        <right>0</right>
+                        <top>0</top>
+                        <height>600</height>
+                        <include content="HomeWidget$SKINSHORTCUTS[artwork.2]">
+                            <param name="WidgetLabel" value="$SKINSHORTCUTS[label.2]" />
+                            <param name="WidgetType" value="$SKINSHORTCUTS[widget.2]" />
+                            <param name="ListID" value="160$SKINSHORTCUTS[id]2" />
+                            <param name="Content" value="$SKINSHORTCUTS[path.2]" />
+                            <param name="ContentType" value="$SKINSHORTCUTS[target.2]" />
+                            <param name="SortBy" value="$SKINSHORTCUTS[sortBy.2]" />
+                            <param name="SortOrder" value="$SKINSHORTCUTS[sortOrder.2]" />
+                            <param name="SortLimit" value="$SKINSHORTCUTS[sortLimit.2]" />
+                            <param name="OnBack" value="SetFocus(160$SKINSHORTCUTS[id]2,0,absolute)" />
+                            <param name="OnUp" value="160$SKINSHORTCUTS[id]1" />
+                            <param name="OnDown" value="160$SKINSHORTCUTS[id]3" />
+                            <param name="GroupHeight" value="600" />
+                        </include>
+                    </control>
+
+                    <!-- Widget row 3 -->
+                    <control type="group">
+                        <visible>Integer.IsGreater(Container(160$SKINSHORTCUTS[id]3).NumItems,0) | Container(160$SKINSHORTCUTS[id]3).IsUpdating</visible>
+                        <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(160$SKINSHORTCUTS[id]1) | Control.HasFocus(160$SKINSHORTCUTS[id]2)">Conditional</animation>
+                        <animation effect="slide" end="0,-200" time="200" condition="Control.HasFocus(160$SKINSHORTCUTS[id]4) | Control.HasFocus(160$SKINSHORTCUTS[id]5)">Conditional</animation>
+
+                        <left>0</left>
+                        <right>0</right>
+                        <top>0</top>
+                        <height>600</height>
+                        <include content="HomeWidget$SKINSHORTCUTS[artwork.3]">
+                            <param name="WidgetLabel" value="$SKINSHORTCUTS[label.3]" />
+                            <param name="WidgetType" value="$SKINSHORTCUTS[widget.3]" />
+                            <param name="ListID" value="160$SKINSHORTCUTS[id]3" />
+                            <param name="Content" value="$SKINSHORTCUTS[path.3]" />
+                            <param name="ContentType" value="$SKINSHORTCUTS[target.3]" />
+                            <param name="SortBy" value="$SKINSHORTCUTS[sortBy.3]" />
+                            <param name="SortOrder" value="$SKINSHORTCUTS[sortOrder.3]" />
+                            <param name="SortLimit" value="$SKINSHORTCUTS[sortLimit.3]" />
+                            <param name="OnBack" value="SetFocus(160$SKINSHORTCUTS[id]3,0,absolute)" />
+                            <param name="OnUp" value="160$SKINSHORTCUTS[id]2" />
+                            <param name="OnDown" value="160$SKINSHORTCUTS[id]4" />
+                            <param name="GroupHeight" value="600" />
+                        </include>
+                    </control>
+
+                    <!-- Widget row 4 -->
+                    <control type="group">
+                        <visible>Integer.IsGreater(Container(160$SKINSHORTCUTS[id]4).NumItems,0) | Container(160$SKINSHORTCUTS[id]4).IsUpdating</visible>
+                        <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(160$SKINSHORTCUTS[id]1) | Control.HasFocus(160$SKINSHORTCUTS[id]2) | Control.HasFocus(160$SKINSHORTCUTS[id]3)">Conditional</animation>
+                        <animation effect="slide" end="0,-200" time="200" condition="Control.HasFocus(160$SKINSHORTCUTS[id]5)">Conditional</animation>
+
+                        <left>0</left>
+                        <right>0</right>
+                        <top>0</top>
+                        <height>600</height>
+                        <include content="HomeWidget$SKINSHORTCUTS[artwork.4]">
+                            <param name="WidgetLabel" value="$SKINSHORTCUTS[label.4]" />
+                            <param name="WidgetType" value="$SKINSHORTCUTS[widget.4]" />
+                            <param name="ListID" value="160$SKINSHORTCUTS[id]4" />
+                            <param name="Content" value="$SKINSHORTCUTS[path.4]" />
+                            <param name="ContentType" value="$SKINSHORTCUTS[target.4]" />
+                            <param name="SortBy" value="$SKINSHORTCUTS[sortBy.4]" />
+                            <param name="SortOrder" value="$SKINSHORTCUTS[sortOrder.4]" />
+                            <param name="SortLimit" value="$SKINSHORTCUTS[sortLimit.4]" />
+                            <param name="OnBack" value="SetFocus(160$SKINSHORTCUTS[id]4,0,absolute)" />
+                            <param name="OnUp" value="160$SKINSHORTCUTS[id]3" />
+                            <param name="OnDown" value="160$SKINSHORTCUTS[id]5" />
+                            <param name="GroupHeight" value="600" />
+                        </include>
+                    </control>
+
+                    <!-- Widget row 5 -->
+                    <control type="group">
+                        <visible>Integer.IsGreater(Container(160$SKINSHORTCUTS[id]5).NumItems,0) | Container(160$SKINSHORTCUTS[id]5).IsUpdating</visible>
+                        <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(160$SKINSHORTCUTS[id]1) | Control.HasFocus(160$SKINSHORTCUTS[id]2) | Control.HasFocus(160$SKINSHORTCUTS[id]3) | Control.HasFocus(160$SKINSHORTCUTS[id]4)">Conditional</animation>
+
+                        <left>0</left>
+                        <right>0</right>
+                        <top>0</top>
+                        <height>600</height>
+                        <include content="HomeWidget$SKINSHORTCUTS[artwork.5]">
+                            <param name="WidgetLabel" value="$SKINSHORTCUTS[label.5]" />
+                            <param name="WidgetType" value="$SKINSHORTCUTS[widget.5]" />
+                            <param name="ListID" value="160$SKINSHORTCUTS[id]5" />
+                            <param name="Content" value="$SKINSHORTCUTS[path.5]" />
+                            <param name="ContentType" value="$SKINSHORTCUTS[target.5]" />
+                            <param name="SortBy" value="$SKINSHORTCUTS[sortBy.5]" />
+                            <param name="SortOrder" value="$SKINSHORTCUTS[sortOrder.5]" />
+                            <param name="SortLimit" value="$SKINSHORTCUTS[sortLimit.5]" />
+                            <param name="OnBack" value="SetFocus(160$SKINSHORTCUTS[id]5,0,absolute)" />
+                            <param name="OnUp" value="160$SKINSHORTCUTS[id]4" />
+                            <param name="GroupHeight" value="600" />
+                        </include>
+                    </control>
+
+                </control>
+
+                <control type="image">
+                    <top>0</top>
+                    <left>0</left>
+                    <width>3840</width>
+                    <height>340</height>
+                    <texture background="true" diffuse="masks/WidgetTop.png" colordiffuse="90ffffff">general/Black.png</texture>
+                </control>
+
+            </control>
+
+        </controls>
+    </other>
+</template>

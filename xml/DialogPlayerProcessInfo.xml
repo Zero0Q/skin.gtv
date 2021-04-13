@@ -39,7 +39,7 @@
                     <top>44</top>
                     <include content="PlayerProcessInfo">
                         <param name="label" value="Video Decoder:" />
-                        <param name="value" value="$INFO[Player.Process(videodecoder)] $VAR[HWDecoder, (,)]" />
+                        <param name="value" value="$INFO[Player.Process(videodecoder)] $VAR[HWDecoderVar, (,)]" />
                     </include>
                     <include content="PlayerProcessInfo">
                         <param name="label" value="Audio Decoder:" />
@@ -72,7 +72,7 @@
                     </include>
                     <include content="PlayerProcessInfo">
                         <param name="label" value="Video Bitrate:" />
-                        <param name="value" value="$VAR[VideoBitrate] " />
+                        <param name="value" value="$VAR[VideoBitrateVar] " />
                     </include>
                 </control>
                 <control type="grouplist">
@@ -93,7 +93,7 @@
                     </include>
                     <include content="PlayerProcessInfo">
                         <param name="label" value="Audio Bitrate:" />
-                        <param name="value" value="$VAR[AudioBitrate] " />
+                        <param name="value" value="$VAR[AudioBitrateVar] " />
                     </include>
                 </control>
                 <control type="grouplist">

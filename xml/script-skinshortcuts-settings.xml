@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<includes>
+
+    <include name="SkinShortcutsSettings">
+
+        <control type="group">
+            <left>928</left>
+            <right>64</right>
+            <top>64</top>
+            <bottom>64</bottom>
+
+            <visible>String.IsEqual(Window(Home).Property(skinshortcuts-Widget),$PARAM[widgetNumber])</visible>
+
+            <control type="image">
+                <texture border="16" colordiffuse="DialogList">masks/Mask440x440r16.png</texture>
+            </control>
+
+            <control type="grouplist" id="$PARAM[groupID]000">
+                <left>16</left>
+                <top>16</top>
+                <width>100%</width>
+                <height>1532</height>
+                <align>left</align>
+                <orientation>vertical</orientation>
+
+                <!-- Fake button to select widget -->
+                <control type="button" id="312">
+                    <visible>false</visible>
+                </control>
+                
+                <control type="button" id="$PARAM[groupID]312">
+                    <description>Change Widget button</description>
+                    <width>100%</width>
+                    <align>left</align>
+                    <include>Button120</include>
+                    <label>$LOCALIZE[31491]</label>
+                    <label2>$INFO[Container(211).ListItem.Property(widgetName.$PARAM[widgetNumber])]</label2>
+                    <onclick>SetProperty(widgetID,$PARAM[widgetNumber])</onclick>
+                    <onclick>SendClick(312)</onclick>
+                    <onunfocus>SetProperty(customProperty,widgetArtwork.$PARAM[widgetNumber])</onunfocus>
+                    <onunfocus condition="String.IsEqual(Container(211).ListItem.Property(widgetType.$PARAM[widgetNumber]),albums) | String.IsEqual(Container(211).ListItem.Property(widgetType.$PARAM[widgetNumber]),artists) | String.IsEqual(Container(211).ListItem.Property(widgetType.$PARAM[widgetNumber]),songs)">SetProperty(customValue,Square)</onunfocus>
+                    <onunfocus condition="String.IsEqual(Container(211).ListItem.Property(widgetType.$PARAM[widgetNumber]),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.$PARAM[widgetNumber]),tvshows) | String.IsEqual(Container(211).ListItem.Property(widgetType.$PARAM[widgetNumber]),episodes)">SetProperty(customValue,Landscape)</onunfocus>
+                    <onunfocus>SendClick(404)</onunfocus>
+                </control>
+
+                <control type="button" id="$PARAM[groupID]003">
+                    <description>Widget Sort by</description>
+                    <width>100%</width>
+                    <align>left</align>
+                    <include>Button120</include>
+                    <label>$LOCALIZE[31493]</label>
+                    <label2>$VAR[Widget$PARAM[widgetNumber]SortMethodLabelVar]</label2>
+                </control>
+
+                <control type="button" id="$PARAM[groupID]004">
+                    <description>Widget Sort direction</description>
+                    <width>100%</width>
+                    <align>left</align>
+                    <include>Button120</include>
+                    <label>$LOCALIZE[31494]</label>
+                    <label2>$VAR[Widget$PARAM[widgetNumber]SortOrderLabelVar]</label2>
+                </control>
+
+                <control type="button" id="$PARAM[groupID]005">
+                    <description>Widget limit</description>
+                    <width>100%</width>
+                    <align>left</align>
+                    <include>Button120</include>
+                    <label>$LOCALIZE[31495]</label>
+                    <label2>$INFO[Container(211).ListItem.Property(widgetLimit.$PARAM[widgetNumber])]</label2>
+                </control>
+            </control>
+
+        </control>
+    </include>
+</includes>

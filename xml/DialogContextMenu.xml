@@ -17,7 +17,7 @@
                 <width>3840</width>
                 <height>2160</height>
                 <fadetime>400</fadetime>
-                <texture background="true" colordiffuse="$VAR[blurcolor1]">masks/bkggrad.png</texture>
+                <texture background="true" colordiffuse="$VAR[BlurColorBackgroundVar]">masks/bkggrad.png</texture>
             </control>
 
             <control type="group">
@@ -50,7 +50,8 @@
                 </control>
                 <!-- Context menu button template -->
                 <control type="button" id="1000">
-                    <include>ContextButtonTemplate</include>
+                    <width>1000</width>
+                    <include>Button120</include>
                 </control>
             </control>
         </control>

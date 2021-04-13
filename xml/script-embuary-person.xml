@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol always="true">50</defaultcontrol>
+
+    <controls>
+
+        <!-- Fake image for color grab -->
+        <control type="image" id="110000">
+            <left>-1000</left>
+            <top>-1000</top>
+            <width>10</width>
+            <height>10</height>
+            <texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+        </control>
+
+        <!-- Container for the item details -->
+        <control type="list" id="10051">
+            <top>-3000</top>
+            <left>-3000</left>
+            <width>1</width>
+            <height>1</height>
+            <itemlayout/>
+            <focusedlayout/>
+        </control>
+
+        <!-- Background -->
+        <control type="group">
+            <include>FullscreenDimensions</include>
+            <animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
+            <animation effect="fade" start="100" end="0" time="300" condition="String.IsEmpty(Window(home).Property(script.embuary.info-nextcall))">WindowClose</animation>
+            <animation effect="fade" start="100" end="0" time="0" condition="!String.IsEmpty(Window(home).Property(script.embuary.info-nextcall))">WindowClose</animation>
+            <animation effect="fade" time="400">VisibleChange</animation>
+
+            <control type="image">
+                <texture>general/Black.png</texture>
+            </control>
+            <control type="image">
+                <fadetime>400</fadetime>
+                <texture background="true" colordiffuse="$VAR[BlurColorItemVar]">masks/bkggrad.png</texture>
+            </control>
+            <!-- <control type="image">
+                <aspectratio>scale</aspectratio>
+                <texture colordiffuse="50606060">general/screens/actor1.png</texture>
+            </control> -->
+        </control>
+
+        <!-- Main group -->
+        <control type="grouplist" id="50">
+            <height>2160</height>
+            <animation type="WindowOpen">
+                <effect type="fade" start="0" end="100" time="300" tween="sine" easing="out" />
+                <effect type="slide" start="320" end="0" time="400" tween="cubic" easing="out" />
+            </animation>
+            <animation type="WindowClose" condition="String.IsEmpty(Window(home).Property(script.embuary.info-nextcall))">
+                <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
+                <effect type="slide" start="0" end="320" time="300" tween="cubic" easing="out" />
+            </animation>
+            <animation type="WindowClose" condition="!String.IsEmpty(Window(home).Property(script.embuary.info-nextcall))">
+                <effect type="fade" start="100" end="0" time="0" tween="sine" easing="out" />
+            </animation>
+
+            <include>FullscreenDimensions</include>
+            <orientation>vertical</orientation>
+            <scrolltime tween="cubic" easing="out">500</scrolltime>
+            <usecontrolcoords>true</usecontrolcoords>
+            <itemgap>-100</itemgap>
+
+            <!-- Bio group -->
+            <control type="group">
+                <top>0</top>
+                <left>210</left>
+                <right>210</right>
+                <height>1000</height>
+
+                <!-- Image -->
+                <control type="image">
+                    <right>40</right>
+                    <bottom>60</bottom>
+                    <width>550</width>
+                    <height>825</height>
+                    <texture background="true" diffuse="masks/Mask412x618r16.png">$INFO[Container(10051).ListItem.Art(thumb)]</texture>
+                    <aspectratio>scale</aspectratio>
+                </control>
+
+                <!-- Name -->
+                <control type="label">
+                    <top>300</top>
+                    <width>auto</width>
+                    <height>40</height>
+                    <textcolor>TextBright</textcolor>
+                    <font>WidgetLabelInfo</font>
+                    <label>$INFO[Container(10051).ListItem.Label]</label>
+                </control>
+
+                <!-- Fact line -->
+                <control type="label">
+                    <top>500</top>
+                    <width>auto</width>
+                    <height>30</height>
+                    <textcolor>TextBright</textcolor>
+                    <font>LibraryInfoLine</font>
+                    <label>$VAR[PersonRoleVar]$VAR[PersonBornVar]</label>
+                </control>
+
+                <!-- Bio -->
+                <control type="textbox" id="97">
+                    <left>0</left>
+                    <width>2600</width>
+                    <top>620</top>
+                    <height>298</height>
+                    <align>left</align>
+                    <aligny>top</aligny>
+                    <font>EpisodePlot</font>
+                    <textcolor>TextDim</textcolor>
+                    <shadowcolor>ff000000</shadowcolor>
+                    <label fallback="19055">$INFO[Container(10051).ListItem.Property(biography)]</label>
+                </control>
+
+                <control type="button" id="98">
+                    <visible>Container(97).HasNext</visible>
+                    <left>-20</left>
+                    <width>2620</width>
+                    <top>610</top>
+                    <height>318</height>
+                    <font>ItemLabelSecondary</font>
+                    <wrapmultiline>true</wrapmultiline>
+                    <textcolor>TextDim</textcolor>
+                    <align>left</align>
+                    <aligny>top</aligny>
+                    <scroll>false</scroll>
+                    <texturefocus colordiffuse="TextBright" border="8">masks/Border32x32r8b2.png</texturefocus>
+                    <ondown>10052</ondown>
+                    <onup>96</onup>
+                    <onclick>RunScript(script.embuary.helper,action=textviewer,header='$ESCINFO[Container(10051).ListItem.Label]',message='$ESCINFO[Container(10051).ListItem.Property(biography)]')</onclick>
+                </control>
+
+            </control>
+
+            <!-- <control type="group" id="97">
+                <height>200</height>
+            </control> -->
+
+            <!-- movies -->
+            <control type="group">
+                <visible>true</visible>
+                <visible>Integer.IsGreater(Container(10052).NumItems,0) | Container(10052).IsUpdating</visible>
+                <!-- <top>200</top> -->
+                <height>1060</height>
+                <!-- <include content="DebugBox">
+                    <param name="color" value="40ff0000" />
+                </include> -->
+                <control type="group">
+                    <include content="WidgetPoster">
+                        <param name="WidgetLabel" value="$LOCALIZE[342]" />
+                        <param name="AlwaysShowLabel" value="true" />
+                        <param name="ListID" value="10052" />
+                        <param name="ContentType" value="videos" />
+                        <param name="OnBack" value="SetFocus(10052,0,absolute)" />
+                        <param name="OnUp" value="98" />
+                        <param name="OnDown" value="10053" />
+                        <param name="GroupHeight" value="1200" />
+                    </include>
+                </control>
+            </control>
+
+            <!-- tv shows -->
+            <control type="group">
+                <visible>true</visible>
+                <visible>Integer.IsGreater(Container(10053).NumItems,0) | Container(10053).IsUpdating</visible>
+                <!-- <top>200</top> -->
+                <height>1060</height>
+                <control type="group">
+                    <include content="WidgetPoster">
+                        <param name="WidgetLabel" value="$LOCALIZE[20343]" />
+                        <param name="AlwaysShowLabel" value="true" />
+                        <param name="ListID" value="10053" />
+                        <param name="ContentType" value="videos" />
+                        <param name="OnBack" value="SetFocus(10053,0,absolute)" />
+                        <param name="OnUp" value="10052" />
+                        <param name="OnDown" value="10054" />
+                        <param name="GroupHeight" value="1200" />
+                    </include>
+                </control>
+            </control>
+
+            <!-- images -->
+            <control type="group">
+                <visible>true</visible>
+                <visible>Integer.IsGreater(Container(10054).NumItems,0) | Container(10054).IsUpdating</visible>
+                <!-- <top>200</top> -->
+                <height>1060</height>
+                <control type="group">
+                    <include content="WidgetPoster">
+                        <param name="WidgetLabel" value="$ADDON[script.embuary.info 32010]" />
+                        <param name="AlwaysShowLabel" value="true" />
+                        <param name="ListID" value="10054" />
+                        <param name="ContentType" value="videos" />
+                        <param name="OnBack" value="SetFocus(10053,0,absolute)" />
+                        <param name="OnUp" value="10053" />
+                        <param name="OnDown" value="noop" />
+                        <param name="GroupHeight" value="1200" />
+                    </include>
+                </control>
+            </control>
+
+        </control>
+
+    </controls>
+</window>

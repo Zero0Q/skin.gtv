@@ -43,7 +43,7 @@
                     <aligny>center</aligny>
                     <align>center</align>
                     <textcolor>TextDark</textcolor>
-                    <label>$VAR[TrackNumber].</label>
+                    <label>$VAR[TrackNumberVar].</label>
                 </control>
                 <control type="label">
                     <top>0</top>
@@ -64,7 +64,7 @@
                     <aligny>center</aligny>
                     <align>right</align>
                     <textcolor>TextDark</textcolor>
-                    <label>$VAR[TrackDurationMinutes]:$INFO[ListItem.Duration(ss)]</label>
+                    <label>$VAR[TrackDurationMinutesVar]:$INFO[ListItem.Duration(ss)]</label>
                 </control>
             </control>
             <control type="group">
@@ -79,7 +79,7 @@
                     <aligny>center</aligny>
                     <align>center</align>
                     <textcolor>TextBright</textcolor>
-                    <label>$VAR[TrackNumber].</label>
+                    <label>$VAR[TrackNumberVar].</label>
                 </control>
                 <control type="label">
                     <top>0</top>
@@ -100,7 +100,7 @@
                     <aligny>center</aligny>
                     <align>right</align>
                     <textcolor>TextBright</textcolor>
-                    <label>$VAR[TrackDurationMinutes]:$INFO[ListItem.Duration(ss)]</label>
+                    <label>$VAR[TrackDurationMinutesVar]:$INFO[ListItem.Duration(ss)]</label>
                 </control>
             </control>
         </control>
@@ -111,41 +111,14 @@
         <control type="group">
             <control type="group">
 
-
-                <!-- <include content="HorizontalDivider">
-                    <param name="value" value="224" />
-                </include>
-                <include content="HorizontalDivider">
-                    <param name="value" value="340" />
-                </include>
-                <include content="HorizontalDivider">
-                    <param name="value" value="1974" />
-                </include>
-                <include content="HorizontalDivider">
-                    <param name="value" value="2032" />
-                </include>
-                <include content="HorizontalDivider">
-                    <param name="value" value="2090" />
-                </include>
-                <include content="HorizontalDivider">
-                    <param name="value" value="3724" />
-                </include>
-
-                <include content="VerticalDivider">
-                    <param name="value" value="430" />
-                </include>
-                <include content="VerticalDivider">
-                    <param name="value" value="1730" />
-                </include> -->
-
                 <control type="list" id="50">
-                    <!-- <visible>Container.Content(songs)</visible> -->
+                    <visible>!$EXP[isPrimaryMedia]</visible>
                     <top>324</top>
                     <left>328</left>
                     <width>1656</width>
                     <bottom>0</bottom>
-                    <onleft>SetFocus(9005)</onleft>
-                    <onright>339</onright>
+                    <onleft>61</onleft>
+                    <onright>61</onright>
                     <onup>50</onup>
                     <ondown>50</ondown>
                     <viewtype label="535">list</viewtype>
@@ -187,7 +160,7 @@
                         <textcolor>TextDim</textcolor>
                         <align>left</align>
                         <font>WidgetLabel</font>
-                        <label>$INFO[ListItem.AlbumArtist]$INFO[ListItem.Genre,  •  ,]$INFO[ListItem.Year,  •  ,]</label>
+                        <label>$INFO[ListItem.AlbumArtist]$INFO[ListItem.Genre,  â€¢  ,]$INFO[ListItem.Year,  â€¢  ,]</label>
                     </control>
                 </control>
 

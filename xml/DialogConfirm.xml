@@ -77,22 +77,25 @@
                 <description>OK button</description>
                 <label />
                 <left>1420</left>
-                <include>ContextButtonTemplate</include>
-            </control>
+                <width>1000</width>
+                <include>Button120</include>
+        </control>
             <!-- Cancel button -->
             <control type="button" id="10">
                 <description>Cancel button</description>
                 <label />
                 <left>1420</left>
-                <include>ContextButtonTemplate</include>
-            </control>
+                <width>1000</width>
+                <include>Button120</include>
+        </control>
             <!-- Custom button -->
             <control type="button" id="12">
                 <description>Custom button</description>
                 <left>1420</left>
                 <label />
-                <include>ContextButtonTemplate</include>
-            </control>
+                <width>1000</width>
+                <include>Button120</include>
+        </control>
 
         </control>
 

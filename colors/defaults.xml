@@ -6,6 +6,7 @@
     <color name="TextMid">b2b2b2b2</color>
     <color name="TextDim">ff707070</color>
     <color name="TextDark">ff303030</color>
+    <color name="MainMenuDark">b0303030</color>
     <color name="TextSubLabel">b2d0d0d0</color>
     <color name="ItemBackground">70303030</color>
     <color name="PanelBackground">ff202020</color>
@@ -19,7 +20,7 @@
 
     <color name="ScreenFade">f0282828</color>
     <color name="DialogBackground">fa161616</color>
-    <color name="DialogList">fa101010</color>
+    <color name="DialogList">ff121212</color>
 
     <color name="Black">FF000000</color>
     <color name="Invalid">FFFF6666</color>

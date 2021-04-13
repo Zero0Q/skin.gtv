@@ -1,0 +1,712 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<includes>
+	<include name="skinshortcuts-mainmenu">
+		<item id="1">
+			<property name="id">$NUMBER[1]</property>
+			<label>$LOCALIZE[31414]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<property name="labelID">31414</property>
+			<property name="defaultID">foryou</property>
+			<property name="widgetGroupTemplate">template3</property>
+			<property name="widget.1">EHMixedRandomGenre</property>
+			<property name="widgetName.1">More Genre Mixed</property>
+			<property name="widgetPath.1">plugin://script.embuary.helper/?info=getbygenre&amp;reload=$INFO[Window(Home).Property(widgetreload)]</property>
+			<property name="widgetTarget.1">videos</property>
+			<property name="widget.2">EHMoviesBecauseYouWatched</property>
+			<property name="widgetName.2">Because You Watched Movies</property>
+			<property name="widgetPath.2">plugin://script.embuary.helper/?info=getsimilar&amp;type=movie&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)</property>
+			<property name="widgetTarget.2">videos</property>
+			<property name="widgetArtwork.2">Landscape</property>
+			<property name="widget.3">EHShowsBecauseYouWatched</property>
+			<property name="widgetName.3">Because You Watched Shows</property>
+			<property name="widgetPath.3">plugin://script.embuary.helper/?info=getsimilar&amp;type=tvshow&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)</property>
+			<property name="widgetTarget.3">videos</property>
+			<property name="widgetArtwork.3">Landscape</property>
+			<property name="widgetType.1">mixed</property>
+			<property name="widgetType.2">movies</property>
+			<property name="widgetType.3">tvshows</property>
+			<property name="widgetArtwork.1">Landscape</property>
+			<property name="widgetArtwork.4">Landscape</property>
+			<property name="widgetArtwork.5">Landscape</property>
+			<onclick>noop</onclick>
+			<property name="path">noop</property>
+			<property name="list">noop</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="submenuVisibility">num-31414</property>
+			<property name="group">mainmenu</property>
+			<property name="hasSubmenu">False</property>
+		</item>
+		<item id="2">
+			<property name="id">$NUMBER[2]</property>
+			<label>$LOCALIZE[20342]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<property name="labelID">20342</property>
+			<property name="defaultID">movies</property>
+			<property name="widgetGroupTemplate">template3</property>
+			<property name="widget.1">StartWatchingMovies</property>
+			<property name="widgetName.1">Start Watching</property>
+			<property name="widgetPath.1">special://skin/extras/playlists/random_unwatched_movies.xsp</property>
+			<property name="widgetTarget.1">videos</property>
+			<property name="widgetArtwork.1">Landscape</property>
+			<property name="widget.2">NewMovies</property>
+			<property name="widgetName.2">Just Added</property>
+			<property name="widgetPath.2">special://skin/extras/playlists/recently_added_movies.xsp</property>
+			<property name="widgetTarget.2">videos</property>
+			<property name="widgetArtwork.2">Landscape</property>
+			<property name="widget.3">EHMoviesBecauseYouWatched</property>
+			<property name="widgetName.3">Because You Watched</property>
+			<property name="widgetPath.3">plugin://script.embuary.helper/?info=getsimilar&amp;type=movie&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)</property>
+			<property name="widgetTarget.3">videos</property>
+			<property name="widgetArtwork.3">Landscape</property>
+			<property name="widget.4">EHMoviesRandomGenre</property>
+			<property name="widgetName.4">More Genre</property>
+			<property name="widgetPath.4">plugin://script.embuary.helper/?info=getbygenre&amp;unwatched=True&amp;type=movie&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)</property>
+			<property name="widgetTarget.4">videos</property>
+			<property name="widgetArtwork.4">Landscape</property>
+			<property name="widgetType.1">movies</property>
+			<property name="widgetType.2">movies</property>
+			<property name="widgetType.3">movies</property>
+			<property name="widgetType.4">movies</property>
+			<property name="widgetArtwork.5">Landscape</property>
+			<visible>Library.HasContent(Movies)</visible>
+			<onclick>ActivateWindow(videos,videodb://movies/titles/,return)</onclick>
+			<property name="path">ActivateWindow(videos,videodb://movies/titles/,return)</property>
+			<property name="list">videodb://movies/titles/</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="submenuVisibility">num-20342</property>
+			<property name="group">mainmenu</property>
+			<property name="hasSubmenu">True</property>
+		</item>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
+			<label>$LOCALIZE[31415]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<property name="labelID">31415</property>
+			<property name="defaultID">tvshows</property>
+			<property name="widgetGroupTemplate">template3</property>
+			<property name="widget.1">StartWatchingTVShows</property>
+			<property name="widgetName.1">Start Watching</property>
+			<property name="widgetPath.1">special://skin/extras/playlists/random_unwatched_shows.xsp</property>
+			<property name="widgetTarget.1">videos</property>
+			<property name="widgetArtwork.1">Landscape</property>
+			<property name="widget.2">EHNextEpisodes</property>
+			<property name="widgetName.2">Next Episodes</property>
+			<property name="widgetPath.2">plugin://script.embuary.helper/?info=getnextup&amp;reload=$INFO[Window(Home).Property(widgetreload)]</property>
+			<property name="widgetTarget.2">videos</property>
+			<property name="widgetArtwork.2">Landscape</property>
+			<property name="widget.3">EHRecentlyAddedShows</property>
+			<property name="widgetName.3">Recently Added</property>
+			<property name="widgetPath.3">plugin://script.embuary.helper/?info=getnewshows&amp;showall=True&amp;reload=$INFO[Window(Home).Property(widgetreload)]</property>
+			<property name="widgetTarget.3">videos</property>
+			<property name="widgetArtwork.3">Landscape</property>
+			<property name="widget.4">EHShowsBecauseYouWatched</property>
+			<property name="widgetName.4">Because You Watched</property>
+			<property name="widgetPath.4">plugin://script.embuary.helper/?info=getsimilar&amp;type=tvshow&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)</property>
+			<property name="widgetTarget.4">videos</property>
+			<property name="widgetArtwork.4">Landscape</property>
+			<property name="widget.5">EHShowsRandomGenre</property>
+			<property name="widgetName.5">More Genre</property>
+			<property name="widgetPath.5">plugin://script.embuary.helper/?info=getbygenre&amp;unwatched=True&amp;type=tvshow&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)</property>
+			<property name="widgetTarget.5">videos</property>
+			<property name="widgetArtwork.5">Landscape</property>
+			<property name="widgetType.1">tvshows</property>
+			<property name="widgetType.2">episodes</property>
+			<property name="widgetType.3">episodes</property>
+			<property name="widgetType.4">tvshows</property>
+			<property name="widgetType.5">tvshows</property>
+			<visible>Library.HasContent(TVShows)</visible>
+			<onclick>ActivateWindow(Videos,videodb://tvshows/titles/,return)</onclick>
+			<property name="path">ActivateWindow(Videos,videodb://tvshows/titles/,return)</property>
+			<property name="list">videodb://tvshows/titles/</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="submenuVisibility">num-31415</property>
+			<property name="group">mainmenu</property>
+			<property name="hasSubmenu">True</property>
+		</item>
+		<item id="4">
+			<property name="id">$NUMBER[4]</property>
+			<label>$LOCALIZE[5]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<property name="labelID">5</property>
+			<property name="defaultID">settings</property>
+			<property name="widgetGroupTemplate">template4</property>
+			<property name="widgetArtwork.1">Landscape</property>
+			<property name="widgetArtwork.2">Landscape</property>
+			<property name="widgetArtwork.3">Landscape</property>
+			<property name="widgetArtwork.4">Landscape</property>
+			<property name="widgetArtwork.5">Landscape</property>
+			<onclick>ActivateWindow(settings)</onclick>
+			<property name="path">ActivateWindow(settings)</property>
+			<property name="list">settings</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="submenuVisibility">num-5</property>
+			<property name="group">mainmenu</property>
+			<property name="hasSubmenu">False</property>
+		</item>
+	</include>
+	<include />
+	<include name="skinshortcuts-submenu">
+		<item id="1">
+			<property name="id">$NUMBER[1]</property>
+			<property name="mainmenuid">2</property>
+			<label>$LOCALIZE[135]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<property name="labelID">135</property>
+			<property name="defaultID">135</property>
+			<visible>[Library.HasContent(Movies)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-20342)</visible>
+			<onclick>ActivateWindow(Videos,videodb://movies/genres/,return)</onclick>
+			<property name="path">ActivateWindow(Videos,videodb://movies/genres/,return)</property>
+			<property name="list">videodb://movies/genres/</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">20342</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="2">
+			<property name="id">$NUMBER[2]</property>
+			<property name="mainmenuid">2</property>
+			<label>$LOCALIZE[20434]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<property name="labelID">20434</property>
+			<property name="defaultID">20434</property>
+			<visible>[Library.HasContent(MovieSets)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-20342)</visible>
+			<onclick>ActivateWindow(Videos,videodb://movies/sets/,return)</onclick>
+			<property name="path">ActivateWindow(Videos,videodb://movies/sets/,return)</property>
+			<property name="list">videodb://movies/sets/</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">20342</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
+			<property name="mainmenuid">2</property>
+			<label>$LOCALIZE[652]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<property name="labelID">652</property>
+			<property name="defaultID">652</property>
+			<visible>[Library.HasContent(Movies)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-20342)</visible>
+			<onclick>ActivateWindow(Videos,videodb://movies/years/,return)</onclick>
+			<property name="path">ActivateWindow(Videos,videodb://movies/years/,return)</property>
+			<property name="list">videodb://movies/years/</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">20342</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="1">
+			<property name="id">$NUMBER[1]</property>
+			<property name="mainmenuid">3</property>
+			<label>$LOCALIZE[135]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<property name="labelID">135</property>
+			<property name="defaultID">135</property>
+			<visible>[Library.HasContent(TVShows)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-31415)</visible>
+			<onclick>ActivateWindow(Videos,videodb://tvshows/genres/,return)</onclick>
+			<property name="path">ActivateWindow(Videos,videodb://tvshows/genres/,return)</property>
+			<property name="list">videodb://tvshows/genres/</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">31415</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="2">
+			<property name="id">$NUMBER[2]</property>
+			<property name="mainmenuid">3</property>
+			<label>$LOCALIZE[20388]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<property name="labelID">20388</property>
+			<property name="defaultID">20388</property>
+			<visible>[Library.HasContent(TVShows)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-31415)</visible>
+			<onclick>ActivateWindow(Videos,videodb://tvshows/studios/,return)</onclick>
+			<property name="path">ActivateWindow(Videos,videodb://tvshows/studios/,return)</property>
+			<property name="list">videodb://tvshows/studios/</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">31415</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
+			<property name="mainmenuid">3</property>
+			<label>$LOCALIZE[652]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<property name="labelID">652</property>
+			<property name="defaultID">652</property>
+			<visible>[Library.HasContent(TVShows)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-31415)</visible>
+			<onclick>ActivateWindow(Videos,videodb://tvshows/years/,return)</onclick>
+			<property name="path">ActivateWindow(Videos,videodb://tvshows/years/,return)</property>
+			<property name="list">videodb://tvshows/years/</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">31415</property>
+			<property name="isSubmenu">True</property>
+		</item>
+	</include>
+	<include name="skinshortcuts-template-main-menu-ondown">
+		<include condition="String.IsEqual(System.ProfileName,Master user)">skinshortcuts-template-main-menu-ondown-Master user</include>
+	</include>
+	<include name="skinshortcuts-template-main-menu-ondown-Master user">
+		<ondown condition="String.IsEqual(Container(9000).ListItem.Property(id),1)">16100</ondown>
+		<ondown condition="String.IsEqual(Container(9000).ListItem.Property(id),2)">16200</ondown>
+		<ondown condition="String.IsEqual(Container(9000).ListItem.Property(id),3)">16300</ondown>
+		<ondown condition="String.IsEqual(Container(9000).ListItem.Property(id),4)">16400</ondown>
+	</include>
+	<include name="skinshortcuts-template-main-menu-slide">
+		<include condition="String.IsEqual(System.ProfileName,Master user)">skinshortcuts-template-main-menu-slide-Master user</include>
+	</include>
+	<include name="skinshortcuts-template-main-menu-slide-Master user">
+		<animation condition="Integer.IsGreater(Container(16100).Position,1)" type="Conditional">
+			<effect end="0,-200" start="0,0" time="200" type="slide" />
+			<effect delay="25" end="0" start="100" time="150" type="fade" />
+		</animation>
+		<animation condition="Integer.IsGreater(Container(16200).Position,1)" type="Conditional">
+			<effect end="0,-200" start="0,0" time="200" type="slide" />
+			<effect delay="25" end="0" start="100" time="150" type="fade" />
+		</animation>
+		<animation condition="Integer.IsGreater(Container(16300).Position,1)" type="Conditional">
+			<effect end="0,-200" start="0,0" time="200" type="slide" />
+			<effect delay="25" end="0" start="100" time="150" type="fade" />
+		</animation>
+		<animation condition="Integer.IsGreater(Container(16400).Position,1)" type="Conditional">
+			<effect end="0,-200" start="0,0" time="200" type="slide" />
+			<effect delay="25" end="0" start="100" time="150" type="fade" />
+		</animation>
+	</include>
+	<include name="skinshortcuts-template-widgets">
+		<include condition="String.IsEqual(System.ProfileName,Master user)">skinshortcuts-template-widgets-Master user</include>
+	</include>
+	<include name="skinshortcuts-template-widgets-Master user">
+		<control type="group">
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-31414)</visible>
+			<control id="16100" type="grouplist">
+				<include>ContentChangeAnimation</include>
+				<animation condition="$EXP[subMenuNotEmpty]" effect="slide" end="0,180" time="0">Conditional</animation>
+				<animation condition="!Control.HasFocus(9000) + !Control.HasFocus(9001) + $EXP[subMenuNotEmpty]" effect="slide" end="0,-180" time="200">Conditional</animation>
+				<animation condition="Integer.IsGreater(Container(16100).Position,1) + Integer.IsGreater(Container(16100).NumItems,2)" effect="slide" end="0,-774" time="200">Conditional</animation>
+				<animation condition="Integer.IsGreater(Container(16100).Position,2) + Integer.IsGreater(Container(16100).NumItems,3)" effect="slide" end="0,-600" time="200">Conditional</animation>
+				<animation condition="Integer.IsGreater(Container(16100).Position,3) + Integer.IsGreater(Container(16100).NumItems,4)" effect="slide" end="0,-600" time="200">Conditional</animation>
+				<left>0</left>
+				<top>0</top>
+				<height>15000</height>
+				<right>0</right>
+				<usecontrolcoords>true</usecontrolcoords>
+				<itemgap>0</itemgap>
+				<control type="group">
+					<height>400</height>
+				</control>
+				<control type="group">
+					<visible>Integer.IsGreater(Container(16011).NumItems,0) | Container(16011).IsUpdating</visible>
+					<animation condition="Control.HasFocus(16012) | Control.HasFocus(16013) | Control.HasFocus(16014) | Control.HasFocus(16015)" effect="slide" end="0,-200" time="200">Conditional</animation>
+					<left>0</left>
+					<right>0</right>
+					<top>0</top>
+					<height>920</height>
+					<include content="HomeWidgetWide">
+						<param name="WidgetLabel" value="More Genre Mixed" />
+						<param name="WidgetType" value="EHMixedRandomGenre" />
+						<param name="ListID" value="16011" />
+						<param name="Content" value="plugin://script.embuary.helper/?info=getbygenre&amp;reload=$INFO[Window(Home).Property(widgetreload)]" />
+						<param name="ContentType" value="videos" />
+						<param name="SortBy" value="" />
+						<param name="SortOrder" value="" />
+						<param name="SortLimit" value="" />
+						<param name="OnBack" value="SetFocus(16011,0,absolute)" />
+						<param name="OnUp" value="9001" />
+						<param name="OnDown" value="16012" />
+						<param name="GroupHeight" value="920" />
+					</include>
+				</control>
+				<control type="group">
+					<visible>Integer.IsGreater(Container(16012).NumItems,0) | Container(16012).IsUpdating</visible>
+					<animation condition="Control.HasFocus(16011)" effect="slide" end="0,100" time="200">Conditional</animation>
+					<animation condition="Control.HasFocus(16013) | Control.HasFocus(16014) | Control.HasFocus(16015)" effect="slide" end="0,-200" time="200">Conditional</animation>
+					<left>0</left>
+					<right>0</right>
+					<top>0</top>
+					<height>600</height>
+					<include content="HomeWidgetLandscape">
+						<param name="WidgetLabel" value="Because You Watched Movies" />
+						<param name="WidgetType" value="EHMoviesBecauseYouWatched" />
+						<param name="ListID" value="16012" />
+						<param name="Content" value="plugin://script.embuary.helper/?info=getsimilar&amp;type=movie&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)" />
+						<param name="ContentType" value="videos" />
+						<param name="SortBy" value="" />
+						<param name="SortOrder" value="" />
+						<param name="SortLimit" value="" />
+						<param name="OnBack" value="SetFocus(16012,0,absolute)" />
+						<param name="OnUp" value="16011" />
+						<param name="OnDown" value="16013" />
+						<param name="GroupHeight" value="600" />
+					</include>
+				</control>
+				<control type="group">
+					<visible>Integer.IsGreater(Container(16013).NumItems,0) | Container(16013).IsUpdating</visible>
+					<animation condition="Control.HasFocus(16011) | Control.HasFocus(16012)" effect="slide" end="0,200" time="200">Conditional</animation>
+					<animation condition="Control.HasFocus(16014) | Control.HasFocus(16015)" effect="slide" end="0,-200" time="200">Conditional</animation>
+					<left>0</left>
+					<right>0</right>
+					<top>0</top>
+					<height>600</height>
+					<include content="HomeWidgetLandscape">
+						<param name="WidgetLabel" value="Because You Watched Shows" />
+						<param name="WidgetType" value="EHShowsBecauseYouWatched" />
+						<param name="ListID" value="16013" />
+						<param name="Content" value="plugin://script.embuary.helper/?info=getsimilar&amp;type=tvshow&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)" />
+						<param name="ContentType" value="videos" />
+						<param name="SortBy" value="" />
+						<param name="SortOrder" value="" />
+						<param name="SortLimit" value="" />
+						<param name="OnBack" value="SetFocus(16013,0,absolute)" />
+						<param name="OnUp" value="16012" />
+						<param name="OnDown" value="16014" />
+						<param name="GroupHeight" value="600" />
+					</include>
+				</control>
+				<control type="group">
+					<visible>Integer.IsGreater(Container(16014).NumItems,0) | Container(16014).IsUpdating</visible>
+					<animation condition="Control.HasFocus(16011) | Control.HasFocus(16012) | Control.HasFocus(16013)" effect="slide" end="0,200" time="200">Conditional</animation>
+					<animation condition="Control.HasFocus(16015)" effect="slide" end="0,-200" time="200">Conditional</animation>
+					<left>0</left>
+					<right>0</right>
+					<top>0</top>
+					<height>600</height>
+					<include content="HomeWidgetLandscape">
+						<param name="WidgetLabel" value="" />
+						<param name="WidgetType" value="" />
+						<param name="ListID" value="16014" />
+						<param name="Content" value="" />
+						<param name="ContentType" value="" />
+						<param name="SortBy" value="" />
+						<param name="SortOrder" value="" />
+						<param name="SortLimit" value="" />
+						<param name="OnBack" value="SetFocus(16014,0,absolute)" />
+						<param name="OnUp" value="16013" />
+						<param name="OnDown" value="16015" />
+						<param name="GroupHeight" value="600" />
+					</include>
+				</control>
+				<control type="group">
+					<visible>Integer.IsGreater(Container(16015).NumItems,0) | Container(16015).IsUpdating</visible>
+					<animation condition="Control.HasFocus(16011) | Control.HasFocus(16012) | Control.HasFocus(16013) | Control.HasFocus(16014)" effect="slide" end="0,200" time="200">Conditional</animation>
+					<left>0</left>
+					<right>0</right>
+					<top>0</top>
+					<height>600</height>
+					<include content="HomeWidgetLandscape">
+						<param name="WidgetLabel" value="" />
+						<param name="WidgetType" value="" />
+						<param name="ListID" value="16015" />
+						<param name="Content" value="" />
+						<param name="ContentType" value="" />
+						<param name="SortBy" value="" />
+						<param name="SortOrder" value="" />
+						<param name="SortLimit" value="" />
+						<param name="OnBack" value="SetFocus(16015,0,absolute)" />
+						<param name="OnUp" value="16014" />
+						<param name="GroupHeight" value="600" />
+					</include>
+				</control>
+				<control type="image">
+					<top>0</top>
+					<left>0</left>
+					<width>3840</width>
+					<height>340</height>
+					<texture background="true" colordiffuse="90ffffff" diffuse="masks/WidgetTop.png">general/Black.png</texture>
+				</control>
+			</control>
+		</control>
+		<control type="group">
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-20342)</visible>
+			<control id="16200" type="grouplist">
+				<include>ContentChangeAnimation</include>
+				<animation condition="$EXP[subMenuNotEmpty]" effect="slide" end="0,180" time="0">Conditional</animation>
+				<animation condition="!Control.HasFocus(9000) + !Control.HasFocus(9001) + $EXP[subMenuNotEmpty]" effect="slide" end="0,-180" time="200">Conditional</animation>
+				<animation condition="Integer.IsGreater(Container(16200).Position,1) + Integer.IsGreater(Container(16200).NumItems,2)" effect="slide" end="0,-774" time="200">Conditional</animation>
+				<animation condition="Integer.IsGreater(Container(16200).Position,2) + Integer.IsGreater(Container(16200).NumItems,3)" effect="slide" end="0,-600" time="200">Conditional</animation>
+				<animation condition="Integer.IsGreater(Container(16200).Position,3) + Integer.IsGreater(Container(16200).NumItems,4)" effect="slide" end="0,-600" time="200">Conditional</animation>
+				<left>0</left>
+				<top>0</top>
+				<height>15000</height>
+				<right>0</right>
+				<usecontrolcoords>true</usecontrolcoords>
+				<itemgap>0</itemgap>
+				<control type="group">
+					<height>400</height>
+				</control>
+				<control type="group">
+					<visible>Integer.IsGreater(Container(16021).NumItems,0) | Container(16021).IsUpdating</visible>
+					<animation condition="Control.HasFocus(16022) | Control.HasFocus(16023) | Control.HasFocus(16024) | Control.HasFocus(16025)" effect="slide" end="0,-200" time="200">Conditional</animation>
+					<left>0</left>
+					<right>0</right>
+					<top>0</top>
+					<height>920</height>
+					<include content="HomeWidgetWide">
+						<param name="WidgetLabel" value="Start Watching" />
+						<param name="WidgetType" value="StartWatchingMovies" />
+						<param name="ListID" value="16021" />
+						<param name="Content" value="special://skin/extras/playlists/random_unwatched_movies.xsp" />
+						<param name="ContentType" value="videos" />
+						<param name="SortBy" value="" />
+						<param name="SortOrder" value="" />
+						<param name="SortLimit" value="" />
+						<param name="OnBack" value="SetFocus(16021,0,absolute)" />
+						<param name="OnUp" value="9001" />
+						<param name="OnDown" value="16022" />
+						<param name="GroupHeight" value="920" />
+					</include>
+				</control>
+				<control type="group">
+					<visible>Integer.IsGreater(Container(16022).NumItems,0) | Container(16022).IsUpdating</visible>
+					<animation condition="Control.HasFocus(16021)" effect="slide" end="0,100" time="200">Conditional</animation>
+					<animation condition="Control.HasFocus(16023) | Control.HasFocus(16024) | Control.HasFocus(16025)" effect="slide" end="0,-200" time="200">Conditional</animation>
+					<left>0</left>
+					<right>0</right>
+					<top>0</top>
+					<height>600</height>
+					<include content="HomeWidgetLandscape">
+						<param name="WidgetLabel" value="Just Added" />
+						<param name="WidgetType" value="NewMovies" />
+						<param name="ListID" value="16022" />
+						<param name="Content" value="special://skin/extras/playlists/recently_added_movies.xsp" />
+						<param name="ContentType" value="videos" />
+						<param name="SortBy" value="" />
+						<param name="SortOrder" value="" />
+						<param name="SortLimit" value="" />
+						<param name="OnBack" value="SetFocus(16022,0,absolute)" />
+						<param name="OnUp" value="16021" />
+						<param name="OnDown" value="16023" />
+						<param name="GroupHeight" value="600" />
+					</include>
+				</control>
+				<control type="group">
+					<visible>Integer.IsGreater(Container(16023).NumItems,0) | Container(16023).IsUpdating</visible>
+					<animation condition="Control.HasFocus(16021) | Control.HasFocus(16022)" effect="slide" end="0,200" time="200">Conditional</animation>
+					<animation condition="Control.HasFocus(16024) | Control.HasFocus(16025)" effect="slide" end="0,-200" time="200">Conditional</animation>
+					<left>0</left>
+					<right>0</right>
+					<top>0</top>
+					<height>600</height>
+					<include content="HomeWidgetLandscape">
+						<param name="WidgetLabel" value="Because You Watched" />
+						<param name="WidgetType" value="EHMoviesBecauseYouWatched" />
+						<param name="ListID" value="16023" />
+						<param name="Content" value="plugin://script.embuary.helper/?info=getsimilar&amp;type=movie&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)" />
+						<param name="ContentType" value="videos" />
+						<param name="SortBy" value="" />
+						<param name="SortOrder" value="" />
+						<param name="SortLimit" value="" />
+						<param name="OnBack" value="SetFocus(16023,0,absolute)" />
+						<param name="OnUp" value="16022" />
+						<param name="OnDown" value="16024" />
+						<param name="GroupHeight" value="600" />
+					</include>
+				</control>
+				<control type="group">
+					<visible>Integer.IsGreater(Container(16024).NumItems,0) | Container(16024).IsUpdating</visible>
+					<animation condition="Control.HasFocus(16021) | Control.HasFocus(16022) | Control.HasFocus(16023)" effect="slide" end="0,200" time="200">Conditional</animation>
+					<animation condition="Control.HasFocus(16025)" effect="slide" end="0,-200" time="200">Conditional</animation>
+					<left>0</left>
+					<right>0</right>
+					<top>0</top>
+					<height>600</height>
+					<include content="HomeWidgetLandscape">
+						<param name="WidgetLabel" value="More Genre" />
+						<param name="WidgetType" value="EHMoviesRandomGenre" />
+						<param name="ListID" value="16024" />
+						<param name="Content" value="plugin://script.embuary.helper/?info=getbygenre&amp;unwatched=True&amp;type=movie&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)" />
+						<param name="ContentType" value="videos" />
+						<param name="SortBy" value="" />
+						<param name="SortOrder" value="" />
+						<param name="SortLimit" value="" />
+						<param name="OnBack" value="SetFocus(16024,0,absolute)" />
+						<param name="OnUp" value="16023" />
+						<param name="OnDown" value="16025" />
+						<param name="GroupHeight" value="600" />
+					</include>
+				</control>
+				<control type="group">
+					<visible>Integer.IsGreater(Container(16025).NumItems,0) | Container(16025).IsUpdating</visible>
+					<animation condition="Control.HasFocus(16021) | Control.HasFocus(16022) | Control.HasFocus(16023) | Control.HasFocus(16024)" effect="slide" end="0,200" time="200">Conditional</animation>
+					<left>0</left>
+					<right>0</right>
+					<top>0</top>
+					<height>600</height>
+					<include content="HomeWidgetLandscape">
+						<param name="WidgetLabel" value="" />
+						<param name="WidgetType" value="" />
+						<param name="ListID" value="16025" />
+						<param name="Content" value="" />
+						<param name="ContentType" value="" />
+						<param name="SortBy" value="" />
+						<param name="SortOrder" value="" />
+						<param name="SortLimit" value="" />
+						<param name="OnBack" value="SetFocus(16025,0,absolute)" />
+						<param name="OnUp" value="16024" />
+						<param name="GroupHeight" value="600" />
+					</include>
+				</control>
+				<control type="image">
+					<top>0</top>
+					<left>0</left>
+					<width>3840</width>
+					<height>340</height>
+					<texture background="true" colordiffuse="90ffffff" diffuse="masks/WidgetTop.png">general/Black.png</texture>
+				</control>
+			</control>
+		</control>
+		<control type="group">
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-31415)</visible>
+			<control id="16300" type="grouplist">
+				<include>ContentChangeAnimation</include>
+				<animation condition="$EXP[subMenuNotEmpty]" effect="slide" end="0,180" time="0">Conditional</animation>
+				<animation condition="!Control.HasFocus(9000) + !Control.HasFocus(9001) + $EXP[subMenuNotEmpty]" effect="slide" end="0,-180" time="200">Conditional</animation>
+				<animation condition="Integer.IsGreater(Container(16300).Position,1) + Integer.IsGreater(Container(16300).NumItems,2)" effect="slide" end="0,-774" time="200">Conditional</animation>
+				<animation condition="Integer.IsGreater(Container(16300).Position,2) + Integer.IsGreater(Container(16300).NumItems,3)" effect="slide" end="0,-600" time="200">Conditional</animation>
+				<animation condition="Integer.IsGreater(Container(16300).Position,3) + Integer.IsGreater(Container(16300).NumItems,4)" effect="slide" end="0,-600" time="200">Conditional</animation>
+				<left>0</left>
+				<top>0</top>
+				<height>15000</height>
+				<right>0</right>
+				<usecontrolcoords>true</usecontrolcoords>
+				<itemgap>0</itemgap>
+				<control type="group">
+					<height>400</height>
+				</control>
+				<control type="group">
+					<visible>Integer.IsGreater(Container(16031).NumItems,0) | Container(16031).IsUpdating</visible>
+					<animation condition="Control.HasFocus(16032) | Control.HasFocus(16033) | Control.HasFocus(16034) | Control.HasFocus(16035)" effect="slide" end="0,-200" time="200">Conditional</animation>
+					<left>0</left>
+					<right>0</right>
+					<top>0</top>
+					<height>920</height>
+					<include content="HomeWidgetWide">
+						<param name="WidgetLabel" value="Start Watching" />
+						<param name="WidgetType" value="StartWatchingTVShows" />
+						<param name="ListID" value="16031" />
+						<param name="Content" value="special://skin/extras/playlists/random_unwatched_shows.xsp" />
+						<param name="ContentType" value="videos" />
+						<param name="SortBy" value="" />
+						<param name="SortOrder" value="" />
+						<param name="SortLimit" value="" />
+						<param name="OnBack" value="SetFocus(16031,0,absolute)" />
+						<param name="OnUp" value="9001" />
+						<param name="OnDown" value="16032" />
+						<param name="GroupHeight" value="920" />
+					</include>
+				</control>
+				<control type="group">
+					<visible>Integer.IsGreater(Container(16032).NumItems,0) | Container(16032).IsUpdating</visible>
+					<animation condition="Control.HasFocus(16031)" effect="slide" end="0,100" time="200">Conditional</animation>
+					<animation condition="Control.HasFocus(16033) | Control.HasFocus(16034) | Control.HasFocus(16035)" effect="slide" end="0,-200" time="200">Conditional</animation>
+					<left>0</left>
+					<right>0</right>
+					<top>0</top>
+					<height>600</height>
+					<include content="HomeWidgetLandscape">
+						<param name="WidgetLabel" value="Next Episodes" />
+						<param name="WidgetType" value="EHNextEpisodes" />
+						<param name="ListID" value="16032" />
+						<param name="Content" value="plugin://script.embuary.helper/?info=getnextup&amp;reload=$INFO[Window(Home).Property(widgetreload)]" />
+						<param name="ContentType" value="videos" />
+						<param name="SortBy" value="" />
+						<param name="SortOrder" value="" />
+						<param name="SortLimit" value="" />
+						<param name="OnBack" value="SetFocus(16032,0,absolute)" />
+						<param name="OnUp" value="16031" />
+						<param name="OnDown" value="16033" />
+						<param name="GroupHeight" value="600" />
+					</include>
+				</control>
+				<control type="group">
+					<visible>Integer.IsGreater(Container(16033).NumItems,0) | Container(16033).IsUpdating</visible>
+					<animation condition="Control.HasFocus(16031) | Control.HasFocus(16032)" effect="slide" end="0,200" time="200">Conditional</animation>
+					<animation condition="Control.HasFocus(16034) | Control.HasFocus(16035)" effect="slide" end="0,-200" time="200">Conditional</animation>
+					<left>0</left>
+					<right>0</right>
+					<top>0</top>
+					<height>600</height>
+					<include content="HomeWidgetLandscape">
+						<param name="WidgetLabel" value="Recently Added" />
+						<param name="WidgetType" value="EHRecentlyAddedShows" />
+						<param name="ListID" value="16033" />
+						<param name="Content" value="plugin://script.embuary.helper/?info=getnewshows&amp;showall=True&amp;reload=$INFO[Window(Home).Property(widgetreload)]" />
+						<param name="ContentType" value="videos" />
+						<param name="SortBy" value="" />
+						<param name="SortOrder" value="" />
+						<param name="SortLimit" value="" />
+						<param name="OnBack" value="SetFocus(16033,0,absolute)" />
+						<param name="OnUp" value="16032" />
+						<param name="OnDown" value="16034" />
+						<param name="GroupHeight" value="600" />
+					</include>
+				</control>
+				<control type="group">
+					<visible>Integer.IsGreater(Container(16034).NumItems,0) | Container(16034).IsUpdating</visible>
+					<animation condition="Control.HasFocus(16031) | Control.HasFocus(16032) | Control.HasFocus(16033)" effect="slide" end="0,200" time="200">Conditional</animation>
+					<animation condition="Control.HasFocus(16035)" effect="slide" end="0,-200" time="200">Conditional</animation>
+					<left>0</left>
+					<right>0</right>
+					<top>0</top>
+					<height>600</height>
+					<include content="HomeWidgetLandscape">
+						<param name="WidgetLabel" value="Because You Watched" />
+						<param name="WidgetType" value="EHShowsBecauseYouWatched" />
+						<param name="ListID" value="16034" />
+						<param name="Content" value="plugin://script.embuary.helper/?info=getsimilar&amp;type=tvshow&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)" />
+						<param name="ContentType" value="videos" />
+						<param name="SortBy" value="" />
+						<param name="SortOrder" value="" />
+						<param name="SortLimit" value="" />
+						<param name="OnBack" value="SetFocus(16034,0,absolute)" />
+						<param name="OnUp" value="16033" />
+						<param name="OnDown" value="16035" />
+						<param name="GroupHeight" value="600" />
+					</include>
+				</control>
+				<control type="group">
+					<visible>Integer.IsGreater(Container(16035).NumItems,0) | Container(16035).IsUpdating</visible>
+					<animation condition="Control.HasFocus(16031) | Control.HasFocus(16032) | Control.HasFocus(16033) | Control.HasFocus(16034)" effect="slide" end="0,200" time="200">Conditional</animation>
+					<left>0</left>
+					<right>0</right>
+					<top>0</top>
+					<height>600</height>
+					<include content="HomeWidgetLandscape">
+						<param name="WidgetLabel" value="More Genre" />
+						<param name="WidgetType" value="EHShowsRandomGenre" />
+						<param name="ListID" value="16035" />
+						<param name="Content" value="plugin://script.embuary.helper/?info=getbygenre&amp;unwatched=True&amp;type=tvshow&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)" />
+						<param name="ContentType" value="videos" />
+						<param name="SortBy" value="" />
+						<param name="SortOrder" value="" />
+						<param name="SortLimit" value="" />
+						<param name="OnBack" value="SetFocus(16035,0,absolute)" />
+						<param name="OnUp" value="16034" />
+						<param name="GroupHeight" value="600" />
+					</include>
+				</control>
+				<control type="image">
+					<top>0</top>
+					<left>0</left>
+					<width>3840</width>
+					<height>340</height>
+					<texture background="true" colordiffuse="90ffffff" diffuse="masks/WidgetTop.png">general/Black.png</texture>
+				</control>
+			</control>
+		</control>
+	</include>
+</includes>

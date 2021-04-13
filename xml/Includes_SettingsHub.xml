@@ -4,7 +4,7 @@
 
     <include name="SettingsHub">
         <control type="group">
-            <visible>String.IsEqual(Container(9005).ListItem.Property(id),settings)</visible>
+            <!-- <visible>String.IsEqual(Container(9000).ListItem.Property(id),settings)</visible> -->
 
             <control type="label">
                 <left>32</left>
@@ -17,68 +17,85 @@
             </control>
 
             <control type="grouplist" id="4600">
-                <left>1700</left>
+                <left>1620</left>
                 <top>0</top>
-                <width>440</width>
+                <width>600</width>
                 <height min="60" max="2160">auto</height>
                 <usecontrolcoords>true</usecontrolcoords>
                 <itemgap>8</itemgap>
                 <align>center</align>
-                <onup>9005</onup>
-                <onback>9005</onback>
+                <onup>9000</onup>
+                <onback>9000</onback>
 
                 <control type="button" id="4609">
-                    <include>CategoryMenuButtonTemplate</include>
+                    <width>600</width>
+                    <include>Button120</include>
                     <label>Power</label>
                     <onclick>ReplaceWindow(1100)</onclick>
                 </control>
                 <control type="button" id="4610">
-                    <include>CategoryMenuButtonTemplate</include>
+                    <width>600</width>
+                    <include>Button120</include>
                     <label>$LOCALIZE[14206]</label>
                     <onclick>ReplaceWindow(InterfaceSettings)</onclick>
                 </control>
                 <control type="button" id="4611">
-                    <include>CategoryMenuButtonTemplate</include>
+                    <width>600</width>
+                    <include>Button120</include>
+                    <label>Skin settings</label>
+                    <onclick>ActivateWindow(SkinSettings)</onclick>
+                </control>
+                <control type="button" id="4612">
+                    <width>600</width>
+                    <include>Button120</include>
                     <label>$LOCALIZE[14200]</label>
                     <onclick>ReplaceWindow(PlayerSettings)</onclick>
                 </control>
-                <control type="button" id="4612">
-                    <include>CategoryMenuButtonTemplate</include>
+                <control type="button" id="4613">
+                    <width>600</width>
+                    <include>Button120</include>
                     <label>$LOCALIZE[14211]</label>
                     <onclick>ReplaceWindow(MediaSettings)</onclick>
                 </control>
-                <control type="button" id="4613">
-                    <include>CategoryMenuButtonTemplate</include>
+                <control type="button" id="4614">
+                    <width>600</width>
+                    <include>Button120</include>
                     <label>$LOCALIZE[19020]</label>
                     <onclick>ReplaceWindow(pvrsettings)</onclick>
                 </control>
-                <control type="button" id="4614">
-                    <include>CategoryMenuButtonTemplate</include>
+                <control type="button" id="4615">
+                    <width>600</width>
+                    <include>Button120</include>
                     <label>$LOCALIZE[15016]</label>
                     <onclick>ReplaceWindow(gamesettings)</onclick>
                 </control>
-                <control type="button" id="4615">
-                    <include>CategoryMenuButtonTemplate</include>
+                <control type="button" id="4616">
+                    <width>600</width>
+                    <include>Button120</include>
                     <label>$LOCALIZE[13000]</label>
                     <onclick>ReplaceWindow(SystemSettings)</onclick>
                 </control>
-                <control type="button" id="4616">
-                    <include>CategoryMenuButtonTemplate</include>
+                <control type="button" id="4617">
+                    <width>600</width>
+                    <include>Button120</include>
                     <label>$LOCALIZE[705]</label>
                     <onclick>ReplaceWindow(ServiceSettings)</onclick>
                 </control>
-                <control type="button" id="4617">
-                    <include>CategoryMenuButtonTemplate</include>
+                <control type="button" id="4618">
+                    <width>600</width>
+                    <include>Button120</include>
                     <label>$LOCALIZE[13200]</label>
                     <onclick>ReplaceWindow(Profiles)</onclick>
                 </control>
-                <control type="button" id="4618">
-                    <include>CategoryMenuButtonTemplate</include>
+                <control type="button" id="4619">
+                    <width>600</width>
+                    <include>Button120</include>
                     <label>$LOCALIZE[24001]</label>
                     <onclick>ReplaceWindow(AddonBrowser)</onclick>
                 </control>
-                <control type="button" id="4619">
-                    <include>CategoryMenuButtonTemplate</include>
+                <control type="button" id="4620">
+                    <width>600</width>
+                    <include>Button120</include>
                     <label>CoreELEC</label>
                     <onclick>RunAddon(service.coreelec.settings)</onclick>
                     <visible>System.HasAddon(service.coreelec.settings)</visible>

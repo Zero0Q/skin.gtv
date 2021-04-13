@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<includes>
+
+    <!-- Showcase Widget -->
+    <include name="WidgetShowcase">
+        <param name="Content" default="" />
+        <param name="GroupHeight" default="700" />
+        <param name="FadeIfUnfocused" default="true" />
+        <definition>
+
+            <control type="group">
+                <visible>Integer.IsGreater(Container($PARAM[ListID]).NumItems,0) | Container($PARAM[ListID]).IsUpdating</visible>
+                <left>0</left>
+                <right>0</right>
+                <top>0</top>
+                <height>$PARAM[GroupHeight]</height>
+
+
+                <control type="wraplist" id="$PARAM[ListID]">
+                    <left>0</left>
+                    <right>0</right>
+                    <height>1000</height>
+                    <onup>$PARAM[OnUp]</onup>
+                    <ondown>$PARAM[OnDown]</ondown>
+                    <onback>SetFocus($PARAM[ParentID])</onback>
+                    <onback>$PARAM[OnBack]</onback>
+                    <onleft>$PARAM[ListID]</onleft>
+                    <onright>$PARAM[ListID]</onright>
+                    <pagecontrol>68</pagecontrol>
+                    <preloaditems>2</preloaditems>
+                    <orientation>horizontal</orientation>
+                    <autoscroll time="10000">true</autoscroll>
+
+                    <itemlayout width="3840" height="1000"></itemlayout>
+                    <focusedlayout width="3840" height="1000">
+                        <control type="group">
+                            <animation effect="Fade" start="100" end="75" time="100" condition="!Control.HasFocus($PARAM[ListID])">Conditional</animation>
+                            <animation effect="Fade" start="75" end="100" time="100" condition="Control.HasFocus($PARAM[ListID])">Conditional</animation>
+                            <animation effect="fade" start="0," end="100" time="100" condition="!Container($PARAM[ListID]).OnNext + !Container($PARAM(ListID)).OnPrevious">Focused</animation>
+                            
+                            <left>224</left>
+                            <control type="image">
+                                <colordiffuse>ff404040</colordiffuse>
+                                <texture>general/White.png</texture>
+                            </control>
+                            <!-- <control type="textbox" id="2000">
+                                <top>200</top>
+                                <right>600</right>
+                                <height>250</height>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <font>LibraryMainTitleBig</font>
+                                <textcolor>TextBright</textcolor>
+                                <label>$VAR[WidgetTitleVar]</label>
+                                <visible>!Container(2000).HasNext</visible>
+                            </control> -->
+                            <control type="textbox" id="2001">
+                                <top>240</top>
+                                <right>600</right>
+                                <height>250</height>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <font>LibraryMainTitleMedium</font>
+                                <textcolor>TextBright</textcolor>
+                                <label>$VAR[ShowcaseTitleVar]</label>
+                                <!-- <visible>Container(2000).HasNext</visible> -->
+                            </control>
+                        </control>
+                    </focusedlayout>
+
+                    <content target="$PARAM[ContentType]" sortby="$PARAM[SortBy]" sortorder="$PARAM[SortOrder]" limit="$PARAM[SortLimit]">$PARAM[Content]</content>
+                </control>
+
+
+                <control type="scrollbar" id="68">
+                    <right>224</right>
+                    <top>0</top>
+                    <width>200</width>
+                    <height>32</height>
+                    <orientation>horizontal</orientation>
+                    <onup>500</onup>
+                    <ondown>9050</ondown>
+                    <texturesliderbackground border="32" colordiffuse="60404040">progress/back24.png</texturesliderbackground>
+                    <texturesliderbar border="12" >progress/slider24.png</texturesliderbar>
+                    <texturesliderbarfocus border="12">progress/slider24.png</texturesliderbarfocus>
+                </control>
+            </control>
+
+        </definition>
+    </include>
+
+</includes>

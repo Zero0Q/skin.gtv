@@ -17,8 +17,8 @@
         <control type="image">
             <top>0</top>
             <right>0</right>
-            <width>3840</width>
-            <height>2160</height>
+            <width>3000</width>
+            <height>1688</height>
             <fadetime>200</fadetime>
             <aspectratio scalediffuse="true">scale</aspectratio>
             <texture background="true" diffuse="masks/BackgroundCornerMask.png" colordiffuse="b0ffffff">$VAR[BackgroundImageWithoutFallback]</texture>
@@ -31,34 +31,30 @@
             <width>3840</width>
             <height>2160</height>
             <fadetime>400</fadetime>
-            <texture background="true" colordiffuse="$VAR[blurcolor1]">masks/bkggrad.png</texture>
+            <texture background="true" colordiffuse="$VAR[BlurColorBackgroundVar]">masks/bkggrad.png</texture>
         </control>
         <control type="image">
-            <visible>!Container.Content(addons) + !String.Contains(Container.FolderPath,plugin://)</visible>
+            <visible>Control.IsVisible(500) | Control.IsVisible(501)</visible>
+            <left>0</left>
             <top>0</top>
             <right>0</right>
-            <width>3840</width>
-            <height>1450</height>
+            <bottom>0</bottom>
             <fadetime>200</fadetime>
-            <aspectratio scalediffuse="true" aligny="top" align="right">keep</aspectratio>
-            <texture background="true" diffuse="masks/BackgroundCornerMask.png">$VAR[BackgroundImageWithoutFallback]</texture>
-            <animation effect="fade" end="0" time="500">Hidden</animation>
-            <animation effect="fade" start="0" end="100" time="1200">Visible</animation>
+            <aspectratio scalediffuse="true">scale</aspectratio>
+            <texture background="true" diffuse="masks/BackgroundMask.png" colordiffuse="ffc0c0c0">$VAR[BackgroundImageWithoutFallback]</texture>
         </control>
     </include>
 
     <include name="BackgroundForYouHub">
         <control type="image">
+            <left>0</left>
             <top>0</top>
             <right>0</right>
-            <width>3840</width>
-            <height>1450</height>
+            <bottom>0</bottom>
             <fadetime>200</fadetime>
-            <aspectratio scalediffuse="true" aligny="top" align="right">keep</aspectratio>
-            <texture background="true" diffuse="masks/BackgroundCornerMask.png">$VAR[BackgroundImageWithoutFallback]</texture>
-            <animation effect="fade" end="0" time="500">Hidden</animation>
-            <animation effect="fade" start="0" end="100" time="1200">Visible</animation>
-        </control> 
+            <aspectratio scalediffuse="true">scale</aspectratio>
+            <texture background="true" diffuse="masks/BackgroundMask.png" colordiffuse="ffc0c0c0">$VAR[BackgroundImageForYou]</texture>
+        </control>
     </include>
 
     <!-- Main Blurred Background -->

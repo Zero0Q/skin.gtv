@@ -2,13 +2,25 @@
 
 <includes>
 
-    <include name="HomeWidgetSquareMusic">
+    <include name="HomeWidgetSquare">
         <param name="WidgetLabel2" default="" />
         <param name="Content2" default="" />
         <param name="GroupHeight" default="700" />
         <param name="CustomOnClick" default="false" />
         <param name="FadeIfUnfocused" default="true" />
         <definition>
+            <!-- Loading Image Background -->
+            <control type="group">
+                <visible>Container($PARAM[ListID]).IsUpdating</visible>
+                <left>224</left>
+                <top>0</top>
+                <width>440</width>
+                <height>440</height>
+                <control type="image">
+                    <texture background="true" diffuse="masks/Mask782x440r16.png" colordiffuse="ff202020">general/White.png</texture>
+                </control>
+            </control>
+
             <control type="group">
                 <visible>Integer.IsGreater(Container($PARAM[ListID]).NumItems,0) | Container($PARAM[ListID]).IsUpdating</visible>
                 <left>0</left>
@@ -59,6 +71,7 @@
                             <include content="SquareLayout">
                                 <param name="LabelColor" value="TextDim" />
                                 <param name="Focused" value="false" />
+                                <param name="ShowAllLabels" value="true" />
                                 <param name="ListID" value="$PARAM[ListID]" />
                             </include>
                         </control>
@@ -71,6 +84,7 @@
                             <include content="SquareLayout">
                                 <param name="LabelColor" value="TextBright" />
                                 <param name="Focused" value="true" />
+                                <param name="ShowAllLabels" value="true" />
                                 <param name="ListID" value="$PARAM[ListID]" />
                             </include>
                         </control>
@@ -80,13 +94,29 @@
                             <include content="SquareLayout">
                                 <param name="LabelColor" value="TextDim" />
                                 <param name="Focused" value="true" />
+                                <param name="ShowAllLabels" value="true" />
                                 <param name="ListID" value="$PARAM[ListID]" />
                             </include>
                         </control>
                     </focusedlayout>
 
-                    <content target="$PARAM[ContentType]" sortby="$PARAM[SortBy]" sortorder="$PARAM[SortOrder]">$PARAM[Content]</content>
-                    <content target="$PARAM[ContentType]" sortby="$PARAM[SortBy]" sortorder="$PARAM[SortOrder]">$PARAM[Content2]</content>
+                    <content target="$PARAM[ContentType]" sortby="$PARAM[SortBy]" sortorder="$PARAM[SortOrder]" limit="$PARAM[SortLimit]">$PARAM[Content]</content>
+                </control>
+            </control>
+
+            <!-- Loading Image Foreground -->
+            <control type="group">
+                <visible>Container($PARAM[ListID]).IsUpdating</visible>
+                <left>224</left>
+                <top>0</top>
+                <width>440</width>
+                <height>440</height>
+                <control type="image">
+                    <centerleft>50%</centerleft>
+                    <centertop>50%</centertop>
+                    <width>256</width>
+                    <height>256</height>
+                    <texture background="true" diffuse="masks/Mask782x440r16.png" colordiffuse="ffa0a0a0">general/loading.gif</texture>
                 </control>
             </control>
         </definition>

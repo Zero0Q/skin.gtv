@@ -16,104 +16,80 @@
                 <itemgap>32</itemgap>
                 <onleft>349</onleft>
                 <onright>347</onright>
-                <include>HideOsdConditions</include>
 
                 <!-- Track back -->
                 <control type="button" id="340">
-                    <left>0</left>
-                    <top>0</top>
-                    <width>96</width>
-                    <height>96</height>
-                    <textoffsetx>16</textoffsetx>
-                    <texturefocus colordiffuse="TextBright" border="8">masks/Mask32x32r8.png</texturefocus>
-                    <texturenofocus colordiffuse="TextDim" border="8">masks/Mask32x32r8.png</texturenofocus>
+                    <textoffsetx>8</textoffsetx>
+                    <texturenofocus colordiffuse="TextDark" border="60">masks/Mask120x120r60.png</texturenofocus>
+                    <width>120</width>
                     <font>ButtonIconSmall</font>
-                    <textcolor>TextBright</textcolor>
-                    <include>ButtonDefaults</include>
+                    <aligny>center</aligny>
+                    <include>Button120</include>
                     <label>&#xf1da;</label>
                     <onclick>PlayerControl(Previous)</onclick>
                 </control>
                 <!-- Rewind -->
                 <control type="button" id="341">
-                    <left>0</left>
-                    <top>0</top>
-                    <width>96</width>
-                    <height>96</height>
-                    <textoffsetx>16</textoffsetx>
-                    <texturefocus colordiffuse="TextBright" border="8">masks/Mask32x32r8.png</texturefocus>
-                    <texturenofocus colordiffuse="TextDim" border="8">masks/Mask32x32r8.png</texturenofocus>
+                    <textoffsetx>8</textoffsetx>
+                    <texturenofocus colordiffuse="TextDark" border="60">masks/Mask120x120r60.png</texturenofocus>
+                    <width>120</width>
                     <font>ButtonIconSmall</font>
-                    <textcolor>TextBright</textcolor>
-                    <include>ButtonDefaults</include>
+                    <aligny>center</aligny>
+                    <include>Button120</include>
                     <label>&#xf12a;</label>
                     <onclick>PlayerControl(Rewind)</onclick>
                 </control>
                 <!-- Stop -->
                 <control type="button" id="342">
-                    <left>0</left>
-                    <top>0</top>
-                    <width>96</width>
-                    <height>96</height>
-                    <textoffsetx>16</textoffsetx>
-                    <texturefocus colordiffuse="TextBright" border="8">masks/Mask32x32r8.png</texturefocus>
-                    <texturenofocus colordiffuse="TextDim" border="8">masks/Mask32x32r8.png</texturenofocus>
+                    <textoffsetx>8</textoffsetx>
+                    <texturenofocus colordiffuse="TextDark" border="60">masks/Mask120x120r60.png</texturenofocus>
+                    <width>120</width>
                     <font>ButtonIconSmall</font>
-                    <textcolor>TextBright</textcolor>
-                    <include>ButtonDefaults</include>
+                    <aligny>center</aligny>
+                    <include>Button120</include>
                     <label>&#xf323;</label>
                     <onclick>SetFocus(50)</onclick>
                     <onclick>PlayerControl(Stop)</onclick>
                 </control>
                 <!-- Play / Pause -->
                 <control type="togglebutton" id="343">
-                    <left>0</left>
-                    <top>0</top>
-                    <width>96</width>
-                    <height>96</height>
-                    <textoffsetx>16</textoffsetx>
-                    <texturefocus colordiffuse="TextBright" border="8">masks/Mask32x32r8.png</texturefocus>
-                    <texturenofocus colordiffuse="TextDim" border="8">masks/Mask32x32r8.png</texturenofocus>
-                    <alttexturefocus colordiffuse="TextBright" border="8">masks/Mask32x32r8.png</alttexturefocus>
-                    <alttexturenofocus colordiffuse="TextDim" border="8">masks/Mask32x32r8.png</alttexturenofocus>
+                    <textoffsetx>8</textoffsetx>
+                    <alttexturefocus colordiffuse="TextBright" border="60">masks/Mask120x120r60.png</alttexturefocus>
+                    <alttexturenofocus colordiffuse="TextDark" border="60">masks/Mask120x120r60.png</alttexturenofocus>
+                    <texturenofocus colordiffuse="TextDark" border="60">masks/Mask120x120r60.png</texturenofocus>
+                    <width>120</width>
                     <font>ButtonIconSmall</font>
-                    <textcolor>TextBright</textcolor>
-                    <include>ButtonDefaults</include>
-                    <label>&#xf2be;</label>
-                    <altlabel>&#xf2ad;</altlabel>
+                    <aligny>center</aligny>
+                    <include>Button120</include>
+                    <label>&#xf2ad;</label>
+                    <altlabel>&#xf2be;</altlabel>
                     <usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
                     <onclick>PlayerControl(Play)</onclick>
                 </control>
                 <!-- Fast forward -->
                 <control type="button" id="344">
-                    <left>0</left>
-                    <top>0</top>
-                    <width>96</width>
-                    <height>96</height>
-                    <textoffsetx>16</textoffsetx>
-                    <texturefocus colordiffuse="TextBright" border="8">masks/Mask32x32r8.png</texturefocus>
-                    <texturenofocus colordiffuse="TextDim" border="8">masks/Mask32x32r8.png</texturenofocus>
+                    <textoffsetx>8</textoffsetx>
+                    <texturenofocus colordiffuse="TextDark" border="60">masks/Mask120x120r60.png</texturenofocus>
+                    <width>120</width>
                     <font>ButtonIconSmall</font>
-                    <textcolor>TextBright</textcolor>
-                    <include>ButtonDefaults</include>
+                    <aligny>center</aligny>
+                    <include>Button120</include>
                     <label>&#xf205;</label>
                     <onclick>PlayerControl(Forward)</onclick>
                 </control>
                 <!-- Track forward -->
                 <control type="button" id="345">
-                    <left>0</left>
-                    <top>0</top>
-                    <width>96</width>
-                    <height>96</height>
-                    <textoffsetx>16</textoffsetx>
-                    <texturefocus colordiffuse="TextBright" border="8">masks/Mask32x32r8.png</texturefocus>
-                    <texturenofocus colordiffuse="TextDim" border="8">masks/Mask32x32r8.png</texturenofocus>
+                    <textoffsetx>8</textoffsetx>
+                    <texturenofocus colordiffuse="TextDark" border="60">masks/Mask120x120r60.png</texturenofocus>
+                    <width>120</width>
                     <font>ButtonIconSmall</font>
-                    <textcolor>TextBright</textcolor>
-                    <include>ButtonDefaults</include>
+                    <aligny>center</aligny>
+                    <include>Button120</include>
                     <label>&#xf1db;</label>
                     <onclick>PlayerControl(Next)</onclick>
                 </control>
             </control>
+
             <control type="grouplist" id="346">
                 <visible>![Window.IsVisible(SliderDialog) | Window.IsVisible(osdsubtitlesettings) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(osdvideosettings) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(playerprocessinfo)]</visible>
                 <top>2000</top>
@@ -126,48 +102,36 @@
                 <onright>340</onright>
                 <!-- Subtitles -->
                 <control type="button" id="347">
-                    <left>0</left>
-                    <top>0</top>
-                    <width>96</width>
-                    <height>96</height>
-                    <textoffsetx>16</textoffsetx>
-                    <texturefocus colordiffuse="TextBright" border="8">masks/Mask32x32r8.png</texturefocus>
-                    <texturenofocus colordiffuse="TextDim" border="8">masks/Mask32x32r8.png</texturenofocus>
+                    <textoffsetx>8</textoffsetx>
+                    <texturenofocus colordiffuse="TextDark" border="60">masks/Mask120x120r60.png</texturenofocus>
+                    <width>120</width>
                     <font>ButtonIconSmall</font>
-                    <textcolor>TextBright</textcolor>
-                    <include>ButtonDefaults</include>
+                    <aligny>center</aligny>
+                    <include>Button120</include>
                     <label>&#xF19D;</label>
                     <onclick>ActivateWindow(osdsubtitlesettings)</onclick>
                     <visible>VideoPlayer.HasSubtitles</visible>
                 </control>
                 <!-- Video settings -->
                 <control type="button" id="348">
-                    <left>0</left>
-                    <top>0</top>
-                    <width>96</width>
-                    <height>96</height>
-                    <textoffsetx>16</textoffsetx>
-                    <texturefocus colordiffuse="TextBright" border="8">masks/Mask32x32r8.png</texturefocus>
-                    <texturenofocus colordiffuse="TextDim" border="8">masks/Mask32x32r8.png</texturenofocus>
+                    <textoffsetx>8</textoffsetx>
+                    <texturenofocus colordiffuse="TextDark" border="60">masks/Mask120x120r60.png</texturenofocus>
+                    <width>120</width>
                     <font>ButtonIconSmall</font>
-                    <textcolor>TextBright</textcolor>
-                    <include>ButtonDefaults</include>
+                    <aligny>center</aligny>
+                    <include>Button120</include>
                     <label>&#xF303;</label>
                     <onclick>ActivateWindow(osdvideosettings)</onclick>
                     <visible>VideoPlayer.HasSubtitles</visible>
                 </control>
                 <!-- Audio settings -->
                 <control type="button" id="349">
-                    <left>0</left>
-                    <top>0</top>
-                    <width>96</width>
-                    <height>96</height>
-                    <textoffsetx>16</textoffsetx>
-                    <texturefocus colordiffuse="TextBright" border="8">masks/Mask32x32r8.png</texturefocus>
-                    <texturenofocus colordiffuse="TextDim" border="8">masks/Mask32x32r8.png</texturenofocus>
+                    <textoffsetx>8</textoffsetx>
+                    <texturenofocus colordiffuse="TextDark" border="60">masks/Mask120x120r60.png</texturenofocus>
+                    <width>120</width>
                     <font>ButtonIconSmall</font>
-                    <textcolor>TextBright</textcolor>
-                    <include>ButtonDefaults</include>
+                    <aligny>center</aligny>
+                    <include>Button120</include>
                     <label>&#xF299;</label>
                     <onclick>ActivateWindow(osdaudiosettings)</onclick>
                     <visible>VideoPlayer.HasSubtitles</visible>

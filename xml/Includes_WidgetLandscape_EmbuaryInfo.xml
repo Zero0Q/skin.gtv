@@ -41,7 +41,6 @@
                     <height>740</height>
                     <onup>$PARAM[OnUp]</onup>
                     <ondown>$PARAM[OnDown]</ondown>
-                    <onback>SetFocus($PARAM[ParentID])</onback>
                     <onback>$PARAM[OnBack]</onback>
                     <onleft>$PARAM[OnLeft]</onleft>
                     <onright>noop</onright>

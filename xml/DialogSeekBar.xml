@@ -34,7 +34,7 @@
                 <width>200</width>
                 <align>right</align>
                 <font>WidgetTitle</font>
-                <label>$VAR[PlayDuration]</label>
+                <label>$VAR[PlayDurationVar]</label>
             </control>
 
             <control type="group">
@@ -47,7 +47,7 @@
                     <width>200</width>
                     <align>center</align>
                     <font>WidgetTitle</font>
-                    <label>$VAR[PlayTime]</label>
+                    <label>$VAR[PlayTimeVar]</label>
                 </control>
             </control>
         </control>

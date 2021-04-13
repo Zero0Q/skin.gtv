@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<includes>
+
+    <include name="HomeWidgetWide">
+        <param name="ListID" default="8999" />
+        <param name="Content2" default="" />
+        <param name="GroupHeight" default="700" />
+        <param name="CustomOnClick" default="false" />
+        <param name="FadeIfUnfocused" default="true" />
+        <param name="ShowLabels" default="true" />
+
+        <definition>
+            <!-- Loading Image Background -->
+            <control type="group">
+                <visible>Container($PARAM[ListID]).IsUpdating</visible>
+                <left>224</left>
+                <top>0</top>
+                <width>1648</width>
+                <height>760</height>
+                <control type="image">
+                    <texture background="true" diffuse="masks/Mask1648x760r16.png" colordiffuse="ff202020">general/White.png</texture>
+                </control>
+            </control>
+            <!-- Loading Image Foreground -->
+            <control type="group">
+                <visible>Container($PARAM[ListID]).IsUpdating</visible>
+                <left>224</left>
+                <top>0</top>
+                <width>1648</width>
+                <height>760</height>
+                <control type="image">
+                    <centerleft>50%</centerleft>
+                    <centertop>50%</centertop>
+                    <width>256</width>
+                    <height>256</height>
+                    <texture background="true" diffuse="masks/Mask782x440r16.png" colordiffuse="ffa0a0a0">general/loading.gif</texture>
+                </control>
+            </control>
+
+            <control type="group">
+                <visible>Integer.IsGreater(Container($PARAM[ListID]).NumItems,0) | Container($PARAM[ListID]).IsUpdating</visible>
+                <left>0</left>
+                <right>0</right>
+                <top>0</top>
+                <height>$PARAM[GroupHeight]</height>
+
+                <animation effect="Fade" start="100" end="75" time="100" condition="!Control.HasFocus($PARAM[ListID]) + $PARAM[FadeIfUnfocused]">Conditional</animation>
+                <animation effect="Fade" start="75" end="100" time="100" condition="Control.HasFocus($PARAM[ListID]) + $PARAM[FadeIfUnfocused]">Conditional</animation>
+
+                <control type="label" id="13345">
+                    <visible>false</visible>
+                    <left>0</left>
+                    <top>259</top>
+                    <height>50</height>
+                    <label>$PARAM[WidgetType]</label>
+                </control>
+
+                <!-- Main widget list -->
+                <control type="fixedlist" id="$PARAM[ListID]">
+                    <top>-150</top>
+                    <left>0</left>
+                    <right>0</right>
+                    <height>1060</height>
+                    <onup>$PARAM[OnUp]</onup>
+                    <ondown>$PARAM[OnDown]</ondown>
+                    <onback>$PARAM[OnBack]</onback>
+                    <onleft>$PARAM[OnLeft]</onleft>
+                    <onright>noop</onright>
+                    <onclick condition="$PARAM[CustomOnClick]">$PARAM[OnClick]</onclick>
+                    <pagecontrol>60</pagecontrol>
+                    <preloaditems>2</preloaditems>
+                    <orientation>horizontal</orientation>
+                    <focusposition>0</focusposition>
+                    <movement>1</movement>
+
+                    <itemlayout width="1732" height="1060">
+                        <control type="group">
+                            <left>182</left>
+                            <include content="WideLayout">
+                                <param name="ListID" value="$PARAM[ListID]" />
+                                <param name="LabelColor" value="TextBright" />
+                                <param name="Focused" value="false" />
+                                <param name="WidgetLabel" value="" />
+                            </include>
+                        </control>
+                    </itemlayout>
+
+                    <focusedlayout width="1732" height="1060">
+                        <control type="group">
+                            <visible>Control.HasFocus($PARAM[ListID])</visible>
+                            <left>182</left>
+                            <include content="WideLayout">
+                                <param name="ListID" value="$PARAM[ListID]" />
+                                <param name="LabelColor" value="TextBright" />
+                                <param name="Focused" value="true" />
+                                <param name="WidgetLabel" value="$PARAM[WidgetLabel]" />
+                            </include>
+                        </control>
+                        <control type="group">
+                            <visible>!Control.HasFocus($PARAM[ListID])</visible>
+                            <left>182</left>
+                            <include content="WideLayout">
+                                <param name="ListID" value="$PARAM[ListID]" />
+                                <param name="LabelColor" value="TextBright" />
+                                <param name="Focused" value="true" />
+                                <param name="WidgetLabel" value="$PARAM[WidgetLabel]" />
+                            </include>
+                        </control>
+                    </focusedlayout>
+
+                    <content target="$PARAM[ContentType]" sortby="$PARAM[SortBy]" sortorder="$PARAM[SortOrder]" limit="$PARAM[SortLimit]">$PARAM[Content]</content>
+                </control>
+            </control>
+
+        </definition>
+    </include>
+
+</includes>

@@ -6,15 +6,17 @@
     <include file="Includes_Backgrounds.xml" />
 
     <include file="Includes_MainMenu.xml" />
+    <include file="Includes_SubMenu.xml" />
     <include file="Includes_Menus.xml" />
 
     <include file="Includes_WidgetLandscape.xml" />
+    <include file="Includes_WidgetWide.xml" />
     <include file="Includes_WidgetCircularCast.xml" />
     <include file="Includes_WidgetSquareMusic.xml" />
     <include file="Includes_WidgetSquareApps.xml" />
     <include file="Includes_WidgetMusicCategorys.xml" />
-    <include file="Includes_WidgetLandscape_EmbuaryInfo.xml" />
-    <include file="Includes_WidgetPoster_EmbuaryInfo.xml" />
+    <include file="Includes_WidgetPoster.xml" />
+    <include file="Includes_WidgetShowcase.xml" />
 
     <include file="Includes_ForYouHubWidgets.xml" />
     <include file="Includes_MoviesHubWidgets.xml" />
@@ -25,20 +27,28 @@
 
     <include file="Includes_ViewLayouts.xml" />
 
+    <include file="Includes_Buttons_Menus.xml" />
+
     <include file="View_50_List.xml" />
     <include file="View_500_LandscapeFlow.xml" />
     <include file="View_501_Poster.xml" />
+    <include file="View_502_Grid.xml" />
     <include file="View_510_AddonList.xml" />
     <include file="View_520_MusicWall.xml" />
 
-
+    <include file="script-skinshortcuts-settings.xml" />
+    <include file="script-skinshortcuts-includes.xml" />
 
     <include file="variables.xml" />
+
+    <!-- Helper Experssions -->
+    <expression name="isPrimaryMedia">Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</expression>
+    <expression name="isSecondaryGroup">Container.Content(genres) | Container.Content(years) | Container.Content(tags) | Container.Content(directors)</expression>
 
     <expression name="isMovie">String.IsEqual(ListItem.DBTYPE,movie)</expression>
     <expression name="isVideo">String.IsEqual(ListItem.DBTYPE,video)</expression>
     <expression name="isTVShow">String.IsEqual(ListItem.DBTYPE,tvshow)</expression>
-    <expression name="isSeason">Container.Content(seasons) | String.IsEqual(ListItem.DBTYPE,season)</expression>
+    <expression name="isSeason">String.IsEqual(ListItem.DBTYPE,season)</expression>
     <expression name="isSet">String.IsEqual(ListItem.DBTYPE,set)</expression>
     <expression name="isEpisode">String.IsEqual(ListItem.DBTYPE,episode)</expression>
     <expression name="isMusicvideo">String.IsEqual(ListItem.DBTYPE,musicvideo)</expression>
@@ -46,11 +56,40 @@
     <expression name="isActor">String.IsEqual(ListItem.DBTYPE,actor)</expression>
     <expression name="isAlbum">String.IsEqual(ListItem.DBTYPE,album)</expression>
     <expression name="isSong">String.IsEqual(ListItem.DBTYPE,song)</expression>
-    <expression name="isInfoDialog">Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)</expression>
-    <expression name="contentIsMovies">[Container.Content(movies) | String.Contains(Container.FolderPath,movies)]</expression>
-    <expression name="contentIsTVShows">[Container.Content(tvshows) | String.Contains(Container.FolderPath,tvshows)]</expression>
-    <expression name="contentIsMusic">String.Contains(Container.FolderPath,musicdb:)</expression>
 
+    <expression name="isInfoDialog">Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)</expression>
+
+    <expression name="subMenuIsEmpty">Integer.IsEqual(Container(9001).NumItems,0)</expression>
+    <expression name="subMenuNotEmpty">!Integer.IsEqual(Container(9001).NumItems,0)</expression>
+
+    <expression name="personIsActor">String.IsEqual(Container(10051).ListItem.Property(known_for_department),Acting)</expression>
+    <expression name="personIsDirector">String.IsEqual(Container(10051).ListItem.Property(known_for_department),Directing)</expression>
+    <expression name="personIsWriter">String.IsEqual(Container(10051).ListItem.Property(known_for_department),Writing)</expression>
+    <expression name="personIsFemale">String.IsEqual(Container(10051).ListItem.Property(gender),female)</expression>
+    <expression name="personIsDead">!String.IsEmpty(Container(10051).ListItem.Property(deathyear))</expression>
+    <expression name="personIsBorn">!String.IsEmpty(Container(10051).ListItem.Property(birthyear))</expression>
+
+    <expression name="widget1Enabled">!String.IsEmpty(Container(211).ListItem.Property(widgetPath))</expression>
+    <expression name="widget2Enabled">!String.IsEmpty(Container(211).ListItem.Property(widgetPath.2))</expression>
+    <expression name="widget3Enabled">!String.IsEmpty(Container(211).ListItem.Property(widgetPath.3))</expression>
+    <expression name="widget4Enabled">!String.IsEmpty(Container(211).ListItem.Property(widgetPath.4))</expression>
+    <expression name="widget5Enabled">!String.IsEmpty(Container(211).ListItem.Property(widgetPath.5))</expression>
+    <expression name="widget6Enabled">!String.IsEmpty(Container(211).ListItem.Property(widgetPath.6))</expression>
+
+    <expression name="widget1Disabled">String.IsEmpty(Container(211).ListItem.Property(widgetPath))</expression>
+    <expression name="widget2Disabled">String.IsEmpty(Container(211).ListItem.Property(widgetPath.2))</expression>
+    <expression name="widget3Disabled">String.IsEmpty(Container(211).ListItem.Property(widgetPath.3))</expression>
+    <expression name="widget4Disabled">String.IsEmpty(Container(211).ListItem.Property(widgetPath.4))</expression>
+    <expression name="widget5Disabled">String.IsEmpty(Container(211).ListItem.Property(widgetPath.5))</expression>
+    <expression name="widget6Disabled">String.IsEmpty(Container(211).ListItem.Property(widgetPath.6))</expression>
+    
+    <!-- Fullscreen dimensions -->
+    <include name="FullscreenDimensions">
+        <top>0</top>
+        <left>0</left>
+        <width>3840</width>
+        <height>2160</height>
+    </include>
 
     <!-- Bottom aligned plot textbox -->
     <include name="BottomAlignedPlot">
@@ -58,7 +97,7 @@
             <visible>Container.Content(episodes) | [Container.Content(tvshows) | Container.Content(movies)]</visible>
             <control type="textbox" id="2010">
                 <left>220</left>
-                <width>950</width>
+                <width>1400</width>
                 <bottom>1200</bottom>
                 <height>80</height>
                 <align>left</align>
@@ -66,14 +105,15 @@
                 <font>EpisodePlot</font>
                 <textcolor>TextBright</textcolor>
                 <shadowcolor>ff000000</shadowcolor>
-                <label>$VAR[Plot]</label>
+                <label>$VAR[PlotVar]</label>
                 <visible>!Container(2010).HasNext</visible>
             </control>
             <control type="image">
                 <left>220</left>
-                <top>300</top>
-                <width>800</width>
-                <height>310</height>
+                <top>50</top>
+                <width>1000</width>
+                <height>388</height>
+                <align>left</align>
                 <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
             </control>
             <control type="textbox" id="2011">
@@ -86,7 +126,7 @@
                 <font>EpisodePlot</font>
                 <textcolor>TextBright</textcolor>
                 <shadowcolor>ff000000</shadowcolor>
-                <label>$VAR[Plot]</label>
+                <label>$VAR[PlotVar]</label>
                 <visible>Container(2010).HasNext + !Container(2011).HasNext</visible>
             </control>
             <control type="textbox" id="2012">
@@ -99,7 +139,7 @@
                 <font>EpisodePlot</font>
                 <textcolor>TextBright</textcolor>
                 <shadowcolor>ff000000</shadowcolor>
-                <label>$VAR[Plot]</label>
+                <label>$VAR[PlotVar]</label>
                 <visible>Container(2011).HasNext + !Container(2012).HasNext</visible>
             </control>
             <control type="textbox" id="2013">
@@ -112,23 +152,9 @@
                 <font>EpisodePlot</font>
                 <textcolor>TextBright</textcolor>
                 <shadowcolor>ff000000</shadowcolor>
-                <label>$VAR[Plot]</label>
-                <!-- <visible>Container(2012).HasNext + !Container(2013).HasNext</visible> -->
+                <label>$VAR[PlotVar]</label>
                 <visible>Container(2012).HasNext</visible>
             </control>
-            <!-- <control type="textbox">
-                <left>220</left>
-                <width>1400</width>
-                <bottom>1200</bottom>
-                <height>370</height>
-                <align>left</align>
-                <aligny>top</aligny>
-                <font>EpisodePlot</font>
-                <textcolor>TextBright</textcolor>
-                <shadowcolor>ff000000</shadowcolor>
-                <label>$VAR[Plot]</label>
-                <visible>Container(2012).HasNext</visible>
-            </control> -->
         </control>
     </include>
 
@@ -181,96 +207,20 @@
         </control>
     </include>
 
+    <include name="DebugBox">
+        <control type="image">
+            <texture colordiffuse="$PARAM[color]">general/White.png</texture>
+        </control>
+    </include>
 
 
-
-
-    <include name="ButtonDefaults">
+    <include name="Button120">
         <include>ButtonZoom</include>
-        <left>32</left>
-        <width>416</width>
-        <height>76</height>
-        <textoffsetx>30</textoffsetx>
-        <textcolor>TextDim</textcolor>
-        <focusedcolor>TextDark</focusedcolor>
-        <disabledcolor>TextDark</disabledcolor>
-        <aligny>center</aligny>
-        <align>center</align>
-        <pulseonselect>false</pulseonselect>
-    </include>
-
-    <!-- Button template for Settings hub -->
-    <include name="CategoryMenuButtonTemplate">
         <left>0</left>
         <top>0</top>
-        <width>440</width>
+        <width>auto</width>
         <height>120</height>
         <align>center</align>
-        <aligny>top</aligny>
-        <textoffsety>6</textoffsety>
-        <textoffsetx>50</textoffsetx>
-        <texturefocus colordiffuse="TextBright" border="60c">masks/Mask120x120r60.png</texturefocus>
-        <font>MenuButtonText</font>
-        <textcolor>TextBright</textcolor>
-        <focusedcolor>TextDark</focusedcolor>
-        <include>InfoButtonZoom</include>
-    </include>
-    <!-- Button template for Setting category -->
-    <include name="SettingsCategoryMenuButtonTemplate">
-        <left>0</left>
-        <top>0</top>
-        <width>650</width>
-        <height>120</height>
-        <align>center</align>
-        <aligny>top</aligny>
-        <textoffsety>6</textoffsety>
-        <textoffsetx>50</textoffsetx>
-        <texturefocus colordiffuse="TextBright" border="60c">masks/Mask120x120r60.png</texturefocus>
-        <font>MenuButtonText</font>
-        <textcolor>TextBright</textcolor>
-        <focusedcolor>TextDark</focusedcolor>
-        <include>InfoButtonZoom</include>
-    </include>
-    <!-- Button template for Power menu -->
-    <include name="PowerMenuButtonTemplate">
-        <left>0</left>
-        <top>0</top>
-        <width>500</width>
-        <height>120</height>
-        <align>center</align>
-        <aligny>top</aligny>
-        <textoffsety>6</textoffsety>
-        <textoffsetx>50</textoffsetx>
-        <texturefocus colordiffuse="TextBright" border="60c">masks/Mask120x120r60.png</texturefocus>
-        <font>MenuButtonText</font>
-        <textcolor>TextBright</textcolor>
-        <focusedcolor>TextDark</focusedcolor>
-        <include>InfoButtonZoom</include>
-    </include>
-
-    <!-- Button template for Context menu -->
-    <include name="ContextButtonTemplate">
-        <left>0</left>
-        <top>0</top>
-        <width>1000</width>
-        <height>120</height>
-        <align>center</align>
-        <aligny>top</aligny>
-        <textoffsety>6</textoffsety>
-        <textoffsetx>50</textoffsetx>
-        <texturefocus colordiffuse="TextBright" border="60c">masks/Mask120x120r60.png</texturefocus>
-        <font>MenuButtonText</font>
-        <textcolor>TextBright</textcolor>
-        <focusedcolor>TextDark</focusedcolor>
-        <include>InfoButtonZoom</include>
-    </include>
-    <!-- Button template for Setting -->
-    <include name="SettingButtonTemplate">
-        <left>0</left>
-        <top>0</top>
-        <width>1800</width>
-        <height>120</height>
-        <align>left</align>
         <aligny>top</aligny>
         <textoffsety>6</textoffsety>
         <textoffsetx>50</textoffsetx>
@@ -279,141 +229,169 @@
         <textcolor>TextBright</textcolor>
         <focusedcolor>TextDark</focusedcolor>
         <disabledcolor>TextDim</disabledcolor>
-        <include>SettingsButtonZoom</include>
     </include>
 
-
-
-    <include name="DialogButtonDefaults">
+    <include name="KeyboardButton">
         <include>ButtonZoom</include>
         <left>0</left>
-        <width>600</width>
-        <height>100</height>
+        <top>0</top>
+        <width>120</width>
+        <height>120</height>
+        <align>center</align>
+        <aligny>top</aligny>
+        <textoffsety>6</textoffsety>
+        <texturefocus colordiffuse="TextBright" border="30">masks/Mask60x60r30.png</texturefocus>
+        <texturenofocus colordiffuse="TextDark" border="30">masks/Mask60x60r30.png</texturenofocus>
+        <font>KeyboardButton</font>
         <textcolor>TextBright</textcolor>
         <focusedcolor>TextDark</focusedcolor>
-        <font>OSDSettingsButtonText</font>
-        <align>center</align>
-        <aligny>center</aligny>
-        <texturefocus border="50" colordiffuse="TextBright">masks/Mask440x440r16.png</texturefocus>
+        <disabledcolor>TextDim</disabledcolor>
     </include>
 
+    <include name="ListItem120">
+        <param name="UseCustomLabel" default="false" />
 
+        <definition>
+            <control type="image">
+                <visible>$PARAM[Focused]</visible>
+                <left>0</left>
+                <top>0</top>
+                <width>100%</width>
+                <height>100%</height>
+                <texture background="true" border="60" colordiffuse="$PARAM[ItemColor]">masks/Mask120x120r60.png</texture>
+            </control>
+            <control type="group">
+                <visible>$PARAM[UseCustomLabel]</visible>
+                <control type="label">
+                    <left>50</left>
+                    <right>50</right>
+                    <height>120</height>
+                    <textcolor>$PARAM[ItemTextColor]</textcolor>
+                    <selectedcolor>PrimaryDark</selectedcolor>
+                    <font>ListItemText</font>
+                    <align>left</align>
+                    <label>$PARAM[CustomLabel]</label>
+                </control>
+            </control>
+            <control type="group">
+                <visible>!$PARAM[UseCustomLabel]</visible>
+                <control type="label">
+                    <visible>String.IsEmpty(ListItem.Label2)</visible>
+                    <left>50</left>
+                    <right>50</right>
+                    <height>120</height>
+                    <textcolor>$PARAM[ItemTextColor]</textcolor>
+                    <selectedcolor>PrimaryDark</selectedcolor>
+                    <font>ListItemText</font>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+                <control type="label">
+                    <visible>!String.IsEmpty(ListItem.Label2)</visible>
+                    <left>50</left>
+                    <right>50</right>
+                    <top>4</top>
+                    <height>60</height>
+                    <textcolor>$PARAM[ItemTextColor]</textcolor>
+                    <selectedcolor>PrimaryDark</selectedcolor>
+                    <font>ListItemText2Line</font>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+                <control type="label">
+                    <visible>!String.IsEmpty(ListItem.Label2)</visible>
+                    <left>50</left>
+                    <top>56</top>
+                    <right>50</right>
+                    <height>60</height>
+                    <textcolor>$PARAM[ItemSecondaryTextColor]</textcolor>
+                    <selectedcolor>PrimaryDark</selectedcolor>
+                    <font>ListItemText2Line</font>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <label>$INFO[ListItem.Label2]</label>
+                </control>
+                <control type="label">
+                    <left>50</left>
+                    <right>50</right>
+                    <height>120</height>
+                    <align>right</align>
+                    <textcolor>$PARAM[ItemTextColor]</textcolor>
+                    <selectedcolor>PrimaryDark</selectedcolor>
+                    <font>ButtonIcon</font>
+                    <label>&#xf17b;</label>
+                    <visible>ListItem.IsSelected</visible>
+                </control>
+            </control>
+        </definition>
+    </include>
 
-    <include name="DialogSelectItemTemplate">
+    <include name="ListItemImage120">
         <control type="image">
             <left>0</left>
             <top>0</top>
             <width>100%</width>
             <height>100%</height>
-            <texture background="true" border="50" colordiffuse="$PARAM[ItemColor]">masks/Mask440x440r16.png</texture>
-        </control>
-        <control type="label">
-            <visible>String.IsEmpty(ListItem.Label2)</visible>
-            <left>32</left>
-            <right>32</right>
-            <height>100</height>
-            <textcolor>$PARAM[ItemTextColor]</textcolor>
-            <selectedcolor>PrimaryDark</selectedcolor>
-            <font>OSDSettingsButtonText</font>
-            <align>left</align>
-            <label>$INFO[ListItem.Label]</label>
-        </control>
-        <control type="label">
-            <visible>!String.IsEmpty(ListItem.Label2)</visible>
-            <left>32</left>
-            <right>32</right>
-            <top>32</top>
-            <height>50</height>
-            <textcolor>$PARAM[ItemTextColor]</textcolor>
-            <selectedcolor>PrimaryDark</selectedcolor>
-            <font>OSDSettingsButtonText</font>
-            <align>left</align>
-            <aligny>center</aligny>
-            <label>$INFO[ListItem.Label]</label>
-        </control>
-        <control type="label">
-            <visible>!String.IsEmpty(ListItem.Label2)</visible>
-            <left>32</left>
-            <top>40</top>
-            <right>32</right>
-            <height>50</height>
-            <textcolor>$PARAM[ItemSecondaryTextColor]</textcolor>
-            <selectedcolor>PrimaryDark</selectedcolor>
-            <font>OSDSettingsButtonText</font>
-            <align>left</align>
-            <aligny>center</aligny>
-            <label>$INFO[ListItem.Label2]</label>
-        </control>
-        <control type="label">
-            <left>32</left>
-            <right>32</right>
-            <height>100</height>
-            <align>right</align>
-            <textcolor>$PARAM[ItemTextColor]</textcolor>
-            <selectedcolor>PrimaryDark</selectedcolor>
-            <font>ButtonIcon</font>
-            <label>&#xf17b;</label>
-            <visible>ListItem.IsSelected</visible>
-        </control>
-    </include>
-
-    <include name="DialogSelectItemTemplateImage">
-        <control type="image">
-            <left>0</left>
-            <top>0</top>
-            <width>100%</width>
-            <height>100%</height>
-            <texture border="32" colordiffuse="$PARAM[ItemColor]">masks/Mask440x440r16.png</texture>
+            <texture background="true" border="60" colordiffuse="$PARAM[ItemColor]">masks/Mask120x120r60.png</texture>
         </control>
         <control type="image">
             <left>8</left>
             <top>8</top>
-            <width>84</width>
-            <height>84</height>
+            <width>104</width>
+            <height>104</height>
             <aspectratio scalediffuse="false">scale</aspectratio>
-            <texture diffuse="masks/Mask440x440r16.png">$VAR[DialogSelectArtwork]</texture>
+            <texture colordiffuse="ff101010">masks/Mask120x120r60.png</texture>
+        </control>
+        <control type="image">
+            <left>8</left>
+            <top>8</top>
+            <width>104</width>
+            <height>104</height>
+            <aspectratio scalediffuse="false">scale</aspectratio>
+            <texture diffuse="masks/Mask120x120r60.png">$VAR[DialogSelectArtworkVar]</texture>
         </control>
         <control type="label">
             <visible>String.IsEmpty(ListItem.Label2)</visible>
-            <left>116</left>
-            <right>32</right>
-            <height>100</height>
+            <left>136</left>
+            <right>50</right>
+            <height>120</height>
             <textcolor>$PARAM[ItemTextColor]</textcolor>
             <selectedcolor>PrimaryDark</selectedcolor>
-            <font>OSDSettingsButtonText</font>
+            <font>ListItemText</font>
             <align>Left</align>
             <label>$INFO[ListItem.Label]</label>
         </control>
         <control type="label">
             <visible>!String.IsEmpty(ListItem.Label2)</visible>
-            <left>116</left>
-            <right>32</right>
-            <top>6</top>
-            <height>50</height>
+            <left>135</left>
+            <right>50</right>
+            <top>4</top>
+            <height>60</height>
             <textcolor>$PARAM[ItemTextColor]</textcolor>
             <selectedcolor>PrimaryDark</selectedcolor>
-            <font>OSDSettingsButtonText</font>
+            <font>ListItemText2Line</font>
             <align>left</align>
             <aligny>center</aligny>
             <label>$INFO[ListItem.Label]</label>
         </control>
         <control type="label">
             <visible>!String.IsEmpty(ListItem.Label2)</visible>
-            <left>116</left>
-            <top>44</top>
-            <right>32</right>
-            <height>50</height>
+            <left>136</left>
+            <top>56</top>
+            <right>50</right>
+            <height>60</height>
             <textcolor>$PARAM[ItemSecondaryTextColor]</textcolor>
             <selectedcolor>PrimaryDark</selectedcolor>
-            <font>OSDSettingsButtonText</font>
+            <font>ListItemText2Line</font>
             <align>left</align>
             <aligny>center</aligny>
             <label>$INFO[ListItem.Label2]</label>
         </control>
         <control type="label">
-            <left>116</left>
-            <right>32</right>
-            <height>100</height>
+            <left>136</left>
+            <right>50</right>
+            <height>120</height>
             <align>right</align>
             <textcolor>$PARAM[ItemTextColor]</textcolor>
             <selectedcolor>PrimaryDark</selectedcolor>
@@ -423,17 +401,4 @@
         </control>
     </include>
 
-    <include name="KeyboardButton">
-        <include>ButtonZoom</include>
-        <width>120</width>
-        <height>120</height>
-        <textoffsety>-12</textoffsety>
-        <texturefocus colordiffuse="TextBright" border="8">masks/Mask32x32r8.png</texturefocus>
-        <texturenofocus colordiffuse="TextDark" border="8">masks/Mask32x32r8.png</texturenofocus>
-        <align>center</align>
-        <aligny>top</aligny>
-        <font>WidgetLabel</font>
-        <focusedcolor>TextDark</focusedcolor>
-        <textcolor>TextBright</textcolor>
-    </include>
 </includes>

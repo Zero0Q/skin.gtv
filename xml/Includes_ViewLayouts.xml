@@ -2,12 +2,185 @@
 
 <includes>
 
+    <include name="WideLayout">
+        <param name="ListID" default="8999" />
+        <param name="Focused" default="false" />
+        <param name="ShowProgress" default="false" />
+        <param name="LabelColor" default="TextBright" />
+        <param name="WType" default="" />
+
+        <definition>
+            <control type="group">
+                <animation type="Focus" reversible="true">
+                    <effect type="zoom" end="100" time="50" tween="sine" center="auto" />
+                </animation>
+                <!-- Item background blur -->
+                <control type="image">
+                    <visible>Control.HasFocus($PARAM[ListID]) + $PARAM[Focused]</visible>
+                    <left>-108</left>
+                    <top>0</top>
+                    <width>1948</width>
+                    <height>1060</height>
+                    <texture background="true" colordiffuse="$VAR[BlurColorItemVar]" border="300">masks/WidgetBlurEffect.png</texture>
+                </control>
+                <!-- Main landscape image -->
+                <control type="group">
+                    <animation type="Focus" reversible="true">
+                        <effect type="zoom" end="106" time="75" tween="sine" center="866,530" />
+                    </animation>
+
+                    <!-- Image -->
+                    <control type="image">
+                        <visible>$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]</visible>
+                        <left>42</left>
+                        <top>150</top>
+                        <width>1648</width>
+                        <height>760</height>
+                        <aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+                        <texture background="true" diffuse="masks/Mask1648x760r16.png">$INFO[ListItem.Art(fanart)]</texture>
+                    </control>
+                    <control type="image">
+                        <visible>$EXP[isArtist] | $EXP[isAlbum] | $EXP[isSong]</visible>
+                        <left>930</left>
+                        <top>150</top>
+                        <width>760</width>
+                        <height>760</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture background="true" diffuse="masks/Mask760x760r16AlbumMask.png">$VAR[WideWidgetMusicArtVar]</texture>
+                    </control>
+                    <control type="image">
+                        <visible>$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]</visible>
+                        <left>42</left>
+                        <top>150</top>
+                        <width>1648</width>
+                        <height>760</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture background="true" colordiffuse="b0000000">masks/Mask1648x760r16WideTextMask.png</texture>
+                    </control>
+                    <!-- Studio logo -->
+                    <control type="image">
+                        <right>0</right>
+                        <top>180</top> <!--180-->
+                        <width>161</width>
+                        <height>109</height>
+                        <texture background="true">$INFO[ListItem.Studio,resource://resource.images.studios.white/,.png]</texture>
+                    </control>
+                    <!-- Selector -->
+                    <control type="image">
+                        <visible>Control.HasFocus($PARAM[ListID]) + $PARAM[Focused]</visible>
+                        <left>38</left>
+                        <top>146</top>
+                        <width>1660</width>
+                        <height>772</height>
+                        <texture background="true" border="64">masks/Selector1660x772r16.png</texture>
+                        <animation effect="fade" start="100" end="20" time="1500" easing="inout" tween="cubic" pulse="true" condition="$PARAM[Focused]">Conditional</animation>
+                    </control>
+                    <!-- Label group -->
+                    <control type="group">
+                        <left>142</left>
+                        <width>1448</width>
+
+                        <!-- Top Section label -->
+                        <control type="textbox">
+                            <visible>String.IsEmpty(ListItem.Property(searchstring)) + $PARAM[Focused]</visible>
+                            <top>194</top>
+                            <height>160</height>
+                            <width>1000</width>
+                            <align>left</align>
+                            <aligny>top</aligny>
+                            <wrapmultiline>true</wrapmultiline>
+                            <font>WidgetTitle</font>
+                            <textcolor>$PARAM[LabelColor]</textcolor>
+                            <label>$PARAM[WidgetLabel]</label>
+                        </control>
+
+                        <control type="group">
+                            <visible>!String.IsEmpty(ListItem.Property(searchstring)) + $PARAM[Focused]</visible>
+                            <control type="textbox">
+                                <visible>String.Contains(Control.GetLabel(13345),EHMoviesRandomGenre)</visible>
+                                <top>194</top>
+                                <height>160</height>
+                                <width>1000</width>
+                                <align>left</align>
+                                <aligny>top</aligny>
+                                <wrapmultiline>true</wrapmultiline>
+                                <font>WidgetTitle</font>
+                                <textcolor>$PARAM[LabelColor]</textcolor>
+                                <label>$INFO[ListItem.Property(searchstring),$LOCALIZE[31500] , $LOCALIZE[31501]]</label>
+                            </control>
+                            <control type="textbox">
+                                <visible>String.Contains(Control.GetLabel(13345),EHShowsRandomGenre)</visible>
+                                <top>194</top>
+                                <height>160</height>
+                                <width>1000</width>
+                                <align>left</align>
+                                <aligny>top</aligny>
+                                <wrapmultiline>true</wrapmultiline>
+                                <font>WidgetTitle</font>
+                                <textcolor>$PARAM[LabelColor]</textcolor>
+                                <label>$INFO[ListItem.Property(searchstring),$LOCALIZE[31500] , $LOCALIZE[31502]]</label>
+                            </control>
+                            <control type="textbox">
+                                <visible>String.Contains(Control.GetLabel(13345),EHMixedRandomGenre)</visible>
+                                <top>194</top>
+                                <height>160</height>
+                                <width>1000</width>
+                                <align>left</align>
+                                <aligny>top</aligny>
+                                <wrapmultiline>true</wrapmultiline>
+                                <font>WidgetTitle</font>
+                                <textcolor>$PARAM[LabelColor]</textcolor>
+                                <label>$INFO[ListItem.Property(searchstring),$LOCALIZE[31500] ,]</label>
+                            </control>
+                            <control type="textbox">
+                                <visible>String.Contains(Control.GetLabel(13345),EHMoviesBecauseYouWatched) | String.Contains(Control.GetLabel(13345),EHShowsBecauseYouWatched)</visible>
+                                <top>194</top>
+                                <height>160</height>
+                                <width>1000</width>
+                                <align>left</align>
+                                <aligny>top</aligny>
+                                <wrapmultiline>true</wrapmultiline>
+                                <font>WidgetTitle</font>
+                                <textcolor>$PARAM[LabelColor]</textcolor>
+                                <label>$INFO[ListItem.Property(searchstring),$LOCALIZE[31499] ,]</label>
+                            </control>
+                        </control>
+
+                        <!-- Main label -->
+                        <control type="label">
+                            <top>626</top>
+                            <height>60</height>
+                            <align>left</align>
+                            <font>LibraryMainTitleSmall</font>
+                            <textcolor>$PARAM[LabelColor]</textcolor>
+                            <scroll>false</scroll>
+                            <label>$VAR[WideWidgetMainLabelVar]</label>
+                        </control>
+
+                        <!-- Sub label -->
+                        <control type="label">
+                            <top>760</top>
+                            <height>60</height>
+                            <align>left</align>
+                            <font>Medium50</font>
+                            <textcolor>TextSubLabel</textcolor>
+                            <scroll>false</scroll>
+                            <label>$VAR[WideWidgetSubLabelVar]</label>
+                        </control>
+
+                    </control>
+                </control>
+
+            </control>
+        </definition>
+    </include>
+
     <include name="LandscapeLayout">
         <param name="ListID" />
         <param name="Focused" default="false" />
-        <param name="ShowProgress" default="true" />
-        <param name="ShowLabel1" default="true" />
-        <param name="ShowLabel2" default="true" />
+        <param name="ShowProgress" default="false" />
+        <param name="ShowLabel1" default="false" />
+        <param name="ShowLabel2" default="false" />
         <param name="LabelColor" default="TextBright" />
 
         <definition>
@@ -22,7 +195,7 @@
                     <top>0</top>
                     <width>1082</width>
                     <height>740</height>
-                    <texture background="true" colordiffuse="$VAR[blurcolor]">masks/WidgetBlurEffect.png</texture>
+                    <texture background="true" colordiffuse="$VAR[BlurColorItemVar]">masks/WidgetBlurEffect.png</texture>
                 </control>
                 <!-- Main landscape image -->
                 <control type="group">
@@ -35,7 +208,7 @@
                         <top>150</top>
                         <width>782</width>
                         <height>440</height>
-                        <aspectratio>scale</aspectratio>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
                         <texture background="true" diffuse="masks/Mask782x440r16.png">$VAR[LandscapeImageVar]</texture>
                     </control>
                     <!-- Fallback logo -->
@@ -59,7 +232,7 @@
                     </control>
                     <!-- Unwatched background-->
                     <control type="image">
-                        <visible>[Integer.IsEqual(ListItem.PlayCount,0) | !Integer.IsEqual(ListItem.PercentPlayed,0)]+ $PARAM[ShowProgress]</visible>
+                        <visible>[Integer.IsEqual(ListItem.PlayCount,0) | !Integer.IsEqual(ListItem.PercentPlayed,0)] + $PARAM[ShowProgress]</visible>
                         <right>-108</right>
                         <top>182</top>
                         <width>64</width>
@@ -73,13 +246,13 @@
                         <top>182</top>
                         <width>64</width>
                         <height>64</height>
-                        <texture background="true">$VAR[ProgressImage]</texture>
+                        <texture background="true">$VAR[ProgressImageVar]</texture>
                     </control>
                 </control>
 
                 <!-- Overide label 1 if viewing episodes -->
                 <control type="label">
-                    <visible>Container.Content(episodes)</visible>
+                    <visible>Container.Content(episodes) + $PARAM[ShowLabel1]</visible>
                     <left>42</left>
                     <width>782</width>
                     <top>626</top>
@@ -87,14 +260,12 @@
                     <align>left</align>
                     <font>WidgetTitle</font>
                     <textcolor>$PARAM[LabelColor]</textcolor>
-                    <scrollsuffix>•</scrollsuffix>
-                    <label>$VAR[WidgetTitle]</label>
+                    <label>$VAR[WidgetTitleVar]</label>
                 </control>
 
                 <!-- Label group -->
                 <control type="group">
                     <visible>Control.HasFocus($PARAM[ListID])</visible>
-                    <animation effect="fade" time="1">VisibleChange</animation>
 
                     <control type="label">
                         <visible>$PARAM[ShowLabel1]</visible>
@@ -105,14 +276,13 @@
                         <align>left</align>
                         <font>WidgetTitle</font>
                         <textcolor>$PARAM[LabelColor]</textcolor>
-                        <scrollsuffix>•</scrollsuffix>
-                        <label>$VAR[WidgetTitle]</label>
+                        <label>$VAR[WidgetTitleVar]</label>
                     </control>
 
                     <control type="group">
                         <visible>$PARAM[ShowLabel2]</visible>
                         <control type="group">
-                            <visible>[String.IsEqual(ListItem.dbtype,movie) | String.IsEqual(ListItem.dbtype,episode)] + !String.IsEmpty(ListItem.Duration(mins))</visible>
+                            <visible>!String.IsEmpty(ListItem.Duration)</visible>
                             <control type="image">
                                 <left>42</left>
                                 <top>698</top>
@@ -120,8 +290,8 @@
                                 <height>41</height>
                                 <texture background="true">general/clock.png</texture>
                             </control>
-
                             <control type="label">
+                                <visible>String.IsEqual(ListItem.dbtype,movie) | String.IsEqual(ListItem.dbtype,episode)</visible>
                                 <left>96</left>
                                 <width>782</width>
                                 <top>686</top>
@@ -129,8 +299,32 @@
                                 <align>left</align>
                                 <font>WidgetRating</font>
                                 <textcolor>TextSubLabel</textcolor>
-                                <scrollsuffix>•</scrollsuffix>
                                 <label>$INFO[ListItem.Duration(mins),(,m - ]$INFO[ListItem.Endtime,,)]</label>
+                            </control>
+                            <control type="label">
+                                <visible>!String.IsEqual(ListItem.dbtype,movie) + !String.IsEqual(ListItem.dbtype,episode)</visible>
+                                <left>96</left>
+                                <width>782</width>
+                                <top>686</top>
+                                <height>60</height>
+                                <align>left</align>
+                                <font>WidgetRating</font>
+                                <textcolor>TextSubLabel</textcolor>
+                                <label>$INFO[ListItem.Duration]</label>
+                            </control>
+                        </control>
+
+                        <control type="group">
+                            <visible>!String.IsEmpty(ListItem.PicturePath)</visible>
+                            <control type="label">
+                                <left>42</left>
+                                <width>782</width>
+                                <top>686</top>
+                                <height>60</height>
+                                <align>left</align>
+                                <font>WidgetRating</font>
+                                <textcolor>TextSubLabel</textcolor>
+                                <label>$INFO[ListItem.size]</label>
                             </control>
                         </control>
 
@@ -144,29 +338,27 @@
                                 <align>left</align>
                                 <font>WidgetRating</font>
                                 <textcolor>TextSubLabel</textcolor>
-                                <scrollsuffix>•</scrollsuffix>
-                                <label>$VAR[NumSeasons]</label>
+                                <label>$VAR[NumberOfSeasonsVar]</label>
                             </control>
                         </control>
 
                         <control type="group">
                             <visible>!String.IsEmpty(ListItem.rating(themoviedb))</visible>
                             <control type="image">
-                                <left>350</left>
+                                <left>270</left>
                                 <top>698</top>
                                 <width>95</width>
                                 <height>41</height>
                                 <texture background="true">general/tmdb.png</texture>
                             </control>
                             <control type="label">
-                                <left>460</left>
+                                <left>380</left>
                                 <width>782</width>
                                 <top>686</top>
                                 <height>60</height>
                                 <align>left</align>
                                 <font>WidgetRating</font>
                                 <textcolor>TextSubLabel</textcolor>
-                                <scrollsuffix>•</scrollsuffix>
                                 <label>$INFO[ListItem.rating(themoviedb)]</label>
                             </control>
                         </control>
@@ -184,14 +376,6 @@
         <param name="ShowLabel1" default="false" />
         <param name="ShowLabel2" default="false" />
         <param name="LabelColor" default="TextBright" />
-            <control type="image">
-                <left>220</left>
-                <top>300</top>
-                <width>800</width>
-                <height>310</height>
-                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-            </control>
-
 
         <definition>
             <control type="group">
@@ -205,13 +389,12 @@
                     <top>0</top>
                     <width>1380</width>
                     <height>908</height>
-                    <texture background="true" colordiffuse="$VAR[blurcolor]">masks/WidgetBlurEffect.png</texture>
+                    <texture background="true" colordiffuse="$VAR[BlurColorItemVar]">masks/WidgetBlurEffect.png</texture>
                 </control> -->
                 <!-- Main landscape image -->
                 <control type="group">
                     <!-- <animation type="Focus" reversible="false">
                         <effect type="zoom" end="112" time="75" tween="sine" center="433,370" />
-                    </animation>
                     </animation> -->
                     <!-- Image -->
                     <control type="image">
@@ -230,7 +413,6 @@
                         <width>790</width>
                         <height>448</height>
                         <texture background="true">masks/Selector790x448r16.png</texture>
-                        <animation effect="fade" start="100" end="20" time="1500" easing="inout" tween="cubic" pulse="true" condition="$PARAM[Focused]">Conditional</animation>
                     </control>
                     <!-- Unwatched background-->
                     <control type="image">
@@ -276,7 +458,7 @@
                     <top>0</top>
                     <width>712</width>
                     <height>918</height>
-                    <texture background="true" colordiffuse="$VAR[blurcolor]">masks/WidgetBlurEffect.png</texture>
+                    <texture background="true" colordiffuse="$VAR[BlurColorItemVar]" border="300">masks/WidgetBlurEffect.png</texture>
                 </control>
                 <!-- Main poster image -->
                 <control type="group">
@@ -289,7 +471,7 @@
                         <top>150</top>
                         <width>412</width>
                         <height>618</height>
-                        <aspectratio>scale</aspectratio>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
                         <texture background="true" diffuse="masks/Mask412x618r16.png">$VAR[PosterImageVar]</texture>
                     </control>
                     <!-- Selector -->
@@ -300,7 +482,6 @@
                         <width>420</width>
                         <height>626</height>
                         <texture background="true" border="32">masks/Selector420x626r16.png</texture>
-                        <animation effect="fade" start="100" end="20" time="1500" easing="inout" tween="cubic" pulse="true" condition="$PARAM[Focused]">Conditional</animation>
                     </control>
                     <!-- Unwatched background-->
                     <control type="image">
@@ -320,88 +501,30 @@
                         <height>64</height>
                         <texture background="true">$VAR[ProgressImage]</texture>
                     </control>
-                </control>
-
-                <!-- Label group -->
-                <control type="group">
-                    <visible>Control.HasFocus($PARAM[ListID])</visible>
-                    <animation effect="fade" time="1">VisibleChange</animation>
-
                     <control type="label">
                         <visible>$PARAM[ShowLabel1]</visible>
                         <left>42</left>
-                        <width>782</width>
-                        <top>626</top>
+                        <width>412</width>
+                        <top>772</top>
                         <height>60</height>
-                        <align>left</align>
+                        <align>center</align>
                         <font>WidgetTitle</font>
                         <textcolor>$PARAM[LabelColor]</textcolor>
-                        <scrollsuffix>•</scrollsuffix>
-                        <label>$VAR[WidgetTitle]</label>
+                        <label>$INFO[ListItem.label]</label>
                     </control>
-
-                    <control type="group">
+                    <control type="label">
                         <visible>$PARAM[ShowLabel2]</visible>
-                        <control type="group">
-                            <visible>[String.IsEqual(ListItem.dbtype,movie) | String.IsEqual(ListItem.dbtype,episode)] + !String.IsEmpty(ListItem.Duration(mins))</visible>
-                            <control type="image">
-                                <left>42</left>
-                                <top>698</top>
-                                <width>41</width>
-                                <height>41</height>
-                                <texture background="true">general/clock.png</texture>
-                            </control>
-                            <control type="label">
-                                <left>96</left>
-                                <width>782</width>
-                                <top>686</top>
-                                <height>60</height>
-                                <align>left</align>
-                                <font>WidgetRating</font>
-                                <textcolor>TextSubLabel</textcolor>
-                                <scrollsuffix>•</scrollsuffix>
-                                <label>$INFO[ListItem.Duration(mins),(,m - ]$INFO[ListItem.Endtime,,)]</label>
-                            </control>
-                        </control>
-
-                        <control type="group">
-                            <visible>String.IsEqual(ListItem.dbtype,tvshow)</visible>
-                            <control type="label">
-                                <left>42</left>
-                                <width>782</width>
-                                <top>686</top>
-                                <height>60</height>
-                                <align>left</align>
-                                <font>WidgetRating</font>
-                                <textcolor>TextSubLabel</textcolor>
-                                <scrollsuffix>•</scrollsuffix>
-                                <label>$VAR[NumSeasons]</label>
-                            </control>
-                        </control>
-
-                        <control type="group">
-                            <visible>!String.IsEmpty(ListItem.rating(themoviedb))</visible>
-                            <control type="image">
-                                <left>350</left>
-                                <top>698</top>
-                                <width>95</width>
-                                <height>41</height>
-                                <texture background="true">general/tmdb.png</texture>
-                            </control>
-                            <control type="label">
-                                <left>460</left>
-                                <width>782</width>
-                                <top>686</top>
-                                <height>60</height>
-                                <align>left</align>
-                                <font>WidgetRating</font>
-                                <textcolor>TextSubLabel</textcolor>
-                                <scrollsuffix>•</scrollsuffix>
-                                <label>$INFO[ListItem.rating(themoviedb)]</label>
-                            </control>
-                        </control>
+                        <left>42</left>
+                        <width>412</width>
+                        <top>834</top>
+                        <height>60</height>
+                        <align>center</align>
+                        <font>WidgetTitle</font>
+                        <textcolor>$PARAM[LabelColor]</textcolor>
+                        <label>$INFO[ListItem.year]</label>
                     </control>
                 </control>
+
 
             </control>
         </definition>
@@ -421,7 +544,7 @@
                     <top>0</top>
                     <width>740</width>
                     <height>740</height>
-                    <texture background="true" colordiffuse="$VAR[blurcolor]" border="100">masks/WidgetBlurEffect.png</texture>
+                    <texture background="true" colordiffuse="$VAR[BlurColorItemVar]" border="300">masks/WidgetBlurEffect.png</texture>
                 </control>
                 <!-- Main landscape image -->
                 <control type="group">
@@ -433,6 +556,7 @@
                         <top>150</top>
                         <width>440</width>
                         <height>440</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
                         <texture background="true" diffuse="masks/Mask440x440r16.png">$VAR[MusicWallImageVar]</texture>
                     </control>
                     <control type="image">
@@ -446,7 +570,7 @@
                 </control>
                 <!-- Label group -->
                 <control type="group">
-                    <visible>Control.HasFocus($PARAM[ListID]) + $PARAM[Focused]</visible>
+                    <visible>Control.HasFocus($PARAM[ListID]) + [$PARAM[Focused] | $PARAM[ShowAllLabels]]</visible>
                     <animation effect="fade" time="1">VisibleChange</animation>
 
                     <control type="label">
@@ -456,9 +580,8 @@
                         <height>60</height>
                         <align>left</align>
                         <font>WidgetTitle</font>
-                        <textcolor>TextBright</textcolor>
-                        <scrollsuffix>•</scrollsuffix>
-                        <label>$VAR[WidgetTitle]</label>
+                        <textcolor>$PARAM[LabelColor]</textcolor>
+                        <label>$VAR[WidgetTitleVar]</label>
                     </control>
 
                     <control type="label">
@@ -469,8 +592,7 @@
                         <align>left</align>
                         <font>WidgetRating</font>
                         <textcolor>TextSubLabel</textcolor>
-                        <scrollsuffix>•</scrollsuffix>
-                        <label>$INFO[ListItem.artist]</label>
+                        <label>$INFO[ListItem.label2]</label>
                     </control>
                 </control>
             </control>
@@ -490,21 +612,22 @@
                     <control type="textbox">
                         <left>220</left>
                         <right>300</right>
-                        <top>433</top>
+                        <top>444</top>
                         <height>250</height>
                         <align>left</align>
                         <aligny>center</aligny>
-                        <font>LibrarySectionHeader</font>
+                        <font>LibrarySectionHeaderVar</font>
                         <textcolor>TextDim</textcolor>
-                        <!-- <label>$VAR[LibrarySectionHeader]</label> -->
+                        <label>$VAR[LibrarySectionHeaderVar]</label>
                     </control>
 
                     <!-- <control type="image">
-                            <left>50</left>
-                            <top>50</top>
-                            <width>800</width>
-                            <height>310</height>
+                        <left>0</left>
+                        <top>0</top>
+                        <width>800</width>
+                        <height>310</height>
                         <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+
                     </control> -->
 
                     <control type="group">
@@ -512,40 +635,34 @@
                         <control type="textbox" id="2000">
                             <left>220</left>
                             <right>300</right>
-                            <top>500</top>
-                            <height>540</height>
-                            <width>1000</width>
+                            <top>710</top>
+                            <height>250</height>
                             <align>left</align>
                             <aligny>center</aligny>
                             <font>LibraryMainTitleBig</font>
                             <textcolor>TextBright</textcolor>
-                            <scrollsuffix>•</scrollsuffix>
-                            <!-- <label>$VAR[WidgetTitle]</label> -->
+                            <!-- <label>$VAR[WidgetTitleVar]</label> -->
                             <visible>!Container(2000).HasNext</visible>
                         </control>
-
                         <control type="textbox" id="2001">
                             <left>220</left>
                             <right>300</right>
-                            <top>500</top>
-                            <height>540</height>
-                            <width>1000</width>
+                            <top>730</top>
+                            <height>250</height>
                             <align>left</align>
                             <aligny>center</aligny>
                             <font>LibraryMainTitleSmall</font>
                             <textcolor>TextBright</textcolor>
-                            <scrollsuffix>•</scrollsuffix>
-                            <!-- <label>$VAR[WidgetTitle]</label> -->
+                            <!-- <label>$VAR[WidgetTitleVar]</label> -->
                             <visible>Container(2000).HasNext</visible>
                         </control>
-
                         <!-- <control type="image">
                             <left>210</left>
                             <top>640</top>
-                            <width>800</width>
-                            <height>310</height>
+                            <width>1000</width>
+                            <height>388</height>
                             <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-                        </control> --> 
+                        </control> -->
                     </control>
                 </control>
 
@@ -558,6 +675,7 @@
                     <width>2000</width>
                     <orientation>horizontal</orientation>
                     <usecontrolcoords>true</usecontrolcoords>
+
                     <!-- Show season count -->
                     <control type="button">
                         <visible>String.IsEqual(Container($PARAM[ID]).ListItem.dbtype,tvshow)</visible>
@@ -568,8 +686,7 @@
                         <align>left</align>
                         <font>LibraryInfoLine</font>
                         <textcolor>TextSubLabel</textcolor>
-                        <scrollsuffix>•</scrollsuffix>
-                        <!-- <label>$VAR[NumSeasons]</label> -->
+                        <label>$VAR[NumberOfSeasonsVar]</label>
                     </control>
                     <!-- Set info -->
                     <control type="image">
@@ -590,8 +707,7 @@
                         <align>left</align>
                         <font>LibraryInfoLine</font>
                         <textcolor>TextSubLabel</textcolor>
-                        <scrollsuffix>•</scrollsuffix>
-                        <label>$INFO[Container(5678).NumItems,, movies]</label>
+                        <label>$INFO[Container(5$PARAM[ID]).NumItems,, movies]</label>
                     </control>
                     <control type="button">
                         <visible>String.IsEqual(Container($PARAM[ID]).ListItem.dbtype,set)</visible>
@@ -602,8 +718,7 @@
                         <align>left</align>
                         <font>LibraryInfoLine</font>
                         <textcolor>TextSubLabel</textcolor>
-                        <scrollsuffix>•</scrollsuffix>
-                        <label>$INFO[Container(5678).ListItemAbsolute(0).Year,, - ]$INFO[Container(5678).ListItemAbsolute(1).Year]</label>
+                        <label>$INFO[Container(5$PARAM[ID]).ListItemAbsolute(0).Year,, - ]$INFO[Container(5$PARAM[ID]).ListItemAbsolute(1).Year]</label>
                     </control>
                     <!-- Movie / Episode duration -->
                     <control type="image">
@@ -613,7 +728,7 @@
                         <width>60</width>
                         <height>60</height>
                         <aspectratio>keep</aspectratio>
-                        <!-- <texture background="true">general/clock.png</texture> -->
+                        <texture background="true">general/clock.png</texture>
                     </control>
                     <control type="button">
                         <visible>!String.IsEmpty(Container($PARAM[ID]).ListItem.Duration(mins)) + [String.IsEqual(Container($PARAM[ID]).ListItem.dbtype,movie) | String.IsEqual(Container($PARAM[ID]).ListItem.dbtype,episode)]</visible>
@@ -624,12 +739,12 @@
                         <align>left</align>
                         <font>LibraryInfoLine</font>
                         <textcolor>TextSubLabel</textcolor>
-                        <!-- <label>$INFO[Container($PARAM[ID]).ListItem.Duration(mins),(,m - ]$INFO[ListItem.Endtime,,)]</label> -->
+                        <label>$INFO[Container($PARAM[ID]).ListItem.Duration(mins),(,m - ]$INFO[ListItem.Endtime,,)]</label>
                     </control>
                     <!-- Movie / Show rating -->
                     <control type="image">
                         <visible>!String.IsEmpty(Container($PARAM[ID]).ListItem.rating(themoviedb))</visible>
-                        <left>40</left>
+                        <left>50</left>
                         <top>56</top>
                         <width>139</width>
                         <height>56</height>
@@ -665,7 +780,6 @@
                         <align>left</align>
                         <font>LibraryInfoLine</font>
                         <textcolor>TextSubLabel</textcolor>
-                        <scrollsuffix>•</scrollsuffix>
                         <label>$INFO[Container($PARAM[ID]).ListItem.Episode,, episodes]</label>
                     </control>
                     <!-- MPAA rating -->
@@ -682,7 +796,7 @@
                         <font>LibraryInfoIcon</font>
                         <textcolor>TextBright</textcolor>
                         <texturenofocus border="8" colordiffuse="InfoIconBackground">masks/Border32x32r8b2.png</texturenofocus>
-                        <label>$VAR[MPAARating]</label>
+                        <label>$VAR[MPAARatingVar]</label>
                     </control>
                     <!-- Resolution rating -->
                     <control type="button">
@@ -715,6 +829,22 @@
                         <textcolor>TextBright</textcolor>
                         <texturenofocus border="8" colordiffuse="InfoIconBackground">masks/Border32x32r8b2.png</texturenofocus>
                         <label>$INFO[Container($PARAM[ID]).ListItem.year]</label>
+                    </control>
+                    <!-- TV Show status -->
+                    <control type="button">
+                        <visible>!String.IsEmpty(Container($PARAM[ID]).ListItem.Status) + String.IsEqual(Container($PARAM[ID]).ListItem.dbtype,tvshow)</visible>
+                        <left>50</left>
+                        <width>auto</width>
+                        <top>56</top>
+                        <height>56</height>
+                        <align>left</align>
+                        <aligny>top</aligny>
+                        <textoffsetx>16</textoffsetx>
+                        <textoffsety>-9</textoffsety>
+                        <font>LibraryInfoIcon</font>
+                        <textcolor>TextBright</textcolor>
+                        <texturenofocus border="8" colordiffuse="InfoIconBackground">masks/Border32x32r8b2.png</texturenofocus>
+                        <label>$INFO[Container($PARAM[ID]).ListItem.Status]</label>
                     </control>
                     <!-- Episode date -->
                     <control type="button">
@@ -752,7 +882,7 @@
                     <top>0</top>
                     <width>740</width>
                     <height>740</height>
-                    <texture background="true" colordiffuse="$VAR[blurcolor]" border="100">masks/WidgetBlurEffect.png</texture>
+                    <texture background="true" colordiffuse="$VAR[BlurColorItemVar]" border="100">masks/WidgetBlurEffect.png</texture>
                 </control>
                 <!-- Main image -->
                 <control type="group">
@@ -789,7 +919,6 @@
                         <align>left</align>
                         <font>WidgetTitle</font>
                         <textcolor>$PARAM[LabelColor]</textcolor>
-                        <scrollsuffix>•</scrollsuffix>
                         <label>$VAR[AlbumArtist1]</label>
                     </control>
 
@@ -801,8 +930,43 @@
                         <align>left</align>
                         <font>WidgetTitle</font>
                         <textcolor>$PARAM[LabelColor]</textcolor>
-                        <scrollsuffix>•</scrollsuffix>
                         <label>$VAR[AlbumArtist2]</label>
+                    </control>
+                </control>
+            </control>
+        </definition>
+    </include>
+
+    <include name="CategoryLayout">
+        <definition>
+            <control type="group">
+                <animation type="Focus" reversible="false">
+                    <effect type="zoom" end="114" time="50" tween="sine" center="406,122" />
+                </animation>
+
+                <control type="image">
+                    <left>42</left>
+                    <top>42</top>
+                    <width>728</width>
+                    <height>160</height>
+                    <texture background="true" colordiffuse="$PARAM[ItemColor]" border="80">masks/Mask160x160r80.png</texture>
+                </control>
+
+                <!-- Label group -->
+                <control type="group">
+                    <visible>true</visible>
+                    <animation effect="fade" time="1">VisibleChange</animation>
+
+                    <control type="label">
+                        <left>42</left>
+                        <top>42</top>
+                        <bottom>32</bottom>
+                        <width>728</width>
+                        <height>160</height>
+                        <align>center</align>
+                        <font>LibraryInfoLine</font>
+                        <textcolor>$PARAM[LabelColor]</textcolor>
+                        <label>$VAR[AlbumArtist1]</label>
                     </control>
                 </control>
             </control>
@@ -838,11 +1002,353 @@
                         <align>center</align>
                         <font>LibraryInfoLine</font>
                         <textcolor>$PARAM[LabelColor]</textcolor>
-                        <scrollsuffix>•</scrollsuffix>
                         <label>$VAR[AlbumArtist1]</label>
                     </control>
                 </control>
             </control>
         </definition>
+    </include>
+
+    <include name="FeatureWidgetInfo">
+
+        <control type="group">
+            <animation type="Visible" reversible="false">
+                <effect type="fade" start="0" end="100" time="200" />
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="200" />
+            </animation>
+            <animation type="Conditional" condition="Integer.IsGreater(Container($PARAM[WidgetGroupID]).Position,1) + Integer.IsGreater(Container($PARAM[WidgetGroupID]).NumItems,1)">
+                <effect type="slide" end="0,-1380" time="460" />
+                <effect type="fade" start="100" end="0" time="460" />
+            </animation>
+
+            <control type="image">
+                <left>0</left>
+                <top>0</top>
+                <right>0</right>
+                <bottom>0</bottom>
+                <fadetime>400</fadetime>
+                <aspectratio scalediffuse="true">scale</aspectratio>
+                <texture background="true" diffuse="masks/BackgroundMask.png" colordiffuse="ffb0b0b0">$INFO[Container($PARAM[ListID]).ListItem.Art(fanart)]</texture>
+            </control>
+
+
+            <!-- Feature widget info layout -->
+            <control type="group">
+                <animation type="Focus" reversible="false">
+                    <effect type="zoom" end="100" time="50" tween="sine" center="auto" />
+                </animation>
+
+                <!-- Fake label to extract widget type -->
+                <control type="label" id="$PARAM[ListID]1">
+                    <visible>false</visible>
+                    <left>0</left>
+                    <top>-2000</top>
+                    <label>$PARAM[WidgetType]</label>
+                </control>
+
+                <!-- Main Title Group -->
+                <control type="group">
+                    <control type="group">
+                        <left>220</left>
+                        <right>300</right>
+                        <top>566</top>
+                        <height>250</height>
+                        <control type="label">
+                            <visible>String.IsEmpty(Container($PARAM[ListID]).ListItem.Property(searchstring))</visible>
+                            <aligny>top</aligny>
+                            <font>LibrarySectionHeaderVar</font>
+                            <textcolor>TextDim</textcolor>
+                            <label>$PARAM[WidgetLabel]</label>
+                        </control>
+                        <control type="label">
+                            <visible>!String.IsEmpty(Container($PARAM[ListID]).ListItem.Property(searchstring)) + String.Contains(Control.GetLabel($PARAM[ListID]1),EHMoviesRandomGenre)</visible>
+                            <aligny>top</aligny>
+                            <font>LibrarySectionHeaderVar</font>
+                            <textcolor>TextDim</textcolor>
+                            <label>$INFO[Container($PARAM[ListID]).ListItem.Property(searchstring),$LOCALIZE[31500] , $LOCALIZE[31501]]</label>
+                        </control>
+                        <control type="label">
+                            <visible>!String.IsEmpty(Container($PARAM[ListID]).ListItem.Property(searchstring)) + String.Contains(Control.GetLabel($PARAM[ListID]1),EHShowsRandomGenre)</visible>
+                            <aligny>top</aligny>
+                            <font>LibrarySectionHeaderVar</font>
+                            <textcolor>TextDim</textcolor>
+                            <label>$INFO[Container($PARAM[ListID]).ListItem.Property(searchstring),$LOCALIZE[31500] , $LOCALIZE[31502]]</label>
+                        </control>
+                        <control type="label">
+                            <visible>!String.IsEmpty(Container($PARAM[ListID]).ListItem.Property(searchstring)) + String.Contains(Control.GetLabel($PARAM[ListID]1),EHMixedRandomGenre)</visible>
+                            <aligny>top</aligny>
+                            <font>LibrarySectionHeaderVar</font>
+                            <textcolor>TextDim</textcolor>
+                            <label>$INFO[Container($PARAM[ListID]).ListItem.Property(searchstring),$LOCALIZE[31500] ,]</label>
+                        </control>
+                        <control type="label">
+                            <visible>!String.IsEmpty(Container($PARAM[ListID]).ListItem.Property(searchstring)) + [String.Contains(Control.GetLabel($PARAM[ListID]1),EHMoviesBecauseYouWatched) | String.Contains(Control.GetLabel($PARAM[ListID]1),EHShowsBecauseYouWatched)]</visible>
+                            <aligny>top</aligny>
+                            <font>LibrarySectionHeaderVar</font>
+                            <textcolor>TextDim</textcolor>
+                            <label>$INFO[Container($PARAM[ListID]).ListItem.Property(searchstring),$LOCALIZE[31499] ,]</label>
+                        </control>
+
+                        <control type="group">
+                            <top>144</top>
+                            <control type="textbox">
+                                <visible>String.IsEqual(Container($PARAM[ListID]).ListItem.DBTYPE,movie) | String.IsEqual(Container($PARAM[ListID]).ListItem.DBTYPE,tvshow)</visible>
+                                <left>0</left>
+                                <right>300</right>
+                                <height>250</height>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <font>LibraryMainTitleBig</font>
+                                <textcolor>TextBright</textcolor>
+                                <label>$INFO[Container($PARAM[ListID]).ListItem.title]</label>
+                            </control>
+                            <control type="group">
+                                <visible>String.IsEqual(Container($PARAM[ListID]).ListItem.DBTYPE,episode)</visible>
+                                <control type="textbox">
+                                    <left>0</left>
+                                    <right>300</right>
+                                    <top>-20</top>
+                                    <height>250</height>
+                                    <align>left</align>
+                                    <aligny>center</aligny>
+                                    <font>LibrarySectionHeaderVar</font>
+                                    <textcolor>TextDim</textcolor>
+                                    <label>$INFO[Container($PARAM[ListID]).ListItem.TVShowTitle]</label>
+                                </control>
+                                <control type="textbox">
+                                    <visible>Integer.IsLess(Container($PARAM[ListID]).ListItem.Episode,10)</visible>
+                                    <left>0</left>
+                                    <right>300</right>
+                                    <top>100</top>
+                                    <height>250</height>
+                                    <align>left</align>
+                                    <aligny>center</aligny>
+                                    <font>LibrarySectionHeaderVar</font>
+                                    <textcolor>TextBright</textcolor>
+                                    <label>$INFO[Container($PARAM[ListID]).ListItem.season]x0$INFO[Container($PARAM[ListID]).ListItem.Episode] $INFO[Container($PARAM[ListID]).ListItem.title]</label>
+                                </control>
+                                <control type="textbox">
+                                    <visible>!Integer.IsLess(Container($PARAM[ListID]).ListItem.Episode,10)</visible>
+                                    <left>0</left>
+                                    <right>300</right>
+                                    <top>100</top>
+                                    <height>250</height>
+                                    <align>left</align>
+                                    <aligny>center</aligny>
+                                    <font>LibrarySectionHeaderVar</font>
+                                    <textcolor>TextBright</textcolor>
+                                    <label>$INFO[Container($PARAM[ListID]).ListItem.season]x$INFO[Container($PARAM[ListID]).ListItem.Episode] $INFO[Container($PARAM[ListID]).ListItem.title]</label>
+                                </control>
+                            </control>
+                        </control>
+                    </control>
+
+                </control>
+
+                <!-- Information line -->
+                <control type="grouplist">
+
+                    <left>228</left>
+                    <top>1000</top>
+                    <height>120</height>
+                    <width>2000</width>
+                    <orientation>horizontal</orientation>
+                    <usecontrolcoords>true</usecontrolcoords>
+
+                    <!-- Show season count -->
+                    <control type="button">
+                        <visible>String.IsEqual(Container($PARAM[ListID]).ListItem.dbtype,tvshow)</visible>
+                        <left>0</left>
+                        <width>auto</width>
+                        <top>29</top>
+                        <height>60</height>
+                        <align>left</align>
+                        <font>LibraryInfoLine</font>
+                        <textcolor>TextSubLabel</textcolor>
+                        <label>$INFO[Container($PARAM[ListID]).ListItem.Season,, seasons]</label>
+                    </control>
+                    <!-- Set info -->
+                    <!-- <control type="image">
+                        <visible>String.IsEqual(Container($PARAM[ID]).ListItem.dbtype,set)</visible>
+                        <left>0</left>
+                        <top>54</top>
+                        <width>60</width>
+                        <height>60</height>
+                        <aspectratio>keep</aspectratio>
+                        <texture background="true">general/movie.png</texture>
+                    </control> -->
+                    <!-- <control type="button">
+                        <visible>String.IsEqual(Container($PARAM[ID]).ListItem.dbtype,set)</visible>
+                        <left>30</left>
+                        <width>auto</width>
+                        <top>29</top>
+                        <height>60</height>
+                        <align>left</align>
+                        <font>LibraryInfoLine</font>
+                        <textcolor>TextSubLabel</textcolor>
+                        <label>$INFO[Container(5$PARAM[ID]).NumItems,, movies]</label>
+                    </control> -->
+                    <!-- <control type="button">
+                        <visible>String.IsEqual(Container($PARAM[ID]).ListItem.dbtype,set)</visible>
+                        <left>60</left>
+                        <width>auto</width>
+                        <top>29</top>
+                        <height>60</height>
+                        <align>left</align>
+                        <font>LibraryInfoLine</font>
+                        <textcolor>TextSubLabel</textcolor>
+                        <label>$INFO[Container(5$PARAM[ID]).ListItemAbsolute(0).Year,, - ]$INFO[Container(5$PARAM[ID]).ListItemAbsolute(1).Year]</label>
+                    </control> -->
+                    <!-- Movie / Episode duration -->
+                    <control type="image">
+                        <visible>!String.IsEmpty(Container($PARAM[ListID]).ListItem.Duration(mins)) + [String.IsEqual(Container($PARAM[ListID]).ListItem.dbtype,movie) | String.IsEqual(Container($PARAM[ListID]).ListItem.dbtype,episode)]</visible>
+                        <left>0</left>
+                        <top>54</top>
+                        <width>60</width>
+                        <height>60</height>
+                        <aspectratio>keep</aspectratio>
+                        <texture background="true">general/clock.png</texture>
+                    </control>
+                    <control type="button">
+                        <visible>!String.IsEmpty(Container($PARAM[ListID]).ListItem.Duration(mins)) + [String.IsEqual(Container($PARAM[ListID]).ListItem.dbtype,movie) | String.IsEqual(Container($PARAM[ListID]).ListItem.dbtype,episode)]</visible>
+                        <left>20</left>
+                        <width>auto</width>
+                        <top>29</top>
+                        <height>60</height>
+                        <align>left</align>
+                        <font>LibraryInfoLine</font>
+                        <textcolor>TextSubLabel</textcolor>
+                        <label>$INFO[Container($PARAM[ListID]).ListItem.Duration(mins),,mins]</label>
+                    </control>
+                    <!-- Movie / Show rating -->
+                    <control type="image">
+                        <visible>!String.IsEmpty(Container($PARAM[ListID]).ListItem.rating(themoviedb))</visible>
+                        <left>50</left>
+                        <top>56</top>
+                        <width>139</width>
+                        <height>56</height>
+                        <texture background="true">general/tmdb.png</texture>
+                    </control>
+                    <control type="button">
+                        <visible>!String.IsEmpty(Container($PARAM[ListID]).ListItem.rating(themoviedb))</visible>
+                        <left>20</left>
+                        <width>auto</width>
+                        <top>29</top>
+                        <height>60</height>
+                        <align>left</align>
+                        <font>LibraryInfoLine</font>
+                        <textcolor>TextSubLabel</textcolor>
+                        <label>$INFO[Container($PARAM[ListID]).ListItem.rating(themoviedb)]</label>
+                    </control>
+                    <!-- Season number of episodes -->
+                    <control type="image">
+                        <visible>String.IsEqual(Container($PARAM[ListID]).ListItem.DBTYPE,season)</visible>
+                        <left>0</left>
+                        <top>54</top>
+                        <width>60</width>
+                        <height>60</height>
+                        <aspectratio>keep</aspectratio>
+                        <texture background="true">general/tvshow.png</texture>
+                    </control>
+                    <control type="button">
+                        <visible>String.IsEqual(Container($PARAM[ListID]).ListItem.DBTYPE,season)</visible>
+                        <left>30</left>
+                        <width>auto</width>
+                        <top>29</top>
+                        <height>60</height>
+                        <align>left</align>
+                        <font>LibraryInfoLine</font>
+                        <textcolor>TextSubLabel</textcolor>
+                        <label>$INFO[Container($PARAM[ListID]).ListItem.Episode,, episodes]</label>
+                    </control>
+                    <!-- MPAA rating -->
+                    <control type="button">
+                        <visible>!String.IsEqual(Container($PARAM[ListID]).ListItem.MPAA,Not Rated) + !String.IsEmpty(Container($PARAM[ListID]).ListItem.MPAA)</visible>
+                        <!-- <visible>String.IsEqual(Container($PARAM[ListID]).ListItem.dbtype,movie) | String.IsEqual(Container($PARAM[ListID]).ListItem.dbtype,tvshow) | String.IsEqual(Container($PARAM[ListID]).ListItem.dbtype,episode)</visible> -->
+                        <left>50</left>
+                        <width>auto</width>
+                        <top>56</top>
+                        <height>56</height>
+                        <align>left</align>
+                        <aligny>top</aligny>
+                        <textoffsetx>16</textoffsetx>
+                        <textoffsety>-9</textoffsety>
+                        <font>LibraryInfoIcon</font>
+                        <textcolor>TextBright</textcolor>
+                        <texturenofocus border="8" colordiffuse="InfoIconBackground">masks/Border32x32r8b2.png</texturenofocus>
+                        <label>$INFO[Container($PARAM[ListID]).ListItem.MPAA]</label>
+                    </control>
+                    <!-- Resolution rating -->
+                    <control type="button">
+                        <visible>!String.IsEmpty(Container($PARAM[ListID]).ListItem.VideoResolution)</visible>
+                        <left>50</left>
+                        <width>auto</width>
+                        <top>56</top>
+                        <height>56</height>
+                        <align>left</align>
+                        <aligny>top</aligny>
+                        <textoffsetx>16</textoffsetx>
+                        <textoffsety>-9</textoffsety>
+                        <font>LibraryInfoIcon</font>
+                        <textcolor>TextBright</textcolor>
+                        <texturenofocus border="8" colordiffuse="InfoIconBackground">masks/Border32x32r8b2.png</texturenofocus>
+                        <label>$INFO[Container($PARAM[ListID]).ListItem.VideoResolution]</label>
+                    </control>
+                    <!-- Year -->
+                    <control type="button">
+                        <visible>!String.IsEmpty(Container($PARAM[ListID]).ListItem.year) + !String.IsEqual(Container($PARAM[ListID]).ListItem.dbtype,set) + !String.IsEqual(Container($PARAM[ListID]).ListItem.dbtype,episode)</visible>
+                        <left>50</left>
+                        <width>auto</width>
+                        <top>56</top>
+                        <height>56</height>
+                        <align>left</align>
+                        <aligny>top</aligny>
+                        <textoffsetx>16</textoffsetx>
+                        <textoffsety>-9</textoffsety>
+                        <font>LibraryInfoIcon</font>
+                        <textcolor>TextBright</textcolor>
+                        <texturenofocus border="8" colordiffuse="InfoIconBackground">masks/Border32x32r8b2.png</texturenofocus>
+                        <label>$INFO[Container($PARAM[ListID]).ListItem.year]</label>
+                    </control>
+                    <!-- TV Show status -->
+                    <control type="button">
+                        <visible>!String.IsEmpty(Container($PARAM[ListID]).ListItem.Status) + String.IsEqual(Container($PARAM[ListID]).ListItem.dbtype,tvshow)</visible>
+                        <left>50</left>
+                        <width>auto</width>
+                        <top>56</top>
+                        <height>56</height>
+                        <align>left</align>
+                        <aligny>top</aligny>
+                        <textoffsetx>16</textoffsetx>
+                        <textoffsety>-9</textoffsety>
+                        <font>LibraryInfoIcon</font>
+                        <textcolor>TextBright</textcolor>
+                        <texturenofocus border="8" colordiffuse="InfoIconBackground">masks/Border32x32r8b2.png</texturenofocus>
+                        <label>$INFO[Container($PARAM[ListID]).ListItem.Status]</label>
+                    </control>
+                    <!-- Episode date -->
+                    <control type="button">
+                        <visible>String.IsEqual(Container($PARAM[ListID]).ListItem.dbtype,episode)</visible>
+                        <left>50</left>
+                        <width>auto</width>
+                        <top>56</top>
+                        <height>56</height>
+                        <align>left</align>
+                        <aligny>top</aligny>
+                        <textoffsetx>16</textoffsetx>
+                        <textoffsety>-9</textoffsety>
+                        <font>LibraryInfoIcon</font>
+                        <textcolor>TextBright</textcolor>
+                        <texturenofocus border="8" colordiffuse="InfoIconBackground">masks/Border32x32r8b2.png</texturenofocus>
+                        <label>$INFO[Container($PARAM[ListID]).ListItem.Premiered]</label>
+                    </control>
+
+                </control>
+            </control>
+
+
+        </control>
     </include>
 </includes>

@@ -4,125 +4,139 @@
 
     <!-- Movie hub widgets -->
     <include name="ShowsHubWidgets">
-        <control type="grouplist" id="4200">
 
-            <!-- Allow slide for upto 6 widget rows -->
-            <animation effect="slide" end="0,-600" time="200" condition="Integer.IsGreater(Container(4200).Position,1)">Conditional</animation>
-            <animation effect="slide" end="0,-600" time="200" condition="Integer.IsGreater(Container(4200).Position,2)">Conditional</animation>
-            <animation effect="slide" end="0,-600" time="200" condition="Integer.IsGreater(Container(4200).Position,3)">Conditional</animation>
-            <animation effect="slide" end="0,-600" time="200" condition="Integer.IsGreater(Container(4200).Position,4)">Conditional</animation>
-            <animation effect="slide" end="0,-600" time="200" condition="Integer.IsGreater(Container(4200).Position,5)">Conditional</animation>
+        <control type="grouplist" id="4100">
+            <!-- Slide down 180 if submenu is not empty -->
+            <animation effect="slide" end="0,180" time="0" condition="$EXP[subMenuNotEmpty]">Conditional</animation>
+            <!-- Remove the 180 slide from above if main and sub menus lose focus and submenu is not empty -->
+            <animation effect="slide" end="0,-180" time="200" condition="!Control.HasFocus(9000) + !Control.HasFocus(9001) + $EXP[subMenuNotEmpty]">Conditional</animation>
+
+            <!-- Allow slide for upto 4 widget rows (first and last rows don't slide) -->
+            <animation effect="slide" end="0,-740" time="250" condition="Integer.IsGreater(Container(4100).Position,1) + Integer.IsGreater(Container(4100).NumItems,2)">Conditional</animation>
+            <animation effect="slide" end="0,-600" time="200" condition="Integer.IsGreater(Container(4100).Position,2) + Integer.IsGreater(Container(4100).NumItems,3)">Conditional</animation>
 
             <left>0</left>
             <top>0</top>
-            <height>5000</height>
+            <height>10000</height>
             <right>0</right>
             <usecontrolcoords>true</usecontrolcoords>
             <itemgap>0</itemgap>
-            <visible>String.IsEqual(Container(9005).ListItem.Property(id),shows)</visible>
+            <visible>String.IsEqual(Container(9000).ListItem.Property(defaultID),tvshows)</visible>
 
-            <include>WidgetHubSlideAnimation</include>
+            <include>ContentChangeAnimation</include>
 
             <!-- Spacer to push widget rows down -->
             <control type="group">
-                <height>548</height>
+                <height>400</height> <!--598-->
             </control>
 
-            <!-- Recently added shows widget row 1-->
+            <!-- Recently added movies widget row 1-->
             <control type="group">
-                <visible>Integer.IsGreater(Container(4201).NumItems,0) | Container(4201).IsUpdating</visible>
-                <animation effect="fade" start="100" end="0" time="200" condition="Integer.IsGreater(Container(4200).Position,1)">Conditional</animation>
+                <visible>Integer.IsGreater(Container(4101).NumItems,0) | Container(4101).IsUpdating</visible>
+                <animation effect="fade" start="100" end="40" time="200" condition="Integer.IsGreater(Container(4100).Position,1)">Conditional</animation>
+                <animation effect="slide" end="0,-200" time="200" condition="Control.HasFocus(4102) | Control.HasFocus(4103) | Control.HasFocus(4104)">Conditional</animation>
+
                 <left>0</left>
                 <right>0</right>
                 <top>0</top>
-                <height>600</height>
-                <include content="HomeWidgetLandscape">
-                    <param name="WidgetLabel" value="Recently Added" />
-                    <param name="ParentID" value="4201" />
-                    <param name="ListID" value="4201" />
-                    <param name="Content" value="plugin://script.embuary.helper/?info=getnewshows&showall=true" />
+                <height>940</height>
+                <include content="HomeWidgetWide">
+                    <param name="WidgetLabel" value="Because you watched" />
+                    <param name="ParentID" value="4101" />
+                    <param name="ListID" value="4101" />
+                    <param name="Content" value="plugin://script.embuary.helper/?info=getnextup" />
                     <param name="ContentType" value="videos" />
-                    <param name="OnBack" value="SetFocus(4201,0,absolute)" />
-                    <param name="OnUp" value="9005" />
-                    <param name="OnDown" value="4202" />
-                    <param name="GroupHeight" value="600" />
+                    <param name="OnBack" value="SetFocus(4101,0,absolute)" />
+                    <param name="OnUp" value="9001" />
+                    <param name="OnDown" value="4102" />
+                    <param name="GroupHeight" value="940" />
                 </include>
             </control>
 
-            <!-- Start watching row 2-->
+            <!-- Widget row 2-->
             <control type="group">
-                <visible>Integer.IsGreater(Container(4202).NumItems,0) | Container(4202).IsUpdating</visible>
-                <animation effect="fade" start="100" end="0" time="200" condition="[Integer.IsGreater(Container(4201).NumItems,0) + Integer.IsGreater(Container(4200).Position,2)] | 
-                                                                                    [!Integer.IsGreater(Container(4201).NumItems,0) + Integer.IsGreater(Container(4200).Position,1)]">Conditional</animation>
-                <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(4201)">Conditional</animation>
+                <visible>Integer.IsGreater(Container(4102).NumItems,0) | Container(4102).IsUpdating</visible>
+                <!-- <animation effect="fade" start="100" end="60" time="200" condition="[Integer.IsGreater(Container(4101).NumItems,0) + Integer.IsGreater(Container(4100).Position,2)] | 
+                                                                                    [!Integer.IsGreater(Container(4101).NumItems,0) + Integer.IsGreater(Container(4100).Position,1)]">Conditional</animation> -->
+                <!-- <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(4101)">Conditional</animation> -->
+                <animation effect="slide" end="0,-200" time="200" condition="Control.HasFocus(4103) | Control.HasFocus(4104)">Conditional</animation>
 
                 <left>0</left>
                 <right>0</right>
                 <top>0</top>
                 <height>600</height>
                 <include content="HomeWidgetLandscape">
-                    <param name="WidgetLabel" value="Start Watching" />
-                    <param name="ParentID" value="4201" />
-                    <param name="ListID" value="4202" />
-                    <param name="Content" value="special://skin/extras/playlists/unwatched_tvshows.xsp" />
+                    <param name="WidgetLabel" value="Widget 2" />
+                    <param name="ParentID" value="4101" />
+                    <param name="ListID" value="4102" />
+                    <param name="Content" value="special://skin/extras/playlists/random_unwatched_shows.xsp" />
                     <param name="ContentType" value="videos" />
-                    <param name="OnBack" value="SetFocus(4202,0,absolute)" />
-                    <param name="OnUp" value="4201" />
-                    <param name="OnDown" value="4203" />
+                    <param name="OnBack" value="SetFocus(4102,0,absolute)" />
+                    <param name="OnUp" value="4101" />
+                    <param name="OnDown" value="4103" />
                     <param name="GroupHeight" value="600" />
                 </include>
             </control>
 
             <!-- Widget row 3 -->
             <control type="group">
-                <visible>Integer.IsGreater(Container(4203).NumItems,0) | Container(4203).IsUpdating</visible>
-                <animation effect="fade" start="100" end="0" time="200" condition="[Integer.IsGreater(Container(4201).NumItems,0) + Integer.IsGreater(Container(4202).NumItems,0) + Integer.IsGreater(Container(4200).Position,3)] | 
-                                                                                    [!Integer.IsGreater(Container(4201).NumItems,0) + !Integer.IsGreater(Container(4202).NumItems,0) + Integer.IsGreater(Container(4200).Position,1)] |
-                                                                                    [!Integer.IsGreater(Container(4201).NumItems,0) + Integer.IsGreater(Container(4202).NumItems,0) + Integer.IsGreater(Container(4200).Position,2)] |
-                                                                                    [Integer.IsGreater(Container(4201).NumItems,0) + !Integer.IsGreater(Container(4202).NumItems,0) + Integer.IsGreater(Container(4200).Position,2)]">Conditional</animation>
-                <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(4201)">Conditional</animation>
-                <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(4202)">Conditional</animation>
+                <visible>Integer.IsGreater(Container(4103).NumItems,0) | Container(4103).IsUpdating</visible>
+                <!-- <animation effect="fade" start="100" end="60" time="200" condition="[Integer.IsGreater(Container(4101).NumItems,0) + Integer.IsGreater(Container(4102).NumItems,0) + Integer.IsGreater(Container(4100).Position,3)] | 
+                                                                                    [!Integer.IsGreater(Container(4101).NumItems,0) + !Integer.IsGreater(Container(4102).NumItems,0) + Integer.IsGreater(Container(4100).Position,1)] |
+                                                                                    [!Integer.IsGreater(Container(4101).NumItems,0) + Integer.IsGreater(Container(4102).NumItems,0) + Integer.IsGreater(Container(4100).Position,2)] |
+                                                                                    [Integer.IsGreater(Container(4101).NumItems,0) + !Integer.IsGreater(Container(4102).NumItems,0) + Integer.IsGreater(Container(4100).Position,2)]">Conditional</animation> -->
+                <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(4102)">Conditional</animation>
+                <!-- <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(4102)">Conditional</animation> -->
+                <animation effect="slide" end="0,-200" time="200" condition="Control.HasFocus(4104)">Conditional</animation>
 
                 <left>0</left>
                 <right>0</right>
                 <top>0</top>
                 <height>600</height>
                 <include content="HomeWidgetLandscape">
-                    <param name="WidgetLabel" value="$INFO[Container(4203).ListItem.Property(searchstring),Because You Watched ,]" />
-                    <param name="ParentID" value="4201" />
-                    <param name="ListID" value="4203" />
-                    <param name="Content" value="plugin://script.embuary.helper/?info=getsimilar&type=tvshow&pos=0" />
+                    <param name="WidgetLabel" value="Widget 3" />
+                    <param name="ParentID" value="4101" />
+                    <param name="ListID" value="4103" />
+                    <param name="Content" value="special://skin/extras/playlists/random_unwatched_shows.xsp" />
                     <param name="ContentType" value="videos" />
-                    <param name="OnBack" value="SetFocus(4203,0,absolute)" />
-                    <param name="OnUp" value="4202" />
-                    <param name="OnDown" value="4204" />
+                    <param name="OnBack" value="SetFocus(4103,0,absolute)" />
+                    <param name="OnUp" value="4102" />
+                    <param name="OnDown" value="4104" />
                     <param name="GroupHeight" value="600" />
                 </include>
             </control>
 
             <!-- Widget row 4-->
             <control type="group">
-                <visible>Integer.IsGreater(Container(4204).NumItems,0) | Container(4204).IsUpdating</visible>
-                <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(4201)">Conditional</animation>
-                <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(4202)">Conditional</animation>
-                <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(4203)">Conditional</animation>
+                <visible>Integer.IsGreater(Container(4104).NumItems,0) | Container(4104).IsUpdating</visible>
+                <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(4102) | Control.HasFocus(4103)">Conditional</animation>
+                <!-- <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(4102)">Conditional</animation> -->
+                <!-- <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(4103)">Conditional</animation> -->
 
                 <left>0</left>
                 <right>0</right>
                 <top>0</top>
-                <height>900</height>
+                <height>600</height>
                 <include content="HomeWidgetLandscape">
-                    <param name="WidgetLabel" value="$INFO[Container(4204).ListItem.Property(searchstring),More , Shows]" />
-                    <param name="ParentID" value="4201" />
-                    <param name="ListID" value="4204" />
-                    <param name="Content" value="plugin://script.embuary.helper/?info=getbygenre&type=tvshow" />
+                    <param name="WidgetLabel" value="Widget 4" />
+                    <param name="ParentID" value="4101" />
+                    <param name="ListID" value="4104" />
+                    <param name="Content" value="special://skin/extras/playlists/random_unwatched_shows.xsp" />
                     <param name="ContentType" value="videos" />
-                    <param name="OnBack" value="SetFocus(4204,0,absolute)" />
-                    <param name="OnUp" value="4203" />
+                    <param name="OnBack" value="SetFocus(4104,0,absolute)" />
+                    <param name="OnUp" value="4103" />
                     <param name="OnDown" value="noop" />
                     <param name="GroupHeight" value="600" />
                 </include>
             </control>
+        </control>
+
+        <control type="image">
+            <top>0</top>
+            <left>0</left>
+            <width>3840</width>
+            <height>240</height>
+            <texture background="true" diffuse="masks/WidgetTop.png" colordiffuse="50ffffff">general/Black.png</texture>
         </control>
     </include>
 

@@ -76,44 +76,49 @@
                                 <height>250</height>
                                 <align>left</align>
                                 <aligny>center</aligny>
-                                <font>LibrarySectionHeader</font>
+                                <font>LibrarySectionHeaderVar</font>
                                 <textcolor>TextDim</textcolor>
-                                <label>$VAR[LibrarySectionHeader]</label>
+                                <label>$VAR[LibrarySectionHeaderVar]</label>
                             </control>
                             <control type="image">
                                 <left>220</left>
-                                <top>675</top>
-                                <width>800</width>
-                                <height>310</height>
+                                <top>50</top>
+                                <width>1000</width>
+                                <height>562</height>
+                                <align>left</align>
+                                <texture background="true">$INFO[ListItem.Art(clearart)]</texture>
+                            </control>
+                            <control type="image">
+                                <left>220</left>
+                                <top>650</top>
+                                <width>1000</width>
+                                <height>388</height>
+                                <align>left</align>
                                 <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
                             </control>
                             <control type="group">
                                 <control type="textbox" id="2000">
                                     <left>220</left>
                                     <right>300</right>
-                                    <top>550</top>
-                                    <height>540</height>
-                                    <width>1000</width>
+                                    <top>710</top>
+                                    <height>250</height>
                                     <align>left</align>
                                     <aligny>center</aligny>
                                     <font>LibraryMainTitleBig</font>
                                     <textcolor>TextBright</textcolor>
-                                    <scrollsuffix>•</scrollsuffix>
-                                    <!-- <label>$VAR[WidgetTitle]</label> -->
+                                    <!-- <label>$VAR[WidgetTitleVar]</label> -->
                                     <visible>!Container(2000).HasNext</visible>
                                 </control>
                                 <control type="textbox" id="2001">
                                     <left>220</left>
                                     <right>300</right>
-                                    <top>550</top>
-                                    <height>540</height>
-                                    <width>1000</width>
+                                    <top>730</top>
+                                    <height>250</height>
                                     <align>left</align>
                                     <aligny>center</aligny>
                                     <font>LibraryMainTitleSmall</font>
                                     <textcolor>TextBright</textcolor>
-                                    <scrollsuffix>•</scrollsuffix>
-                                    <!-- <label>$VAR[WidgetTitle]</label> -->
+                                    <!-- <label>$VAR[WidgetTitleVar]</label> -->
                                     <visible>Container(2000).HasNext</visible>
                                 </control>
                             </control>
@@ -137,8 +142,7 @@
                                     <align>left</align>
                                     <font>LibraryInfoLine</font>
                                     <textcolor>TextSubLabel</textcolor>
-                                    <scrollsuffix>•</scrollsuffix>
-                                    <label>$VAR[NumSeasons]</label>
+                                    <label>$VAR[NumberOfSeasonsVar]</label>
                                 </control>
 
                                 <!-- Set info -->
@@ -160,7 +164,6 @@
                                     <align>left</align>
                                     <font>LibraryInfoLine</font>
                                     <textcolor>TextSubLabel</textcolor>
-                                    <scrollsuffix>•</scrollsuffix>
                                     <label>$INFO[Container(5678).NumItems,, movies]</label>
                                 </control>
                                 <control type="button">
@@ -172,7 +175,6 @@
                                     <align>left</align>
                                     <font>LibraryInfoLine</font>
                                     <textcolor>TextSubLabel</textcolor>
-                                    <scrollsuffix>•</scrollsuffix>
                                     <label>$INFO[Container(5678).ListItemAbsolute(0).Year,, - ]$INFO[Container(5678).ListItemAbsolute(1).Year]</label>
                                 </control>
 
@@ -238,7 +240,6 @@
                                     <align>left</align>
                                     <font>LibraryInfoLine</font>
                                     <textcolor>TextSubLabel</textcolor>
-                                    <scrollsuffix>•</scrollsuffix>
                                     <label>$INFO[ListItem.Episode,, episodes]</label>
                                 </control>
 
@@ -256,7 +257,7 @@
                                     <font>LibraryInfoIcon</font>
                                     <textcolor>TextBright</textcolor>
                                     <texturenofocus border="8" colordiffuse="InfoIconBackground">masks/Border32x32r8b2.png</texturenofocus>
-                                    <label>$VAR[MPAARating]</label>
+                                    <label>$VAR[MPAARatingVar]</label>
                                 </control>
 
                                 <!-- Resolution rating -->
@@ -329,7 +330,7 @@
                                 <font>EpisodePlot</font>
                                 <textcolor>TextBright</textcolor>
                                 <shadowcolor>ff000000</shadowcolor>
-                                <label>$VAR[Plot]</label>
+                                <label>$VAR[PlotVar]</label>
                             </control>
 
                             <control type="button" id="98">
@@ -347,7 +348,7 @@
                                 <texturefocus colordiffuse="TextBright" border="8">masks/Border32x32r8b2.png</texturefocus>
                                 <ondown>100</ondown>
                                 <onup>96</onup>
-                                <onclick>RunScript(script.embuary.helper,action=textviewer,header='$VAR[DialogVideoInfoMainLabel]',message='$ESCINFO[ListItem.Plot]')</onclick>
+                                <onclick>RunScript(script.embuary.helper,action=textviewer,header='$VAR[DialogVideoInfoMainLabelVar]',message='$ESCINFO[ListItem.Plot]')</onclick>
                             </control>
 
                             <control type="grouplist" id="100">
@@ -375,7 +376,7 @@
                                     <textcolor>TextBright</textcolor>
                                     <focusedcolor>TextDark</focusedcolor>
                                     <include>InfoButtonZoom</include>
-                                    <label>$VAR[PlayBrowseButton]</label>
+                                    <label>$VAR[PlayBrowseButtonVar]</label>
                                     <onleft>back</onleft>
                                     <onright>98</onright>
                                 </control>
@@ -455,7 +456,7 @@
                                 <onleft>Control.Move(50,-1)</onleft>
                                 <onright>Control.Move(50,1)</onright>
                                 <ondown>13001</ondown>
-                                <onclick>SetProperty(actorimage,$INFO[Container(50).ListItem.Art(thumb)],home)</onclick>
+                                <!-- <onclick>SetProperty(actorimage,$INFO[Container(50).ListItem.Art(thumb)],home)</onclick> -->
                                 <onclick>RunScript(script.embuary.info,call=person,query=$INFO[Container(50).ListItem.Label])</onclick>
                             </control>
 
@@ -473,7 +474,6 @@
                                 <height>1100</height>
                                 <include content="WidgetCircularCast">
                                     <param name="WidgetLabel" value="Cast" />
-                                    <param name="ParentID" value="13000" />
                                     <param name="ListID" value="50" />
                                     <param name="OnBack" value="SetFocus(100)" />
                                     <param name="OnUp" value="100" />
@@ -501,7 +501,6 @@
                             <height>820</height>
                             <include content="HomeWidgetLandscape">
                                 <param name="WidgetLabel" value="$INFO[Container(13001).ListItem.Property(searchstring),If you like ,]" />
-                                <param name="ParentID" value="13000" />
                                 <param name="ListID" value="13001" />
                                 <param name="Content" value="plugin://script.embuary.helper/?info=getsimilar&dbid=$INFO[ListItem.DBID]&type=$INFO[ListItem.dbtype]" />
                                 <param name="ContentType" value="videos" />

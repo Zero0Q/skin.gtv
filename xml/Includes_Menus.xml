@@ -4,6 +4,7 @@
     <!-- Library menu -->
     <include name="LibraryMenu">
         <control type="group">
+            <visible>Control.IsVisible(500) | Control.IsVisible(501)</visible>
             <top>2240</top>
             <animation effect="slide" start="0,0" end="0,-300" time="200" condition="Control.HasFocus(60) | ControlGroup(9050).HasFocus">Conditional</animation>
 
@@ -26,8 +27,8 @@
                 <left>0</left>
                 <width>3840</width>
                 <height>120</height>
-                <onleft>noop</onleft>
-                <onright>noop</onright>
+                <onleft>9050</onleft>
+                <onright>9050</onright>
                 <onup>60</onup>
                 <onback>50</onback>
                 <align>center</align>
@@ -51,7 +52,7 @@
                     <font>LibraryInfoLine</font>
                     <textcolor>TextBright</textcolor>
                     <focusedcolor>TextDark</focusedcolor>
-                    <include>InfoButtonZoom</include>ß
+                    <include>InfoButtonZoom</include>
                     <label>$INFO[Container.Viewmode]</label>
                     <onclick>Container.NextViewMode</onclick>
                 </control>
@@ -92,12 +93,12 @@
                     <include>InfoButtonZoom</include>
                     <label>$INFO[Container.SortOrder,Sort ]</label>
                 </control>
-                <!-- Show All / Unwatched / Watched button Video Only -->
+                <!-- Show All / Unwatched button Video Only -->
                 <control type="button" id="10">
                     <visible>false</visible>
                 </control>
                 <control type="button" id="73">
-                    <visible>Window.IsVisible(MyVideoNav.xml)</visible>
+                    <visible>$EXP[isPrimaryMedia]</visible>
                     <left>0</left>
                     <top>0</top>
                     <width>auto</width>
@@ -135,6 +136,148 @@
                     <onclick>SetFocus(50)</onclick>
                 </control>
 
+            </control>
+        </control>
+
+        <control type="group">
+            <visible>Control.IsVisible(50) | Control.IsVisible(502)</visible>
+
+            <control type="scrollbar" id="61">
+                <right>72</right>
+                <top>150</top>
+                <width>24</width>
+                <height>1860</height>
+                <orientation>vertical</orientation>
+                <onleft>500</onleft>
+                <onright>9051</onright>
+                <texturesliderbackground border="24" colordiffuse="60404040">progress/back24_vertical.png</texturesliderbackground>
+                <texturesliderbar border="12" colordiffuse="ff808080">progress/slider24.png</texturesliderbar>
+                <texturesliderbarfocus border="12">progress/slider24.png</texturesliderbarfocus>
+            </control>
+
+            <control type="group">
+                <left>3840</left>
+                <width>860</width>
+                <top>0</top>
+                <height>2160</height>
+                <animation effect="slide" start="0,0" end="-860,0" time="200" condition="ControlGroup(9051).HasFocus">Conditional</animation>
+
+
+                <control type="image">
+                    <texture background="true" colordiffuse="DialogBackground">general/White.png</texture>
+                </control>"
+
+
+                <control type="grouplist" id="9051">
+                    <left>60</left>
+                    <right>60</right>
+                    <onleft>61</onleft>
+                    <onright>61</onright>
+                    <onup>9051</onup>
+                    <ondown>9051</ondown>
+                    <onback>50</onback>
+                    <align>center</align>
+                    <itemgap>58</itemgap>
+                    <orientation>vertical</orientation>
+                    <usecontrolcoords>false</usecontrolcoords>
+
+                    <!-- View button-->
+                    <control type="button" id="81">
+                        <visible>Integer.IsGreater(Container.ViewCount,1)</visible>
+                        <left>0</left>
+                        <top>0</top>
+                        <height>120</height>
+                        <align>center</align>
+                        <aligny>top</aligny>
+                        <textoffsety>6</textoffsety>
+                        <textoffsetx>50</textoffsetx>
+                        <texturefocus colordiffuse="TextBright" border="60c">masks/Mask120x120r60.png</texturefocus>
+                        <texturenofocus colordiffuse="70707070" border="60c">masks/Mask120x120r60.png</texturenofocus>
+                        <font>LibraryInfoLine</font>
+                        <textcolor>TextBright</textcolor>
+                        <focusedcolor>TextDark</focusedcolor>
+                        <include>InfoButtonZoom</include>
+                        <label>$INFO[Container.Viewmode]</label>
+                        <onclick>Container.NextViewMode</onclick>
+                    </control>
+                    <!-- Sort method button -->
+                    <control type="button" id="82">
+                        <left>0</left>
+                        <top>0</top>
+                        <height>120</height>
+                        <align>center</align>
+                        <aligny>top</aligny>
+                        <textoffsety>6</textoffsety>
+                        <textoffsetx>50</textoffsetx>
+                        <texturefocus colordiffuse="TextBright" border="60c">masks/Mask120x120r60.png</texturefocus>
+                        <texturenofocus colordiffuse="70707070" border="60c">masks/Mask120x120r60.png</texturenofocus>
+                        <font>LibraryInfoLine</font>
+                        <textcolor>TextBright</textcolor>
+                        <focusedcolor>TextDark</focusedcolor>
+                        <include>InfoButtonZoom</include>
+                        <label>$INFO[Container.SortMethod,Sort by ]</label>
+                        <onclick>Container.NextSortMethod</onclick>
+                    </control>
+                    <!-- Sort mode Asc/Dec button -->
+                    <control type="button" id="83">
+                        <left>0</left>
+                        <top>0</top>
+                        <height>120</height>
+                        <align>center</align>
+                        <aligny>top</aligny>
+                        <textoffsety>6</textoffsety>
+                        <textoffsetx>50</textoffsetx>
+                        <texturefocus colordiffuse="TextBright" border="60c">masks/Mask120x120r60.png</texturefocus>
+                        <texturenofocus colordiffuse="70707070" border="60c">masks/Mask120x120r60.png</texturenofocus>
+                        <font>LibraryInfoLine</font>
+                        <textcolor>TextBright</textcolor>
+                        <focusedcolor>TextDark</focusedcolor>
+                        <include>InfoButtonZoom</include>
+                        <label>$INFO[Container.SortOrder,Sort ]</label>
+                        <onclick>Container.SetSortDirection</onclick>
+                    </control>
+                    <!-- Show All / Unwatched / Watched button Video Only -->
+                    <control type="button" id="14">
+                        <visible>false</visible>
+                    </control>
+                    <control type="button" id="84">
+                        <visible>$EXP[isPrimaryMedia]</visible>
+                        <left>0</left>
+                        <top>0</top>
+                        <height>120</height>
+                        <align>center</align>
+                        <aligny>top</aligny>
+                        <textoffsety>6</textoffsety>
+                        <textoffsetx>50</textoffsetx>
+                        <texturefocus colordiffuse="TextBright" border="60c">masks/Mask120x120r60.png</texturefocus>
+                        <texturenofocus colordiffuse="70707070" border="60c">masks/Mask120x120r60.png</texturenofocus>
+                        <font>LibraryInfoLine</font>
+                        <textcolor>TextBright</textcolor>
+                        <focusedcolor>TextDark</focusedcolor>
+                        <include>InfoButtonZoom</include>
+                        <label>$INFO[Control.GetLabel(14),Show ]</label>
+                        <onclick>SendClick(14)</onclick>
+                    </control>
+                    <!-- Update Library -->
+                    <control type="button" id="85">
+                        <left>0</left>
+                        <top>0</top>
+                        <height>120</height>
+                        <align>center</align>
+                        <aligny>top</aligny>
+                        <textoffsety>6</textoffsety>
+                        <textoffsetx>50</textoffsetx>
+                        <texturefocus colordiffuse="TextBright" border="60c">masks/Mask120x120r60.png</texturefocus>
+                        <texturenofocus colordiffuse="70707070" border="60c">masks/Mask120x120r60.png</texturenofocus>
+                        <font>LibraryInfoLine</font>
+                        <textcolor>TextBright</textcolor>
+                        <focusedcolor>TextDark</focusedcolor>
+                        <include>InfoButtonZoom</include>
+                        <label>653</label>
+                        <onclick>SetFocus(50)</onclick>
+                    </control>
+
+                </control>
             </control>
         </control>
 

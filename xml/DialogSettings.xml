@@ -18,19 +18,19 @@
                 <visible>Window.IsActive(osdvideosettings)</visible>
                 <width>100%</width>
                 <height>1048</height>
-                <texture border="16" colordiffuse="f2101010">masks/Mask440x440r16.png</texture>
+                <texture border="16" colordiffuse="DialogBackground">masks/Mask440x440r16.png</texture>
             </control>
             <control type="image">
                 <visible>Window.IsActive(osdaudiosettings)</visible>
                 <width>100%</width>
                 <height>632</height>
-                <texture border="16" colordiffuse="f2101010">masks/Mask440x440r16.png</texture>
+                <texture border="16" colordiffuse="DialogBackground">masks/Mask440x440r16.png</texture>
             </control>
             <control type="image">
                 <visible>Window.IsActive(osdsubtitlesettings)</visible>
                 <width>100%</width>
                 <height>564</height>
-                <texture border="16" colordiffuse="f2101010">masks/Mask440x440r16.png</texture>
+                <texture border="16" colordiffuse="DialogBackground">masks/Mask440x440r16.png</texture>
             </control>
 
             <control type="Label" id="2">

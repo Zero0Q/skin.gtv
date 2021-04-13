@@ -2,66 +2,45 @@
 
 <includes>
 
-    <include name="MenuButtonTemplate">
-        <!-- <animation effect="zoom" start="100" end="106" center="auto" time="100">Focus</animation> -->
-        <!-- <animation effect="zoom" start="106" end="100" center="auto" time="100">UnFocus</animation> -->
-        <!-- <left>0</left> -->
-        <!-- <width>1032</width> -->
-        <!-- <height>164</height> -->
-        <textcolor>TextBright</textcolor>
-        <focusedcolor>TextDark</focusedcolor>
-        <font>MenuButtonText</font>
-        <align>center</align>
-        <!-- <aligny>center</aligny> -->
-        <textoffsety>30</textoffsety>
-        <texturenofocus border="80" colordiffuse="TextDim">masks/Mask160x160r80.png</texturenofocus>
-        <texturefocus border="80" colordiffuse="TextBright">masks/Mask160x160r80.png</texturefocus>
-    </include>
-
-    <include name="MenuItemTemplate">
-
-    </include>
-
     <include name="MainMenu">
-        <!-- Main Menu group container -->
+
         <control type="group">
             <left>0</left>
             <top>0</top>
 
-            <control type="list" id="9005">
-                <!-- <include>AnimationMainMenuShift</include> -->
-                <!-- <left>632</left> -->
-                <!-- <left>532</left> -->
-                <left>900</left>
+            <control type="list" id="9000">
+
+                <include>skinshortcuts-template-main-menu-slide</include>
+
+                <left>950</left>
+                <width>3840</width>
                 <top>136</top>
                 <orientation>horizontal</orientation>
 
-                <ondown condition="Window.IsActive(home)">SetFocus($INFO[ListItem.Property(menu_id)])</ondown>
-                <ondown condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">SetFocus(9005,2)</ondown>
-                <ondown condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">500</ondown>
-                <ondown condition="Container.Content(movies) | Container.Content(sets)">SetFocus(9005,1)</ondown>
-                <ondown condition="Container.Content(movies) | Container.Content(sets)">500</ondown>
-                <itemlayout width="334" height="160">
+                <ondown>9001</ondown>
+
+                <itemlayout width="480" height="160">
                     <control type="group">
-                        <width>334</width>
+                        <left>0</left>
+                        <width>480</width>
                         <height>160</height>
                         <control type="label">
                             <top>-8</top>
                             <textcolor>TextBright</textcolor>
                             <font>MenuButtonText</font>
                             <align>center</align>
-                            <label>$INFO[ListItem.Property(label)]</label>
+                            <label>$INFO[ListItem.label]</label>
                         </control>
                     </control>
                 </itemlayout>
 
-                <focusedlayout width="334" height="160">
+                <focusedlayout width="480" height="160">
                     <control type="group">
-                        <width>334</width>
+                        <left>0</left>
+                        <width>480</width>
                         <height>160</height>
-
                         <control type="group">
-                            <visible>Control.HasFocus(9005)</visible>
+                            <visible>Control.HasFocus(9000)</visible>
                             <control type="image">
                                 <texture border="80" colordiffuse="TextBright">masks/Mask160x160r80.png</texture>
                             </control>
@@ -70,83 +49,30 @@
                                 <textcolor>TextDark</textcolor>
                                 <font>MenuButtonText</font>
                                 <align>center</align>
-                                <label>$INFO[ListItem.Property(label)]</label>
+                                <label>$INFO[ListItem.label]</label>
                             </control>
                         </control>
                         <control type="group">
-                            <visible>!Control.HasFocus(9005)</visible>
+                            <visible>!Control.HasFocus(9000)</visible>
                             <control type="image">
-                                <texture border="80" colordiffuse="TextDark">masks/Mask160x160r80.png</texture>
+                                <texture border="80" colordiffuse="MainMenuDark">masks/Mask160x160r80.png</texture>
                             </control>
                             <control type="label">
                                 <top>-8</top>
                                 <textcolor>TextBright</textcolor>
                                 <font>MenuButtonText</font>
                                 <align>center</align>
-                                <label>$INFO[ListItem.Property(label)]</label>
+                                <label>$INFO[ListItem.label]</label>
                             </control>
                         </control>
                     </control>
                 </focusedlayout>
                 <content>
-                    <!-- Search section -->
-                    <item>
-                        <property name="id">search</property>
-                        <property name="label">Search</property>
-                        <onclick>RunScript(script.globalsearch)</onclick>
-                    </item>
-                    <!-- For you section -->
-                    <item>
-                        <visible>Integer.IsGreater(Container(4000).NumItems,0) | Container(4000).IsUpdating</visible>
-                        <property name="menu_id">$NUMBER[4000]</property>
-                        <property name="id">foryou</property>
-                        <property name="label">For you</property>
-                        <!-- <onclick>RunScript(script.globalsearch)</onclick> -->
-                    </item>
-                    <!-- Movies section -->
-                    <item>
-                        <onclick>ActivateWindow(Videos,videodb://movies/titles/,return)</onclick>
-                        <property name="menu_id">$NUMBER[4100]</property>
-                        <property name="id">movies</property>
-                        <property name="label">Movies</property>
-                    </item>
-                    <!-- Shows section -->
-                    <item>
-                        <onclick condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">UpdateLibrary(video)</onclick>
-                        <onclick>ActivateWindow(Videos,videodb://tvshows/titles/,return)</onclick>
-                        <property name="menu_id">$NUMBER[4200]</property>
-                        <property name="id">shows</property>
-                        <property name="label">Shows</property>
-                    </item>
-                    <!-- Music section -->
-                    <!-- <item> -->
-                        <property name="menu_id">$NUMBER[4300]</property>
-                        <property name="id">music</property>
-                        <property name="label">Music</property>
-                    <!-- </item> -->
-                    <!-- Video section -->
-                    <!-- <item> -->
-                        <property name="menu_id">$NUMBER[4400]</property>
-                        <property name="id">video</property>
-                        <property name="label">Video</property>
-                    <!-- </item> -->
-                    <!-- Addons section -->
-                    <item>
-                        <onclick>ActivateWindow(addonbrowser,addons://all/)</onclick>
-                        <property name="menu_id">$NUMBER[4500]</property>
-                        <property name="id">apps</property>
-                        <property name="label">Apps</property>
-                    </item>
-                    <!-- Settings section -->
-                    <item>
-                        <property name="menu_id">$NUMBER[4600]</property>
-                        <property name="id">settings</property>
-                        <property name="label">Settings</property>
-                    </item>
+                    <include>skinshortcuts-mainmenu</include>
                 </content>
             </control>
-
         </control>
 
     </include>
+
 </includes>

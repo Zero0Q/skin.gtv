@@ -4,108 +4,238 @@
 
     <!-- For you hub widgets -->
     <include name="ForYouHubWidgets">
-        <control type="group">
-            <visible>String.IsEqual(Container(9005).ListItem.Property(id),foryou)</visible>
-            <control type="image">
+
+        <control type="image">
             <top>0</top>
-            <right>0</right>
+            <left>0</left>
+            <height>2160</height>
             <width>3840</width>
-            <height>1450</height>
-            <fadetime>200</fadetime>
-            <aspectratio scalediffuse="true" aligny="top" align="right">keep</aspectratio>
-            <texture background="true" diffuse="masks/BackgroundCornerMask.png">$VAR[BackgroundImageWithoutFallback]</texture>
-            <animation effect="fade" end="0" time="500">Hidden</animation>
-            <animation effect="fade" start="0" end="100" time="1200">Visible</animation>
+            <texture background="true" colordiffuse="ff303030">general/screens/home2.png</texture>
         </control>
 
-            <!-- Include main info -->
-            <include content="MainInfoView">
-                <param name="ID" value="4000" />
-            </include>
+        <include content="VerticalDivider">
+            <param name="value" value="490" />
+        </include>
 
-            <control type="image">
-                <left>220</left>
-                <top>300</top>
-                <width>800</width>
-                <height>310</height>
-                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+        <control type="grouplist" id="4000">
+            <!-- <animation effect="slide" end="0,180" time="0" condition="!$EXP[subMenuIsEmpty]">Conditional</animation> -->
+            <!-- <animation effect="slide" end="0,-180" time="200" condition="!Control.HasFocus(9000) + !Control.HasFocus(9001)">Conditional</animation> -->
+
+            <!-- Allow slide for upto 6 widget rows -->
+            <animation effect="slide" end="0,-600" time="200" condition="false">Conditional</animation> <!-- Do if no master widget -->
+
+            <animation effect="slide" end="0,-1400" time="200" condition="Integer.IsGreater(Container(4000).Position,1) + true">Conditional</animation> <!-- Do if master widget = true -->
+            <animation effect="slide" end="0,-600" time="200" condition="Integer.IsGreater(Container(4000).Position,1) + false">Conditional</animation> <!-- Do if no master widget -->
+            <animation effect="slide" end="0,-600" time="200" condition="Integer.IsGreater(Container(4000).Position,2)">Conditional</animation>
+            <animation effect="slide" end="0,-600" time="200" condition="Integer.IsGreater(Container(4000).Position,3)">Conditional</animation>
+            <animation effect="slide" end="0,-600" time="200" condition="Integer.IsGreater(Container(4000).Position,4)">Conditional</animation>
+            <animation effect="slide" end="0,-600" time="200" condition="Integer.IsGreater(Container(4000).Position,5)">Conditional</animation>
+
+            <left>0</left>
+            <top>0</top>
+            <height>5000</height>
+            <right>0</right>
+            <usecontrolcoords>true</usecontrolcoords>
+            <itemgap>0</itemgap>
+            <visible>String.IsEqual(Container(9000).ListItem.Property(defaultID),foryou)</visible>
+
+            <include>ContentChangeAnimation</include>
+
+            <!-- Spacer to push widget rows down -->
+            <control type="group">
+                <height>1320</height> <!--548-->
             </control>
 
-            <control type="textbox">
-                <left>220</left>
-                <right>300</right>
-                <top>600</top>
-                <height>450</height>
-                <width>1200</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>EpisodePlot</font>
-                <textcolor>TextBright</textcolor>
-                <shadowcolor>ff000000</shadowcolor>
-                <label>$VAR[Plot]</label>
-                <visible>!Container(2010).HasNext</visible>
-            </control>
+            <!-- Widget row 1-->
+            <control type="group">
+                <!-- <visible>false</visible> -->
+                <visible>Integer.IsGreater(Container(4001).NumItems,0) | Container(4001).IsUpdating</visible>
+                <animation effect="fade" start="100" end="0" time="200" condition="Integer.IsGreater(Container(4000).Position,1)">Conditional</animation>
 
-            <control type="fixedlist" id="4000">
-                <top>1200</top>
                 <left>0</left>
                 <right>0</right>
-                <height>740</height>
+                <top>0</top>
+                <height>700</height>
+                <include content="HomeWidgetLandscape">
+                    <param name="WidgetLabel" value="hello" />
+                    <param name="ShowLabels" value="true" />
+                    <param name="ParentID" value="4001" />
+                    <param name="ListID" value="4001" />
+                    <param name="Content" value="special://skin/extras/playlists/recently_added_movies.xsp" />
+                    <!-- <param name="Content" value="" /> -->
+                    <param name="ContentType" value="videos" />
+                    <param name="OnBack" value="SetFocus(4001,0,absolute)" />
+                    <param name="OnUp" value="9001" />
+                    <param name="OnDown" value="4002" />
+                    <param name="GroupHeight" value="700" />
+                </include>
+            </control>
 
-                <onleft>noop</onleft>
-                <onright>noop</onright>
-                <onup>9005</onup>
-                <ondown>noop</ondown>
-                <onback>SetFocus(4000,0,absolute)</onback>
+            <!-- Widget row 2-->
+            <control type="group">
+                <visible>Integer.IsGreater(Container(4002).NumItems,0) | Container(4002).IsUpdating</visible>
+                <animation effect="fade" start="100" end="0" time="200" condition="[Integer.IsGreater(Container(4001).NumItems,0) + Integer.IsGreater(Container(4000).Position,2)] | 
+                                                                                    [!Integer.IsGreater(Container(4001).NumItems,0) + Integer.IsGreater(Container(4000).Position,1)]">Conditional</animation>
+                <!-- <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(4001)">Conditional</animation> -->
 
-                <pagecontrol>60</pagecontrol>
-                <preloaditems>2</preloaditems>
-                <orientation>horizontal</orientation>
-                <focusposition>0</focusposition>
-                <movement>3</movement>
-                <viewtype label="Landscape Flow">icon</viewtype>
+                <left>0</left>
+                <right>0</right>
+                <top>0</top>
+                <height>600</height>
+                <include content="HomeWidgetLandscape">
+                    <param name="WidgetLabel" value="Widget 2" />
+                    <param name="ParentID" value="4001" />
+                    <param name="ListID" value="4002" />
+                    <param name="Content" value="special://skin/extras/playlists/recently_added_movies.xsp" />
+                    <param name="ContentType" value="videos" />
+                    <param name="OnBack" value="SetFocus(4002,0,absolute)" />
+                    <param name="OnUp" value="4001" />
+                    <param name="OnDown" value="4003" />
+                    <param name="GroupHeight" value="600" />
+                </include>
+            </control>
 
-                <!-- Movies / TV Shows / Seasons / Sets / Episdoes -->
-                <itemlayout width="866" height="740">
-                    <control type="group">
-                        <left>182</left>
-                        <include content="LandscapeLayout">
-                            <param name="LabelColor" value="TextDim" />
-                            <param name="Focused" value="false" />
-                            <param name="ListID" value="4000" />
-                            <param name="ShowProgress" value="true" />
-                        </include>
-                    </control>
-                </itemlayout>
+            <!-- Widget row 3 -->
+            <control type="group">
+                <visible>Integer.IsGreater(Container(4003).NumItems,0) | Container(4003).IsUpdating</visible>
+                <animation effect="fade" start="100" end="0" time="200" condition="[Integer.IsGreater(Container(4001).NumItems,0) + Integer.IsGreater(Container(4002).NumItems,0) + Integer.IsGreater(Container(4000).Position,3)] | 
+                                                                                    [!Integer.IsGreater(Container(4001).NumItems,0) + !Integer.IsGreater(Container(4002).NumItems,0) + Integer.IsGreater(Container(4000).Position,1)] |
+                                                                                    [!Integer.IsGreater(Container(4001).NumItems,0) + Integer.IsGreater(Container(4002).NumItems,0) + Integer.IsGreater(Container(4000).Position,2)] |
+                                                                                    [Integer.IsGreater(Container(4001).NumItems,0) + !Integer.IsGreater(Container(4002).NumItems,0) + Integer.IsGreater(Container(4000).Position,2)]">Conditional</animation>
+                <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(4001)">Conditional</animation>
+                <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(4002)">Conditional</animation>
 
-                <focusedlayout width="866" height="740">
-                    <control type="group">
-                        <visible>Control.HasFocus(4000)</visible>
-                        <left>182</left>
-                        <include content="LandscapeLayout">
-                            <param name="LabelColor" value="TextBright" />
-                            <param name="Focused" value="true" />
-                            <param name="ListID" value="4000" />
-                            <param name="ShowProgress" value="true" />
-                        </include>
-                    </control>
-                    <control type="group">
-                        <visible>!Control.HasFocus(4000)</visible>
-                        <left>182</left>
-                        <include content="LandscapeLayout">
-                            <param name="LabelColor" value="TextDim" />
-                            <param name="Focused" value="true" />
-                            <param name="ListID" value="4000" />
-                            <param name="ShowProgress" value="true" />
-                        </include>
-                    </control>
-                </focusedlayout>
+                <left>0</left>
+                <right>0</right>
+                <top>0</top>
+                <height>600</height>
+                <include content="HomeWidgetLandscape">
+                    <param name="WidgetLabel" value="Widget 3" />
+                    <param name="ParentID" value="4001" />
+                    <param name="ListID" value="4003" />
+                    <param name="Content" value="special://skin/extras/playlists/recently_added_movies.xsp" />
+                    <param name="ContentType" value="videos" />
+                    <param name="OnBack" value="SetFocus(4003,0,absolute)" />
+                    <param name="OnUp" value="4002" />
+                    <param name="OnDown" value="4004" />
+                    <param name="GroupHeight" value="600" />
+                </include>
+            </control>
 
-                <content/>
-                <content type="videos">plugin://script.embuary.helper/?info=getinprogress&type=movie</content>
-                <content type="videos">plugin://script.embuary.helper/?info=getnextup</content>
+            <!-- Widget row 4-->
+            <control type="group">
+                <visible>Integer.IsGreater(Container(4004).NumItems,0) | Container(4004).IsUpdating</visible>
+                <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(4001)">Conditional</animation>
+                <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(4002)">Conditional</animation>
+                <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(4003)">Conditional</animation>
+
+                <left>0</left>
+                <right>0</right>
+                <top>0</top>
+                <height>900</height>
+                <include content="HomeWidgetLandscape">
+                    <param name="WidgetLabel" value="Widget 4" />
+                    <param name="ParentID" value="4001" />
+                    <param name="ListID" value="4004" />
+                    <param name="Content" value="special://skin/extras/playlists/recently_added_movies.xsp" />
+                    <param name="ContentType" value="videos" />
+                    <param name="OnBack" value="SetFocus(4004,0,absolute)" />
+                    <param name="OnUp" value="4003" />
+                    <param name="OnDown" value="noop" />
+                    <param name="GroupHeight" value="600" />
+                </include>
             </control>
         </control>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- <control type="group">
+            <visible>String.IsEqual(Container(9000).ListItem.Property(defaultid),foryou)</visible>
+            <include>BackgroundForYouHub</include>
+            <control type="group">
+
+
+                <include>ContentChangeAnimation</include>
+
+                <include content="MainInfoView">
+                    <param name="ID" value="4000" />
+                </include>
+
+                <control type="fixedlist" id="40000">
+                    <visible>false</visible>
+                    <top>1200</top>
+                    <left>0</left>
+                    <right>0</right>
+                    <height>740</height>
+
+                    <onleft>noop</onleft>
+                    <onright>noop</onright>
+                    <onup>9000</onup>
+                    <ondown>noop</ondown>
+                    <onback>SetFocus(4000,0,absolute)</onback>
+
+                    <pagecontrol>60</pagecontrol>
+                    <preloaditems>2</preloaditems>
+                    <orientation>horizontal</orientation>
+                    <focusposition>0</focusposition>
+                    <movement>3</movement>
+                    <viewtype label="Landscape Flow">icon</viewtype>
+
+
+                    <itemlayout width="866" height="740">
+                        <control type="group">
+                            <left>182</left>
+                            <include content="LandscapeLayout">
+                                <param name="LabelColor" value="TextDim" />
+                                <param name="Focused" value="false" />
+                                <param name="ListID" value="4000" />
+                                <param name="ShowProgress" value="true" />
+                            </include>
+                        </control>
+                    </itemlayout>
+
+                    <focusedlayout width="866" height="740">
+                        <control type="group">
+                            <visible>Control.HasFocus(4000)</visible>
+                            <left>182</left>
+                            <include content="LandscapeLayout">
+                                <param name="LabelColor" value="TextBright" />
+                                <param name="Focused" value="true" />
+                                <param name="ListID" value="4000" />
+                                <param name="ShowProgress" value="true" />
+                            </include>
+                        </control>
+                        <control type="group">
+                            <visible>!Control.HasFocus(4000)</visible>
+                            <left>182</left>
+                            <include content="LandscapeLayout">
+                                <param name="LabelColor" value="TextDim" />
+                                <param name="Focused" value="true" />
+                                <param name="ListID" value="4000" />
+                                <param name="ShowProgress" value="true" />
+                            </include>
+                        </control>
+                    </focusedlayout>
+
+                    <content/>
+                    <content type="videos">plugin://script.embuary.helper/?info=getinprogress&type=movie</content>
+                    <content type="videos">plugin://script.embuary.helper/?info=getnextup</content>
+                </control>
+            </control>
+        </control> -->
     </include>
 
 </includes>

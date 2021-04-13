@@ -9,12 +9,12 @@
             <animation effect="slide" start="0,0" end="0,-150" time="200" condition="Control.HasFocus(60) | ControlGroup(9050).HasFocus">Conditional</animation>
 
             <!-- Hidden list for sets -->
-            <control type="list" id="5678">
+            <control type="list" id="5501">
                 <visible>String.IsEqual(ListItem.dbtype,set)</visible>
                 <left>-1000</left>
                 <itemlayout />
                 <focusedlayout />
-                <content type="video">$INFO[Container(501).ListItem.FolderPath]</content>
+                <content type="video">$INFO[ListItem.FolderPath]</content>
             </control>
 
             <!-- Hidden button for fullscreen art -->
@@ -30,18 +30,15 @@
             </include>
 
             <control type="fixedlist" id="501">
-                <visible>!Container.Content(episodes)</visible>
-                <visible>!String.IsEmpty(Container.FolderName)  + !String.IsEqual(Container.FolderPath,videodb://movies/) + !String.IsEqual(Container.FolderPath,videodb://tvshows/)</visible>
-                <visible>!Container.Content(files)</visible>
-                <visible>!String.Contains(Container.FolderPath,sources)</visible>
+                <visible>$EXP[isPrimaryMedia]</visible>
 
                 <top>1200</top>
                 <left>0</left>
                 <right>0</right>
                 <height>1200</height>
 
-                <onleft>500</onleft>
-                <onright>500</onright>
+                <onleft>501</onleft>
+                <onright>501</onright>
                 <onup>96</onup>
                 <ondown>60</ondown>
 
@@ -50,9 +47,8 @@
                 <orientation>horizontal</orientation>
                 <focusposition>0</focusposition>
                 <movement>6</movement>
-                <viewtype label="Poster">icon</viewtype>
+                <viewtype label="Poster Flow">icon</viewtype>
 
-                <!-- Movies / TV Shows / Seasons / Sets / Epsidoes -->
                 <itemlayout width="496" height="740">
                     <control type="group">
                         <left>182</left>

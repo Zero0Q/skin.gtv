@@ -19,7 +19,7 @@
             <right>0</right>
             <usecontrolcoords>true</usecontrolcoords>
             <itemgap>0</itemgap>
-            <visible>String.IsEqual(Container(9005).ListItem.Property(id),apps)</visible>
+            <visible>String.IsEqual(Container(9000).ListItem.Property(id),apps)</visible>
 
             <include>WidgetHubSlideAnimation</include>
 
@@ -44,12 +44,62 @@
                     <param name="Content" value="addons://sources/video/" />
                     <param name="ContentType" value="videos" />
                     <param name="OnBack" value="SetFocus(4501,0,absolute)" />
-                    <param name="OnUp" value="9005" />
-                    <param name="OnDown" value="4504" />
+                    <param name="OnUp" value="9000" />
+                    <param name="OnDown" value="4502" />
                     <param name="GroupHeight" value="600" />
                 </include>
             </control>
 
+            <!-- Music addons widget row 2-->
+            <control type="group">
+                <visible>Integer.IsGreater(Container(4502).NumItems,0) | Container(4502).IsUpdating</visible>
+                <animation effect="fade" start="100" end="0" time="200" condition="[Integer.IsGreater(Container(4501).NumItems,0) + Integer.IsGreater(Container(4500).Position,2)] | 
+                                                                                    [!Integer.IsGreater(Container(4501).NumItems,0) + Integer.IsGreater(Container(4500).Position,1)]">Conditional</animation>
+                <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(4501)">Conditional</animation>
+
+                <left>0</left>
+                <right>0</right>
+                <top>0</top>
+                <height>600</height>
+                <include content="HomeWidgetSquareApps">
+                    <param name="WidgetLabel" value="Music addons" />
+                    <param name="ParentID" value="4501" />
+                    <param name="ListID" value="4502" />
+                    <param name="Content" value="addons://sources/audio/" />
+                    <param name="ContentType" value="music" />
+                    <param name="OnBack" value="SetFocus(4502,0,absolute)" />
+                    <param name="OnUp" value="4501" />
+                    <param name="OnDown" value="4503" />
+                    <param name="GroupHeight" value="600" />
+                </include>
+            </control>
+
+            <!-- Picture addons widget row 3 -->
+            <control type="group">
+                <visible>Integer.IsGreater(Container(4503).NumItems,0) | Container(4503).IsUpdating</visible>
+                <animation effect="fade" start="100" end="0" time="200" condition="[Integer.IsGreater(Container(4501).NumItems,0) + Integer.IsGreater(Container(4502).NumItems,0) + Integer.IsGreater(Container(4500).Position,3)] | 
+                                                                                    [!Integer.IsGreater(Container(4501).NumItems,0) + !Integer.IsGreater(Container(4502).NumItems,0) + Integer.IsGreater(Container(4500).Position,1)] |
+                                                                                    [!Integer.IsGreater(Container(4501).NumItems,0) + Integer.IsGreater(Container(4502).NumItems,0) + Integer.IsGreater(Container(4500).Position,2)] |
+                                                                                    [Integer.IsGreater(Container(4501).NumItems,0) + !Integer.IsGreater(Container(4502).NumItems,0) + Integer.IsGreater(Container(4500).Position,2)]">Conditional</animation>
+                <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(4501)">Conditional</animation>
+                <animation effect="slide" end="0,200" time="200" condition="Control.HasFocus(4502)">Conditional</animation>
+
+                <left>0</left>
+                <right>0</right>
+                <top>0</top>
+                <height>600</height>
+                <include content="HomeWidgetSquareApps">
+                    <param name="WidgetLabel" value="Image addons" />
+                    <param name="ParentID" value="4501" />
+                    <param name="ListID" value="4503" />
+                    <param name="Content" value="addons://sources/image/" />
+                    <param name="ContentType" value="pictures" />
+                    <param name="OnBack" value="SetFocus(4503,0,absolute)" />
+                    <param name="OnUp" value="4502" />
+                    <param name="OnDown" value="4504" />
+                    <param name="GroupHeight" value="600" />
+                </include>
+            </control>
 
             <!-- Widget row 4-->
             <control type="group">
@@ -69,7 +119,7 @@
                     <param name="Content" value="addons://sources/executable/" />
                     <param name="ContentType" value="programs" />
                     <param name="OnBack" value="SetFocus(4504,0,absolute)" />
-                    <param name="OnUp" value="4501" />
+                    <param name="OnUp" value="4503" />
                     <param name="OnDown" value="noop" />
                     <param name="GroupHeight" value="600" />
                 </include>

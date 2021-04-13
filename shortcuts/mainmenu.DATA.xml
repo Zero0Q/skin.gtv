@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts>
+    <shortcut>
+        <defaultID>foryou</defaultID>
+        <label>$LOCALIZE[31414]</label>
+        <label2 />
+        <icon />
+        <action />
+    </shortcut>
+
+    <shortcut>
+        <defaultID>movies</defaultID>
+        <label>$LOCALIZE[20342]</label>
+        <label2 />
+        <icon />
+        <action>ActivateWindow(videos,videodb://movies/titles/,return)</action>
+    </shortcut>
+    
+    <shortcut>
+        <defaultID>tvshows</defaultID>
+        <label>$LOCALIZE[31415]</label>
+        <label2 />
+        <icon />
+        <action>ActivateWindow(Videos,videodb://tvshows/titles/,return)</action>
+    </shortcut>
+
+    <shortcut>
+        <defaultID>music</defaultID>
+        <label>$LOCALIZE[2]</label>
+        <label2 />
+        <icon />
+        <action>ActivateWindow(Music,musicdb://albums/,return)</action> 
+    </shortcut>
+
+    <shortcut>
+        <defaultID>videos</defaultID>
+        <label>$LOCALIZE[3]</label>
+        <label2 />
+        <icon /> 
+        <action>ActivateWindow(videos,root)</action>
+    </shortcut>
+
+    <shortcut>
+        <defaultID>settings</defaultID>
+        <label>$LOCALIZE[5]</label>
+        <label2 />
+        <icon />
+        <action>ActivateWindow(settings)</action>
+    </shortcut>
+
+</shortcuts>

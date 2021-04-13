@@ -150,7 +150,7 @@
                         <textureradioonnofocus>buttons/Backspace.png</textureradioonnofocus>
                         <textureradioofffocus colordiffuse="TextDark">buttons/Backspace.png</textureradioofffocus>
                         <textureradiooffnofocus>buttons/Backspace.png</textureradiooffnofocus>
-                        <radioposx>0</radioposx>
+                        <radioposx>76</radioposx>
                         <radioposy>0</radioposy>
                         <radiowidth>96</radiowidth>
                         <radioheight>96</radioheight>
@@ -180,8 +180,8 @@
                         <textureradioonnofocus>buttons/KeyboardRadioOn.png</textureradioonnofocus>
                         <textureradioofffocus>buttons/KeyboardRadioOff.png</textureradioofffocus>
                         <textureradiooffnofocus>buttons/KeyboardRadioOff.png</textureradiooffnofocus>
-                        <radioposx>0</radioposx>
-                        <radioposy>8</radioposy>
+                        <radioposx>142</radioposx>
+                        <radioposy>12</radioposy>
                         <radiowidth>32</radiowidth>
                         <radioheight>32</radioheight>
                     </control>
@@ -286,8 +286,8 @@
                         <textureradioonnofocus>buttons/KeyboardRadioOn.png</textureradioonnofocus>
                         <textureradioofffocus>buttons/KeyboardRadioOff.png</textureradioofffocus>
                         <textureradiooffnofocus>buttons/KeyboardRadioOff.png</textureradiooffnofocus>
-                        <radioposx>0</radioposx>
-                        <radioposy>8</radioposy>
+                        <radioposx>182</radioposx>
+                        <radioposy>12</radioposy>
                         <radiowidth>32</radiowidth>
                         <radioheight>32</radioheight>
                     </control>
@@ -392,8 +392,8 @@
                         <textureradioonnofocus>buttons/KeyboardRadioOn.png</textureradioonnofocus>
                         <textureradioofffocus>buttons/KeyboardRadioOff.png</textureradioofffocus>
                         <textureradiooffnofocus>buttons/KeyboardRadioOff.png</textureradiooffnofocus>
-                        <radioposx>0</radioposx>
-                        <radioposy>8</radioposy>
+                        <radioposx>248</radioposx>
+                        <radioposy>12</radioposy>
                         <radiowidth>32</radiowidth>
                         <radioheight>32</radioheight>
                     </control>

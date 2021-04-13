@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-    <onload>SetFocus(9005,5)</onload>
+    <onload>SetFocus(9000,5)</onload>
 
     <defaultcontrol always="true">530</defaultcontrol>
     <views>50,530</views>

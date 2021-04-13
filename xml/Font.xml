@@ -31,7 +31,7 @@
             <name>WidgetLabel</name>
             <filename>WorkSans-Regular.ttf</filename>
             <aspect>0.95</aspect>
-            <size>90</size>
+            <size>70</size>
         </font>
         <font>
             <name>WidgetLabelInfo</name>
@@ -55,19 +55,19 @@
             <name>LibraryMainTitleBig</name>
             <filename>WorkSans-Medium.ttf</filename>
             <aspect>0.95</aspect>
-            <size>100</size>
+            <size>80</size>
         </font>
         <font>
             <name>LibraryMainTitleSmall</name>
             <filename>WorkSans-Regular.ttf</filename>
             <aspect>0.95</aspect>
-            <size>100</size>
+            <size>80</size>
         </font>
         <font>
             <name>LibrarySectionHeader</name>
             <filename>WorkSans-Regular.ttf</filename>
             <aspect>0.95</aspect>
-            <size>100</size>
+            <size>70</size>
         </font>
         <font>
             <name>LibraryInfoLine</name>

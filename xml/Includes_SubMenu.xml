@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<includes>
+
+    <include name="SubMenu">
+        <!-- Main Menu group container -->
+        <control type="group">
+            <left>0</left>
+            <top>380</top>
+            <include>MenuChangeAnimation</include>
+
+            <control type="list" id="9001">
+                <include>SubMenuCenter</include>
+                <animation type="Conditional" condition="!Control.HasFocus(9000) + !Control.HasFocus(9001)">
+                    <effect type="slide" start="0,0" end="0,-200" time="200" />
+                    <effect type="fade" start="100" end="0" delay="25" time="150" />
+                </animation>
+                <left>0</left>
+                <width>3840</width>
+                <top>0</top>
+                <height>120</height>
+                <orientation>horizontal</orientation>
+
+                <onup>9000</onup>
+
+                <include>skinshortcuts-template-main-menu-ondown</include>
+
+                <itemlayout width="480" height="120">
+                    <control type="group">
+                        <left>10</left>
+                        <width>460</width>
+                        <height>120</height>
+                        <control type="label">
+                            <top>-8</top>
+                            <textcolor>TextBright</textcolor>
+                            <font>SubMenuButtonText</font>
+                            <align>center</align>
+                            <label>$INFO[ListItem.label]</label>
+                        </control>
+                    </control>
+                </itemlayout>
+
+                <focusedlayout width="480" height="120">
+                    <control type="group">
+                        <left>10</left>
+                        <width>460</width>
+                        <height>120</height>
+
+                        <control type="group">
+                            <visible>Control.HasFocus(9001)</visible>
+                            <control type="image">
+                                <texture border="60" colordiffuse="TextBright">masks/Mask120x120r60.png</texture>
+                            </control>
+                            <control type="label">
+                                <top>-8</top>
+                                <textcolor>TextDark</textcolor>
+                                <font>SubMenuButtonText</font>
+                                <align>center</align>
+                                <label>$INFO[ListItem.label]</label>
+                            </control>
+                        </control>
+                        <control type="group">
+                            <visible>!Control.HasFocus(9001)</visible>
+                            <control type="label">
+                                <top>-8</top>
+                                <textcolor>TextBright</textcolor>
+                                <font>SubMenuButtonText</font>
+                                <align>center</align>
+                                <label>$INFO[ListItem.label]</label>
+                            </control>
+                        </control>
+                    </control>
+                </focusedlayout>
+                <content>
+                    <include>skinshortcuts-submenu</include>
+                </content>
+            </control>
+
+        </control>
+
+    </include>
+</includes>

@@ -7,12 +7,12 @@
             <visible>Control.IsVisible(500)</visible>
 
             <!-- Hidden list for sets -->
-            <control type="list" id="5678">
+            <control type="list" id="5500">
                 <visible>String.IsEqual(ListItem.dbtype,set)</visible>
                 <left>-1000</left>
                 <itemlayout />
                 <focusedlayout />
-                <content type="video">$INFO[Container(500).ListItem.FolderPath]</content>
+                <content type="video">$INFO[ListItem.FolderPath]</content>
             </control>
 
             <!-- Hidden button for fullscreen art -->
@@ -26,12 +26,12 @@
             <include content="MainInfoView">
                 <param name="ID" value="500" />
             </include>
-
+            
             <include>BottomAlignedPlot</include>
 
             <control type="fixedlist" id="500">
                 <visible>!String.IsEmpty(Container.FolderName)  + !String.IsEqual(Container.FolderPath,videodb://movies/) + !String.IsEqual(Container.FolderPath,videodb://tvshows/)</visible>
-                <visible>!Container.Content(files)</visible>
+                <visible>$EXP[isPrimaryMedia]</visible>
                 <visible>!String.Contains(Container.FolderPath,sources)</visible>
 
                 <top>1200</top>

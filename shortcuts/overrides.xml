@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<overrides>
+    <alwaysReset>True</alwaysReset>
+    <doNotShareMenu />
+
+    <!-- Widget 1 Properties -->
+    <!-- Sort -->
+    <property property="widgetSortBy.1" label="$LOCALIZE[568]">lastplayed</property>
+    <property property="widgetSortBy.1" label="$LOCALIZE[369]">title</property>
+    <property property="widgetSortBy.1" label="$LOCALIZE[552]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.1),episodes)">date</property>
+    <property property="widgetSortBy.1" label="$LOCALIZE[557]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.1),artists) | String.IsEqual(Container(211).ListItem.Property(widgetType.1),albums) | String.IsEqual(Container(211).ListItem.Property(widgetType.1),songs)">artist</property>
+    <property property="widgetSortBy.1" label="$LOCALIZE[558]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.1),musicvideos) | String.IsEqual(Container(211).ListItem.Property(widgetType.1),albums) | String.IsEqual(Container(211).ListItem.Property(widgetType.1),songs)">album</property>
+    <property property="widgetSortBy.1" label="$LOCALIZE[554]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.1),songs)">tracknumber</property>
+    <property property="widgetSortBy.1" label="$LOCALIZE[345]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.1),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.1),tvshows) | String.IsEqual(Container(211).ListItem.Property(widgetType.1),musicvideos) | String.IsEqual(Container(211).ListItem.Property(widgetType.1),albums)">year</property>
+    <property property="widgetSortBy.1" label="$LOCALIZE[590]">random</property>
+    <property property="widgetSortBy.1" label="$LOCALIZE[570]">dateadded</property>
+    <property property="widgetSortBy.1" label="$LOCALIZE[515]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.1),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.1),tvshows) | String.IsEqual(Container(211).ListItem.Property(widgetType.1),musicvideos) | String.IsEqual(Container(211).ListItem.Property(widgetType.1),albums) | String.IsEqual(Container(211).ListItem.Property(widgetType.1),songs)">genre</property>
+    <property property="widgetSortBy.1" label="$LOCALIZE[567]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.1),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.1),tvshows) | String.IsEqual(Container(211).ListItem.Property(widgetType.1),musicvideos) | String.IsEqual(Container(211).ListItem.Property(widgetType.1),episodes)">playcount</property>
+    <property property="widgetSortBy.1" label="$LOCALIZE[572]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.1),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.1),tvshows)">studio</property>
+    <property property="widgetSortBy.1" label="$LOCALIZE[574]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.1),movies)">country</property>
+    <property property="widgetSortBy.1" label="$LOCALIZE[563]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.1),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.1),tvshows) | String.IsEqual(Container(211).ListItem.Property(widgetType.1),episodes)">rating</property>
+    <property property="widgetSortBy.1" label="$LOCALIZE[205]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.1),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.1),tvshows) | String.IsEqual(Container(211).ListItem.Property(widgetType.1),episodes)">votes</property>
+    <property property="widgetSortBy.1" label="$LOCALIZE[551]">name</property>
+    <property property="widgetSortBy.1" label="$LOCALIZE[561]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.1),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.1),songs) | String.IsEqual(Container(211).ListItem.Property(widgetType.1),musicvideos) | String.IsEqual(Container(211).ListItem.Property(widgetType.1),episodes)">file</property>
+    <property property="widgetSortBy.1" label="$LOCALIZE[555]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.1),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.1),songs) | String.IsEqual(Container(211).ListItem.Property(widgetType.1),musicvideos) | String.IsEqual(Container(211).ListItem.Property(widgetType.1),episodes)">time</property>
+    <property property="widgetSortBy.1" label="$LOCALIZE[12012]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.1),addons)">lastused</property>
+    <property property="widgetSortBy.1" label="$LOCALIZE[12014]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.1),addons)">lastupdated</property>
+    <property property="widgetSortBy.1" label="$LOCALIZE[20359]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.1),episodes)">episodenumber</property>
+    <property property="widgetSortBy.1" label="$LOCALIZE[20373]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.1),episodes)">season</property>
+    <propertySettings property="widgetSortBy.1" buttonID="3003" title="$LOCALIZE[31493]" templateonly="true" />
+    <!-- Sort Direction -->
+    <property property="widgetSortOrder.1" label="$LOCALIZE[584]">ascending</property>
+    <property property="widgetSortOrder.1" label="$LOCALIZE[585]">descending</property>
+    <propertySettings property="widgetSortOrder.1" buttonID="3004" title="$LOCALIZE[31494]" templateonly="true" />
+    <!-- Limit -->
+    <property property="widgetLimit.1" label="$NUMBER[10]">$NUMBER[10]</property>
+    <property property="widgetLimit.1" label="$NUMBER[20]">$NUMBER[20]</property>
+    <property property="widgetLimit.1" label="$NUMBER[30]">$NUMBER[30]</property>
+    <property property="widgetLimit.1" label="$NUMBER[40]">$NUMBER[40]</property>
+    <propertySettings property="widgetLimit.1" buttonID="3005" title="$LOCALIZE[31495]" templateonly="true" />
+
+    <!-- Widget 2 Properties -->
+    <!-- Sort -->
+    <property property="widgetSortBy.2" label="$LOCALIZE[568]">lastplayed</property>
+    <property property="widgetSortBy.2" label="$LOCALIZE[369]">title</property>
+    <property property="widgetSortBy.2" label="$LOCALIZE[552]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.2),episodes)">date</property>
+    <property property="widgetSortBy.2" label="$LOCALIZE[557]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.2),artists) | String.IsEqual(Container(211).ListItem.Property(widgetType.2),albums) | String.IsEqual(Container(211).ListItem.Property(widgetType.2),songs)">artist</property>
+    <property property="widgetSortBy.2" label="$LOCALIZE[558]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.2),musicvideos) | String.IsEqual(Container(211).ListItem.Property(widgetType.2),albums) | String.IsEqual(Container(211).ListItem.Property(widgetType.2),songs)">album</property>
+    <property property="widgetSortBy.2" label="$LOCALIZE[554]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.2),songs)">tracknumber</property>
+    <property property="widgetSortBy.2" label="$LOCALIZE[345]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.2),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.2),tvshows) | String.IsEqual(Container(211).ListItem.Property(widgetType.2),musicvideos) | String.IsEqual(Container(211).ListItem.Property(widgetType.2),albums)">year</property>
+    <property property="widgetSortBy.2" label="$LOCALIZE[590]">random</property>
+    <property property="widgetSortBy.2" label="$LOCALIZE[570]">dateadded</property>
+    <property property="widgetSortBy.2" label="$LOCALIZE[515]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.2),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.2),tvshows) | String.IsEqual(Container(211).ListItem.Property(widgetType.2),musicvideos) | String.IsEqual(Container(211).ListItem.Property(widgetType.2),albums) | String.IsEqual(Container(211).ListItem.Property(widgetType.2),songs)">genre</property>
+    <property property="widgetSortBy.2" label="$LOCALIZE[567]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.2),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.2),tvshows) | String.IsEqual(Container(211).ListItem.Property(widgetType.2),musicvideos) | String.IsEqual(Container(211).ListItem.Property(widgetType.2),episodes)">playcount</property>
+    <property property="widgetSortBy.2" label="$LOCALIZE[572]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.2),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.2),tvshows)">studio</property>
+    <property property="widgetSortBy.2" label="$LOCALIZE[574]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.2),movies)">country</property>
+    <property property="widgetSortBy.2" label="$LOCALIZE[563]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.2),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.2),tvshows) | String.IsEqual(Container(211).ListItem.Property(widgetType.2),episodes)">rating</property>
+    <property property="widgetSortBy.2" label="$LOCALIZE[205]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.2),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.2),tvshows) | String.IsEqual(Container(211).ListItem.Property(widgetType.2),episodes)">votes</property>
+    <property property="widgetSortBy.2" label="$LOCALIZE[551]">name</property>
+    <property property="widgetSortBy.2" label="$LOCALIZE[561]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.2),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.2),songs) | String.IsEqual(Container(211).ListItem.Property(widgetType.2),musicvideos) | String.IsEqual(Container(211).ListItem.Property(widgetType.2),episodes)">file</property>
+    <property property="widgetSortBy.2" label="$LOCALIZE[555]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.2),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.2),songs) | String.IsEqual(Container(211).ListItem.Property(widgetType.2),musicvideos) | String.IsEqual(Container(211).ListItem.Property(widgetType.2),episodes)">time</property>
+    <property property="widgetSortBy.2" label="$LOCALIZE[12012]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.2),addons)">lastused</property>
+    <property property="widgetSortBy.2" label="$LOCALIZE[12014]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.2),addons)">lastupdated</property>
+    <property property="widgetSortBy.2" label="$LOCALIZE[20359]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.2),episodes)">episodenumber</property>
+    <property property="widgetSortBy.2" label="$LOCALIZE[20373]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.2),episodes)">season</property>
+    <propertySettings property="widgetSortBy.2" buttonID="4003" title="$LOCALIZE[31493]" templateonly="true" />
+    <!-- Sort Direction -->
+    <property property="widgetSortOrder.2" label="$LOCALIZE[584]">ascending</property>
+    <property property="widgetSortOrder.2" label="$LOCALIZE[585]">descending</property>
+    <propertySettings property="widgetSortOrder.2" buttonID="4004" title="$LOCALIZE[31494]" templateonly="true" />
+    <!-- Limit -->
+    <property property="widgetLimit.2" label="$NUMBER[10]">$NUMBER[10]</property>
+    <property property="widgetLimit.2" label="$NUMBER[20]">$NUMBER[20]</property>
+    <property property="widgetLimit.2" label="$NUMBER[30]">$NUMBER[30]</property>
+    <property property="widgetLimit.2" label="$NUMBER[40]">$NUMBER[40]</property>
+    <propertySettings property="widgetLimit.2" buttonID="4005" title="$LOCALIZE[31495]" templateonly="true" />
+
+    <!-- Widget 3 Properties -->
+    <!-- Sort -->
+    <property property="widgetSortBy.3" label="$LOCALIZE[568]">lastplayed</property>
+    <property property="widgetSortBy.3" label="$LOCALIZE[369]">title</property>
+    <property property="widgetSortBy.3" label="$LOCALIZE[552]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.3),episodes)">date</property>
+    <property property="widgetSortBy.3" label="$LOCALIZE[557]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.3),artists) | String.IsEqual(Container(211).ListItem.Property(widgetType.3),albums) | String.IsEqual(Container(211).ListItem.Property(widgetType.3),songs)">artist</property>
+    <property property="widgetSortBy.3" label="$LOCALIZE[558]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.3),musicvideos) | String.IsEqual(Container(211).ListItem.Property(widgetType.3),albums) | String.IsEqual(Container(211).ListItem.Property(widgetType.3),songs)">album</property>
+    <property property="widgetSortBy.3" label="$LOCALIZE[554]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.3),songs)">tracknumber</property>
+    <property property="widgetSortBy.3" label="$LOCALIZE[345]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.3),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.3),tvshows) | String.IsEqual(Container(211).ListItem.Property(widgetType.3),musicvideos) | String.IsEqual(Container(211).ListItem.Property(widgetType.3),albums)">year</property>
+    <property property="widgetSortBy.3" label="$LOCALIZE[590]">random</property>
+    <property property="widgetSortBy.3" label="$LOCALIZE[570]">dateadded</property>
+    <property property="widgetSortBy.3" label="$LOCALIZE[515]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.3),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.3),tvshows) | String.IsEqual(Container(211).ListItem.Property(widgetType.3),musicvideos) | String.IsEqual(Container(211).ListItem.Property(widgetType.3),albums) | String.IsEqual(Container(211).ListItem.Property(widgetType.3),songs)">genre</property>
+    <property property="widgetSortBy.3" label="$LOCALIZE[567]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.3),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.3),tvshows) | String.IsEqual(Container(211).ListItem.Property(widgetType.3),musicvideos) | String.IsEqual(Container(211).ListItem.Property(widgetType.3),episodes)">playcount</property>
+    <property property="widgetSortBy.3" label="$LOCALIZE[572]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.3),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.3),tvshows)">studio</property>
+    <property property="widgetSortBy.3" label="$LOCALIZE[574]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.3),movies)">country</property>
+    <property property="widgetSortBy.3" label="$LOCALIZE[563]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.3),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.3),tvshows) | String.IsEqual(Container(211).ListItem.Property(widgetType.3),episodes)">rating</property>
+    <property property="widgetSortBy.3" label="$LOCALIZE[205]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.3),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.3),tvshows) | String.IsEqual(Container(211).ListItem.Property(widgetType.3),episodes)">votes</property>
+    <property property="widgetSortBy.3" label="$LOCALIZE[551]">name</property>
+    <property property="widgetSortBy.3" label="$LOCALIZE[561]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.3),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.3),songs) | String.IsEqual(Container(211).ListItem.Property(widgetType.3),musicvideos) | String.IsEqual(Container(211).ListItem.Property(widgetType.3),episodes)">file</property>
+    <property property="widgetSortBy.3" label="$LOCALIZE[555]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.3),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.3),songs) | String.IsEqual(Container(211).ListItem.Property(widgetType.3),musicvideos) | String.IsEqual(Container(211).ListItem.Property(widgetType.3),episodes)">time</property>
+    <property property="widgetSortBy.3" label="$LOCALIZE[12012]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.3),addons)">lastused</property>
+    <property property="widgetSortBy.3" label="$LOCALIZE[12014]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.3),addons)">lastupdated</property>
+    <property property="widgetSortBy.3" label="$LOCALIZE[20359]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.3),episodes)">episodenumber</property>
+    <property property="widgetSortBy.3" label="$LOCALIZE[20373]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.3),episodes)">season</property>
+    <propertySettings property="widgetSortBy.3" buttonID="5003" title="$LOCALIZE[31493]" templateonly="true" />
+    <!-- Sort Direction -->
+    <property property="widgetSortOrder.3" label="$LOCALIZE[584]">ascending</property>
+    <property property="widgetSortOrder.3" label="$LOCALIZE[585]">descending</property>
+    <propertySettings property="widgetSortOrder.3" buttonID="5004" title="$LOCALIZE[31494]" templateonly="true" />
+    <!-- Limit -->
+    <property property="widgetLimit.3" label="$NUMBER[10]">$NUMBER[10]</property>
+    <property property="widgetLimit.3" label="$NUMBER[20]">$NUMBER[20]</property>
+    <property property="widgetLimit.3" label="$NUMBER[30]">$NUMBER[30]</property>
+    <property property="widgetLimit.3" label="$NUMBER[40]">$NUMBER[40]</property>
+    <propertySettings property="widgetLimit.3" buttonID="5005" title="$LOCALIZE[31495]" templateonly="true" />
+
+    <!-- Widget 4 Properties -->
+    <!-- Sort -->
+    <property property="widgetSortBy.4" label="$LOCALIZE[568]">lastplayed</property>
+    <property property="widgetSortBy.4" label="$LOCALIZE[369]">title</property>
+    <property property="widgetSortBy.4" label="$LOCALIZE[552]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.4),episodes)">date</property>
+    <property property="widgetSortBy.4" label="$LOCALIZE[557]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.4),artists) | String.IsEqual(Container(211).ListItem.Property(widgetType.4),albums) | String.IsEqual(Container(211).ListItem.Property(widgetType.4),songs)">artist</property>
+    <property property="widgetSortBy.4" label="$LOCALIZE[558]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.4),musicvideos) | String.IsEqual(Container(211).ListItem.Property(widgetType.4),albums) | String.IsEqual(Container(211).ListItem.Property(widgetType.4),songs)">album</property>
+    <property property="widgetSortBy.4" label="$LOCALIZE[554]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.4),songs)">tracknumber</property>
+    <property property="widgetSortBy.4" label="$LOCALIZE[345]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.4),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.4),tvshows) | String.IsEqual(Container(211).ListItem.Property(widgetType.4),musicvideos) | String.IsEqual(Container(211).ListItem.Property(widgetType.4),albums)">year</property>
+    <property property="widgetSortBy.4" label="$LOCALIZE[590]">random</property>
+    <property property="widgetSortBy.4" label="$LOCALIZE[570]">dateadded</property>
+    <property property="widgetSortBy.4" label="$LOCALIZE[515]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.4),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.4),tvshows) | String.IsEqual(Container(211).ListItem.Property(widgetType.4),musicvideos) | String.IsEqual(Container(211).ListItem.Property(widgetType.4),albums) | String.IsEqual(Container(211).ListItem.Property(widgetType.4),songs)">genre</property>
+    <property property="widgetSortBy.4" label="$LOCALIZE[567]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.4),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.4),tvshows) | String.IsEqual(Container(211).ListItem.Property(widgetType.4),musicvideos) | String.IsEqual(Container(211).ListItem.Property(widgetType.4),episodes)">playcount</property>
+    <property property="widgetSortBy.4" label="$LOCALIZE[572]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.4),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.4),tvshows)">studio</property>
+    <property property="widgetSortBy.4" label="$LOCALIZE[574]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.4),movies)">country</property>
+    <property property="widgetSortBy.4" label="$LOCALIZE[563]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.4),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.4),tvshows) | String.IsEqual(Container(211).ListItem.Property(widgetType.4),episodes)">rating</property>
+    <property property="widgetSortBy.4" label="$LOCALIZE[205]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.4),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.4),tvshows) | String.IsEqual(Container(211).ListItem.Property(widgetType.4),episodes)">votes</property>
+    <property property="widgetSortBy.4" label="$LOCALIZE[551]">name</property>
+    <property property="widgetSortBy.4" label="$LOCALIZE[561]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.4),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.4),songs) | String.IsEqual(Container(211).ListItem.Property(widgetType.4),musicvideos) | String.IsEqual(Container(211).ListItem.Property(widgetType.4),episodes)">file</property>
+    <property property="widgetSortBy.4" label="$LOCALIZE[555]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.4),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.4),songs) | String.IsEqual(Container(211).ListItem.Property(widgetType.4),musicvideos) | String.IsEqual(Container(211).ListItem.Property(widgetType.4),episodes)">time</property>
+    <property property="widgetSortBy.4" label="$LOCALIZE[12012]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.4),addons)">lastused</property>
+    <property property="widgetSortBy.4" label="$LOCALIZE[12014]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.4),addons)">lastupdated</property>
+    <property property="widgetSortBy.4" label="$LOCALIZE[20359]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.4),episodes)">episodenumber</property>
+    <property property="widgetSortBy.4" label="$LOCALIZE[20373]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.4),episodes)">season</property>
+    <propertySettings property="widgetSortBy.4" buttonID="6003" title="$LOCALIZE[31493]" templateonly="true" />
+    <!-- Sort Direction -->
+    <property property="widgetSortOrder.4" label="$LOCALIZE[584]">ascending</property>
+    <property property="widgetSortOrder.4" label="$LOCALIZE[585]">descending</property>
+    <propertySettings property="widgetSortOrder.4" buttonID="6004" title="$LOCALIZE[31494]" templateonly="true" />
+    <!-- Limit -->
+    <property property="widgetLimit.4" label="$NUMBER[10]">$NUMBER[10]</property>
+    <property property="widgetLimit.4" label="$NUMBER[20]">$NUMBER[20]</property>
+    <property property="widgetLimit.4" label="$NUMBER[30]">$NUMBER[30]</property>
+    <property property="widgetLimit.4" label="$NUMBER[40]">$NUMBER[40]</property>
+    <propertySettings property="widgetLimit.4" buttonID="6005" title="$LOCALIZE[31495]" templateonly="true" />
+
+    <!-- Widget 5 Properties -->
+    <!-- Sort -->
+    <property property="widgetSortBy.5" label="$LOCALIZE[568]">lastplayed</property>
+    <property property="widgetSortBy.5" label="$LOCALIZE[369]">title</property>
+    <property property="widgetSortBy.5" label="$LOCALIZE[552]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.5),episodes)">date</property>
+    <property property="widgetSortBy.5" label="$LOCALIZE[557]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.5),artists) | String.IsEqual(Container(211).ListItem.Property(widgetType.5),albums) | String.IsEqual(Container(211).ListItem.Property(widgetType.5),songs)">artist</property>
+    <property property="widgetSortBy.5" label="$LOCALIZE[558]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.5),musicvideos) | String.IsEqual(Container(211).ListItem.Property(widgetType.5),albums) | String.IsEqual(Container(211).ListItem.Property(widgetType.5),songs)">album</property>
+    <property property="widgetSortBy.5" label="$LOCALIZE[554]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.5),songs)">tracknumber</property>
+    <property property="widgetSortBy.5" label="$LOCALIZE[345]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.5),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.5),tvshows) | String.IsEqual(Container(211).ListItem.Property(widgetType.5),musicvideos) | String.IsEqual(Container(211).ListItem.Property(widgetType.5),albums)">year</property>
+    <property property="widgetSortBy.5" label="$LOCALIZE[590]">random</property>
+    <property property="widgetSortBy.5" label="$LOCALIZE[570]">dateadded</property>
+    <property property="widgetSortBy.5" label="$LOCALIZE[515]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.5),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.5),tvshows) | String.IsEqual(Container(211).ListItem.Property(widgetType.5),musicvideos) | String.IsEqual(Container(211).ListItem.Property(widgetType.5),albums) | String.IsEqual(Container(211).ListItem.Property(widgetType.5),songs)">genre</property>
+    <property property="widgetSortBy.5" label="$LOCALIZE[567]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.5),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.5),tvshows) | String.IsEqual(Container(211).ListItem.Property(widgetType.5),musicvideos) | String.IsEqual(Container(211).ListItem.Property(widgetType.5),episodes)">playcount</property>
+    <property property="widgetSortBy.5" label="$LOCALIZE[572]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.5),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.5),tvshows)">studio</property>
+    <property property="widgetSortBy.5" label="$LOCALIZE[574]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.5),movies)">country</property>
+    <property property="widgetSortBy.5" label="$LOCALIZE[563]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.5),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.5),tvshows) | String.IsEqual(Container(211).ListItem.Property(widgetType.5),episodes)">rating</property>
+    <property property="widgetSortBy.5" label="$LOCALIZE[205]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.5),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.5),tvshows) | String.IsEqual(Container(211).ListItem.Property(widgetType.5),episodes)">votes</property>
+    <property property="widgetSortBy.5" label="$LOCALIZE[551]">name</property>
+    <property property="widgetSortBy.5" label="$LOCALIZE[561]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.5),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.5),songs) | String.IsEqual(Container(211).ListItem.Property(widgetType.5),musicvideos) | String.IsEqual(Container(211).ListItem.Property(widgetType.5),episodes)">file</property>
+    <property property="widgetSortBy.5" label="$LOCALIZE[555]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.5),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType.5),songs) | String.IsEqual(Container(211).ListItem.Property(widgetType.5),musicvideos) | String.IsEqual(Container(211).ListItem.Property(widgetType.5),episodes)">time</property>
+    <property property="widgetSortBy.5" label="$LOCALIZE[12012]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.5),addons)">lastused</property>
+    <property property="widgetSortBy.5" label="$LOCALIZE[12014]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.5),addons)">lastupdated</property>
+    <property property="widgetSortBy.5" label="$LOCALIZE[20359]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.5),episodes)">episodenumber</property>
+    <property property="widgetSortBy.5" label="$LOCALIZE[20373]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType.5),episodes)">season</property>
+    <propertySettings property="widgetSortBy.5" buttonID="7003" title="$LOCALIZE[31493]" templateonly="true" />
+    <!-- Sort Direction -->
+    <property property="widgetSortOrder.5" label="$LOCALIZE[584]">ascending</property>
+    <property property="widgetSortOrder.5" label="$LOCALIZE[585]">descending</property>
+    <propertySettings property="widgetSortOrder.5" buttonID="7004" title="$LOCALIZE[31494]" templateonly="true" />
+    <!-- Limit -->
+    <property property="widgetLimit.5" label="$NUMBER[10]">$NUMBER[10]</property>
+    <property property="widgetLimit.5" label="$NUMBER[20]">$NUMBER[20]</property>
+    <property property="widgetLimit.5" label="$NUMBER[30]">$NUMBER[30]</property>
+    <property property="widgetLimit.5" label="$NUMBER[40]">$NUMBER[40]</property>
+    <propertySettings property="widgetLimit.5" buttonID="7005" title="$LOCALIZE[31495]" templateonly="true" />
+
+
+    <!-- Widget Grouping -->
+    <widget-groupings>
+        <!-- Default Widgets -->
+        <node label="$LOCALIZE[31420]" icon="DefaultFolder.png">
+            <!-- Movies -->
+            <node label="$LOCALIZE[342]" icon="DefaultMovies.png">
+                <shortcut widget="NewMovies" label="$LOCALIZE[31503]" icon="DefaultRecentlyAddedMovies.png" widgetType="movies" widgetTarget="video" condition="Library.HasContent(movies)">special://skin/extras/playlists/recently_added_movies.xsp</shortcut>
+                <shortcut widget="StartWatchingMovies" label="$LOCALIZE[31504]" icon="DefaultRandomMovies.png" widgetType="movies" widgetTarget="video" condition="Library.HasContent(movies)">special://skin/extras/playlists/random_unwatched_movies.xsp</shortcut>
+                <shortcut widget="InProgressMovies" label="$LOCALIZE[31505]" icon="DefaultInProgressMovies.png" widgetType="movies" widgetTarget="video" condition="Library.HasContent(movies)">special://skin/extras/playlists/inprogress_movies.xsp</shortcut>
+            </node>
+            <!-- TV Shows -->
+            <node label="$LOCALIZE[31415]" icon="DefaultTVShows.png">
+                <shortcut widget="NewTVShows" label="$LOCALIZE[31506]" icon="DefaultRecentlyAddedEpisodes.png" widgetType="tvshows" widgetTarget="video" condition="Library.HasContent(tvshows)">special://skin/extras/playlists/recently_added_shows.xsp</shortcut>
+                <shortcut widget="StartWatchingTVShows" label="$LOCALIZE[31507]" icon="DefaultRandomEpisodes.png" widgetType="tvshows" widgetTarget="video" condition="Library.HasContent(tvshows)">special://skin/extras/playlists/random_unwatched_shows.xsp</shortcut>
+                <shortcut widget="InProgressTVShows" label="$LOCALIZE[31508]" icon="DefaultInProgressEpisodes.png" widgetType="tvshows" widgetTarget="video" condition="Library.HasContent(tvshows)">special://skin/extras/playlists/inprogress_shows.xsp</shortcut>
+            </node>
+            <!-- Episodes -->
+            <node label="$LOCALIZE[20360]" icon="DefaultTVShows.png">
+                <shortcut widget="NewEpisodes" label="$LOCALIZE[31509]" icon="DefaultRecentlyAddedEpisodes.png" widgetType="episodes" widgetTarget="video" condition="Library.HasContent(tvshows)">special://skin/extras/playlists/recently_added_episodes.xsp</shortcut>
+                <shortcut widget="InProgressEpisodes" label="$LOCALIZE[31510]" icon="DefaultInProgressEpisodes.png" widgetType="episodes" widgetTarget="video" condition="Library.HasContent(tvshows)">special://skin/extras/playlists/inprogress_episodes.xsp</shortcut>
+            </node>
+            <!-- Artists -->
+            <node label="$LOCALIZE[133]" icon="DefaultMusicArtists.png">
+                <shortcut widget="NewArtists" label="$LOCALIZE[31511]" icon="DefaultMusicArtists.png" widgetType="artists" widgetTarget="music" condition="Library.HasContent(music)">special://skin/extras/playlists/recently_added_artists.xsp</shortcut>
+                <shortcut widget="RandomArtists" label="$LOCALIZE[31512]" icon="DefaultMusicArtists.png" widgetType="artists" widgetTarget="music" condition="Library.HasContent(music)">special://skin/extras/playlists/random_artists.xsp</shortcut>
+            </node>
+            <!-- Albums -->
+            <node label="$LOCALIZE[132]" icon="DefaultMusicAlbums.png">
+                <shortcut widget="NewAlbums" label="$LOCALIZE[31513]" icon="DefaultMusicRecentlyAdded.png" widgetType="albums" widgetTarget="music" condition="Library.HasContent(music)">musicdb://recentlyaddedalbums/</shortcut>
+                <shortcut widget="RecentlyPlayedAlbums" label="$LOCALIZE[31514]" icon="DefaultMusicRecentlyPlayed.png" widgetType="albums" widgetTarget="music" condition="Library.HasContent(music)">musicdb://recentlyplayedalbums/</shortcut>
+                <shortcut widget="RandomAlbums" label="$LOCALIZE[31515]" icon="DefaultMusicAlbums.png" widgetType="albums" widgetTarget="music" condition="Library.HasContent(music)">special://skin/extras/playlists/random_albums.xsp</shortcut>
+                <shortcut widget="MostPlayedAlbums" label="$LOCALIZE[31516]" icon="DefaultMusicRecentlyPlayed.png" widgetType="albums" widgetTarget="music" condition="Library.HasContent(music)">special://skin/extras/playlists/most_played_albums.xsp</shortcut>
+            </node>
+        </node>
+        <!-- Embuary Helper Widgets -->
+        <node label="$LOCALIZE[31496]" icon="DefaultFolder.png">
+            <shortcut widget="EHMoviesRandomGenre" label="$LOCALIZE[31517]" widgetType="movies" widgetTarget="video" condition="Library.HasContent(movies) + System.HasAddon(script.embuary.helper)">plugin://script.embuary.helper/?info=getbygenre&amp;unwatched=True&amp;type=movie&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)</shortcut>
+            <shortcut widget="EHShowsRandomGenre" label="$LOCALIZE[31518]" widgetType="tvshows" widgetTarget="video" condition="Library.HasContent(tvshows) + System.HasAddon(script.embuary.helper)">plugin://script.embuary.helper/?info=getbygenre&amp;unwatched=True&amp;type=tvshow&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)</shortcut>
+            <shortcut widget="EHMixedRandomGenre" label="$LOCALIZE[31532]" widgetType="mixed" widgetTarget="video" condition="[Library.HasContent(tvshows) | Library.HasContent(movies)] + System.HasAddon(script.embuary.helper)">plugin://script.embuary.helper/?info=getbygenre</shortcut>
+            <shortcut widget="EHMoviesBecauseYouWatched" label="$LOCALIZE[31521]" widgetType="movies" widgetTarget="video" condition="Library.HasContent(movies) + System.HasAddon(script.embuary.helper)">plugin://script.embuary.helper/?info=getsimilar&amp;type=movie&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)</shortcut>
+            <shortcut widget="EHShowsBecauseYouWatched" label="$LOCALIZE[31522]" widgetType="tvshows" widgetTarget="video" condition="Library.HasContent(tvshows) + System.HasAddon(script.embuary.helper)">plugin://script.embuary.helper/?info=getsimilar&amp;type=tvshow&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)</shortcut>
+            <shortcut widget="EHNextEpisodes" label="$LOCALIZE[31519]" widgetType="episodes" widgetTarget="video" condition="Library.HasContent(tvshows) + System.HasAddon(script.embuary.helper)">plugin://script.embuary.helper/?info=getnextup</shortcut>
+            <shortcut widget="EHRecentlyAddedShows" label="$LOCALIZE[31520]" widgetType="episodes" widgetTarget="video" condition="Library.HasContent(tvshows) + System.HasAddon(script.embuary.helper)">plugin://script.embuary.helper/?info=getnewshows&amp;showall=True</shortcut>
+        </node>
+
+        <!-- Picture sources -->
+        <node label="32020">
+            <content>picturesources</content>
+        </node>
+        <!-- Video Library -->
+        <node label="32030">
+            <content>video</content>
+            <node label="32075">
+                <content>videosources</content>
+            </node>
+        </node>
+        <!-- Music Library -->
+        <node label="32031">
+            <content>music</content>
+            <node label="32075">
+                <content>musicsources</content>
+            </node>
+        </node>
+    </widget-groupings>
+
+
+    <!-- <widgetdefaultnode labelID="movies" group="mainmenu" label="Start watching" type="movies" path="special://skin/extras/playlists/random_unwatched_movies.xsp" target="video">randomunwatchedmovies</widgetdefaultnode>
+    <widgetdefaultnode labelID="tvshows" group="mainmenu" label="Start watching" type="tvshows" path="special://skin/extras/playlists/random_unwatched_tvshows.xsp" target="video">randomunwatchedtvshows</widgetdefaultnode>
+    <widgetdefaultnode labelID="music" group="mainmenu" label="Recently Added" type="albums" path="musicdb://recentlyaddedalbums/" target="music">reacentlyaddedalbums</widgetdefaultnode> -->
+
+    <propertyfallback property="widgetGroupTemplate">template4</propertyfallback>
+    <propertyfallback property="widgetArtwork.1">Landscape</propertyfallback>
+    <propertyfallback property="widgetArtwork.2">Landscape</propertyfallback>
+    <propertyfallback property="widgetArtwork.3">Landscape</propertyfallback>
+    <propertyfallback property="widgetArtwork.4">Landscape</propertyfallback>
+    <propertyfallback property="widgetArtwork.5">Landscape</propertyfallback>
+
+    <!-- default widgets -->
+
+    <!-- For you -->
+    <propertydefault labelID="foryou" property="widgetGroupTemplate">template2</propertydefault>
+    <propertydefault labelID="foryou" property="widget.1">EHMixedRandomGenre</propertydefault>
+    <propertydefault labelID="foryou" property="widgetName.1">$LOCALIZE[31532]</propertydefault>
+    <propertydefault labelID="foryou" property="widgetPath.1">plugin://script.embuary.helper/?info=getbygenre</propertydefault>
+    <propertydefault labelID="foryou" property="widgetTarget.1">video</propertydefault>
+    <propertydefault labelID="foryou" property="widgetArtwork.1">Landscape</propertydefault>
+
+    <propertydefault labelID="foryou" property="widget.2">EHMoviesBecauseYouWatched</propertydefault>
+    <propertydefault labelID="foryou" property="widgetName.2">$LOCALIZE[31521]</propertydefault>
+    <propertydefault labelID="foryou" property="widgetPath.2">plugin://script.embuary.helper/?info=getsimilar&amp;type=movie&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)</propertydefault>
+    <propertydefault labelID="foryou" property="widgetTarget.2">video</propertydefault>
+    <propertydefault labelID="foryou" property="widgetArtwork.2">Landscape</propertydefault>
+
+    <propertydefault labelID="foryou" property="widget.3">EHShowsBecauseYouWatched</propertydefault>
+    <propertydefault labelID="foryou" property="widgetName.3">$LOCALIZE[31522]</propertydefault>
+    <propertydefault labelID="foryou" property="widgetPath.3">plugin://script.embuary.helper/?info=getsimilar&amp;type=tvshow&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)</propertydefault>
+    <propertydefault labelID="foryou" property="widgetTarget.3">video</propertydefault>
+    <propertydefault labelID="foryou" property="widgetArtwork.3">Landscape</propertydefault>
+
+    <!-- Movies  -->
+    <propertydefault labelID="movies" property="widgetGroupTemplate">template3</propertydefault>
+    <propertydefault labelID="movies" property="widget.1">StartWatchingMovies</propertydefault>
+    <propertydefault labelID="movies" property="widgetName.1">$LOCALIZE[31504]</propertydefault>
+    <propertydefault labelID="movies" property="widgetPath.1">special://skin/extras/playlists/random_unwatched_movies.xsp</propertydefault>
+    <propertydefault labelID="movies" property="widgetTarget.1">video</propertydefault>
+    <propertydefault labelID="movies" property="widgetArtwork.1">Landscape</propertydefault>
+
+    <propertydefault labelID="movies" property="widget.2">NewMovies</propertydefault>
+    <propertydefault labelID="movies" property="widgetName.2">$LOCALIZE[31503]</propertydefault>
+    <propertydefault labelID="movies" property="widgetPath.2">special://skin/extras/playlists/recently_added_movies.xsp</propertydefault>
+    <propertydefault labelID="movies" property="widgetTarget.2">video</propertydefault>
+    <propertydefault labelID="movies" property="widgetArtwork.2">Landscape</propertydefault>
+
+    <propertydefault labelID="movies" property="widget.3">EHMoviesBecauseYouWatched</propertydefault>
+    <propertydefault labelID="movies" property="widgetName.3">$LOCALIZE[31521]</propertydefault>
+    <propertydefault labelID="movies" property="widgetPath.3">plugin://script.embuary.helper/?info=getsimilar&amp;type=movie&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)</propertydefault>
+    <propertydefault labelID="movies" property="widgetTarget.3">video</propertydefault>
+    <propertydefault labelID="movies" property="widgetArtwork.3">Landscape</propertydefault>
+
+    <propertydefault labelID="movies" property="widget.4">EHMoviesRandomGenre</propertydefault>
+    <propertydefault labelID="movies" property="widgetName.4">$LOCALIZE[31517]</propertydefault>
+    <propertydefault labelID="movies" property="widgetPath.4">plugin://script.embuary.helper/?info=getbygenre&amp;unwatched=True&amp;type=movie&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)</propertydefault>
+    <propertydefault labelID="movies" property="widgetTarget.4">video</propertydefault>
+    <propertydefault labelID="movies" property="widgetArtwork.4">Landscape</propertydefault>
+
+    <!-- TV Shows  -->
+    <propertydefault labelID="tvshows" property="widgetGroupTemplate">template3</propertydefault>
+    <propertydefault labelID="tvshows" property="widget.1">StartWatchingTVShows</propertydefault>
+    <propertydefault labelID="tvshows" property="widgetName.1">$LOCALIZE[31507]</propertydefault>
+    <propertydefault labelID="tvshows" property="widgetPath.1">special://skin/extras/playlists/random_unwatched_shows.xsp</propertydefault>
+    <propertydefault labelID="tvshows" property="widgetTarget.1">video</propertydefault>
+    <propertydefault labelID="tvshows" property="widgetArtwork.1">Landscape</propertydefault>
+
+    <propertydefault labelID="tvshows" property="widget.2">EHNextEpisodes</propertydefault>
+    <propertydefault labelID="tvshows" property="widgetName.2">$LOCALIZE[31519]</propertydefault>
+    <propertydefault labelID="tvshows" property="widgetPath.2">plugin://script.embuary.helper/?info=getnextup</propertydefault>
+    <propertydefault labelID="tvshows" property="widgetTarget.2">video</propertydefault>
+    <propertydefault labelID="tvshows" property="widgetArtwork.2">Landscape</propertydefault>
+
+    <propertydefault labelID="tvshows" property="widget.3">EHRecentlyAddedShows</propertydefault>
+    <propertydefault labelID="tvshows" property="widgetName.3">$LOCALIZE[31520]</propertydefault>
+    <propertydefault labelID="tvshows" property="widgetPath.3">plugin://script.embuary.helper/?info=getnewshows&amp;showall=True</propertydefault>
+    <propertydefault labelID="tvshows" property="widgetTarget.3">video</propertydefault>
+    <propertydefault labelID="tvshows" property="widgetArtwork.3">Landscape</propertydefault>
+
+    <propertydefault labelID="tvshows" property="widget.4">EHShowsBecauseYouWatched</propertydefault>
+    <propertydefault labelID="tvshows" property="widgetName.4">$LOCALIZE[31522]</propertydefault>
+    <propertydefault labelID="tvshows" property="widgetPath.4">plugin://script.embuary.helper/?info=getsimilar&amp;type=tvshow&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)</propertydefault>
+    <propertydefault labelID="tvshows" property="widgetTarget.4">video</propertydefault>
+    <propertydefault labelID="tvshows" property="widgetArtwork.4">Landscape</propertydefault>
+
+    <propertydefault labelID="tvshows" property="widget.5">EHShowsRandomGenre</propertydefault>
+    <propertydefault labelID="tvshows" property="widgetName.5">$LOCALIZE[31518]</propertydefault>
+    <propertydefault labelID="tvshows" property="widgetPath.5">plugin://script.embuary.helper/?info=getbygenre&amp;unwatched=True&amp;type=tvshow&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)</propertydefault>
+    <propertydefault labelID="tvshows" property="widgetTarget.5">video</propertydefault>
+    <propertydefault labelID="tvshows" property="widgetArtwork.5">Landscape</propertydefault>
+
+    <!-- Music  -->
+    <propertydefault labelID="music" property="widgetGroupTemplate">template4</propertydefault>
+    <propertydefault labelID="music" property="widget.1">NewAlbums</propertydefault>
+    <propertydefault labelID="music" property="widgetName.1">$LOCALIZE[31513]</propertydefault>
+    <propertydefault labelID="music" property="widgetPath.1">musicdb://recentlyaddedalbums/</propertydefault>
+    <propertydefault labelID="music" property="widgetTarget.1">music</propertydefault>
+    <propertydefault labelID="music" property="widgetArtwork.1">Square</propertydefault>
+
+    <propertydefault labelID="music" property="widget.2">NewArtists</propertydefault>
+    <propertydefault labelID="music" property="widgetName.2">$LOCALIZE[31511]</propertydefault>
+    <propertydefault labelID="music" property="widgetPath.2">special://skin/extras/playlists/recently_added_artists.xsp</propertydefault>
+    <propertydefault labelID="music" property="widgetTarget.2">music</propertydefault>
+    <propertydefault labelID="music" property="widgetArtwork.2">Square</propertydefault>
+
+    <propertydefault labelID="music" property="widget.3">RandomAlbums</propertydefault>
+    <propertydefault labelID="music" property="widgetName.3">$LOCALIZE[31515]</propertydefault>
+    <propertydefault labelID="music" property="widgetPath.3">special://skin/extras/playlists/random_albums.xsp</propertydefault>
+    <propertydefault labelID="music" property="widgetTarget.3">music</propertydefault>
+    <propertydefault labelID="music" property="widgetArtwork.3">Square</propertydefault>
+
+    <propertydefault labelID="music" property="widget.4">RandomArtists</propertydefault>
+    <propertydefault labelID="music" property="widgetName.4">$LOCALIZE[31512]</propertydefault>
+    <propertydefault labelID="music" property="widgetPath.4">special://skin/extras/playlists/random_artists.xsp</propertydefault>
+    <propertydefault labelID="music" property="widgetTarget.4">music</propertydefault>
+    <propertydefault labelID="music" property="widgetArtwork.4">Square</propertydefault>
+
+    <!-- On backs for management dialog -->
+    <onback to="801">3312</onback>
+    <onback to="801">3001</onback>
+    <onback to="801">3002</onback>
+    <onback to="801">3003</onback>
+    <onback to="801">3004</onback>
+
+    <onback to="802">4312</onback>
+    <onback to="802">4001</onback>
+    <onback to="802">4002</onback>
+    <onback to="802">4003</onback>
+    <onback to="802">4004</onback>
+
+    <onback to="803">5312</onback>
+    <onback to="803">5001</onback>
+    <onback to="803">5002</onback>
+    <onback to="803">5003</onback>
+    <onback to="803">5004</onback>
+
+    <onback to="804">6312</onback>
+    <onback to="804">6001</onback>
+    <onback to="804">6002</onback>
+    <onback to="804">6003</onback>
+    <onback to="804">6004</onback>
+
+    <onback to="804">7312</onback>
+    <onback to="804">7001</onback>
+    <onback to="804">7002</onback>
+    <onback to="804">7003</onback>
+    <onback to="804">7004</onback>
+</overrides>

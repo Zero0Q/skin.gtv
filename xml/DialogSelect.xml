@@ -12,10 +12,10 @@
         </control>
 
         <control type="group">
-            <top>480</top>
-            <left>920</left>
-            <width>2000</width>
-            <height>1254</height>
+            <top>146</top>
+            <left>520</left>
+            <width>2800</width>
+            <height>1868</height>
 
             <animation type="WindowOpen" reversible="false">
                 <effect type="fade" end="100" time="240" />
@@ -44,7 +44,7 @@
             <control type="group">
                 <top>164</top>
                 <left>64</left>
-                <height>916</height>
+                <height>1456</height>
                 <right>64</right>
 
                 <control type="image">
@@ -62,16 +62,16 @@
                         <ondown>3</ondown>
                         <onleft>9001</onleft>
                         <onright>9001</onright>
-                        <itemlayout height="100" width="1856">
-                            <include content="DialogSelectItemTemplate">
-                                <param name="ItemColor" value="DialogList" />
+                        <itemlayout height="120" width="2656">
+                            <include content="ListItem120">
+                                <param name="Focused" value="false" />
                                 <param name="ItemTextColor" value="TextBright" />
                                 <param name="ItemSecondaryTextColor" value="TextDim" />
                             </include>
                         </itemlayout>
-                        <focusedlayout height="100" width="1856">
-                            <include content="DialogSelectItemTemplate">
-                                <param name="ItemColor" value="TextBright" />
+                        <focusedlayout height="120" width="2656">
+                            <include content="ListItem120">
+                                <param name="Focused" value="true" />
                                 <param name="ItemTextColor" value="TextDark" />
                                 <param name="ItemSecondaryTextColor" value="TextDark" />
                             </include>
@@ -81,20 +81,20 @@
                     <control type="group">
                         <left>0</left>
                         <top>0</top>
-                        <width>904</width>
+                        <width>1304</width>
                         <bottom>0</bottom>
 
                         <control type="image">
                             <visible>Control.IsVisible(6)</visible>
                             <aspectratio>keep</aspectratio>
-                            <texture>$VAR[DialogSelectArtwork]</texture>
+                            <texture>$VAR[DialogSelectArtworkVar]</texture>
                         </control>
                     </control>
 
                     <control type="group">
                         <right>0</right>
                         <top>0</top>
-                        <width>904</width>
+                        <width>1304</width>
                         <bottom>0</bottom>
 
                         <control type="image">
@@ -111,15 +111,15 @@
                             <ondown>6</ondown>
                             <onleft>9001</onleft>
                             <onright>9001</onright>
-                            <itemlayout height="100" width="888">
-                                <include content="DialogSelectItemTemplateImage">
+                            <itemlayout height="120" width="1288">
+                                <include content="ListItemImage120">
                                     <param name="ItemColor" value="DialogList" />
                                     <param name="ItemTextColor" value="TextBright" />
                                     <param name="ItemSecondaryTextColor" value="TextDim" />
                                 </include>
                             </itemlayout>
-                            <focusedlayout height="100" width="888">
-                                <include content="DialogSelectItemTemplateImage">
+                            <focusedlayout height="120" width="1288">
+                                <include content="ListItemImage120">
                                     <param name="ItemColor" value="TextBright" />
                                     <param name="ItemTextColor" value="TextDark" />
                                     <param name="ItemSecondaryTextColor" value="TextDark" />
@@ -132,11 +132,11 @@
             </control>
 
             <control type="grouplist" id="9001">
-                <top>1120</top>
+                <bottom>64</bottom>
                 <left>64</left>
                 <right>64</right>
-                <height>100</height>
-                <align>left</align>
+                <height>120</height>
+                <align>right</align>
                 <itemgap>64</itemgap>
                 <orientation>horizontal</orientation>
                 <onleft condition="Control.IsVisible(3)">3</onleft>
@@ -149,19 +149,13 @@
                 <ondown condition="Control.IsVisible(6)">6</ondown>
 
                 <control type="button" id="5">
-                    <width>auto</width>
-                    <textoffsetx>32</textoffsetx>
-                    <include>DialogButtonDefaults</include>
+                    <include>Button120</include>
                 </control>
                 <control type="button" id="7">
-                    <width>auto</width>
-                    <textoffsetx>32</textoffsetx>
-                    <include>DialogButtonDefaults</include>
+                    <include>Button120</include>
                 </control>
                 <control type="button" id="8">
-                    <width>auto</width>
-                    <textoffsetx>32</textoffsetx>
-                    <include>DialogButtonDefaults</include>
+                    <include>Button120</include>
                 </control>
             </control>
         </control>
