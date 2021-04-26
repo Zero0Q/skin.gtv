@@ -251,7 +251,7 @@
                     <left>0</left>
                     <width>3840</width>
                     <height>340</height>
-                    <texture background="true" diffuse="masks/WidgetTop.png" colordiffuse="90ffffff">general/Black.png</texture>
+                    <texture background="true" diffuse="masks/WidgetTop.png" colordiffuse="a0ffffff">general/Black.png</texture>
                 </control>
             </control>
 
@@ -474,13 +474,14 @@
                         </include>
                     </control>
 
-                    <control type="image">
-                        <top>0</top>
-                        <left>0</left>
-                        <width>3840</width>
-                        <height>340</height>
-                        <texture background="true" diffuse="masks/WidgetTop.png" colordiffuse="90ffffff">general/Black.png</texture>
-                    </control>
+                </control>
+
+                <control type="image">
+                    <top>0</top>
+                    <left>0</left>
+                    <width>3840</width>
+                    <height>340</height>
+                    <texture background="true" diffuse="masks/WidgetTop.png" colordiffuse="a0ffffff">general/Black.png</texture>
                 </control>
             </control>
 
@@ -710,7 +711,7 @@
                     <left>0</left>
                     <width>3840</width>
                     <height>340</height>
-                    <texture background="true" diffuse="masks/WidgetTop.png" colordiffuse="90ffffff">general/Black.png</texture>
+                    <texture background="true" diffuse="masks/WidgetTop.png" colordiffuse="a0ffffff">general/Black.png</texture>
                 </control>
 
             </control>

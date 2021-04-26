@@ -2,6 +2,11 @@
 <window>
     <defaultcontrol always="true">10</defaultcontrol>
 
+    <onload condition="String.IsEmpty(Skin.String(GTV.Library.Brightness))">Skin.SetString(GTV.Library.Brightness,ffffffff)</onload>
+    <onload condition="String.IsEmpty(Skin.String(GTV.UnfocusedWidgetBrightness))">Skin.SetString(GTV.UnfocusedWidgetBrightness,66000000)</onload>
+    <onload condition="String.IsEmpty(Skin.String(GTV.BackgroundCornerBrightness))">Skin.SetString(GTV.BackgroundCornerBrightness,4c)</onload>
+    <onload condition="String.IsEmpty(Skin.String(GTV.WidgetColorGlowBrightness))">Skin.SetString(GTV.WidgetColorGlowBrightness,4c)</onload>
+
     <onload>Skin.SetString(BlurRadius,12)</onload> 
     <onload>Skin.SetString(ServiceInterval,0.2)</onload>
     <onload condition="!Skin.HasSetting(BlurEnabled)">Skin.ToggleSetting(BlurEnabled)</onload>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol always="true">450</defaultcontrol>
+    <controls>
+        <control type="group">
+
+            <control type="image" id="110000">
+                <visible>!Container.Content(addons) + !String.Contains(Container.FolderPath,plugin://)</visible>
+                <left>-1000</left>
+                <top>-1000</top>
+                <width>10</width>
+                <height>10</height>
+                <texture background="true">$VAR[LandscapeImageVar]</texture>
+            </control>
+
+            <control type="image">
+                <top>0</top>
+                <left>0</left>
+                <width>3840</width>
+                <height>2160</height>
+                <texture background="true">general/Black.png</texture>
+            </control>
+
+            <control type="panel" id="450">
+                <top>0</top>
+                <left>0</left>
+                <right>0</right>
+                <height>2160</height>
+
+                <onleft>450</onleft>
+                <onright>450</onright>
+                <onup>450</onup>
+                <ondown>450</ondown>
+
+                <pagecontrol>61</pagecontrol>
+                <preloaditems>2</preloaditems>
+                <orientation>vertical</orientation>
+                <viewtype label="Grid">icon</viewtype>
+
+                <itemlayout width="496" height="740">
+                    <control type="group">
+                        <left>182</left>
+                        <include content="PosterLayout">
+                            <param name="LabelColor" value="TextDim" />
+                            <param name="Focused" value="false" />
+                            <param name="ListID" value="450" />
+                            <param name="ShowProgress" value="false" />
+                            <param name="ShowLabel1" value="true" />
+                        </include>
+                    </control>
+                </itemlayout>
+
+                <focusedlayout width="496" height="740">
+                    <control type="group">
+                        <visible>Control.HasFocus(450)</visible>
+                        <left>182</left>
+                        <include content="PosterLayout">
+                            <param name="LabelColor" value="TextBright" />
+                            <param name="Focused" value="true" />
+                            <param name="ListID" value="450" />
+                            <param name="ShowLabel1" value="true" />
+                            <param name="ShowProgress" value="false" />
+                        </include>
+                    </control>
+                    <control type="group">
+                        <visible>!Control.HasFocus(450)</visible>
+                        <left>182</left>
+                        <include content="PosterLayout">
+                            <param name="LabelColor" value="TextDim" />
+                            <param name="Focused" value="true" />
+                            <param name="ListID" value="450" />
+                            <param name="ShowLabel1" value="true" />
+                            <param name="ShowProgress" value="flase" />
+                        </include>
+                    </control>
+                </focusedlayout>
+
+            </control>
+
+            <control type="image">
+                <left>0</left>
+                <top>0</top>
+                <width>3840</width>
+                <height>2160</height>
+                <fadetime>400</fadetime>
+                <texture background="true" colordiffuse="$VAR[BlurColorBackgroundVar]">masks/bkggrad.png</texture>
+            </control>
+        </control>
+    </controls>
+</window>

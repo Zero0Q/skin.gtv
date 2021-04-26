@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+    <!-- Poster view -->
+    <include name="View_530_Category">
+        <control type="group">
+            <visible>Control.IsVisible(530)</visible>
+
+            <control type="button" id="531">
+                <left>-1000</left>
+                <onleft condition="Integer.IsGreater(Container(530).CurrentItem,1)">Control.Move(530,-1)</onleft>
+                <onright condition="!String.IsEqual(Container(530).CurrentItem,Container.NumItems)">Control.Move(530,1)</onright>
+                <ondown>532</ondown>
+            </control>
+
+            <!-- Include main info -->
+            <include content="MainInfoView">
+                <param name="ID" value="532" />
+            </include>
+
+            <control type="image">
+                <top>0</top>
+                <left>0</left>
+                <width>3840</width>
+                <height>500</height>
+                <texture background="true" diffuse="masks/WidgetTop.png" colordiffuse="a0ffffff">general/Black.png</texture>
+            </control>
+
+            <control type="list" id="530">
+                <visible>$EXP[Exp_View_530]</visible>
+                <!-- <visible>Container.Content(genres) | Container.Content(studios) | Container.Content(years)</visible> -->
+                <top>60</top>
+                <left>0</left>
+                <right>0</right>
+                <height>160</height>
+
+                <preloaditems>2</preloaditems>
+                <orientation>horizontal</orientation>
+                <viewtype label="Grid">icon</viewtype>
+
+                <itemlayout width="548" height="160">
+                    <control type="group">
+                        <left>34</left>
+                        <width>480</width>
+                        <height>160</height>
+                        <control type="image">
+                            <visible>Control.HasFocus(531)</visible>
+                            <texture border="80" colordiffuse="TextDim">masks/Border160x160r80.png</texture>
+                        </control>
+                        <control type="image">
+                            <visible>!Control.HasFocus(531)</visible>
+                            <texture border="80" colordiffuse="TextDark">masks/Border160x160r80.png</texture>
+                        </control>
+                        <control type="textbox">
+                            <top>-8</top>
+                            <textcolor>TextBright</textcolor>
+                            <font>SemiBold56</font>
+                            <align>center</align>
+                            <aligny>center</aligny>
+                            <wrapmultiline>true</wrapmultiline>
+                            <label>$INFO[ListItem.label]</label>
+                        </control>
+                    </control>
+                </itemlayout>
+
+                <focusedlayout width="548" height="160">
+                    <control type="group">
+                        <control type="button">
+                            <visible>false</visible>
+                            <onfocus>SetFocus(532)</onfocus>
+                        </control>
+                        <left>34</left>
+                        <width>480</width>
+                        <height>160</height>
+                        <control type="group">
+                            <visible>Control.HasFocus(531)</visible>
+                            <control type="image">
+                                <texture border="80" colordiffuse="TextBright">masks/Mask160x160r80.png</texture>
+                            </control>
+                            <control type="textbox">
+                                <top>-8</top>
+                                <textcolor>TextDark</textcolor>
+                                <font>SemiBold56</font>
+                                <align>center</align>
+                                <aligny>center</aligny>
+                                <wrapmultiline>true</wrapmultiline>
+                                <label>$INFO[ListItem.label]</label>
+                            </control>
+                        </control>
+                        <control type="group">
+                            <visible>!Control.HasFocus(531)</visible>
+                            <control type="image">
+                                <texture border="80" colordiffuse="MainMenuDark">masks/Mask160x160r80.png</texture>
+                            </control>
+                            <control type="textbox">
+                                <top>-8</top>
+                                <textcolor>TextBright</textcolor>
+                                <font>SemiBold56</font>
+                                <align>center</align>
+                                <aligny>center</aligny>
+                                <wrapmultiline>true</wrapmultiline>
+                                <label>$INFO[ListItem.label]</label>
+                            </control>
+                        </control>
+                    </control>
+                </focusedlayout>
+
+
+            </control>
+
+            <!-- <control type="label">
+                <label>$INFO[Container(532).ListItem.dbtype]</label>
+            </control> -->
+
+            <control type="fixedlist" id="532">
+                <top>1200</top>
+                <left>0</left>
+                <right>0</right>
+                <height>740</height>
+
+                <onleft>532</onleft>
+                <onright>532</onright>
+                <onup>531</onup>
+                <ondown>noop</ondown>
+                <onclick condition="String.IsEqual(Container(532).ListItem.dbtype,tvshow)">ActivateWindow(videos,$INFO[Container(532).ListItem.FolderPath],return)</onclick>
+
+                <pagecontrol>60</pagecontrol>
+                <preloaditems>2</preloaditems>
+                <orientation>horizontal</orientation>
+                <focusposition>0</focusposition>
+                <movement>3</movement>
+                <viewtype label="Landscape Flow">icon</viewtype>
+
+                <!-- Movies / TV Shows / Seasons / Sets / Episodes -->
+                <itemlayout width="866" height="740">
+                    <control type="group">
+                        <left>182</left>
+                        <include content="LandscapeLayout">
+                            <param name="LabelColor" value="TextDim" />
+                            <param name="Focused" value="false" />
+                            <param name="ListID" value="532" />
+                            <param name="ShowProgress" value="true" />
+                        </include>
+                    </control>
+                </itemlayout>
+
+                <focusedlayout width="866" height="740">
+                    <control type="group">
+                        <visible>Control.HasFocus(532)</visible>
+                        <left>182</left>
+                        <include content="LandscapeLayout">
+                            <param name="LabelColor" value="TextBright" />
+                            <param name="Focused" value="true" />
+                            <param name="ListID" value="532" />
+                            <param name="ShowProgress" value="true" />
+                        </include>
+                    </control>
+                    <control type="group">
+                        <visible>!Control.HasFocus(532)</visible>
+                        <left>182</left>
+                        <include content="LandscapeLayout">
+                            <param name="LabelColor" value="TextDim" />
+                            <param name="Focused" value="true" />
+                            <param name="ListID" value="532" />
+                            <param name="ShowProgress" value="true" />
+                        </include>
+                    </control>
+                </focusedlayout>
+
+                <content sortby="title" sortorder="ascending" type="video">$INFO[Container(530).ListItem.FolderPath]</content>
+            </control>
+
+            <control type="group">
+                <visible>!Integer.IsGreater(Container(532).NumItems,0)</visible>
+
+                <control type="image">
+                    <top>45%</top>
+                    <left>45%</left>
+                    <bottom>45%</bottom>
+                    <right>45%</right>
+                    <texture colordiffuse="TextBright">special://skin/extras/spinners/Sun.png</texture>
+                    <aspectratio>keep</aspectratio>
+                    <animation effect="rotate" start="360" end="0" center="auto" time="3000" loop="true" condition="true">conditional</animation>
+                </control>
+            </control>
+        </control>
+    </include>
+
+</includes>

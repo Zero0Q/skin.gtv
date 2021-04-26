@@ -2,7 +2,7 @@
 <includes>
 
     <variable name="version">
-        <value>0.1.0~alpha</value>
+        <value>0.1.2~alpha</value>
     </variable>
 
 
@@ -64,6 +64,7 @@
 
     <!-- Video Library return background image to use without fallback -->
     <variable name="BackgroundImageWithoutFallback">
+        <value condition="Control.IsVisible(530)">$INFO[Container(532).ListItem.Art(fanart)]</value>
         <value condition="Window.IsActive(Home.xml) + String.IsEqual(ListItem.dbtype,episode)">$INFO[ListItem.Art(thumb)]</value>
         <value condition="!Container.Content(episodes) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
@@ -72,10 +73,12 @@
 
     <!-- Blur colors -->
     <variable name="BlurColorItemVar">
-        <value>$INFO[Window(home).Property(GTV.color),48]</value> <!--50-->
+        <value condition="String.IsEmpty(Skin.String(GTV.WidgetColorGlowBrightness))">$INFO[Window(home).Property(GTV.color),4c]</value>
+        <value>$INFO[Skin.String(GTV.WidgetColorGlowBrightness)]$INFO[Window(home).Property(GTV.color)]</value>
     </variable>
     <variable name="BlurColorBackgroundVar">
-        <value>$INFO[Window(home).Property(GTV.color),40]</value>
+        <value condition="String.IsEmpty(Skin.String(GTV.BackgroundCornerBrightness))">$INFO[Window(home).Property(GTV.color),4c]</value>
+        <value>$INFO[Skin.String(GTV.BackgroundCornerBrightness)]$INFO[Window(home).Property(GTV.color)]</value>
     </variable>
 
     <!-- Number of seasons -->
@@ -233,6 +236,13 @@
     <variable name="AudioBitrateVar">
         <value condition="!String.IsEmpty(VideoPlayer.AudioBitrateVar)">$INFO[VideoPlayer.AudioBitrateVar] kbps</value>
         <value>Unknown</value>
+    </variable>
+
+    <variable name="ViewModeSwitchVar">
+        <value condition="String.IsEqual(Container.Content,genres) + Window.IsVisible(MyMusicNav.xml)">genres-music</value>
+        <value condition="String.IsEqual(Container.Content,years) + Window.IsVisible(MyMusicNav.xml)">years-music</value>
+        <value condition="!String.IsEmpty(Container.Content)">$INFO[Container.Content]</value>
+        <value>none</value>
     </variable>
 
 
@@ -435,5 +445,86 @@
         <value condition="String.IsEqual(Container(211).ListItem.Property(widgetGroupTemplate),template3)">$LOCALIZE[31531]</value>
         <value condition="String.IsEqual(Container(211).ListItem.Property(widgetGroupTemplate),template4)">$LOCALIZE[31531]</value>
     </variable>
+
+    <!-- Skin settings -->
+    <variable name="GTV.LibraryBrightness.LabelVar">
+        <value condition="String.IsEqual(Skin.String(GTV.LibraryBrightness),ffffffff)">0%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.LibraryBrightness),e5ffffff)">10%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.LibraryBrightness),ccffffff)">20%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.LibraryBrightness),b2ffffff)">30%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.LibraryBrightness),99ffffff)">40%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.LibraryBrightness),7fffffff)">50%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.LibraryBrightness),66ffffff)">60%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.LibraryBrightness),4cffffff)">70%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.LibraryBrightness),33ffffff)">80%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.LibraryBrightness),19ffffff)">90%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.LibraryBrightness),00ffffff)">100%</value>
+        <value>0%</value>
+    </variable>
+    <variable name="GTV.LibraryBrightness.ColorVar">
+        <value condition="!String.IsEmpty(Skin.String(GTV.Library.Brightness))">$INFO[Skin.String(GTV.LibraryBrightness)]</value>
+        <value>ffffffff</value>
+    </variable>
+
+    <variable name="GTV.UnfocusedWidgetBrightness.LabelVar">
+        <value condition="String.IsEqual(Skin.String(GTV.UnfocusedWidgetBrightness),ff000000)">0%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.UnfocusedWidgetBrightness),e5000000)">10%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.UnfocusedWidgetBrightness),cc000000)">20%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.UnfocusedWidgetBrightness),b2000000)">30%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.UnfocusedWidgetBrightness),99000000)">40%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.UnfocusedWidgetBrightness),7f000000)">50%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.UnfocusedWidgetBrightness),66000000)">60%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.UnfocusedWidgetBrightness),4c000000)">70%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.UnfocusedWidgetBrightness),33000000)">80%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.UnfocusedWidgetBrightness),19000000)">90%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.UnfocusedWidgetBrightness),01000000)">100%</value>
+        <value>60%</value>
+    </variable>
+    <variable name="GTV.UnfocusedWidgetBrightness.ColorVar">
+        <value condition="!String.IsEmpty(Skin.String(GTV.UnfocusedWidgetBrightness))">$INFO[Skin.String(GTV.UnfocusedWidgetBrightness)]</value>
+        <value>66000000</value>
+    </variable>
+
+    <variable name="GTV.BackgroundCornerBrightness.LabelVar">
+        <value condition="String.IsEqual(Skin.String(GTV.BackgroundCornerBrightness),00)">0%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.BackgroundCornerBrightness),19)">20%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.BackgroundCornerBrightness),33)">40%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.BackgroundCornerBrightness),4c)">60%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.BackgroundCornerBrightness),66)">80%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.BackgroundCornerBrightness),7f)">100%</value>
+        <value>60%</value>
+    </variable>
+
+    <variable name="GTV.WidgetColorGlowBrightness.LabelVar">
+        <value condition="String.IsEqual(Skin.String(GTV.WidgetColorGlowBrightness),00)">0%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.WidgetColorGlowBrightness),0c)">5%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.WidgetColorGlowBrightness),19)">10%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.WidgetColorGlowBrightness),26)">15%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.WidgetColorGlowBrightness),33)">20%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.WidgetColorGlowBrightness),3f)">25%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.WidgetColorGlowBrightness),4c)">30%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.WidgetColorGlowBrightness),59)">35%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.WidgetColorGlowBrightness),66)">40%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.WidgetColorGlowBrightness),72)">45%</value>
+        <value condition="String.IsEqual(Skin.String(GTV.WidgetColorGlowBrightness),7f)">50%</value>
+        <value>30%</value>
+    </variable>
+
+    <variable name="ESCFIX">
+        <value condition="String.Contains(Container(899).ListItem.label,&)">$INFO[Window(home).Property(MyEncodedString)]</value>
+        <value condition="String.Contains(Container(899).ListItem.label,+)">$INFO[Window(home).Property(MyEncodedString)]</value>
+        <value>$INFO[Container(899).ListItem.label]</value>
+    </variable>
+    <variable name="CustomSubSectionVar">
+        <value condition="String.IsEqual(Window(home).Property(CustomSubSectionContent),movies_genres)">videodb://movies/titles/?xsp=%7B%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$VAR[ESCFIX]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</value>
+        <value condition="String.IsEqual(Window(home).Property(CustomSubSectionContent),shows_genres)">videodb://tvshows/titles/?xsp=%7B%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$VAR[ESCFIX]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</value>
+        <value condition="String.IsEqual(Window(home).Property(CustomSubSectionContent),shows_studios)">videodb://tvshows/titles/?xsp=%7B%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22studio%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$VAR[ESCFIX]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</value>
+    </variable>
+    <variable name="CustomSubSectionCategoryVar">
+        <value condition="String.IsEqual(Window(home).Property(CustomSubSectionContent),movies_genres)">videodb://movies/genres/</value>
+        <value condition="String.IsEqual(Window(home).Property(CustomSubSectionContent),shows_genres)">videodb://tvshows/genres/</value>
+        <value condition="String.IsEqual(Window(home).Property(CustomSubSectionContent),shows_studios)">videodb://tvshows/studios/</value>
+    </variable>
+
 
 </includes>

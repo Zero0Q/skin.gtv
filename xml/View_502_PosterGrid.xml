@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+    <!-- Poster view -->
+    <include name="View_502_PosterGrid">
+        <control type="group">
+            <visible>Control.IsVisible(502)</visible>
+
+            <!-- <include content="HorizontalDivider">
+                <param name="value" value="224" />
+            </include>
+            <include content="HorizontalDivider">
+                <param name="value" value="3616" />
+            </include> -->
+
+            <control type="panel" id="502">
+                <visible>$EXP[Exp_View_502]</visible>
+
+                <top>0</top>
+                <left>0</left>
+                <right>0</right>
+                <height>2160</height>
+
+                <onleft>noop</onleft>
+                <onright>61</onright>
+                <onup>502</onup>
+                <ondown>502</ondown>
+
+                <pagecontrol>61</pagecontrol>
+                <preloaditems>2</preloaditems>
+                <orientation>vertical</orientation>
+                <viewtype label="$LOCALIZE[32003]">icon</viewtype>
+
+                <!-- Actor -->
+                <itemlayout width="496" height="740" condition="Container.Content(actors)">
+                    <control type="group">
+                        <left>182</left>
+                        <include content="PosterLayout">
+                            <param name="LabelColor" value="TextDim" />
+                            <param name="Focused" value="false" />
+                            <param name="ListID" value="502" />
+                            <param name="ShowProgress" value="false" />
+                            <param name="ShowLabel1" value="true" />
+                        </include>
+                    </control>
+                </itemlayout>
+
+                <focusedlayout width="496" height="740" condition="Container.Content(actors)">
+                    <control type="group">
+                        <visible>Control.HasFocus(502)</visible>
+                        <left>182</left>
+                        <include content="PosterLayout">
+                            <param name="LabelColor" value="TextBright" />
+                            <param name="Focused" value="true" />
+                            <param name="ListID" value="502" />
+                            <param name="ShowLabel1" value="true" />
+                            <param name="ShowProgress" value="false" />
+                        </include>
+                    </control>
+                    <control type="group">
+                        <visible>!Control.HasFocus(502)</visible>
+                        <left>182</left>
+                        <include content="PosterLayout">
+                            <param name="LabelColor" value="TextDim" />
+                            <param name="Focused" value="true" />
+                            <param name="ListID" value="502" />
+                            <param name="ShowLabel1" value="true" />
+                            <param name="ShowProgress" value="flase" />
+                        </include>
+                    </control>
+                </focusedlayout>
+
+            </control>
+        </control>
+    </include>
+
+</includes>

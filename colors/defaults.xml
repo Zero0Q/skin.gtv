@@ -10,7 +10,7 @@
     <color name="TextSubLabel">b2d0d0d0</color>
     <color name="ItemBackground">70303030</color>
     <color name="PanelBackground">ff202020</color>
-    <color name="DialogBackground">e0404040</color>
+    <!-- <color name="DialogBackground">e0404040</color> -->
     <color name="ListTextMain">ffe0e0e0</color>
     <color name="ListTextSubDim">50d0d0d0</color>
     <color name="MenuItemBackground">40727272</color>

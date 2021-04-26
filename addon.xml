@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="skin.gtv" version="0.1.0~alpha" name="GTV" provider-name="roidy">
+<addon id="skin.gtv" version="0.1.3~alpha" name="GTV" provider-name="roidy">
     <requires>
         <import addon="xbmc.gui" version="5.14.0"/>
         <!-- <import addon="xbmc.gui" version="5.15.0"/> -->
-        <import addon="script.toolbox" version="1.0.0"/>
+        <import addon="script.skinshortcuts"/>
+        <import addon="script.skinvariables" />
         <import addon="script.embuary.helper" version="1.0.0"/>
         <import addon="script.embuary.info" version="1.0.0"/>
         <import addon="script.gtv.helper" />

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="1101" type="dialog">
+    <defaultcontrol>6500</defaultcontrol>
+    <controls>
+        <control type="image">
+            <top>0</top>
+            <bottom>0</bottom>
+            <left>0</left>
+            <right>0</right>
+            <texture background="true" colordiffuse="ScreenFade">general/Black.png</texture>
+        </control>
+
+        <control type="group">
+            <top>348</top>
+            <bottom>348</bottom>
+            <left>1448</left>
+            <right>1448</right>
+
+            <animation type="WindowOpen" reversible="false">
+                <effect type="fade" end="100" time="240" />
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="fade" start="100" end="0" time="240" />
+            </animation>
+
+            <control type="image">
+                <width>100%</width>
+                <height>100%</height>
+                <texture border="16" colordiffuse="DialogBackground">masks/Mask440x440r16.png</texture>
+            </control>
+
+            <control type="group">
+                <top>64</top>
+                <botom>64</botom>
+                <left>64</left>
+                <right>64</right>
+
+                <control type="image">
+                    <width>100%</width>
+                    <height>1336</height>
+                    <texture border="16" colordiffuse="DialogList">masks/Mask440x440r16.png</texture>
+                </control>
+
+                <control type="panel" id="6500">
+                    <left>8</left>
+                    <top>8</top>
+                    <right>8</right>
+                    <bottom>8</bottom>
+                    <onup>3</onup>
+                    <ondown>3</ondown>
+                    <onleft>9001</onleft>
+                    <onright>9001</onright>
+                    <itemlayout height="120" width="800">
+                        <include content="ListItem120">
+                            <param name="Focused" value="false" />
+                            <param name="ItemTextColor" value="TextBright" />
+                            <param name="ItemSecondaryTextColor" value="TextDim" />
+                        </include>
+                    </itemlayout>
+                    <focusedlayout height="120" width="800">
+                        <include content="ListItem120">
+                            <param name="Focused" value="true" />
+                            <param name="ItemTextColor" value="TextDark" />
+                            <param name="ItemSecondaryTextColor" value="TextDark" />
+                        </include>
+                    </focusedlayout>
+                    <content>
+                        <include condition="String.IsEqual(Window(home).Property(CustomSelectContent),LibraryBrightness)">LibraryBrightness</include>
+                        <include condition="String.IsEqual(Window(home).Property(CustomSelectContent),UnfocusedWidgetBrightness)">UnfocusedWidgetBrightness</include>
+                        <include condition="String.IsEqual(Window(home).Property(CustomSelectContent),BackgroundCornerBrightness)">BackgroundCornerBrightness</include>
+                        <include condition="String.IsEqual(Window(home).Property(CustomSelectContent),WidgetColorGlowBrightness)">WidgetColorGlowBrightness</include>
+                    </content>
+                </control>
+            </control>
+        </control>
+    </controls>
+</window>

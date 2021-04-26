@@ -7,7 +7,6 @@
         <param name="Content2" default="" />
         <param name="GroupHeight" default="700" />
         <param name="CustomOnClick" default="false" />
-        <param name="FadeIfUnfocused" default="true" />
         <param name="ShowLabels" default="true" />
 
         <definition>
@@ -44,9 +43,6 @@
                 <right>0</right>
                 <top>0</top>
                 <height>$PARAM[GroupHeight]</height>
-
-                <animation effect="Fade" start="100" end="75" time="100" condition="!Control.HasFocus($PARAM[ListID]) + $PARAM[FadeIfUnfocused]">Conditional</animation>
-                <animation effect="Fade" start="75" end="100" time="100" condition="Control.HasFocus($PARAM[ListID]) + $PARAM[FadeIfUnfocused]">Conditional</animation>
 
                 <control type="label" id="13345">
                     <visible>false</visible>

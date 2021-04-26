@@ -8,14 +8,16 @@
             <left>0</left>
             <top>0</top>
 
-            <control type="list" id="9000">
+            <control type="fixedlist" id="9000">
 
                 <include>skinshortcuts-template-main-menu-slide</include>
 
-                <left>950</left>
+                <left>0</left>
+                <!-- <left>950</left> -->
                 <width>3840</width>
                 <top>136</top>
                 <orientation>horizontal</orientation>
+                <focusposition>2</focusposition>
 
                 <ondown>9001</ondown>
 

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+    <include name="View_520_SquareGrid">
+        <control type="group">
+            <visible>Control.IsVisible(520)</visible>
+
+            <control type="panel" id="520">
+                <visible>$EXP[Exp_View_520]</visible>
+
+                <left>0</left>
+                <width>3840</width>
+                <top>0</top>
+                <bottom>0</bottom>
+                <onleft>noop</onleft>
+                <onright>61</onright>
+                <onup>520</onup>
+                <ondown>520</ondown>
+
+                <preloaditems>2</preloaditems>
+                <viewtype label="Music Wall">icon</viewtype>
+
+                <!-- Artists / Albums -->
+                <itemlayout width="578" height="640" condition="Container.Content(artists) | Container.Content(albums)">
+                    <control type="group">
+                        <top>40</top>
+                        <left>186</left>
+                        <include content="SquareLayoutArtistAlbum">
+                            <param name="Focused" value="false" />
+                            <param name="ListID" value="520" />
+                            <param name="LabelColor" value="TextDim" />
+                        </include>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="578" height="640" condition="Container.Content(artists) | Container.Content(albums)">
+                    <control type="group">
+                        <top>40</top>
+                        <left>186</left>
+                        <include content="SquareLayoutArtistAlbum">
+                            <param name="Focused" value="true" />
+                            <param name="ListID" value="520" />
+                            <param name="LabelColor" value="TextBright" />
+                        </include>
+                    </control>
+                </focusedlayout>
+
+                <!-- Music Categorys -->
+                <itemlayout width="867" height="224" condition="String.StartsWith(Container.FolderPath,musicdb:) + [Container.Content(genres) | Container.Content(years)]">
+                    <control type="group">
+                        <top>40</top>
+                        <left>186</left>
+                        <include content="MusicCategoryLayout">
+                            <param name="ListID" value="520" />
+                            <param name="ItemColor" value="MenuItemBackground" />
+                            <param name="LabelColor" value="TextBright" />
+                        </include>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="867" height="224" condition="String.StartsWith(Container.FolderPath,musicdb:) + [Container.Content(genres) | Container.Content(years)]">
+                    <control type="group">
+                        <top>40</top>
+                        <left>186</left>
+                        <include content="MusicCategoryLayout">
+                            <param name="ListID" value="520" />
+                            <param name="ItemColor" value="TextBright" />
+                            <param name="LabelColor" value="TextDark" />
+                        </include>
+                    </control>
+                </focusedlayout>
+            </control>
+
+        </control>
+    </include>
+</includes>

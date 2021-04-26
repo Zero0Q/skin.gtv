@@ -3,7 +3,7 @@
 
     <controls>
         <control type="group">
-            <animation effect="slide" time="300" start="0,-320" end="0,0">WindowOpen</animation>
+            <animation effect="slide" time="150" start="0,-320" end="0,0">WindowOpen</animation>
             <animation effect="slide" time="150" start="0,0" end="0,-320">WindowClose</animation>
 
             <left>2712</left>
