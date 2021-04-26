@@ -2,7 +2,7 @@
 
 <window>
     <onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;options=noGroups)</onload>
-    <onload>RunScript(script.skinvariables,action=buildviews)</onload>
+
     <defaultcontrol>9000</defaultcontrol>
 
     <controls>

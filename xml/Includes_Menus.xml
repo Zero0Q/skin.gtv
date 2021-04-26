@@ -38,25 +38,6 @@
 
                 <!-- View button-->
                 <control type="button" id="71">
-                    <!-- <visible>Integer.IsGreater(Container.ViewCount,1)</visible> -->
-                    <left>0</left>
-                    <top>0</top>
-                    <width>auto</width>
-                    <height>120</height>
-                    <align>center</align>
-                    <aligny>top</aligny>
-                    <textoffsety>6</textoffsety>
-                    <textoffsetx>50</textoffsetx>
-                    <texturefocus colordiffuse="TextBright" border="60c">masks/Mask120x120r60.png</texturefocus>
-                    <texturenofocus colordiffuse="70707070" border="60c">masks/Mask120x120r60.png</texturenofocus>
-                    <font>LibraryInfoLine</font>
-                    <textcolor>TextBright</textcolor>
-                    <focusedcolor>TextDark</focusedcolor>
-                    <include>InfoButtonZoom</include>
-                    <label>Select View</label>
-                    <onclick>Runscript(script.skinvariables,action=buildviews,contentid=$INFO[Container.Content],pluginname=$INFO[Container.PluginName])</onclick>
-                </control>
-                <!-- <control type="button" id="71">
                     <visible>Integer.IsGreater(Container.ViewCount,1)</visible>
                     <left>0</left>
                     <top>0</top>
@@ -74,7 +55,7 @@
                     <include>InfoButtonZoom</include>
                     <label>$INFO[Container.Viewmode]</label>
                     <onclick>Container.NextViewMode</onclick>
-                </control> -->
+                </control>
                 <!-- Sort method button -->
                 <control type="button" id="72">
                     <left>0</left>
@@ -159,16 +140,15 @@
         </control>
 
         <control type="group">
-            <visible>Control.IsVisible(50) | Control.IsVisible(502) | Control.IsVisible(503) | Control.IsVisible(510) | Control.IsVisible(520)</visible>
+            <visible>Control.IsVisible(50) | Control.IsVisible(502)</visible>
 
             <control type="scrollbar" id="61">
-                <animation effect="fade" start="100" end="10" time="100" condition="!Control.HasFocus(61)">Conditional</animation>
-                <left>3800</left>
-                <top>120</top>
-                <bottom>120</bottom>
+                <right>72</right>
+                <top>150</top>
                 <width>24</width>
+                <height>1860</height>
                 <orientation>vertical</orientation>
-                <onleft>50</onleft>
+                <onleft>500</onleft>
                 <onright>9051</onright>
                 <texturesliderbackground border="24" colordiffuse="60404040">progress/back24_vertical.png</texturesliderbackground>
                 <texturesliderbar border="12" colordiffuse="ff808080">progress/slider24.png</texturesliderbar>
@@ -202,25 +182,7 @@
                     <usecontrolcoords>false</usecontrolcoords>
 
                     <!-- View button-->
-                    <control type="button" id="71">
-                        <!-- <visible>Integer.IsGreater(Container.ViewCount,1)</visible> -->
-                        <left>0</left>
-                        <top>0</top>
-                        <height>120</height>
-                        <align>center</align>
-                        <aligny>top</aligny>
-                        <textoffsety>6</textoffsety>
-                        <textoffsetx>50</textoffsetx>
-                        <texturefocus colordiffuse="TextBright" border="60c">masks/Mask120x120r60.png</texturefocus>
-                        <texturenofocus colordiffuse="70707070" border="60c">masks/Mask120x120r60.png</texturenofocus>
-                        <font>LibraryInfoLine</font>
-                        <textcolor>TextBright</textcolor>
-                        <focusedcolor>TextDark</focusedcolor>
-                        <include>InfoButtonZoom</include>
-                        <label>Select View</label>
-                        <onclick>Runscript(script.skinvariables,action=buildviews,contentid=$VAR[ViewModeSwitchVar],pluginname=$INFO[Container.PluginName])</onclick>
-                    </control>
-                    <!-- <control type="button" id="81">
+                    <control type="button" id="81">
                         <visible>Integer.IsGreater(Container.ViewCount,1)</visible>
                         <left>0</left>
                         <top>0</top>
@@ -237,7 +199,7 @@
                         <include>InfoButtonZoom</include>
                         <label>$INFO[Container.Viewmode]</label>
                         <onclick>Container.NextViewMode</onclick>
-                    </control> -->
+                    </control>
                     <!-- Sort method button -->
                     <control type="button" id="82">
                         <left>0</left>
@@ -275,7 +237,7 @@
                         <onclick>Container.SetSortDirection</onclick>
                     </control>
                     <!-- Show All / Unwatched / Watched button Video Only -->
-                    <control type="button" id="10">
+                    <control type="button" id="14">
                         <visible>false</visible>
                     </control>
                     <control type="button" id="84">
@@ -293,8 +255,8 @@
                         <textcolor>TextBright</textcolor>
                         <focusedcolor>TextDark</focusedcolor>
                         <include>InfoButtonZoom</include>
-                        <label>$INFO[Control.GetLabel(10),Show ]</label>
-                        <onclick>SendClick(10)</onclick>
+                        <label>$INFO[Control.GetLabel(14),Show ]</label>
+                        <onclick>SendClick(14)</onclick>
                     </control>
                     <!-- Update Library -->
                     <control type="button" id="85">

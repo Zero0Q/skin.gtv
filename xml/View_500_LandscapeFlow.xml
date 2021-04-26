@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
+    <!-- LandscapeFlow view -->
     <include name="View_500_LandscapeFlow">
         <control type="group">
             <visible>Control.IsVisible(500)</visible>
@@ -29,7 +30,9 @@
             <include>BottomAlignedPlot</include>
 
             <control type="fixedlist" id="500">
-                <visible>$EXP[Exp_View_500]</visible>
+                <visible>!String.IsEmpty(Container.FolderName)  + !String.IsEqual(Container.FolderPath,videodb://movies/) + !String.IsEqual(Container.FolderPath,videodb://tvshows/)</visible>
+                <visible>$EXP[isPrimaryMedia]</visible>
+                <visible>!String.Contains(Container.FolderPath,sources)</visible>
 
                 <top>1200</top>
                 <left>0</left>
@@ -46,9 +49,9 @@
                 <orientation>horizontal</orientation>
                 <focusposition>0</focusposition>
                 <movement>3</movement>
-                <viewtype label="$LOCALIZE[32001]">icon</viewtype>
+                <viewtype label="Landscape Flow">icon</viewtype>
 
-                <!-- Movies / TV Shows / Seasons / Sets / Episodes -->
+                <!-- Movies / TV Shows / Seasons / Sets / Epsidoes -->
                 <itemlayout width="866" height="740">
                     <control type="group">
                         <left>182</left>

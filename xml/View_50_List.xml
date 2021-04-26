@@ -1,44 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
-    <include name="AddonListLayout">
+    <include name="SongListLayout">
         <control type="group">
             <animation type="Focus" reversible="false">
                 <effect type="zoom" end="102,112" time="50" tween="sine" center="auto" />
                 <effect type="zoom" end="98.04,89.3" time="150" tween="sine" delay="100" center="auto" />
             </animation>
             <control type="image">
+                <visible>!$PARAM[Focused] | [!Control.HasFocus(50) + $PARAM[Focused]]</visible>
+                <left>0</left>
+                <top>0</top>
+                <width>1656</width>
+                <height>120</height>
+                <texture border="32" colordiffuse="MenuItemBackground">masks/Button128x128b16r16-5x06.png</texture>
+            </control>
+            <control type="image">
                 <visible>$PARAM[Focused] + Control.HasFocus(50)</visible>
                 <left>0</left>
                 <top>0</top>
                 <width>1656</width>
                 <height>120</height>
-                <texture border="60" colordiffuse="TextBright">masks/Mask120x120r60.png</texture>
+                <texture border="32" colordiffuse="Primary">masks/Button128x128b16r16-5x06.png</texture>
+            </control>
+            <control type="image">
+                <visible>String.IsEqual(MusicPlayer.Title,ListItem.Title) + String.IsEqual(MusicPlayer.Album,ListItem.Album)</visible>
+                <left>32</left>
+                <top>32</top>
+                <width>56</width>
+                <height>56</height>
+                <texture>general/EQ.gif</texture>
             </control>
             <control type="group">
                 <visible>$PARAM[Focused]</visible>
                 <control type="label">
+                    <visible>!String.IsEqual(MusicPlayer.Title,ListItem.Title) | !String.IsEqual(MusicPlayer.Album,ListItem.Album)</visible>
                     <top>0</top>
-                    <left>64</left>
-                    <right>64</right>
+                    <left>32</left>
+                    <width>84</width>
+                    <height>120</height>>
+                    <font>ItemLabel</font>
+                    <aligny>center</aligny>
+                    <align>center</align>
+                    <textcolor>TextDark</textcolor>
+                    <label>$VAR[TrackNumberVar].</label>
+                </control>
+                <control type="label">
+                    <top>0</top>
+                    <left>126</left>
+                    <right>240</right>
                     <height>120</height>>
                     <font>ItemLabelSecondary</font>
                     <aligny>center</aligny>
                     <textcolor>TextDark</textcolor>
                     <label>$VAR[ListMainLabelVar]</label>
                 </control>
+                <control type="label">
+                    <top>0</top>
+                    <left>116</left>
+                    <right>64</right>
+                    <height>120</height>>
+                    <font>ItemLabelSecondary</font>
+                    <aligny>center</aligny>
+                    <align>right</align>
+                    <textcolor>TextDark</textcolor>
+                    <label>$VAR[TrackDurationMinutesVar]:$INFO[ListItem.Duration(ss)]</label>
+                </control>
             </control>
             <control type="group">
                 <visible>!$PARAM[Focused] | [!Control.HasFocus(50) + $PARAM[Focused]]</visible>
                 <control type="label">
+                    <visible>!String.IsEqual(MusicPlayer.Title,ListItem.Title) | !String.IsEqual(MusicPlayer.Album,ListItem.Album)</visible>
                     <top>0</top>
-                    <left>64</left>
-                    <right>64</right>
-                    <height>120</height>
+                    <left>32</left>
+                    <width>84</width>
+                    <height>120</height>>
+                    <font>ItemLabel</font>
+                    <aligny>center</aligny>
+                    <align>center</align>
+                    <textcolor>TextBright</textcolor>
+                    <label>$VAR[TrackNumberVar].</label>
+                </control>
+                <control type="label">
+                    <top>0</top>
+                    <left>126</left>
+                    <right>240</right>
+                    <height>120</height>>
                     <font>ItemLabelSecondary</font>
                     <aligny>center</aligny>
                     <textcolor>TextBright</textcolor>
                     <label>$VAR[ListMainLabelVar]</label>
+                </control>
+                <control type="label">
+                    <top>0</top>
+                    <left>116</left>
+                    <right>64</right>
+                    <height>120</height>>
+                    <font>ItemLabelSecondary</font>
+                    <aligny>center</aligny>
+                    <align>right</align>
+                    <textcolor>TextBright</textcolor>
+                    <label>$VAR[TrackDurationMinutesVar]:$INFO[ListItem.Duration(ss)]</label>
                 </control>
             </control>
         </control>
@@ -47,108 +109,136 @@
 
     <include name="View_50_List">
         <control type="group">
-            <visible>Control.IsVisible(50)</visible>
-
-            <control type="list" id="50">
-                <visible>$EXP[Exp_View_50]</visible>
-                <top>324</top>
-                <left>328</left>
-                <width>1656</width>
-                <bottom>120</bottom>
-                <onleft>noop</onleft>
-                <onright>61</onright>
-                <onup>510</onup>
-                <ondown>510</ondown>
-                <viewtype label="$LOCALIZE[32000]">icon</viewtype>
-                <pagecontrol>61</pagecontrol>
-                <preloaditems>2</preloaditems>
-
-                <itemlayout height="120" width="1656">
-                    <include content="AddonListLayout">
-                        <param name="Focused" value="false" />
-                        <param name="ItemColor" value="TextBright" />
-                    </include>
-                </itemlayout>
-                <focusedlayout height="120" width="1656">
-                    <include content="AddonListLayout">
-                        <param name="Focused" value="true" />
-                        <param name="ItemColor" value="TextDark" />
-                    </include>
-                </focusedlayout>
-            </control>
-
             <control type="group">
-                <control type="label">
-                    <top>134</top>
-                    <left>408</left>
-                    <right>66</right>>
-                    <height>100</height>
-                    <textcolor>TextBright</textcolor>
-                    <align>left</align>
-                    <font>SettingsHeader</font>
-                    <label>$INFO[Container.FolderName]</label>
-                </control>
 
-                <control type="label">
-                    <top>234</top>
-                    <left>408</left>
-                    <right>66</right>>
-                    <height>100</height>
-                    <textcolor>TextBright</textcolor>
-                    <align>left</align>
-                    <font>SettingsHeader</font>
-                    <label>$INFO[Container.Property(addoncategory)]</label>
+                <control type="list" id="50">
+                    <visible>!$EXP[isPrimaryMedia]</visible>
+                    <top>324</top>
+                    <left>328</left>
+                    <width>1656</width>
+                    <bottom>0</bottom>
+                    <onleft>61</onleft>
+                    <onright>61</onright>
+                    <onup>50</onup>
+                    <ondown>50</ondown>
+                    <viewtype label="535">list</viewtype>
+                    <pagecontrol>60</pagecontrol>
+                    <preloaditems>2</preloaditems>
+
+                    <itemlayout height="116" width="1656">
+                        <include content="SongListLayout">
+                            <param name="Focused" value="false" />
+                            <param name="ItemColor" value="TextBright" />
+                        </include>
+                    </itemlayout>
+                    <focusedlayout height="116" width="1656">
+                        <include content="SongListLayout">
+                            <param name="Focused" value="true" />
+                            <param name="ItemColor" value="TextDark" />
+                        </include>
+                    </focusedlayout>
+
                 </control>
 
                 <control type="group">
-                    <top>0</top>
-                    <left>2100</left>
-                    <width>1634</width>
-                    <bottom>0</bottom>
-
-                    <control type="image" id="110000">
-                        <left>-1000</left>
-                        <top>-1000</top>
-                        <width>10</width>
-                        <height>10</height>
-                        <texture background="true">$INFO[ListItem.thumb]</texture>
-                    </control>
-
-                    <control type="image">
-                        <visible>String.IsEmpty(Listitem.plot)</visible>
-                        <top>430</top>
-                        <left>166</left>
-                        <height>1300</height>
-                        <width>1400</width>
-                        <aspectratio align="center" aligny="center" scalediffuse="true">keep</aspectratio>
-                        <texture background="true" diffuse="masks/LargeAlbumMask.png">$INFO[ListItem.thumb]</texture>
-                        <fadetime>300</fadetime>
-                    </control>
-                    <control type="image">
-                        <visible>!String.IsEmpty(Listitem.plot)</visible>
-                        <top>430</top>
-                        <left>166</left>
-                        <height>1000</height>
-                        <width>1400</width>
-                        <aspectratio align="center" aligny="center" scalediffuse="true">keep</aspectratio>
-                        <texture background="true" diffuse="masks/LargeAlbumMask.png">$INFO[ListItem.thumb]</texture>
-                        <fadetime>300</fadetime>
-                    </control>
-
-                    <control type="textbox">
-                        <left>120</left>
-                        <right>0</right>
-                        <top>1580</top>
-                        <bottom>120</bottom>
-                        <font>ItemLabelSecondary</font>
+                    <visible>Container.Content(songs)</visible>
+                    <control type="label">
+                        <top>72</top>
+                        <left>344</left>
+                        <right>66</right>>
+                        <height>100</height>
                         <textcolor>TextBright</textcolor>
+                        <align>left</align>
+                        <font>SettingsHeader</font>
+                        <label>$INFO[ListItem.Album]</label>
+                    </control>
+                    <control type="label">
+                        <top>170</top>
+                        <left>344</left>
+                        <right>66</right>
+                        <height>100</height>
+                        <textcolor>TextDim</textcolor>
+                        <align>left</align>
+                        <font>WidgetLabel</font>
+                        <label>$INFO[ListItem.AlbumArtist]$INFO[ListItem.Genre,  •  ,]$INFO[ListItem.Year,  •  ,]</label>
+                    </control>
+                </control>
 
-                        <label>$INFO[ListItem.plot]</label>
+            </control>
+
+
+            <control type="group">
+                <visible>Control.IsVisible(50)</visible>
+                <top>0</top>
+                <left>2090</left>
+                <width>1634</width>
+                <bottom>0</bottom>
+
+
+
+                <control type="image">
+                    <top>382</top>
+                    <left>118</left>
+                    <height>1396</height>
+                    <width>1396</width>
+                    <aspectratio align="center" aligny="center" scalediffuse="true">keep</aspectratio>
+                    <texture background="true" border="100">masks/Shadow256x256r24.png</texture>
+                    <fadetime>300</fadetime>
+                </control>
+
+                <control type="image">
+                    <top>430</top>
+                    <left>166</left>
+                    <height>1300</height>
+                    <width>1300</width>
+                    <aspectratio align="center" aligny="center" scalediffuse="true">keep</aspectratio>
+                    <texture background="true" diffuse="masks/LargeAlbumMask.png">$INFO[Container.ListItemAbsolute(0).thumb]</texture>
+                    <fadetime>300</fadetime>
+                </control>
+
+                <control type="group">
+                    <visible>String.IsEqual(MusicPlayer.Album,ListItem.Album)</visible>
+
+                    <control type="group">
+                        <include>SongListPlayHead</include>
+                        <control type="label">
+                            <left>104</left>
+                            <top>1842</top>
+                            <width>120</width>
+                            <height>32</height>
+                            <textcolor>TextBright</textcolor>
+                            <font>ItemLabelSecondary</font>
+                            <align>center</align>
+                            <label>'</label>
+                        </control>
+                        <control type="label">
+                            <left>104</left>
+                            <top>1870</top>
+                            <width>120</width>
+                            <height>32</height>
+                            <textcolor>TextBright</textcolor>
+                            <font>ItemLabelSecondary</font>
+                            <align>center</align>
+                            <label>$INFO[Player.Time(m)]:$INFO[Player.Time(ss)]</label>
+                        </control>
+                    </control>
+
+                    <control type="progress">
+                        <left>142</left>
+                        <top>1800</top>
+                        <width>1348</width>
+                        <height>48</height>
+                        <reveal>false</reveal>
+                        <texturebg colordiffuse="40ffffff">progress/ProgressBarBackground1348SongPlayback.png</texturebg>
+                        <lefttexture colordiffuse="Primary">progress/ProgressBarLeft.png</lefttexture>
+                        <midtexture colordiffuse="Primary" border="2,0,2,0">progress/ProgressBarMid.png</midtexture>
+                        <righttexture colordiffuse="Primary">progress/ProgressBarRight.png</righttexture>
+                        <info>Player.Progress</info>
                     </control>
 
                 </control>
-            </control>
 
+            </control>
         </control>
 
     </include>

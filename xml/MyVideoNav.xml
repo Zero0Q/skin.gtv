@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-    <onload condition="Container.Content(genres) | Container.Content(studios) | Container.Content(years) | Container.Content(countries)">SetFocus(531)</onload>
 
     <defaultcontrol always="true">500</defaultcontrol>
-    <views>50,500,501,502,503,510,520,530</views>
+    <views>50,500,501,502,510</views>
 
     <controls>
         <control type="group">
@@ -30,10 +29,9 @@
 
                     <include>View_50_List</include>
                     <include>View_500_LandscapeFlow</include>
-                    <include>View_501_PosterFlow</include>
-                    <include>View_502_PosterGrid</include>
-                    <include>View_503_LandscapeGrid</include>
-                    <include>View_530_Category</include>
+                    <include>View_501_Poster</include>
+                    <include>View_502_Grid</include>
+                    <include>View_510_AddonList</include>
                 </control>
 
                 <!-- Include menus -->

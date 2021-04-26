@@ -6,6 +6,7 @@
         <font>InfoLine</font>
         <textcolor>TextBright</textcolor>
         <selectedcolor>TextBright</selectedcolor>
+        <scroll>true</scroll>
         <scrollspeed>80</scrollspeed>
         <scrollsuffix>  •  </scrollsuffix>
     </default>

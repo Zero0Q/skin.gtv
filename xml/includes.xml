@@ -12,27 +12,32 @@
     <include file="Includes_WidgetLandscape.xml" />
     <include file="Includes_WidgetWide.xml" />
     <include file="Includes_WidgetCircularCast.xml" />
-    <include file="Includes_WidgetSquare.xml" />
+    <include file="Includes_WidgetSquareMusic.xml" />
+    <include file="Includes_WidgetSquareApps.xml" />
+    <include file="Includes_WidgetMusicCategorys.xml" />
     <include file="Includes_WidgetPoster.xml" />
+    <include file="Includes_WidgetShowcase.xml" />
 
+    <include file="Includes_ForYouHubWidgets.xml" />
+    <include file="Includes_MoviesHubWidgets.xml" />
+    <include file="Includes_ShowsHubWidgets.xml" />
+    <include file="Includes_MusicHubWidgets.xml" />
+    <include file="Includes_AppsHubWidgets.xml" />
     <include file="Includes_SettingsHub.xml" />
 
     <include file="Includes_ViewLayouts.xml" />
 
+    <include file="Includes_Buttons_Menus.xml" />
+
     <include file="View_50_List.xml" />
     <include file="View_500_LandscapeFlow.xml" />
-    <include file="View_501_PosterFlow.xml" />
-    <include file="View_502_PosterGrid.xml" />
-    <include file="View_503_LandscapeGrid.xml" />
-    <include file="View_520_SquareGrid.xml" />
-    <include file="View_530_Category.xml" />
+    <include file="View_501_Poster.xml" />
+    <include file="View_502_Grid.xml" />
+    <include file="View_510_AddonList.xml" />
+    <include file="View_520_MusicWall.xml" />
 
     <include file="script-skinshortcuts-settings.xml" />
     <include file="script-skinshortcuts-includes.xml" />
-
-    <include file="script-skinviewtypes-includes.xml" />
-
-    <include file="Includes_CustomSelectContent.xml" />
 
     <include file="variables.xml" />
 
@@ -64,6 +69,20 @@
     <expression name="personIsDead">!String.IsEmpty(Container(10051).ListItem.Property(deathyear))</expression>
     <expression name="personIsBorn">!String.IsEmpty(Container(10051).ListItem.Property(birthyear))</expression>
 
+    <expression name="widget1Enabled">!String.IsEmpty(Container(211).ListItem.Property(widgetPath))</expression>
+    <expression name="widget2Enabled">!String.IsEmpty(Container(211).ListItem.Property(widgetPath.2))</expression>
+    <expression name="widget3Enabled">!String.IsEmpty(Container(211).ListItem.Property(widgetPath.3))</expression>
+    <expression name="widget4Enabled">!String.IsEmpty(Container(211).ListItem.Property(widgetPath.4))</expression>
+    <expression name="widget5Enabled">!String.IsEmpty(Container(211).ListItem.Property(widgetPath.5))</expression>
+    <expression name="widget6Enabled">!String.IsEmpty(Container(211).ListItem.Property(widgetPath.6))</expression>
+
+    <expression name="widget1Disabled">String.IsEmpty(Container(211).ListItem.Property(widgetPath))</expression>
+    <expression name="widget2Disabled">String.IsEmpty(Container(211).ListItem.Property(widgetPath.2))</expression>
+    <expression name="widget3Disabled">String.IsEmpty(Container(211).ListItem.Property(widgetPath.3))</expression>
+    <expression name="widget4Disabled">String.IsEmpty(Container(211).ListItem.Property(widgetPath.4))</expression>
+    <expression name="widget5Disabled">String.IsEmpty(Container(211).ListItem.Property(widgetPath.5))</expression>
+    <expression name="widget6Disabled">String.IsEmpty(Container(211).ListItem.Property(widgetPath.6))</expression>
+    
     <!-- Fullscreen dimensions -->
     <include name="FullscreenDimensions">
         <top>0</top>
@@ -75,7 +94,7 @@
     <!-- Bottom aligned plot textbox -->
     <include name="BottomAlignedPlot">
         <control type="group">
-            <visible>Container.Content(episodes)</visible>
+            <visible>Container.Content(episodes) | [Container.Content(tvshows) | Container.Content(movies)]</visible>
             <control type="textbox" id="2010">
                 <left>220</left>
                 <width>1400</width>
@@ -88,6 +107,14 @@
                 <shadowcolor>ff000000</shadowcolor>
                 <label>$VAR[PlotVar]</label>
                 <visible>!Container(2010).HasNext</visible>
+            </control>
+            <control type="image">
+                <left>220</left>
+                <top>50</top>
+                <width>1000</width>
+                <height>388</height>
+                <align>left</align>
+                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
             </control>
             <control type="textbox" id="2011">
                 <left>220</left>
@@ -186,7 +213,7 @@
         </control>
     </include>
 
-    <!-- General buttons and list items -->
+
     <include name="Button120">
         <include>ButtonZoom</include>
         <left>0</left>
@@ -223,7 +250,6 @@
 
     <include name="ListItem120">
         <param name="UseCustomLabel" default="false" />
-        <param name="ItemColor" default="TextBright" />
 
         <definition>
             <control type="image">
