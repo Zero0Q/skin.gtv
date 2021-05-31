@@ -2,45 +2,17 @@
 
 <window>
     <onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;options=noGroups)</onload>
-
+    <onload>RunScript(script.skinvariables,action=buildviews)</onload>
     <defaultcontrol>9000</defaultcontrol>
 
     <controls>
 
-        <control type="image" id="110000">
-            <left>-1000</left>
-            <top>-1000</top>
-            <width>10</width>
-            <height>10</height>
-            <texture background="true">$VAR[LandscapeImageVar]</texture>
-        </control>
+        <include>ColorGrabImage</include>
+        <include>DarkGreyBackground</include>
 
-
-        <control type="image">
-            <!-- <visible>false</visible> -->
-            <left>0</left>
-            <top>0</top>
-            <width>3840</width>
-            <height>2160</height>
-            <fadetime>400</fadetime>
-            <colordiffuse>ff606060</colordiffuse>
-            <!-- <texture background="true">general/screens/showcase.png</texture> -->
-            <!-- <texture background="true">general/screens/showcase_selected.png</texture> -->
-            <!-- <texture background="true">general/screens/wide_us.png</texture> -->
-        </control>
-
-
-        <!-- Include all widget hubs -->
-        <!-- <include>ForYouHubWidgets</include> -->
-        <!-- <include>MoviesHubWidgets</include> -->
-        <!-- <include>ShowsHubWidgets</include> -->
-        <!-- <include>MusicHubWidgets</include> -->
-        <!-- <include>AppsHubWidgets</include> -->
-        <!-- <include>SettingsHub</include> -->
 
         <include>skinshortcuts-template-widgets</include>
 
-        <!-- Include menus -->
         <include>SubMenu</include>
         <include>MainMenu</include>
 
@@ -53,42 +25,5 @@
             <texture background="true" colordiffuse="$VAR[BlurColorBackgroundVar]">masks/bkggrad.png</texture>
         </control>
 
-        <!-- <include content="VerticalDivider">
-            <param name="value" value="190" />
-        </include>
-        <include content="VerticalDivider">
-            <param name="value" value="420" />
-        </include> -->
-        <control type="group">
-            <visible>false</visible>
-            <include content="VerticalDivider">
-                <param name="value" value="400" />
-            </include>
-            <include content="VerticalDivider">
-                <param name="value" value="1160" />
-            </include>
-
-            <include content="HorizontalDivider">
-                <param name="value" value="182" />
-            </include>
-            <include content="HorizontalDivider">
-                <param name="value" value="224" />
-            </include>
-            <include content="HorizontalDivider">
-                <param name="value" value="1048" />
-            </include>
-            <include content="HorizontalDivider">
-                <param name="value" value="1914" />
-            </include>
-            <include content="HorizontalDivider">
-                <param name="value" value="2780" />
-            </include>
-            <include content="HorizontalDivider">
-                <param name="value" value="3604" />
-            </include>
-            <include content="HorizontalDivider">
-                <param name="value" value="3646" />
-            </include>
-        </control>
     </controls>
 </window>

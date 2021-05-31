@@ -7,7 +7,8 @@
         "502": "Poster Grid",
         "503": "Landscape Grid",
         "520": "Square Grid",
-        "530": "Category"
+        "530": "Category",
+        "540": "Episode Flow Horizontal"
     },
     "rules": {
         "addons": {
@@ -33,24 +34,20 @@
         },
         "seasons": {
             "rule": "Container.Content(seasons)",
-            "viewtypes": ["500", "501"],
+            "viewtypes": ["500", "501", "540"], 
             "library": "501"
         },
         "tags": {
             "rule": "Container.Content(tags)",
             "viewtypes": ["50"],
-            "library": "50",
-            "plugins": "50"
+            "library": "50"
         },
         "countries": {
             "rule": "Container.Content(countries)",
-            "viewtypes": ["530"],
-            "library": "530",
-            "plugins": "50"
+            "library": "530"
         },
         "genres": {
             "rule": "Container.Content(genres) + !Window.IsVisible(MyMusicNav.xml)",
-            "viewtypes": ["530"],
             "library": "530"
         },        
         "genres-music": {
@@ -60,21 +57,20 @@
         },
         "studios": {
             "rule": "Container.Content(studios)",
-            "viewtypes": ["530"],
-            "library": "530",
-            "plugins": "50"
+            "library": "530"
         },
         "years": {
             "rule": "Container.Content(years)",
-            "viewtypes": ["530"],
-            "library": "530",
-            "plugins": "50"
+            "library": "530"
+        },
+        "years-music": {
+            "rule": "Container.Content(years) + Window.IsVisible(MyMusicNav.xml)",
+            "viewtypes": ["50", "520"],
+            "library": "520"
         },
         "directors": {
             "rule": "Container.Content(directors)",
-            "viewtypes": ["50"],
-            "library": "50",
-            "plugins": "50"
+            "library": "50"
         },
         "artists": {
             "rule": "Container.Content(artists)",
@@ -121,7 +117,10 @@
         },
         "playlists": {
             "rule": "Container.Content(playlists)",
-            "viewtypes": ["50"],
+            "library": "50"
+        },
+        "none": {
+            "rule" : "Container.Content()",
             "library": "50"
         }
     }

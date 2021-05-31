@@ -12,38 +12,33 @@
     <include file="Includes_WidgetLandscape.xml" />
     <include file="Includes_WidgetWide.xml" />
     <include file="Includes_WidgetCircularCast.xml" />
-    <include file="Includes_WidgetSquareMusic.xml" />
-    <include file="Includes_WidgetSquareApps.xml" />
-    <include file="Includes_WidgetMusicCategorys.xml" />
+    <include file="Includes_WidgetSquare.xml" />
     <include file="Includes_WidgetPoster.xml" />
-    <include file="Includes_WidgetShowcase.xml" />
 
-    <include file="Includes_ForYouHubWidgets.xml" />
-    <include file="Includes_MoviesHubWidgets.xml" />
-    <include file="Includes_ShowsHubWidgets.xml" />
-    <include file="Includes_MusicHubWidgets.xml" />
-    <include file="Includes_AppsHubWidgets.xml" />
     <include file="Includes_SettingsHub.xml" />
 
     <include file="Includes_ViewLayouts.xml" />
 
-    <include file="Includes_Buttons_Menus.xml" />
-
     <include file="View_50_List.xml" />
     <include file="View_500_LandscapeFlow.xml" />
-    <include file="View_501_Poster.xml" />
-    <include file="View_502_Grid.xml" />
-    <include file="View_510_AddonList.xml" />
-    <include file="View_520_MusicWall.xml" />
+    <include file="View_501_PosterFlow.xml" />
+    <include file="View_502_PosterGrid.xml" />
+    <include file="View_503_LandscapeGrid.xml" />
+    <include file="View_520_SquareGrid.xml" />
+    <include file="View_530_Category.xml" />
+    <include file="View_540_EpisodeFlowHorizontal.xml" />
 
     <include file="script-skinshortcuts-settings.xml" />
     <include file="script-skinshortcuts-includes.xml" />
+    <include file="script-skinviewtypes-includes.xml" />
+
+    <include file="Includes_CustomSelectContent.xml" />
+    <include file="Includes_SelectContent.xml" />
 
     <include file="variables.xml" />
 
     <!-- Helper Experssions -->
     <expression name="isPrimaryMedia">Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</expression>
-    <expression name="isSecondaryGroup">Container.Content(genres) | Container.Content(years) | Container.Content(tags) | Container.Content(directors)</expression>
 
     <expression name="isMovie">String.IsEqual(ListItem.DBTYPE,movie)</expression>
     <expression name="isVideo">String.IsEqual(ListItem.DBTYPE,video)</expression>
@@ -59,7 +54,6 @@
 
     <expression name="isInfoDialog">Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)</expression>
 
-    <expression name="subMenuIsEmpty">Integer.IsEqual(Container(9001).NumItems,0)</expression>
     <expression name="subMenuNotEmpty">!Integer.IsEqual(Container(9001).NumItems,0)</expression>
 
     <expression name="personIsActor">String.IsEqual(Container(10051).ListItem.Property(known_for_department),Acting)</expression>
@@ -69,20 +63,6 @@
     <expression name="personIsDead">!String.IsEmpty(Container(10051).ListItem.Property(deathyear))</expression>
     <expression name="personIsBorn">!String.IsEmpty(Container(10051).ListItem.Property(birthyear))</expression>
 
-    <expression name="widget1Enabled">!String.IsEmpty(Container(211).ListItem.Property(widgetPath))</expression>
-    <expression name="widget2Enabled">!String.IsEmpty(Container(211).ListItem.Property(widgetPath.2))</expression>
-    <expression name="widget3Enabled">!String.IsEmpty(Container(211).ListItem.Property(widgetPath.3))</expression>
-    <expression name="widget4Enabled">!String.IsEmpty(Container(211).ListItem.Property(widgetPath.4))</expression>
-    <expression name="widget5Enabled">!String.IsEmpty(Container(211).ListItem.Property(widgetPath.5))</expression>
-    <expression name="widget6Enabled">!String.IsEmpty(Container(211).ListItem.Property(widgetPath.6))</expression>
-
-    <expression name="widget1Disabled">String.IsEmpty(Container(211).ListItem.Property(widgetPath))</expression>
-    <expression name="widget2Disabled">String.IsEmpty(Container(211).ListItem.Property(widgetPath.2))</expression>
-    <expression name="widget3Disabled">String.IsEmpty(Container(211).ListItem.Property(widgetPath.3))</expression>
-    <expression name="widget4Disabled">String.IsEmpty(Container(211).ListItem.Property(widgetPath.4))</expression>
-    <expression name="widget5Disabled">String.IsEmpty(Container(211).ListItem.Property(widgetPath.5))</expression>
-    <expression name="widget6Disabled">String.IsEmpty(Container(211).ListItem.Property(widgetPath.6))</expression>
-    
     <!-- Fullscreen dimensions -->
     <include name="FullscreenDimensions">
         <top>0</top>
@@ -93,69 +73,64 @@
 
     <!-- Bottom aligned plot textbox -->
     <include name="BottomAlignedPlot">
-        <control type="group">
-            <visible>Container.Content(episodes) | [Container.Content(tvshows) | Container.Content(movies)]</visible>
-            <control type="textbox" id="2010">
-                <left>220</left>
-                <width>1400</width>
-                <bottom>1200</bottom>
-                <height>80</height>
-                <align>left</align>
-                <aligny>top</aligny>
-                <font>EpisodePlot</font>
-                <textcolor>TextBright</textcolor>
-                <shadowcolor>ff000000</shadowcolor>
-                <label>$VAR[PlotVar]</label>
-                <visible>!Container(2010).HasNext</visible>
+        <param name="id" default="2" />
+        <definition>
+            <control type="group">
+                <visible>Container.Content(episodes) | [Container.Content(seasons) + Control.IsVisible(540)]</visible>
+                <control type="textbox" id="20$PARAM[id]0">
+                    <left>220</left>
+                    <width>1400</width>
+                    <bottom>1200</bottom>
+                    <height>80</height>
+                    <align>left</align>
+                    <aligny>top</aligny>
+                    <font>EpisodePlot</font>
+                    <textcolor>TextBright</textcolor>
+                    <shadowcolor>ff000000</shadowcolor>
+                    <label>$VAR[PlotVar]</label>
+                    <visible>!Container(20$PARAM[id]0).HasNext</visible>
+                </control>
+                <control type="textbox" id="20$PARAM[id]1">
+                    <left>220</left>
+                    <width>1400</width>
+                    <bottom>1200</bottom>
+                    <height>154</height>
+                    <align>left</align>
+                    <aligny>top</aligny>
+                    <font>EpisodePlot</font>
+                    <textcolor>TextBright</textcolor>
+                    <shadowcolor>ff000000</shadowcolor>
+                    <label>$VAR[PlotVar]</label>
+                    <visible>Container(20$PARAM[id]0).HasNext + !Container(20$PARAM[id]1).HasNext</visible>
+                </control>
+                <control type="textbox" id="20$PARAM[id]2">
+                    <left>220</left>
+                    <width>1400</width>
+                    <bottom>1200</bottom>
+                    <height>228</height>
+                    <align>left</align>
+                    <aligny>top</aligny>
+                    <font>EpisodePlot</font>
+                    <textcolor>TextBright</textcolor>
+                    <shadowcolor>ff000000</shadowcolor>
+                    <label>$VAR[PlotVar]</label>
+                    <visible>Container(20$PARAM[id]1).HasNext + !Container(20$PARAM[id]2).HasNext</visible>
+                </control>
+                <control type="textbox" id="20$PARAM[id]3">
+                    <left>220</left>
+                    <width>1400</width>
+                    <bottom>1200</bottom>
+                    <height>298</height>
+                    <align>left</align>
+                    <aligny>top</aligny>
+                    <font>EpisodePlot</font>
+                    <textcolor>TextBright</textcolor>
+                    <shadowcolor>ff000000</shadowcolor>
+                    <label>$VAR[PlotVar]</label>
+                    <visible>Container(20$PARAM[id]2).HasNext</visible>
+                </control>
             </control>
-            <control type="image">
-                <left>220</left>
-                <top>50</top>
-                <width>1000</width>
-                <height>388</height>
-                <align>left</align>
-                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-            </control>
-            <control type="textbox" id="2011">
-                <left>220</left>
-                <width>1400</width>
-                <bottom>1200</bottom>
-                <height>154</height>
-                <align>left</align>
-                <aligny>top</aligny>
-                <font>EpisodePlot</font>
-                <textcolor>TextBright</textcolor>
-                <shadowcolor>ff000000</shadowcolor>
-                <label>$VAR[PlotVar]</label>
-                <visible>Container(2010).HasNext + !Container(2011).HasNext</visible>
-            </control>
-            <control type="textbox" id="2012">
-                <left>220</left>
-                <width>1400</width>
-                <bottom>1200</bottom>
-                <height>228</height>
-                <align>left</align>
-                <aligny>top</aligny>
-                <font>EpisodePlot</font>
-                <textcolor>TextBright</textcolor>
-                <shadowcolor>ff000000</shadowcolor>
-                <label>$VAR[PlotVar]</label>
-                <visible>Container(2011).HasNext + !Container(2012).HasNext</visible>
-            </control>
-            <control type="textbox" id="2013">
-                <left>220</left>
-                <width>1400</width>
-                <bottom>1200</bottom>
-                <height>298</height>
-                <align>left</align>
-                <aligny>top</aligny>
-                <font>EpisodePlot</font>
-                <textcolor>TextBright</textcolor>
-                <shadowcolor>ff000000</shadowcolor>
-                <label>$VAR[PlotVar]</label>
-                <visible>Container(2012).HasNext</visible>
-            </control>
-        </control>
+        </definition>
     </include>
 
     <!-- PlayerProcessInfo Label Helper -->
@@ -169,7 +144,7 @@
                 <height>28</height>
                 <align>right</align>
                 <aligny>center</aligny>
-                <font>MontserrNotificationTextat20</font>
+                <font>NotificationText</font>
                 <textcolor>TextDim</textcolor>
                 <label>$PARAM[label]</label>
             </control>
@@ -213,7 +188,7 @@
         </control>
     </include>
 
-
+    <!-- General buttons and list items -->
     <include name="Button120">
         <include>ButtonZoom</include>
         <left>0</left>
@@ -250,6 +225,8 @@
 
     <include name="ListItem120">
         <param name="UseCustomLabel" default="false" />
+        <param name="ItemColor" default="TextBright" />
+        <param name="Align" default="left" />
 
         <definition>
             <control type="image">
@@ -269,7 +246,7 @@
                     <textcolor>$PARAM[ItemTextColor]</textcolor>
                     <selectedcolor>PrimaryDark</selectedcolor>
                     <font>ListItemText</font>
-                    <align>left</align>
+                    <align>$PARAM[Align]</align>
                     <label>$PARAM[CustomLabel]</label>
                 </control>
             </control>
@@ -283,7 +260,7 @@
                     <textcolor>$PARAM[ItemTextColor]</textcolor>
                     <selectedcolor>PrimaryDark</selectedcolor>
                     <font>ListItemText</font>
-                    <align>left</align>
+                    <align>$PARAM[Align]</align>
                     <label>$INFO[ListItem.Label]</label>
                 </control>
                 <control type="label">
@@ -295,7 +272,7 @@
                     <textcolor>$PARAM[ItemTextColor]</textcolor>
                     <selectedcolor>PrimaryDark</selectedcolor>
                     <font>ListItemText2Line</font>
-                    <align>left</align>
+                    <align>$PARAM[Align]</align>
                     <aligny>center</aligny>
                     <label>$INFO[ListItem.Label]</label>
                 </control>
@@ -308,7 +285,7 @@
                     <textcolor>$PARAM[ItemSecondaryTextColor]</textcolor>
                     <selectedcolor>PrimaryDark</selectedcolor>
                     <font>ListItemText2Line</font>
-                    <align>left</align>
+                    <align>$PARAM[Align]</align>
                     <aligny>center</aligny>
                     <label>$INFO[ListItem.Label2]</label>
                 </control>

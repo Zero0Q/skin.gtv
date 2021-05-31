@@ -12,6 +12,23 @@
         <animation effect="slide" start="0,0" end="0,0" time="0" condition="Integer.IsEqual(Container(9001).NumItems,8)">Conditional</animation>
     </include>
 
+    <include name="SeasonCenterHorizontal">
+        <animation effect="slide" start="0,0" end="1646,0" time="0" condition="Integer.IsLess(Container(540).NumItems,2)">Conditional</animation>
+        <animation effect="slide" start="0,0" end="1372,0" time="0" condition="Integer.IsEqual(Container(540).NumItems,2)">Conditional</animation>
+        <animation effect="slide" start="0,0" end="1098,0" time="0" condition="Integer.IsEqual(Container(540).NumItems,3)">Conditional</animation>
+        <animation effect="slide" start="0,0" end="824,0" time="0" condition="Integer.IsEqual(Container(540).NumItems,4)">Conditional</animation>
+        <animation effect="slide" start="0,0" end="550,0" time="0" condition="Integer.IsEqual(Container(540).NumItems,5)">Conditional</animation>
+        <animation effect="slide" start="0,0" end="276,0" time="0" condition="Integer.IsEqual(Container(540).NumItems,6)">Conditional</animation>
+        <animation effect="slide" start="0,0" end="0,0" time="0" condition="Integer.IsEqual(Container(540).NumItems,7)">Conditional</animation>
+    </include>
+
+    <include name="ViewSelectCenter">
+        <animation effect="slide" start="0,0" end="0,180" time="0" condition="Integer.IsLess(Container(3).NumItems,2)">Conditional</animation>
+        <animation effect="slide" start="0,0" end="0,120" time="0" condition="Integer.IsEqual(Container(3).NumItems,2)">Conditional</animation>
+        <animation effect="slide" start="0,0" end="0,60" time="0" condition="Integer.IsEqual(Container(3).NumItems,3)">Conditional</animation>
+        <animation effect="slide" start="0,0" end="0,0" time="0" condition="Integer.IsEqual(Container(3).NumItems,4)">Conditional</animation>
+    </include>
+
     <include name="MenuChangeAnimation">
         <animation type="Conditional" reversible="false" tween="cubic" easing="out" condition="!Container(9000).OnNext">
             <effect type="slide" start="400,0" end="0,0" time="300" delay="0" />

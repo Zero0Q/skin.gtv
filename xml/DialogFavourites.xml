@@ -4,22 +4,8 @@
     <controls>
         <control type="group">
 
-            <control type="image" id="110000">
-                <visible>!Container.Content(addons) + !String.Contains(Container.FolderPath,plugin://)</visible>
-                <left>-1000</left>
-                <top>-1000</top>
-                <width>10</width>
-                <height>10</height>
-                <texture background="true">$VAR[LandscapeImageVar]</texture>
-            </control>
-
-            <control type="image">
-                <top>0</top>
-                <left>0</left>
-                <width>3840</width>
-                <height>2160</height>
-                <texture background="true">general/Black.png</texture>
-            </control>
+            <include>ColorGrabImage</include>
+            <include>DarkGreyBackground</include>
 
             <control type="panel" id="450">
                 <top>0</top>
@@ -77,14 +63,8 @@
 
             </control>
 
-            <control type="image">
-                <left>0</left>
-                <top>0</top>
-                <width>3840</width>
-                <height>2160</height>
-                <fadetime>400</fadetime>
-                <texture background="true" colordiffuse="$VAR[BlurColorBackgroundVar]">masks/bkggrad.png</texture>
-            </control>
+            <include>CornerMaskImage</include>
+
         </control>
     </controls>
 </window>

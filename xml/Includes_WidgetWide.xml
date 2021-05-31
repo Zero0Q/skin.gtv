@@ -7,13 +7,12 @@
         <param name="Content2" default="" />
         <param name="GroupHeight" default="700" />
         <param name="CustomOnClick" default="false" />
-        <param name="FadeIfUnfocused" default="true" />
         <param name="ShowLabels" default="true" />
 
         <definition>
             <!-- Loading Image Background -->
             <control type="group">
-                <visible>Container($PARAM[ListID]).IsUpdating</visible>
+                <visible>Container($PARAM[ListID]).IsUpdating + Integer.IsEqual($PARAM[ListID],0)</visible>
                 <left>224</left>
                 <top>0</top>
                 <width>1648</width>
@@ -21,14 +20,6 @@
                 <control type="image">
                     <texture background="true" diffuse="masks/Mask1648x760r16.png" colordiffuse="ff202020">general/White.png</texture>
                 </control>
-            </control>
-            <!-- Loading Image Foreground -->
-            <control type="group">
-                <visible>Container($PARAM[ListID]).IsUpdating</visible>
-                <left>224</left>
-                <top>0</top>
-                <width>1648</width>
-                <height>760</height>
                 <control type="image">
                     <centerleft>50%</centerleft>
                     <centertop>50%</centertop>
@@ -44,9 +35,6 @@
                 <right>0</right>
                 <top>0</top>
                 <height>$PARAM[GroupHeight]</height>
-
-                <animation effect="Fade" start="100" end="75" time="100" condition="!Control.HasFocus($PARAM[ListID]) + $PARAM[FadeIfUnfocused]">Conditional</animation>
-                <animation effect="Fade" start="75" end="100" time="100" condition="Control.HasFocus($PARAM[ListID]) + $PARAM[FadeIfUnfocused]">Conditional</animation>
 
                 <control type="label" id="13345">
                     <visible>false</visible>

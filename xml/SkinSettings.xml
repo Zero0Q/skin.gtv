@@ -4,11 +4,75 @@
 
     <defaultcontrol>7000</defaultcontrol>
     <controls>
-        <control type="button" id="7000">
-            <width>1000</width>
-            <include>Button120</include>
-            <label>Setup Home Menus</label>
-            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
+        <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>3840</width>
+            <height>2160</height>
+            <fadetime>400</fadetime>
+            <texture background="true" colordiffuse="$VAR[BlurColorBackgroundVar]">masks/bkggrad.png</texture>
+        </control>
+
+        <control type="grouplist" id="7000">
+            <top>0</top>
+            <left>920</left>
+            <width>3840</width>
+            <height>2160</height>
+            <align>center</align>
+
+
+            <control type="button" id="7001">
+                <description>Setup home menus</description>
+                <width>2000</width>
+                <align>left</align>
+                <include>Button120</include>
+                <label>$LOCALIZE[31533]</label>
+                <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
+            </control>
+
+            <control type="button" id="7002">
+                <description>Library fanart bottom brightness</description>
+                <width>2000</width>
+                <align>left</align>
+                <include>Button120</include>
+                <label>$LOCALIZE[31534]</label>
+                <label2>$VAR[GTV.LibraryBrightness.LabelVar]</label2>
+                <onclick>SetProperty(CustomSelectContent,LibraryBrightness,home)</onclick>
+                <onclick>ActivateWindow(1101)</onclick>
+            </control>
+
+            <control type="button" id="7003">
+                <description>Unfocused widget brightness</description>
+                <width>2000</width>
+                <align>left</align>
+                <include>Button120</include>
+                <label>$LOCALIZE[31535]</label>
+                <label2>$VAR[GTV.UnfocusedWidgetBrightness.LabelVar]</label2>
+                <onclick>SetProperty(CustomSelectContent,UnfocusedWidgetBrightness,home)</onclick>
+                <onclick>ActivateWindow(1101)</onclick>
+            </control>
+
+            <control type="button" id="7004">
+                <description>Background corner brightness</description>
+                <width>2000</width>
+                <align>left</align>
+                <include>Button120</include>
+                <label>$LOCALIZE[31536]</label>
+                <label2>$VAR[GTV.BackgroundCornerBrightness.LabelVar]</label2>
+                <onclick>SetProperty(CustomSelectContent,BackgroundCornerBrightness,home)</onclick>
+                <onclick>ActivateWindow(1101)</onclick>
+            </control>
+
+            <control type="button" id="7005">
+                <description>Widget color glow brightness</description>
+                <width>2000</width>
+                <align>left</align>
+                <include>Button120</include>
+                <label>$LOCALIZE[31537]</label>
+                <label2>$VAR[GTV.WidgetColorGlowBrightness.LabelVar]</label2>
+                <onclick>SetProperty(CustomSelectContent,WidgetColorGlowBrightness,home)</onclick>
+                <onclick>ActivateWindow(1101)</onclick>
+            </control>
         </control>
     </controls>
 </window>

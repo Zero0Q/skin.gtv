@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-    <defaultcontrol always="true">520</defaultcontrol>
+    <defaultcontrol always="true">50</defaultcontrol>
     <views>50,520</views>
 
     <controls>
@@ -8,30 +8,8 @@
             <top>0</top>
             <left>0</left>
 
-            <!-- Fake image for color grab -->
-            <control type="image" id="110000">
-                <left>-1000</left>
-                <top>-1000</top>
-                <width>10</width>
-                <height>10</height>
-                <texture background="true">$VAR[LandscapeImageVar]</texture>
-            </control>
-
-            <control type="image">
-                <left>0</left>
-                <top>0</top>
-                <width>3840</width>
-                <height>2160</height>
-                <texture background="true">general/Black.png</texture>
-            </control>
-            <control type="image">
-                <left>0</left>
-                <top>0</top>
-                <width>3840</width>
-                <height>2160</height>
-                <fadetime>400</fadetime>
-                <texture background="true" colordiffuse="$VAR[BlurColorBackgroundVar]">masks/bkggrad.png</texture>
-            </control>
+            <include>ColorGrabImage</include>
+            <include>DarkGreyBackground</include>
 
             <control type="group">
                 <animation effect="slide" start="0,0" end="776,0" time="200" condition="ControlGroup(9054).HasFocus(0)">Conditional</animation>
@@ -42,10 +20,15 @@
                     <animation effect="fade" start="0" end="100" time="200">WindowOpen</animation>
                     <animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
                     <include>View_50_List</include>
-                    <include>View_520_MusicWall</include>
+                    <include>View_520_SquareGrid</include>
                 </control>
 
             </control>
+
+            <!-- Include menus -->
+            <include>LibraryMenu</include>
+
+            <include>CornerMaskImage</include>
 
         </control>
     </controls>

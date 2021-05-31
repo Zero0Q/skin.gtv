@@ -246,6 +246,27 @@
             <node label="32075">
                 <content>musicsources</content>
             </node>
+        </node> 
+        <!-- Add-ons -->
+        <node label="32007">
+            <node label="32010">
+                <content>addon-video</content>
+            </node>
+            <node label="32011">
+                <content>addon-audio</content>
+            </node>
+            <node label="32012">
+                <content>addon-image</content>
+            </node>
+            <node label="32009">
+                <content>addon-program</content>
+            </node>
+            <shortcut label="$LOCALIZE[1043]" widget="addon" icon="DefaultAddonProgram.png" widgetType="addons" widgetTarget="programs">addons://sources/executable/</shortcut>
+            <shortcut label="$LOCALIZE[20244]" widget="addon" icon="DefaultAddonProgram.png" widgetType="addons" widgetTarget="programs" condition="System.Platform.Android">androidapp://sources/apps/</shortcut>
+            <shortcut label="$LOCALIZE[1037]" widget="addon" icon="DefaultAddonVideo.png" widgetType="addons" widgetTarget="video">addons://sources/video/</shortcut>
+            <shortcut label="$LOCALIZE[1038]" widget="addon" icon="DefaultAddonMusic.png" widgetType="addons" widgetTarget="music">addons://sources/audio/</shortcut>
+            <shortcut label="$LOCALIZE[1039]" widget="addon" icon="DefaultAddonPicture.png" widgetType="addons" widgetTarget="pictures">addons://sources/image/</shortcut>
+            <shortcut label="$LOCALIZE[35049]" widget="addon" icon="DefaultAddonGame.png" widgetType="addons" widgetTarget="games">addons://sources/game</shortcut>
         </node>
     </widget-groupings>
 

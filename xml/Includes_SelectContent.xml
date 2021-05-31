@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+    <include name="ViewSelector">
+        <control type="group">
+            <control type="image">
+                <top>0</top>
+                <bottom>0</bottom>
+                <left>0</left>
+                <right>0</right>
+                <texture background="true" colordiffuse="ScreenFadeLight">general/Black.png</texture>
+            </control>
+
+            <control type="group">
+                <top>808</top>
+                <left>1438</left>
+                <width>964</width>
+                <height>544</height>
+
+                <animation type="WindowOpen" reversible="false">
+                    <effect type="fade" end="100" time="240" />
+                </animation>
+                <animation type="WindowClose" reversible="false">
+                    <effect type="fade" start="100" end="0" time="240" />
+                </animation>
+
+                <control type="image">
+                    <width>100%</width>
+                    <height>100%</height>
+                    <texture border="16" colordiffuse="DialogBackground">masks/Mask440x440r16.png</texture>
+                </control>
+
+                <control type="panel" id="3">
+                    <include>ViewSelectCenter</include>
+                    <left>32</left>
+                    <top>32</top>
+                    <right>32</right>
+                    <bottom>32</bottom>
+                    <onup>3</onup>
+                    <ondown>3</ondown>
+                    <onleft>9001</onleft>
+                    <onright>9001</onright>
+                    <itemlayout height="120" width="900">
+                        <include content="ListItem120">
+                            <param name="Focused" value="false" />
+                            <param name="ItemTextColor" value="TextBright" />
+                            <param name="ItemSecondaryTextColor" value="TextDim" />
+                            <param name="Align" value="center" />
+                        </include>
+                    </itemlayout>
+                    <focusedlayout height="120" width="900">
+                        <include content="ListItem120">
+                            <param name="Focused" value="true" />
+                            <param name="ItemTextColor" value="TextDark" />
+                            <param name="ItemSecondaryTextColor" value="TextDark" />
+                            <param name="Align" value="center" />
+                        </include>
+                    </focusedlayout>
+                </control>
+            </control>
+        </control>
+    </include>
+
+    <include name="GeneralSelector">
+        <control type="group">
+            <visible>String.IsEmpty(Window(Home).Property(SkinViewtypes.DialogIsActive))</visible>
+            <control type="image">
+                <top>0</top>
+                <bottom>0</bottom>
+                <left>0</left>
+                <right>0</right>
+                <texture background="true" colordiffuse="ScreenFade">general/Black.png</texture>
+            </control>
+
+            <control type="group">
+                <top>140</top>
+                <left>520</left>
+                <width>2800</width>
+                <height>1880</height>
+
+                <animation type="WindowOpen" reversible="false">
+                    <effect type="fade" end="100" time="240" />
+                </animation>
+                <animation type="WindowClose" reversible="false">
+                    <effect type="fade" start="100" end="0" time="240" />
+                </animation>
+
+                <control type="image">
+                    <width>100%</width>
+                    <height>100%</height>
+                    <texture border="16" colordiffuse="DialogBackground">masks/Mask440x440r16.png</texture>
+                </control>
+
+
+                <control type="Label" id="1">
+                    <top>32</top>
+                    <left>0</left>
+                    <width>100%</width>
+                    <height>32</height>
+                    <textcolor>TextBright</textcolor>
+                    <font>MenuButtonText</font>
+                    <align>center</align>
+                </control>
+
+                <control type="group">
+                    <top>164</top>
+                    <left>64</left>
+                    <height>1456</height>
+                    <right>64</right>
+
+                    <control type="image">
+                        <visible>Control.IsVisible(3)</visible>
+                        <texture border="16" colordiffuse="DialogList">masks/Mask440x440r16.png</texture>
+                    </control>
+
+                    <control type="group">
+                        <control type="panel" id="3">
+                            <left>8</left>
+                            <top>8</top>
+                            <right>8</right>
+                            <bottom>8</bottom>
+                            <onup>3</onup>
+                            <ondown>3</ondown>
+                            <onleft>9001</onleft>
+                            <onright>9001</onright>
+                            <itemlayout height="120" width="2656">
+                                <include content="ListItem120">
+                                    <param name="Focused" value="false" />
+                                    <param name="ItemTextColor" value="TextBright" />
+                                    <param name="ItemSecondaryTextColor" value="TextDim" />
+                                </include>
+                            </itemlayout>
+                            <focusedlayout height="120" width="2656">
+                                <include content="ListItem120">
+                                    <param name="Focused" value="true" />
+                                    <param name="ItemTextColor" value="TextDark" />
+                                    <param name="ItemSecondaryTextColor" value="TextDark" />
+                                </include>
+                            </focusedlayout>
+                        </control>
+
+                        <control type="group">
+                            <left>0</left>
+                            <top>0</top>
+                            <width>1304</width>
+                            <bottom>0</bottom>
+
+                            <control type="image">
+                                <visible>Control.IsVisible(6)</visible>
+                                <aspectratio>keep</aspectratio>
+                                <texture>$VAR[DialogSelectArtworkVar]</texture>
+                            </control>
+                        </control>
+
+                        <control type="group">
+                            <right>0</right>
+                            <top>0</top>
+                            <width>1304</width>
+                            <bottom>0</bottom>
+
+                            <control type="image">
+                                <visible>Control.IsVisible(6)</visible>
+                                <texture border="16" colordiffuse="DialogList">masks/Mask440x440r16.png</texture>
+                            </control>
+
+                            <control type="panel" id="6">
+                                <left>8</left>
+                                <top>8</top>
+                                <right>8</right>
+                                <bottom>8</bottom>
+                                <onup>6</onup>
+                                <ondown>6</ondown>
+                                <onleft>9001</onleft>
+                                <onright>9001</onright>
+                                <itemlayout height="120" width="1288">
+                                    <include content="ListItemImage120">
+                                        <param name="ItemColor" value="DialogList" />
+                                        <param name="ItemTextColor" value="TextBright" />
+                                        <param name="ItemSecondaryTextColor" value="TextDim" />
+                                    </include>
+                                </itemlayout>
+                                <focusedlayout height="120" width="1288">
+                                    <include content="ListItemImage120">
+                                        <param name="ItemColor" value="TextBright" />
+                                        <param name="ItemTextColor" value="TextDark" />
+                                        <param name="ItemSecondaryTextColor" value="TextDark" />
+                                    </include>
+                                </focusedlayout>
+                            </control>
+                        </control>
+                    </control>
+
+                </control>
+
+                <control type="grouplist" id="9001">
+                    <bottom>64</bottom>
+                    <left>64</left>
+                    <right>64</right>
+                    <height>120</height>
+                    <align>right</align>
+                    <itemgap>64</itemgap>
+                    <orientation>horizontal</orientation>
+                    <onleft condition="Control.IsVisible(3)">3</onleft>
+                    <onleft condition="Control.IsVisible(6)">6</onleft>
+                    <onright condition="Control.IsVisible(3)">3</onright>
+                    <onright condition="Control.IsVisible(6)">6</onright>
+                    <onup condition="Control.IsVisible(3)">3</onup>
+                    <onup condition="Control.IsVisible(6)">6</onup>
+                    <ondown condition="Control.IsVisible(3)">3</ondown>
+                    <ondown condition="Control.IsVisible(6)">6</ondown>
+
+                    <control type="button" id="5">
+                        <include>Button120</include>
+                    </control>
+                    <control type="button" id="7">
+                        <include>Button120</include>
+                    </control>
+                    <control type="button" id="8">
+                        <include>Button120</include>
+                    </control>
+                </control>
+            </control>
+        </control>
+    </include>
+
+
+</includes>

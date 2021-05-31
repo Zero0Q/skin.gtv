@@ -3,12 +3,138 @@
     <defaultcontrol always="true">10</defaultcontrol>
 
     <controls>
-        <control type="group">
-            <top>0</top>
-            <left>112</left>
-            <right>0</right>
-            <bottom>0</bottom>
+        <control type="group" id="9000">
 
+            <control type="group">
+                <include>ScreenFadeImage</include>
+
+                <control type="group">
+                    <top>146</top>
+                    <left>520</left>
+                    <width>2800</width>
+                    <height>1868</height>
+
+                    <animation type="WindowOpen" reversible="false">
+                        <effect type="fade" end="100" time="240" />
+                    </animation>
+                    <animation type="WindowClose" reversible="false">
+                        <effect type="fade" start="100" end="0" time="240" />
+                    </animation>
+
+                    <control type="image">
+                        <width>100%</width>
+                        <height>100%</height>
+                        <texture border="16" colordiffuse="DialogBackground">masks/Mask440x440r16.png</texture>
+                    </control>
+
+
+                    <control type="Label" id="2">
+                        <top>32</top>
+                        <left>0</left>
+                        <width>100%</width>
+                        <height>32</height>
+                        <textcolor>TextBright</textcolor>
+                        <font>MenuButtonText</font>
+                        <align>center</align>
+                    </control>
+
+                    <control type="group">
+                        <top>164</top>
+                        <left>64</left>
+                        <height>1456</height>
+                        <right>768</right>
+
+                        <control type="image">
+                            <texture border="16" colordiffuse="DialogList">masks/Mask440x440r16.png</texture>
+                        </control>
+
+                        <control type="panel" id="10">
+                            <left>8</left>
+                            <top>8</top>
+                            <right>8</right>
+                            <bottom>8</bottom>
+                            <onup>3</onup>
+                            <ondown>3</ondown>
+                            <onleft>9001</onleft>
+                            <onright>9001</onright>
+                            <itemlayout height="120" width="1952">
+                                <include content="ListItem120">
+                                    <param name="Focused" value="false" />
+                                    <param name="ItemTextColor" value="TextBright" />
+                                    <param name="ItemSecondaryTextColor" value="TextDim" />
+                                </include>
+                            </itemlayout>
+                            <focusedlayout height="120" width="1952">
+                                <include content="ListItem120">
+                                    <param name="Focused" value="true" />
+                                    <param name="ItemTextColor" value="TextDark" />
+                                    <param name="ItemSecondaryTextColor" value="TextDark" />
+                                </include>
+                            </focusedlayout>
+                        </control>
+
+                    </control>
+
+                    <control type="grouplist" id="9001">
+                        <top>162</top>
+                        <right>64</right>
+                        <width>2672</width>
+                        <itemgap>16</itemgap>
+                        <orientation>vertical</orientation>
+                        <usecontrolcoords>true</usecontrolcoords>
+
+                        <onleft>10</onleft>
+                        <onright>10</onright>
+
+                        <control type="button" id="11">
+                            <left>2032</left>
+                            <width>640</width>
+                            <include>Button120</include>
+                            <label>$LOCALIZE[1024]</label>
+                        </control>
+                        <control type="button" id="13">
+                            <left>2032</left>
+                            <width>640</width>
+                            <include>Button120</include>
+                            <label>$LOCALIZE[15019]</label>
+                        </control>
+                        <control type="button" id="14">
+                            <left>2032</left>
+                            <width>640</width>
+                            <include>Button120</include>
+                            <label>$LOCALIZE[1210]</label>
+                        </control>
+                        <control type="button" id="18">
+                            <left>2032</left>
+                            <width>640</width>
+                            <include>Button120</include>
+                            <label>$LOCALIZE[186]</label>
+                        </control>
+                        <control type="button" id="19">
+                            <left>2032</left>
+                            <width>640</width>
+                            <include>Button120</include>
+                            <label>$LOCALIZE[222]</label>
+                        </control>
+
+                        <control type="edit" id="12">
+                            <top>824</top>
+                            <width>2672</width>
+                            <align>center</align>
+                            <aligny>top</aligny>
+                            <textoffsety>6</textoffsety>
+                            <textoffsetx>50</textoffsetx>
+                            <texturenofocus colordiffuse="DialogList" border="60">masks/Mask120x120r60.png</texturenofocus>
+                            <texturefocus colordiffuse="TextBright" border="60">masks/Mask120x120r60.png</texturefocus>
+                            <font>MenuButtonText</font>
+                            <textcolor>TextBright</textcolor>
+                            <focusedcolor>TextDark</focusedcolor>
+                            <disabledcolor>TextDim</disabledcolor>
+                            <label></label>
+                        </control>
+                    </control>
+                </control>
+            </control>
         </control>
     </controls>
 </window>

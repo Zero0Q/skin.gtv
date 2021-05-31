@@ -3,9 +3,9 @@
     <controls>
         <control type="group">
             <visible>!Window.IsVisible(volumebar) + !Window.IsVisible(extendedprogressdialog)</visible>
-            <control type="image">
-                <texture>general/Black.png</texture>
-            </control>
+
+            <include>ScreenFadeImage</include>
+            
             <control type="image">
                 <top>45%</top>
                 <left>45%</left>

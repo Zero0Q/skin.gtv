@@ -48,12 +48,25 @@
                         </include>
                     </itemlayout>
                     <focusedlayout width="768" height="120">
-                        <include content="ListItem120">
-                            <param name="Focused" value="true" />
-                            <param name="ItemTextColor" value="TextDark" />
-                            <param name="UseCustomLabel" value="true" />
-                            <param name="CustomLabel" value="$VAR[SkinShortcutsMenuEntryVar]" />
-                        </include>
+                        <control type="group">
+                            <visible>!Control.HasFocus(211)</visible>
+                            <include content="ListItem120">
+                                <param name="Focused" value="true" />
+                                <param name="ItemTextColor" value="TextDark" />
+                                <param name="ItemColor" value="TextDim" />
+                                <param name="UseCustomLabel" value="true" />
+                                <param name="CustomLabel" value="$VAR[SkinShortcutsMenuEntryVar]" />
+                            </include>
+                        </control>
+                        <control type="group">
+                            <visible>Control.HasFocus(211)</visible>
+                            <include content="ListItem120">
+                                <param name="Focused" value="true" />
+                                <param name="ItemTextColor" value="TextDark" />
+                                <param name="UseCustomLabel" value="true" />
+                                <param name="CustomLabel" value="$VAR[SkinShortcutsMenuEntryVar]" />
+                            </include>
+                        </control>
                     </focusedlayout>
                 </control>
 

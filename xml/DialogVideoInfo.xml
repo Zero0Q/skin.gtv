@@ -7,13 +7,7 @@
             <top>0</top>
             <left>0</left>
 
-            <control type="image">
-                <top>0</top>
-                <left>0</left>
-                <width>3840</width>
-                <height>2160</height>
-                <texture background="true">geneal/Black.png</texture>
-            </control>
+            <include>DarkGreyBackground</include>
 
             <!-- Fake image for background blur -->
             <control type="image" id="100000">
@@ -23,15 +17,8 @@
                 <height>10</height>
                 <texture background="true">$VAR[BackgroundImageWithoutFallback]</texture>
             </control>
-            <control type="image" id="110000">
-                <left>-1000</left>
-                <top>-1000</top>
-                <width>10</width>
-                <height>10</height>
-                <texture background="true">$VAR[LandscapeImageVar]</texture>
-            </control>
 
-            <!-- InfoDialog background -->
+            <include>ColorGrabImage</include>
             <include>BlurredBackground</include>
 
             <control type="group">
@@ -80,24 +67,8 @@
                                 <textcolor>TextDim</textcolor>
                                 <label>$VAR[LibrarySectionHeaderVar]</label>
                             </control>
-                            <control type="image">
-                                <left>220</left>
-                                <top>50</top>
-                                <width>1000</width>
-                                <height>562</height>
-                                <align>left</align>
-                                <texture background="true">$INFO[ListItem.Art(clearart)]</texture>
-                            </control>
-                            <control type="image">
-                                <left>220</left>
-                                <top>650</top>
-                                <width>1000</width>
-                                <height>388</height>
-                                <align>left</align>
-                                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-                            </control>
                             <control type="group">
-                                <control type="textbox" id="2000">
+                                <control type="label">
                                     <left>220</left>
                                     <right>300</right>
                                     <top>710</top>
@@ -106,20 +77,7 @@
                                     <aligny>center</aligny>
                                     <font>LibraryMainTitleBig</font>
                                     <textcolor>TextBright</textcolor>
-                                    <!-- <label>$VAR[WidgetTitleVar]</label> -->
-                                    <visible>!Container(2000).HasNext</visible>
-                                </control>
-                                <control type="textbox" id="2001">
-                                    <left>220</left>
-                                    <right>300</right>
-                                    <top>730</top>
-                                    <height>250</height>
-                                    <align>left</align>
-                                    <aligny>center</aligny>
-                                    <font>LibraryMainTitleSmall</font>
-                                    <textcolor>TextBright</textcolor>
-                                    <!-- <label>$VAR[WidgetTitleVar]</label> -->
-                                    <visible>Container(2000).HasNext</visible>
+                                    <label>$VAR[WidgetTitleVar]</label>
                                 </control>
                             </control>
 
@@ -197,7 +155,7 @@
                                     <align>left</align>
                                     <font>LibraryInfoLine</font>
                                     <textcolor>TextSubLabel</textcolor>
-                                    <label>$INFO[ListItem.Duration(mins),(,m - ]$INFO[ListItem.Endtime,,)]</label>
+                                    <label>$INFO[ListItem.Duration(mins),,mins]</label>
                                 </control>
 
                                 <!-- Movie / Show rating -->
@@ -245,7 +203,7 @@
 
                                 <!-- MPAA rating -->
                                 <control type="button">
-                                    <visible>!String.IsEqual(ListItem.dbtype,set)</visible>
+                                    <visible>!String.IsEqual(ListItem.dbtype,set) + !String.IsEmpty(ListItem.MPAA)</visible>
                                     <left>50</left>
                                     <width>auto</width>
                                     <top>56</top>

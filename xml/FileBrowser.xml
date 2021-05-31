@@ -44,7 +44,7 @@
             <control type="group">
                 <top>164</top>
                 <left>64</left>
-                <height>1516</height>
+                <height>1456</height>
                 <right>64</right>
 
                 <control type="image">
@@ -135,8 +135,8 @@
                 <bottom>64</bottom>
                 <left>64</left>
                 <right>64</right>
-                <height>100</height>
-                <align>left</align>
+                <height>120</height>
+                <align>right</align>
                 <itemgap>64</itemgap>
                 <orientation>horizontal</orientation>
                 <onleft condition="Control.IsVisible(450)">450</onleft>
@@ -152,20 +152,20 @@
                     <width>auto</width>
                     <textoffsetx>32</textoffsetx>
                     <label>186</label>
-                    <include>DialogButtonDefaults</include>
+                    <include>Button120</include>
                 </control>
                 <control type="button" id="414">
                     <width>auto</width>
                     <textoffsetx>32</textoffsetx>
                     <label>222</label>
-                    <include>DialogButtonDefaults</include>
+                    <include>Button120</include>
                 </control>
                 <control type="button" id="415">
                     <visible>Control.IsEnabled(415)</visible>
                     <width>auto</width>
                     <textoffsetx>32</textoffsetx>
                     <label>119</label>
-                    <include>DialogButtonDefaults</include>
+                    <include>Button120</include>
                 </control>
             </control>
         </control>

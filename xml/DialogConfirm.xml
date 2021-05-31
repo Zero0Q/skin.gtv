@@ -1,20 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-    <!-- Hack to rerun startup.xml on skin change -->
-    <onunload condition="String.IsEmpty(Window(Home).Property(SingularLoaded))">ActivateWindow(Startup.xml)</onunload>
     <defaultcontrol always="true">9000</defaultcontrol>
 
     <controls>
 
-        <control type="image" id="100000">
-            <left>-3000</left>
-            <top>-3000</top>
-            <width>10</width>
-            <height>10</height>
-            <texture background="true">$VAR[BackgroundImage]</texture>
-        </control>
-
-        <include>BlurredBackground</include>
+    <include>ScreenFadeImage</include>
 
         <control type="grouplist" id="9000">
             <top>0</top>

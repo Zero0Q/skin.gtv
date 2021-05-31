@@ -6,7 +6,6 @@
         <param name="WidgetLabel2" default="" />
         <param name="GroupHeight" default="1200" />
         <param name="CustomOnClick" default="false" />
-        <param name="FadeIfUnfocused" default="true" />
         <param name="AlwaysShowLabel" default="false" />
         <definition>
             <control type="group">
@@ -15,11 +14,11 @@
                 <right>0</right>
                 <top>0</top>
                 <height>$PARAM[GroupHeight]</height>
-                <animation effect="Fade" start="100" end="75" time="100" condition="!Control.HasFocus($PARAM[ListID]) + $PARAM[FadeIfUnfocused]">Conditional</animation>
-                <animation effect="Fade" start="75" end="100" time="100" condition="Control.HasFocus($PARAM[ListID]) + $PARAM[FadeIfUnfocused]">Conditional</animation>
-
+                
                 <!-- Header group -->
                 <control type="group">
+                    <animation effect="Fade" start="100" end="75" time="100" condition="!Control.HasFocus($PARAM[ListID])">Conditional</animation>
+                    <animation effect="Fade" start="75" end="100" time="100" condition="Control.HasFocus($PARAM[ListID])">Conditional</animation>
                     <animation effect="zoom" start="100" end="60" center="224,300" time="100" condition="!Control.HasFocus($PARAM[ListID])">Conditional</animation>
                     <!-- Widget header label -->
                     <control type="label">

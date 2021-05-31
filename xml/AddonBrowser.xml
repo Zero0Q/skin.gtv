@@ -9,16 +9,7 @@
             <top>0</top>
             <left>0</left>
 
-            <!-- Fake image for color grab -->
-            <control type="image" id="110000">
-                <visible>!Container.Content(addons) + !String.Contains(Container.FolderPath,plugin://)</visible>
-                <left>-1000</left>
-                <top>-1000</top>
-                <width>10</width>
-                <height>10</height>
-                <texture background="true">$VAR[LandscapeImageVar]</texture>
-            </control>
-
+            <include>ColorGrabImage</include>>
             <include>Background</include>
 
             <control type="group">

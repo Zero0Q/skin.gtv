@@ -4,14 +4,7 @@
 
     <controls>
 
-        <!-- Fake image for color grab -->
-        <control type="image" id="110000">
-            <left>-1000</left>
-            <top>-1000</top>
-            <width>10</width>
-            <height>10</height>
-            <texture background="true">$INFO[ListItem.Art(thumb)]</texture>
-        </control>
+        <include>ColorGrabImage</include>
 
         <!-- Container for the item details -->
         <control type="list" id="10051">
@@ -31,17 +24,8 @@
             <animation effect="fade" start="100" end="0" time="0" condition="!String.IsEmpty(Window(home).Property(script.embuary.info-nextcall))">WindowClose</animation>
             <animation effect="fade" time="400">VisibleChange</animation>
 
-            <control type="image">
-                <texture>general/Black.png</texture>
-            </control>
-            <control type="image">
-                <fadetime>400</fadetime>
-                <texture background="true" colordiffuse="$VAR[BlurColorItemVar]">masks/bkggrad.png</texture>
-            </control>
-            <!-- <control type="image">
-                <aspectratio>scale</aspectratio>
-                <texture colordiffuse="50606060">general/screens/actor1.png</texture>
-            </control> -->
+            <include>DarkGreyBackground</include>
+            <include>CornerMaskImage</include>
         </control>
 
         <!-- Main group -->
@@ -136,19 +120,12 @@
 
             </control>
 
-            <!-- <control type="group" id="97">
-                <height>200</height>
-            </control> -->
-
             <!-- movies -->
             <control type="group">
                 <visible>true</visible>
                 <visible>Integer.IsGreater(Container(10052).NumItems,0) | Container(10052).IsUpdating</visible>
-                <!-- <top>200</top> -->
                 <height>1060</height>
-                <!-- <include content="DebugBox">
-                    <param name="color" value="40ff0000" />
-                </include> -->
+
                 <control type="group">
                     <include content="WidgetPoster">
                         <param name="WidgetLabel" value="$LOCALIZE[342]" />
@@ -187,7 +164,6 @@
             <control type="group">
                 <visible>true</visible>
                 <visible>Integer.IsGreater(Container(10054).NumItems,0) | Container(10054).IsUpdating</visible>
-                <!-- <top>200</top> -->
                 <height>1060</height>
                 <control type="group">
                     <include content="WidgetPoster">

@@ -12,19 +12,44 @@
         </control>
     </include>
 
-    <!-- Main Background -->
-    <!-- <include name="Background">
+    <!-- Fake image for color grab -->
+    <include name="ColorGrabImage">
+        <param name="Image" default="$VAR[LandscapeImageVar]" />
+        <definition>
+            <control type="image" id="110000">
+                <left>-1000</left>
+                <top>-1000</top>
+                <width>10</width>
+                <height>10</height>
+                <texture background="true">$PARAM[Image]</texture>
+            </control>
+        </definition>
+    </include>
+
+    <!-- Dark grey background -->
+    <include name="DarkGreyBackground">
         <control type="image">
+            <left>0</left>
             <top>0</top>
-            <right>0</right>
-            <width>3000</width>
-            <height>1688</height>
-            <fadetime>200</fadetime>
-            <aspectratio scalediffuse="true">scale</aspectratio>
-            <texture background="true" diffuse="masks/BackgroundCornerMask.png" colordiffuse="b0ffffff">$VAR[BackgroundImageWithoutFallback]</texture>
+            <width>3840</width>
+            <height>2160</height>
+            <texture background="true" colordiffuse="ff080808">general/White.png</texture>
         </control>
-    </include> -->
-    <include name="Background">
+    </include>
+
+    <!-- Screen fade image -->
+    <include name="ScreenFadeImage">
+        <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>3840</width>
+            <height>2160</height>
+            <texture background="true" colordiffuse="ScreenFade">general/Black.png</texture>
+        </control>
+    </include>
+
+    <!-- Corner mask image -->
+    <include name="CornerMaskImage">
         <control type="image">
             <left>0</left>
             <top>0</top>
@@ -33,27 +58,29 @@
             <fadetime>400</fadetime>
             <texture background="true" colordiffuse="$VAR[BlurColorBackgroundVar]">masks/bkggrad.png</texture>
         </control>
-        <control type="image">
-            <visible>Control.IsVisible(500) | Control.IsVisible(501)</visible>
-            <left>0</left>
-            <top>0</top>
-            <right>0</right>
-            <bottom>0</bottom>
-            <fadetime>200</fadetime>
-            <aspectratio scalediffuse="true">scale</aspectratio>
-            <texture background="true" diffuse="masks/BackgroundMask.png" colordiffuse="ffc0c0c0">$VAR[BackgroundImageWithoutFallback]</texture>
-        </control>
     </include>
 
-    <include name="BackgroundForYouHub">
+    <!-- Main Background -->
+    <include name="Background">
         <control type="image">
+            <visible>Control.IsVisible(500) | Control.IsVisible(501) | Control.IsVisible(530) | Control.IsVisible(540)</visible>
             <left>0</left>
             <top>0</top>
             <right>0</right>
             <bottom>0</bottom>
             <fadetime>200</fadetime>
             <aspectratio scalediffuse="true">scale</aspectratio>
-            <texture background="true" diffuse="masks/BackgroundMask.png" colordiffuse="ffc0c0c0">$VAR[BackgroundImageForYou]</texture>
+            <texture background="true" colordiffuse="ffc0c0c0">$VAR[BackgroundImageWithoutFallback]</texture>
+        </control>
+        <control type="image">
+            <visible>Control.IsVisible(500) | Control.IsVisible(501) | Control.IsVisible(530) | Control.IsVisible(540)</visible>
+            <left>0</left>
+            <top>0</top>
+            <right>0</right>
+            <bottom>0</bottom>
+            <fadetime>200</fadetime>
+            <aspectratio scalediffuse="true">scale</aspectratio>
+            <texture background="true" colordiffuse="$VAR[GTV.LibraryBrightness.ColorVar]">masks/BackgroundMaskBlack.png</texture>
         </control>
     </include>
 

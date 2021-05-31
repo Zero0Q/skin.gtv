@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-
     <controls>
         <control type="group">
             <animation effect="slide" time="300" start="0,-320" end="0,0">WindowOpen</animation>
@@ -9,63 +8,56 @@
             <left>2712</left>
             <top>0</top>
             <width>1128</width>
-            <height>320</height>
+            <height>312</height>
+
             <!-- Dialog background -->
-            <control type="image">
-                <left>0</left>
-                <top>0</top>
-                <width>1128</width>
-                <height>320</height>
-                <texture colordiffuse="fc202020" border="80">masks/Shadow256x256r24.png</texture>
-            </control>
             <control type="image">
                 <left>48</left>
                 <top>48</top>
                 <width>1032</width>
-                <height>224</height>
-                <texture colordiffuse="fc202020" border="32">masks/128x128r16.png</texture>
+                <height>216</height>
+                <texture colordiffuse="DialogBackground" border="8">masks/Mask32x32r8.png</texture>
             </control>
 
             <control type="group">
-                <left>96</left>
+                <left>80</left>
                 <top>72</top>
                 <bottom>72</bottom>
-                <right>96</right>
+                <right>80</right>
+
                 <!-- Header label -->
-                <control type="label" id="30">
+                <control type="fadelabel" id="30">
                     <left>0</left>
                     <right>0</right>
                     <top>0</top>
-                    <height>64</height>
-                    <font>NotificationText</font>
+                    <height>56</height>
+                    <font>Medium50</font>
                     <scrollout>false</scrollout>
                     <pauseatend>2000</pauseatend>
                     <aligny>center</aligny>
                     <textcolor>TextBright</textcolor>
                 </control>
                 <!-- Body label -->
-                <control type="label" id="31">
+                <control type="fadelabel" id="31">
                     <left>0</left>
                     <right>0</right>
                     <top>64</top>
-                    <height>64</height>
-                    <font>NotificationText</font>
+                    <height>56</height>
+                    <font>Medium42</font>
                     <scrollout>false</scrollout>
                     <pauseatend>2000</pauseatend>
                     <aligny>center</aligny>
                     <textcolor>TextDim</textcolor>
                 </control>
-                <!-- Progress bar -->
+
                 <control type="progress" id="32">
-                    <left>-16</left>
-                    <top>130</top>
-                    <width>968</width>
-                    <height>48</height>
+                    <left>0</left>
+                    <bottom>8</bottom>
+                    <right>0</right>
+                    <height>24</height>
                     <reveal>false</reveal>
-                    <texturebg colordiffuse="80ffffff">progress/ProgressBarBackground968.png</texturebg>
-                    <lefttexture colordiffuse="Primary">progress/ProgressBarLeft.png</lefttexture>
-                    <midtexture colordiffuse="Primary">progress/ProgressBarMid.png</midtexture>
-                    <righttexture colordiffuse="Primary">progress/ProgressBarRight.png</righttexture>
+                    <texturebg colordiffuse="60ffffff" border="12">progress/back24.png</texturebg>
+                    <midtexture colordiffuse="TextBright" border="12">progress/slider24.png</midtexture>
                 </control>
             </control>
         </control>

@@ -2,13 +2,8 @@
 <window id="1101" type="dialog">
     <defaultcontrol>6500</defaultcontrol>
     <controls>
-        <control type="image">
-            <top>0</top>
-            <bottom>0</bottom>
-            <left>0</left>
-            <right>0</right>
-            <texture background="true" colordiffuse="ScreenFade">general/Black.png</texture>
-        </control>
+
+        <include>ScreenFadeImage</include>
 
         <control type="group">
             <top>348</top>

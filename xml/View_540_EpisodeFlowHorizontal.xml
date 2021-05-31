@@ -2,20 +2,17 @@
 <includes>
 
     <!-- Poster view -->
-    <include name="View_530_Category">
+    <include name="View_540_EpisodeFlowHorizontal">
         <control type="group">
-            <visible>Control.IsVisible(530)</visible>
-
-            <control type="button" id="531">
-                <left>-1000</left>
-                <onleft condition="Integer.IsGreater(Container(530).CurrentItem,1)">Control.Move(530,-1)</onleft>
-                <onright condition="!String.IsEqual(Container(530).CurrentItem,Container.NumItems)">Control.Move(530,1)</onright>
-                <ondown>532</ondown>
-            </control>
+            <visible>Control.IsVisible(540)</visible>
 
             <!-- Include main info -->
             <include content="MainInfoView">
-                <param name="ID" value="532" />
+                <param name="ID" value="542" />
+            </include>
+
+            <include content="BottomAlignedPlot">
+                <parma name="id" value="2" />
             </include>
 
             <control type="image">
@@ -26,12 +23,17 @@
                 <texture background="true" diffuse="masks/WidgetTop.png" colordiffuse="a0ffffff">general/Black.png</texture>
             </control>
 
-            <control type="list" id="530">
-                <visible>$EXP[Exp_View_530]</visible>
+            <control type="list" id="540">
+                <visible>$EXP[Exp_View_540]</visible>
+                <include>SeasonCenterHorizontal</include>
                 <top>60</top>
                 <left>0</left>
                 <right>0</right>
                 <height>160</height>
+
+                <ondown>542</ondown>
+                <onleft>540</onleft>
+                <onright>540</onright>
 
                 <preloaditems>2</preloaditems>
                 <orientation>horizontal</orientation>
@@ -43,11 +45,11 @@
                         <width>480</width>
                         <height>160</height>
                         <control type="image">
-                            <visible>Control.HasFocus(531)</visible>
+                            <visible>Control.HasFocus(540)</visible>
                             <texture border="80" colordiffuse="TextDim">masks/Border160x160r80.png</texture>
                         </control>
                         <control type="image">
-                            <visible>!Control.HasFocus(531)</visible>
+                            <visible>!Control.HasFocus(540)</visible>
                             <texture border="80" colordiffuse="TextDark">masks/Border160x160r80.png</texture>
                         </control>
                         <control type="textbox">
@@ -64,15 +66,11 @@
 
                 <focusedlayout width="548" height="160">
                     <control type="group">
-                        <control type="button">
-                            <visible>false</visible>
-                            <onfocus>SetFocus(532)</onfocus>
-                        </control>
                         <left>34</left>
                         <width>480</width>
                         <height>160</height>
                         <control type="group">
-                            <visible>Control.HasFocus(531)</visible>
+                            <visible>Control.HasFocus(540)</visible>
                             <control type="image">
                                 <texture border="80" colordiffuse="TextBright">masks/Mask160x160r80.png</texture>
                             </control>
@@ -87,7 +85,7 @@
                             </control>
                         </control>
                         <control type="group">
-                            <visible>!Control.HasFocus(531)</visible>
+                            <visible>!Control.HasFocus(540)</visible>
                             <control type="image">
                                 <texture border="80" colordiffuse="MainMenuDark">masks/Mask160x160r80.png</texture>
                             </control>
@@ -107,19 +105,19 @@
 
             </control>
 
-            <control type="fixedlist" id="532">
-                <visible>Control.IsVisible(530)</visible>
+            <control type="fixedlist" id="542">
+                <visible>Control.IsVisible(540)</visible>
 
                 <top>1200</top>
                 <left>0</left>
                 <right>0</right>
                 <height>740</height>
 
-                <onleft>532</onleft>
-                <onright>532</onright>
-                <onup>531</onup>
+                <onleft>542</onleft>
+                <onright>542</onright>
+                <onup>540</onup>
                 <ondown>60</ondown>
-                <onclick condition="String.IsEqual(Container(532).ListItem.dbtype,tvshow)">ActivateWindow(videos,$INFO[Container(532).ListItem.FolderPath],return)</onclick>
+                <onback>SetFocus(500)</onback>
 
                 <pagecontrol>60</pagecontrol>
                 <preloaditems>2</preloaditems>
@@ -128,47 +126,48 @@
                 <movement>3</movement>
                 <viewtype label="Landscape Flow">icon</viewtype>
 
-                <!-- Movies / TV Shows / Seasons / Sets / Episodes -->
                 <itemlayout width="866" height="740">
                     <control type="group">
                         <left>182</left>
                         <include content="LandscapeLayout">
                             <param name="LabelColor" value="TextDim" />
                             <param name="Focused" value="false" />
-                            <param name="ListID" value="532" />
+                            <param name="ListID" value="542" />
                             <param name="ShowProgress" value="true" />
+                            <param name="FadeIfUnfocused" value="false" />
                         </include>
                     </control>
                 </itemlayout>
 
                 <focusedlayout width="866" height="740">
                     <control type="group">
-                        <visible>Control.HasFocus(532)</visible>
+                        <visible>Control.HasFocus(542)</visible>
                         <left>182</left>
                         <include content="LandscapeLayout">
                             <param name="LabelColor" value="TextBright" />
                             <param name="Focused" value="true" />
-                            <param name="ListID" value="532" />
+                            <param name="ListID" value="542" />
                             <param name="ShowProgress" value="true" />
                         </include>
                     </control>
                     <control type="group">
-                        <visible>!Control.HasFocus(532)</visible>
+                        <visible>!Control.HasFocus(542)</visible>
                         <left>182</left>
                         <include content="LandscapeLayout">
                             <param name="LabelColor" value="TextDim" />
                             <param name="Focused" value="true" />
-                            <param name="ListID" value="532" />
+                            <param name="ListID" value="542" />
                             <param name="ShowProgress" value="true" />
+                            <param name="FadeIfUnfocused" value="false" />
                         </include>
                     </control>
                 </focusedlayout>
 
-                <content sortby="title" sortorder="ascending" type="video">$INFO[Container(530).ListItem.FolderPath]</content>
+                <content sortby="episode" sortorder="ascending" type="video">$INFO[Container(540).ListItem.FolderPath]</content>
             </control>
 
             <control type="group">
-                <visible>!Integer.IsGreater(Container(532).NumItems,0)</visible>
+                <visible>!Integer.IsGreater(Container(542).NumItems,0)</visible>
 
                 <control type="image">
                     <top>45%</top>

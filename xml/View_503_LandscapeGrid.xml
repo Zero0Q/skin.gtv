@@ -21,7 +21,7 @@
                 <pagecontrol>61</pagecontrol>
                 <preloaditems>2</preloaditems>
                 <orientation>vertical</orientation>
-                <viewtype label="$LOCALIZE[32003]">icon</viewtype>
+                <viewtype label="$LOCALIZE[32004]">icon</viewtype>
 
                 <itemlayout width="866" height="640">
                     <control type="group">

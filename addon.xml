@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="skin.gtv" version="0.1.3~alpha" name="GTV" provider-name="roidy">
+<addon id="skin.gtv" version="0.1.4~alpha" name="GTV" provider-name="roidy">
     <requires>
         <import addon="xbmc.gui" version="5.14.0"/>
-        <!-- <import addon="xbmc.gui" version="5.15.0"/> -->
-        <import addon="script.skinshortcuts"/>
+        <import addon="script.skinshortcuts" />
         <import addon="script.skinvariables" />
-        <import addon="script.embuary.helper" version="1.0.0"/>
-        <import addon="script.embuary.info" version="1.0.0"/>
+        <import addon="script.embuary.helper" version="1.0.0" />
+        <import addon="script.embuary.info" version="1.0.0" />
         <import addon="script.gtv.helper" />
         <import addon="resource.images.languageflags.completepack" />
     </requires>
@@ -17,11 +16,10 @@
         <summary lang="en_GB">GTV by roidy</summary>
         <platform>all</platform>
         <license></license>
-        <forum></forum> 
+        <forum></forum>
         <website></website>
         <email></email>
         <source></source>
-        <assets>
-        </assets> 
+        <assets></assets>
     </extension>
 </addon>

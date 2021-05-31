@@ -4,21 +4,9 @@
     <defaultcontrol always="true">996</defaultcontrol>
     <controls>
         <control type="group">
-            <control type="image">
-                <left>0</left>
-                <top>0</top>
-                <width>3840</width>
-                <height>2160</height>
-                <texture background="true">general/Black.png</texture>
-            </control>
-            <control type="image">
-                <left>0</left>
-                <top>0</top>
-                <width>3840</width>
-                <height>2160</height>
-                <fadetime>400</fadetime>
-                <texture background="true" colordiffuse="$VAR[BlurColorBackgroundVar]">masks/bkggrad.png</texture>
-            </control>
+
+            <include>ColorGrabImage</include>
+            <include>ScreenFadeImage</include>
 
             <control type="group">
                 <animation effect="fade" start="0" end="100" time="100">WindowOpen</animation>
@@ -54,6 +42,7 @@
                     <include>Button120</include>
                 </control>
             </control>
+
         </control>
     </controls>
 </window>
